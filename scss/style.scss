@@ -1,0 +1,23 @@
+/*
+
+    Theme Name: Joshua Tree
+    Theme URI: https://esassoc.com/
+    Author: ESA
+    Author URI: https://esassoc.com/
+    Description: Version 1.0 of Joshua Tree, a WordPress theme for ESA
+    Version: 1.0
+
+*/
+
+@import "normalize";
+
+@import "variables/variables";
+@import "mixins/mixins";
+@import "typography/typography";
+@import "layout/layout";
+@import "elements/elements";
+
+@import "header/header";
+@import "footer/footer";
+
+@import "templates/templates";

@@ -1,0 +1,24 @@
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+
+}
+
+::-moz-selection {
+	background: $black;
+	color: $white;
+	text-shadow: none;
+}
+
+::selection {
+	background: $black;
+	color: $white;
+	text-shadow: none;
+}
+
+@import "headings";
+
+@import "copy";
