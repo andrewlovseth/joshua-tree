@@ -4,17 +4,22 @@ input,
 select,
 optgroup,
 textarea {
+	font-family: $helvetica;
+}
 
+a {
+	color: $dark-gray;
+	transition: all 0.2s ease;
 }
 
 ::-moz-selection {
-	background: $black;
+	background: $orange;
 	color: $white;
 	text-shadow: none;
 }
 
 ::selection {
-	background: $black;
+	background: $orange;
 	color: $white;
 	text-shadow: none;
 }

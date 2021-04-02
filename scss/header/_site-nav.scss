@@ -1,0 +1,36 @@
+.site-nav {
+    display: none;
+
+    @include desktop-small {
+        display: block;
+        margin-left: auto;
+    }
+
+    ul {
+        display: flex;
+        align-items: center;
+
+        li {
+
+            & + li {
+                padding-left: 2rem;
+
+                @include desktop-medium {
+                    padding-left: 3rem;
+                }
+            }
+
+            a {
+                color: $dark-gray;
+                font-weight: 300;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                font-size: 0.875rem;
+
+                @include desktop-medium {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}

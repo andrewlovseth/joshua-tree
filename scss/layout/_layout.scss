@@ -2,6 +2,13 @@ body {
 	background: $white;
 }
 
+.site-header,
+.site-content,
+.site-footer {
+	transition: all 0.2s ease;
+}
+
+
 @import "grid";
 
 @import "sub-grid";

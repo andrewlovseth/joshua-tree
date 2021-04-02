@@ -1,0 +1,31 @@
+body.nav-overlay-open {
+    .site-content,
+    .site-footer {
+        opacity: 0.25;
+    }
+
+	.hamburger {
+        z-index: 100;
+
+		a {
+			.patty {
+                background: none;
+
+                &:after {
+                    top: 0;
+                    transform: rotate(45deg);
+                }
+
+                &:before {
+                    top: 0;
+                    transform: rotate(-45deg);
+                }
+			}
+		}
+	}
+
+    .mobile-nav {
+        left: 0;
+        opacity: 1;
+    }
+}

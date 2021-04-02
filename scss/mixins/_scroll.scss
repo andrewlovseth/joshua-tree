@@ -1,0 +1,21 @@
+@mixin scroll-x {
+	overflow-x: scroll;
+	-ms-overflow-style: none;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+@mixin scroll-y {
+	overflow-y: scroll;
+	-ms-overflow-style: none;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}

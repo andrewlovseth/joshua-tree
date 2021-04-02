@@ -1,0 +1,17 @@
+.site-search {
+    padding-left: 3rem;
+    margin-left: auto;
+
+    @include desktop-small {
+        margin-left: 0;
+    }
+
+    a {
+        display: block;
+        
+        img {
+            width: 100%;
+            max-width: 1.25rem;
+        }
+    }
+}

@@ -1,0 +1,28 @@
+.site-footer {
+    padding-top: clamp(4rem, 10vh, 8rem);
+
+    .sign-up {
+        padding: clamp(4rem, 5vh, 8rem) 0;
+        min-height: 20vw;
+        background: $teal;
+        color: $white;
+    
+        a {
+            color: $white;
+        }
+    }
+
+    .footer-nav {
+        padding: clamp(4rem, 5vh, 8rem) 0;
+        min-height: 20vw;
+        background: #414141;
+        color: $white;
+    
+        a {
+            color: $white;
+        }
+    }
+
+}
+
+

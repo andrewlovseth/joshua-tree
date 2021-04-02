@@ -13,8 +13,7 @@ body { margin: 0; font-size: 1em; line-height: 1; }
 
 /* Links */
 a { text-decoration: none; }
-a:focus { outline: none; }
-a:hover, a:active { outline: none; }
+a:hover
 
 
 /* Typography */
@@ -80,4 +79,4 @@ div, article, section, header, footer, nav, figure, li { position: relative; }
 
 
 /* Responsive Image */
-img { display: block; max-width: 100%; }
+img { display: block; max-width: 100%; height: auto; }
