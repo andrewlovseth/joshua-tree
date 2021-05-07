@@ -9,6 +9,7 @@
 
 */
 /* HTML5 */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
   display: block; }
 
@@ -283,7 +284,7 @@ input,
 select,
 optgroup,
 textarea {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 a {
   color: #6D6E71;
@@ -345,6 +346,29 @@ body {
       .sub-grid > * {
         grid-column: 1 / span 12; } }
 
+.top-btn {
+  position: fixed;
+  bottom: -2rem;
+  right: 2rem;
+  z-index: 10;
+  opacity: 0;
+  transition: all 0.3s ease-in; }
+  .top-btn a {
+    display: block;
+    background: #A0CF67;
+    padding: 0.5rem;
+    border-radius: 2px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05); }
+    .top-btn a img {
+      width: 1rem;
+      height: 1rem;
+      -o-object-fit: contain;
+         object-fit: contain; }
+
+body.show-top-btn .top-btn {
+  bottom: 2rem;
+  opacity: 1; }
+
 .screen-reader-text {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
@@ -359,7 +383,9 @@ body {
   word-wrap: normal !important; }
 
 .site-header {
-  padding: 2rem 0; }
+  padding: 2rem 0;
+  transition: all 0.3s ease-in;
+  background: #fff; }
   .site-header .nav-wrapper {
     display: flex;
     align-items: center;
@@ -388,10 +414,13 @@ body {
         font-weight: 300;
         text-transform: uppercase;
         letter-spacing: 0.1em;
-        font-size: 0.875rem; }
+        font-size: 0.875rem;
+        transition: all 0.2s ease-in; }
         @media screen and (min-width: 1280px) {
           .site-header .site-nav ul li a {
             font-size: 1rem; } }
+        .site-header .site-nav ul li a:hover {
+          color: #000; }
   .site-header .site-search {
     padding-left: 3rem;
     margin-left: auto; }
@@ -497,10 +526,10 @@ body.nav-overlay-open .mobile-nav {
   opacity: 1; }
 
 nav.search-nav {
-  background: #004261;
+  background: #72CCD2;
   padding: 2rem 0;
   position: fixed;
-  z-index: 10;
+  z-index: 1000;
   left: 0;
   width: 100vw;
   top: -8rem;
@@ -512,7 +541,7 @@ nav.search-nav {
     display: flex;
     align-items: center;
     width: 100%;
-    max-width: 32rem;
+    max-width: 60rem;
     margin: 0 auto; }
     nav.search-nav form label {
       flex: 1;
@@ -522,31 +551,33 @@ nav.search-nav {
         border: none;
         border-radius: 3px;
         padding: 0 0.75rem;
-        height: 2.5rem;
+        height: 3rem;
         line-height: 1em;
-        font-weight: 300;
-        color: #000; }
+        color: #000;
+        font-size: 1.25rem;
+        font-weight: 700; }
         nav.search-nav form label input:focus, nav.search-nav form label input:active {
           outline-color: #F9A134; }
         nav.search-nav form label input::-webkit-input-placeholder {
-          color: #6D6E71; }
+          color: #ADAFB2; }
         nav.search-nav form label input::-moz-placeholder {
-          color: #6D6E71; }
+          color: #ADAFB2; }
         nav.search-nav form label input:-moz-placeholder {
-          color: #6D6E71; }
+          color: #ADAFB2; }
         nav.search-nav form label input:-ms-input-placeholder {
-          color: #6D6E71; }
+          color: #ADAFB2; }
     nav.search-nav form .search-submit {
-      background: #00728F;
+      background: #004261;
       color: #fff;
       border: none;
       border-radius: 3px;
       box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-      padding: 0 1rem;
-      height: 2.5rem;
-      font-weight: bold;
-      font-size: 0.875rem;
-      letter-spacing: 0.03em; }
+      padding: 0 2rem;
+      height: 3rem;
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em; }
       nav.search-nav form .search-submit:focus, nav.search-nav form .search-submit:active {
         outline-color: #699CC6; }
 
@@ -558,22 +589,132 @@ body.search-overlay-open .search-nav {
   top: 0;
   opacity: 1; }
 
+@media screen and (min-width: 992px) {
+  body.show-top-btn .site-header {
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #DCDDDE;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05); } }
+
 .site-footer {
-  padding-top: clamp(4rem, 10vh, 8rem); }
-  .site-footer .sign-up {
-    padding: clamp(4rem, 5vh, 8rem) 0;
-    min-height: 20vw;
-    background: #72CCD2;
+  padding: clamp(4rem, 5vh, 8rem) 0;
+  color: #fff;
+  background: #414141; }
+  .site-footer a {
     color: #fff; }
-    .site-footer .sign-up a {
-      color: #fff; }
+    .site-footer a:hover {
+      color: #F9A134; }
   .site-footer .footer-nav {
-    padding: clamp(4rem, 5vh, 8rem) 0;
-    min-height: 20vw;
-    background: #414141;
+    color: #fff;
+    display: grid;
+    gap: 2rem 6rem; }
+    @media screen and (min-width: 480px) {
+      .site-footer .footer-nav {
+        grid-template-columns: repeat(2, 1fr); } }
+    @media screen and (min-width: 768px) {
+      .site-footer .footer-nav {
+        grid-template-columns: repeat(4, 1fr); } }
+  .site-footer .footer-logo {
+    padding-bottom: 3rem; }
+    .site-footer .footer-logo a {
+      display: block;
+      max-width: 7.5rem; }
+  .site-footer .link-group + .link-group {
+    padding-top: 3rem; }
+  .site-footer .link-group .header-link {
+    padding-bottom: 0.5rem; }
+    .site-footer .link-group .header-link a {
+      font-weight: bold;
+      font-size: 1.125rem; }
+  .site-footer .link-group .sub-links .link {
+    padding: 0.375rem 0; }
+    .site-footer .link-group .sub-links .link a {
+      font-weight: 300;
+      font-size: 0.875rem;
+      line-height: 1.375em; }
+  .site-footer .utilities {
+    margin-top: 3rem;
+    border-top: 1px solid #5b5b5b;
+    padding-top: 3rem;
+    font-size: 0.8125rem; }
+    @media screen and (min-width: 480px) {
+      .site-footer .utilities {
+        gap: 0 6rem; } }
+    @media screen and (min-width: 992px) {
+      .site-footer .utilities .copyright {
+        grid-column: 1 / span 6; } }
+    .site-footer .utilities .copyright .copy {
+      padding-bottom: 0.75rem; }
+    .site-footer .utilities .copyright .links {
+      display: flex;
+      align-items: center; }
+      .site-footer .utilities .copyright .links .link + .link {
+        padding-left: 0.5rem;
+        border-left: 1px solid #fff;
+        margin-left: 0.5rem; }
+    .site-footer .utilities .ownership {
+      padding-top: 2rem; }
+      @media screen and (min-width: 992px) {
+        .site-footer .utilities .ownership {
+          padding-top: 0;
+          grid-column: 7 / span 6; } }
+      .site-footer .utilities .ownership p {
+        line-height: 1.25rem; }
+
+.sign-up {
+  padding: 3rem 0;
+  background: #72CCD2;
+  color: #fff; }
+  @media screen and (min-width: 992px) {
+    .sign-up {
+      padding: 6rem 0;
+      gap: 0 6rem; } }
+  .sign-up a {
     color: #fff; }
-    .site-footer .footer-nav a {
-      color: #fff; }
+  .sign-up .headline {
+    padding-bottom: 2rem; }
+    .sign-up .headline h3 {
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 2.25rem;
+      letter-spacing: 0.05em; }
+  @media screen and (min-width: 992px) {
+    .sign-up .cta {
+      grid-column: 2 / span 6;
+      align-self: center; } }
+  .sign-up .cta a {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: bold; }
+    .sign-up .cta a:before {
+      display: inline-block;
+      content: '>>';
+      background: #fff;
+      color: #72CCD2;
+      padding: 0.5rem;
+      margin-right: 1rem; }
+    .sign-up .cta a:hover {
+      text-decoration: underline; }
+  .sign-up .social-links {
+    display: flex;
+    align-items: center;
+    padding-top: 3rem; }
+    @media screen and (min-width: 992px) {
+      .sign-up .social-links {
+        border-left: 7px double #707070;
+        padding: 2rem 3rem;
+        grid-column: 8 / span 6; } }
+    .sign-up .social-links .link + .link {
+      padding-left: 2rem; }
+    .sign-up .social-links .link a {
+      display: block; }
+      .sign-up .social-links .link a img {
+        width: 1.5rem;
+        height: 1.5rem;
+        -o-object-fit: contain;
+           object-fit: contain; }
 
 body.page-template-home section.about .headline {
   padding: clamp(4rem, 5vh, 8rem) 0;

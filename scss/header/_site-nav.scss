@@ -26,9 +26,14 @@
                 text-transform: uppercase;
                 letter-spacing: 0.1em;
                 font-size: 0.875rem;
+                transition: all 0.2s ease-in;
 
                 @include desktop-medium {
                     font-size: 1rem;
+                }
+
+                &:hover {
+                    color: $black;
                 }
             }
         }

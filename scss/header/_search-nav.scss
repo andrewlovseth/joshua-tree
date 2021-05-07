@@ -1,8 +1,8 @@
 nav.search-nav {
-    background: $dark-blue;
+    background: $teal;
     padding: 2rem 0;
     position: fixed;
-    z-index: 10;
+    z-index: 1000;
     left: 0;
     width: 100vw;
     top: -8rem;
@@ -15,7 +15,7 @@ nav.search-nav {
         display: flex;
         align-items: center;
         width: 100%;
-        max-width: 32rem;
+        max-width: 60rem;
         margin: 0 auto;
         
         label {
@@ -27,10 +27,11 @@ nav.search-nav {
                 border: none;
                 border-radius: 3px;
                 padding: 0 0.75rem;
-                height: 2.5rem;
+                height: 3rem;
                 line-height: 1em;
-                font-weight: 300;
                 color: $black;
+                font-size: 1.25rem;
+                font-weight: 700;
 
                 &:focus,
                 &:active {
@@ -38,22 +39,23 @@ nav.search-nav {
                 }
 
                 @include placeholder {
-                    color: $dark-gray;
+                    color: $medium-gray;
                 }
             }
         }
 
         .search-submit {
-            background: $medium-blue;
+            background: $dark-blue;
             color: $white;
             border: none;
             border-radius: 3px;
             box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-            padding: 0 1rem;
-            height: 2.5rem;
-            font-weight: bold;
-            font-size: 0.875rem;
-            letter-spacing: 0.03em;
+            padding: 0 2rem;
+            height: 3rem;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
 
             &:focus,
             &:active {

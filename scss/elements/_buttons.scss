@@ -1,0 +1,31 @@
+.top-btn {
+    position: fixed;
+    bottom: -2rem;
+    right: 2rem;
+    z-index: 10;
+    opacity: 0;
+    transition: all 0.3s ease-in;
+
+    a {
+        display: block;
+        background: $light-green;
+        padding: 0.5rem;
+        border-radius: 2px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+
+        img {
+            
+            width: 1rem;
+            height: 1rem;
+            object-fit: contain;
+        }
+    }
+
+}
+
+body.show-top-btn {
+    .top-btn {
+        bottom: 2rem;
+        opacity: 1;
+    }
+}

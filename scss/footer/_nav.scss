@@ -1,0 +1,50 @@
+.footer-nav {
+    color: $white;
+    display: grid;
+    gap: 2rem 6rem;
+
+    @include tablet-small {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include tablet {
+        grid-template-columns: repeat(4, 1fr);
+    }   
+
+}
+
+.footer-logo {
+    padding-bottom: 3rem;
+    a {
+        display: block;
+        max-width: 7.5rem;
+    }
+}
+
+.link-group {
+
+    & + .link-group {
+        padding-top: 3rem;
+    }
+
+    .header-link {
+        padding-bottom: 0.5rem;
+
+        a {
+            font-weight: bold;
+            font-size: 1.125rem;
+        }
+    }
+
+    .sub-links {
+        .link {
+            padding: 0.375rem 0;
+
+            a {
+                font-weight: 300;
+                font-size: 0.875rem;
+                line-height: 1.375em;
+            }
+        }
+    }
+}

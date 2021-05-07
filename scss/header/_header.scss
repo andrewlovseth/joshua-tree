@@ -1,5 +1,7 @@
 .site-header {
     padding: 2rem 0;
+    transition: all 0.3s ease-in;
+    background: $white;
 
     .nav-wrapper {
         display: flex;
@@ -23,3 +25,17 @@
 @import 'search-nav';
 
 @import 'search-overlay-open';
+
+body.show-top-btn {
+    @include desktop-small {
+        .site-header {
+            position: sticky;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid $light-gray;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        }
+    }
+
+}

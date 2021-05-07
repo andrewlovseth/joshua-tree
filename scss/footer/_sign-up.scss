@@ -1,0 +1,79 @@
+.sign-up {
+    padding: 3rem 0;
+    background: $teal;
+    color: $white;
+
+    @include desktop-small {
+        padding: 6rem 0;
+        gap: 0 6rem;
+    }
+
+    a {
+        color: $white;
+    }
+
+    .headline {
+        padding-bottom: 2rem;
+
+        h3 {
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 2.25rem;
+            letter-spacing: 0.05em;
+        }
+    }
+
+    .cta {
+        @include desktop-small {
+            grid-column: 2 / span 6;
+            align-self: center;
+        }
+
+        a {
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: bold;
+
+            &:before {
+                display: inline-block;
+                content: '>>';
+                background: $white;
+                color: $teal;
+                padding: 0.5rem;
+                margin-right: 1rem;
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .social-links {
+        display: flex;
+        align-items: center;
+        padding-top: 3rem;
+
+        @include desktop-small {
+            border-left: 7px double #707070;
+            padding: 2rem 3rem;
+            grid-column: 8 / span 6;
+        }
+
+        .link {
+            &  + .link {
+                padding-left: 2rem;
+            }
+
+            a {
+                display: block;
+
+                img {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    object-fit: contain;
+                }
+            }
+        }
+    }
+}

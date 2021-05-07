@@ -1,0 +1,49 @@
+.utilities {
+    margin-top: 3rem;
+    border-top: 1px solid #5b5b5b;
+    padding-top: 3rem;
+    font-size: 0.8125rem;
+
+    @include tablet-small {
+        gap: 0 6rem;
+    }
+
+    .copyright {
+        @include desktop-small {
+            grid-column: 1 / span 6;
+        }
+
+        .copy {
+            padding-bottom: 0.75rem;
+
+        }
+
+        .links {
+            display: flex;
+            align-items: center;
+
+            .link {
+                & + .link {
+                    padding-left: 0.5rem;
+                    border-left: 1px solid $white;
+                    margin-left: 0.5rem;
+                }
+            }
+        }
+    }
+
+    .ownership {
+        padding-top: 2rem;
+
+
+
+        @include desktop-small {
+            padding-top: 0;
+            grid-column: 7 / span 6;
+        }
+
+        p {
+            line-height: 1.25rem;
+        }
+    }
+}

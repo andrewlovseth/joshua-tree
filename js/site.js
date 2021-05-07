@@ -13,8 +13,22 @@
 			$('body').toggleClass('search-overlay-open');
 			return false;
 		});
+		
+		// Smooth Scroll Links
+		$('.smooth').smoothScroll();
+
 
 			
+	});
+
+
+	$(window).scroll(function() {    
+		var scroll = $(window).scrollTop();    
+		if (scroll >= 0.4 * $(window).height()) {
+			$('body').addClass('show-top-btn');
+		} else {
+			$('body').removeClass('show-top-btn');
+		}
 	});
 
 
