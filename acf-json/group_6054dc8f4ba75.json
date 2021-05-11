@@ -99,7 +99,7 @@
                     "key": "field_6054dcd535d53",
                     "label": "Position",
                     "name": "position",
-                    "type": "text",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -110,9 +110,9 @@
                     },
                     "default_value": "",
                     "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "rows": 4,
+                    "new_lines": "br"
                 },
                 {
                     "key": "field_6054ded0a8db5",
@@ -313,6 +313,25 @@
                     "toolbar": "full",
                     "media_upload": 0,
                     "delay": 0
+                },
+                {
+                    "key": "field_6099c150ba49a",
+                    "label": "Fun Facts",
+                    "name": "fun_facts",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 0
                 }
             ]
         },
@@ -482,5 +501,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1616174839
+    "modified": 1620689267
 }

@@ -1,6 +1,8 @@
 .copy {
 
 	&.p1 {
+		font-size: clamp(1rem, 1.1vw, 1.125rem);
+		line-height: 1.5em;
 
 	}
 

@@ -8,48 +8,51 @@
 ?>
 
     <section class="sign-up grid">
-        <div class="headline">
-            <h3><?php echo $headline; ?></h3>
-        </div>
+        <div class="sub-grid">
 
-        <?php 
-            if( $link ): 
-            $link_url = $link['url'];
-            $link_title = $link['title'];
-            $link_target = $link['target'] ? $link['target'] : '_self';
-        ?>
-
-            <div class="cta">
-                <a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>"><?php echo esc_html($link_title); ?></a>
+            <div class="headline">
+                <h3><?php echo $headline; ?></h3>
             </div>
 
-        <?php endif; ?>
+            <?php 
+                if( $link ): 
+                $link_url = $link['url'];
+                $link_title = $link['title'];
+                $link_target = $link['target'] ? $link['target'] : '_self';
+            ?>
 
-        <?php if(have_rows('social_links')): ?>
-            <div class="social-links">
+                <div class="cta">
+                    <a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>"><?php echo esc_html($link_title); ?></a>
+                </div>
 
-                <?php while(have_rows('social_links')): the_row(); ?>    
-                    <?php 
-                        $link = get_sub_field('link');
-                        $icon = get_sub_field('icon');
-                        if( $link ): 
-                        $link_url = $link['url'];
-                        $link_title = $link['title'];
-                        $link_target = $link['target'] ? $link['target'] : '_self';
-                    ?>
+            <?php endif; ?>
 
-                        <div class="link">
-                            <a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>">
-                                <img src="<?php echo $icon['url']; ?>" alt="<?php echo esc_html($link_title); ?>" />
-                            </a>
-                        </div>
+            <?php if(have_rows('social_links')): ?>
+                <div class="social-links">
 
-                    <?php endif; ?>
-                <?php endwhile; ?>
-            </div>            
+                    <?php while(have_rows('social_links')): the_row(); ?>    
+                        <?php 
+                            $link = get_sub_field('link');
+                            $icon = get_sub_field('icon');
+                            if( $link ): 
+                            $link_url = $link['url'];
+                            $link_title = $link['title'];
+                            $link_target = $link['target'] ? $link['target'] : '_self';
+                        ?>
 
-        <?php endif; ?>
+                            <div class="link">
+                                <a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>">
+                                    <img src="<?php echo $icon['url']; ?>" alt="<?php echo esc_html($link_title); ?>" />
+                                </a>
+                            </div>
 
+                        <?php endif; ?>
+                    <?php endwhile; ?>
+                </div>            
+
+            <?php endif; ?>
+
+        </div>
     </section>
 
 <?php endwhile; endif; ?>

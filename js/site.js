@@ -43,8 +43,7 @@
 
 	$(document).keyup(function(e) {		
 		if (e.keyCode == 27) {
-			$('body').toggleClass('nav-overlay-open');
-			$('body').removeClass('search-overlay-open');
+			$('body').removeClass('nav-overlay-open search-overlay-open');
 		}
 	});
 

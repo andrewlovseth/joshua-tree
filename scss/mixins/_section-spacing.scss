@@ -1,0 +1,7 @@
+@mixin section-spacing {
+    padding: 4.5rem 0;
+
+    @include desktop-small {
+        padding: 9rem 0;
+    }
+}

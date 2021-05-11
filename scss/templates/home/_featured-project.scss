@@ -1,0 +1,59 @@
+section.featured-project {
+    .photo {
+        @include aspect-ratio(3, 4);
+        @include cover-fill-image;
+
+        @include tablet-small {
+            @include aspect-ratio(1, 1);
+        }
+
+        @include tablet {
+            @include aspect-ratio(16, 9);
+            max-height: 1000px;
+        }
+    }
+
+    .overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    .info {
+        align-self: center;
+
+        .section-header {
+            &:after {
+                content: '';
+                display: block;
+                width: 45px;
+                height: 9px;
+                background: $white;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.66);
+                margin-top: 1rem;
+
+            }
+            h2 {
+                color: $white;
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.66);
+            }
+        }
+
+        .copy {
+
+
+            p {
+                color: $white;
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.66);
+                max-width: 420px;
+                font-weight: bold;
+            }
+
+            .cta {
+                padding-top: 2rem;
+            }
+        }
+    }
+}
