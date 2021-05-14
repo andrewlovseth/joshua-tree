@@ -1,7 +1,6 @@
 .section-header {
 	padding-bottom: 3rem;
 
-
 	h2 {
 		font-weight: 700;
 		font-size: clamp(3rem, 3.4vw, 3.75rem);
@@ -9,8 +8,22 @@
 	}
 }
 
+.page-title {
+	color: $black;
+	font-weight: 700;
+	font-size: clamp(3.5rem, 4vw, 4.5rem);
+	line-height: 1.125em;
+}
+
 .title-headline {
 	font-size: clamp(1.75rem, 2vw, 2.25rem);
+	font-weight: 700;
+	line-height: 1.25em;
+}
+
+
+.section-headline {
+	font-size: clamp(2.5rem, 3vw, 3rem);
 	font-weight: 700;
 	line-height: 1.25em;
 }

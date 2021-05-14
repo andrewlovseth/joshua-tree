@@ -1,0 +1,23 @@
+.page-header {
+    padding: 3rem 0;
+
+    & > * {
+        @include desktop-small {
+            grid-column: 2 / span 8;
+        }
+    }
+
+    .copy-1 {
+        padding: 2rem 0;
+    }
+
+    .photo {
+        padding-top: 2rem;
+        
+        @include desktop-small {
+            grid-column: 2 / span 12;
+        }
+    }
+
+
+}

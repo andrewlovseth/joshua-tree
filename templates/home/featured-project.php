@@ -25,7 +25,7 @@
                 <h2><?php echo $headline; ?></h2>
             </div>
 
-            <div class="copy p1">
+            <div class="copy-2">
                 <?php echo $dek; ?>
 
                 <?php 

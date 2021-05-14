@@ -25,7 +25,7 @@
             <h3 class="title-headline"><?php echo $sub_headline; ?></h3>
         </div>
 
-        <div class="copy p1">
+        <div class="copy-2">
             <?php echo $dek; ?>
 
             <?php 

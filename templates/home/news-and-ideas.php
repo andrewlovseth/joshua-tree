@@ -29,7 +29,7 @@
                             <h3 class="title-headline"><a href="<?php the_permalink();?>"><?php echo get_the_title($p->ID); ?></a></h3>
                         </div>
 
-                        <div class="dek copy p1">
+                        <div class="dek copy-2">
                             <?php echo get_the_excerpt($p->ID); ?>
                         </div>
 

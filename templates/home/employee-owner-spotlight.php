@@ -30,7 +30,7 @@ if($owners): ?>
                         <h4><?php the_field('info_position', $owner->ID); ?></h4>
                     </div>
 
-                    <div class="copy p1">
+                    <div class="copy-2">
                         <?php the_field('biography_fun_facts', $owner->ID); ?>
                     </div>
 

@@ -18,7 +18,17 @@
 		$('.smooth').smoothScroll();
 
 
+		// Tab Links
+		$('.tab-links a').on('click', function() {
+			$('.tab-links a').removeClass('active');
+			$(this).addClass('active');
+
+			var tab_target = $(this).attr('href');
+			$('.tab').removeClass('active');
+			$(tab_target).addClass('active');
 			
+			return false;
+		});
 	});
 
 
