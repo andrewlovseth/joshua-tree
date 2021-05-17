@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 
     Theme Name: Joshua Tree
@@ -337,8 +338,12 @@ a {
   .copy-1 a:hover, .copy-2 a:hover, .copy-3 a:hover {
     color: #000; }
 
+.copy-1.extended > *, .copy-2.extended > *, .copy-3.extended > * {
+  margin-bottom: 2rem; }
+
 body {
-  background: #fff; }
+  background: #fff;
+  overflow-x: hidden; }
 
 .site-header,
 .site-content,
@@ -447,23 +452,31 @@ body.show-top-btn .top-btn {
   width: 1px;
   word-wrap: normal !important; }
 
-.sub-nav ul {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-wrap: wrap; }
-
-.sub-nav li {
-  border-top: 1px solid #d5d5d5;
-  padding: 1.5rem 2rem; }
-  .sub-nav li:last-of-type {
-    padding-right: 0; }
-
-.sub-nav a {
-  text-transform: uppercase;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.05em; }
+.sub-nav {
+  display: none; }
+  @media screen and (min-width: 992px) {
+    .sub-nav {
+      display: grid; } }
+  .sub-nav.bottom {
+    padding-bottom: 3rem; }
+  .sub-nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap; }
+  .sub-nav li {
+    border-top: 1px solid #d5d5d5;
+    padding: 1.5rem 1.5rem; }
+    @media screen and (min-width: 1280px) {
+      .sub-nav li {
+        padding: 1.5rem 2rem; } }
+    .sub-nav li:last-of-type {
+      padding-right: 0; }
+  .sub-nav a {
+    text-transform: uppercase;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.05em; }
 
 .page-header {
   padding: 3rem 0; }
@@ -1096,3 +1109,108 @@ body.page-template-about section.values {
           body.page-template-about section.values .tab-content .tab .info .headline h4 {
             font-weight: bold;
             font-size: clamp(1rem, 1.1vw, 1.125rem); }
+
+body.page-template-leadership .leaders-grid {
+  display: grid;
+  gap: 2rem 4rem;
+  grid-template-columns: repeat(1, 1fr);
+  padding: 0 0 3rem 0; }
+  @media screen and (min-width: 480px) {
+    body.page-template-leadership .leaders-grid {
+      grid-template-columns: repeat(2, 1fr); } }
+  @media screen and (min-width: 768px) {
+    body.page-template-leadership .leaders-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem 6rem;
+      padding: 3rem 0 6rem 0; } }
+  body.page-template-leadership .leaders-grid .leader a {
+    display: block; }
+  body.page-template-leadership .leaders-grid .leader .photo img {
+    border-radius: 50%; }
+  body.page-template-leadership .leaders-grid .leader .info {
+    padding-top: 1rem;
+    text-align: center; }
+    body.page-template-leadership .leaders-grid .leader .info .name h3 {
+      font-weight: bold;
+      color: #000;
+      font-size: clamp(1rem, 1vw, 1.125rem); }
+    body.page-template-leadership .leaders-grid .leader .info .position {
+      padding-top: 0.5rem; }
+      body.page-template-leadership .leaders-grid .leader .info .position p {
+        color: #000;
+        font-size: clamp(1rem, 1vw, 1.125rem); }
+
+body.single-leadership .leadership-hero {
+  padding-top: 3rem; }
+  body.single-leadership .leadership-hero .photo {
+    grid-column: 1 / -1;
+    grid-row: 1; }
+    body.single-leadership .leadership-hero .photo img {
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+         object-fit: cover; }
+  body.single-leadership .leadership-hero .page-header {
+    grid-row: 1;
+    z-index: 2;
+    display: flex;
+    padding: 0 0 1rem 0; }
+    @media screen and (min-width: 992px) {
+      body.single-leadership .leadership-hero .page-header {
+        padding-bottom: 3.5rem; } }
+    body.single-leadership .leadership-hero .page-header .page-title {
+      color: #fff;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      align-self: flex-end;
+      font-size: clamp(1.75rem, 2vw, 2.25rem); }
+      @media screen and (min-width: 992px) {
+        body.single-leadership .leadership-hero .page-header .page-title {
+          font-size: clamp(3.5rem, 4vw, 4.5rem); } }
+
+body.single-leadership section.profile {
+  padding-bottom: 3rem; }
+
+body.single-leadership .biography {
+  background: #fff;
+  padding: 2rem 0; }
+  @media screen and (min-width: 992px) {
+    body.single-leadership .biography {
+      grid-column: 2 / span 8;
+      transform: translateY(-3em);
+      padding: 2rem; } }
+
+body.single-leadership .back .cta .btn:after {
+  display: none; }
+
+body.single-leadership .back .cta .btn:before {
+  content: '«';
+  display: inline-block;
+  font-size: clamp(0.875rem, 0.9vw, 1rem);
+  padding-right: 0.5rem; }
+
+@media screen and (min-width: 992px) {
+  body.single-leadership .sidebar {
+    padding-top: 3rem;
+    grid-column: 10 / span 4;
+    padding-left: 1rem; } }
+
+body.single-leadership .sidebar .vital + .vital {
+  padding-top: 2rem; }
+
+body.single-leadership .sidebar .vital h4 {
+  color: #000;
+  font-weight: bold; }
+
+body.single-leadership .sidebar .contact p span {
+  display: block; }
+
+body.single-leadership .sidebar .social-links {
+  display: flex;
+  align-items: center; }
+  body.single-leadership .sidebar .social-links .link + .link {
+    margin-left: 1rem; }
+  body.single-leadership .sidebar .social-links .link a {
+    display: block;
+    max-width: 2rem; }
+    body.single-leadership .sidebar .social-links .link a img {
+      width: 100%; }

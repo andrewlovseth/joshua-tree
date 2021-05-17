@@ -27,6 +27,12 @@
 				color: $black;
 			}
 		}
+
+		&.extended {
+			& > * {
+				margin-bottom: 2rem;
+			}
+		}
 	}
 
 }

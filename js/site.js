@@ -2,6 +2,12 @@
 
 	$(document).ready(function($) {
 
+		// rel="external"
+		$('a[rel="external"]').click( function() {
+			window.open( $(this).attr('href') );
+			return false;
+		});
+
 		// Nav Trigger
 		$('.js-nav-trigger').click(function(){
 			$('body').toggleClass('nav-overlay-open');

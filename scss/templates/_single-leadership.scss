@@ -1,0 +1,112 @@
+body.single-leadership {
+    .leadership-hero {
+        padding-top: 3rem;
+
+        .photo {
+            grid-column: 1 / -1;
+            grid-row: 1;
+            @include cover-fill-image
+        }
+
+        .page-header {
+            grid-row: 1;
+            z-index: 2;
+            display: flex;
+            padding: 0 0 1rem 0;
+
+            @include desktop-small {
+                padding-bottom: 3.5rem;
+            }
+
+            .page-title {
+                color: $white;
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+                align-self: flex-end;
+                font-size: clamp(1.75rem, 2vw, 2.25rem);
+
+                @include desktop-small {
+                    font-size: clamp(3.5rem, 4vw, 4.5rem);
+                }
+            }
+        }
+    }
+
+    section.profile {
+        padding-bottom: 3rem;
+    }
+
+    .biography {
+        background: $white;
+        padding: 2rem 0;
+
+        @include desktop-small {
+            grid-column: 2 / span 8;
+            transform: translateY(-3em);
+            padding: 2rem ;
+        }
+    }
+
+    .back {
+        .cta {
+            .btn {
+                &:after {
+                    display: none;
+                }
+
+                &:before {
+                    content: '«';
+                    display: inline-block;
+                    font-size: clamp(0.875rem, 0.9vw, 1rem);
+                    padding-right: 0.5rem;
+                }
+            }
+        }
+    }
+
+    .sidebar {
+        @include desktop-small {
+            padding-top: 3rem;
+            grid-column: 10 / span 4;
+            padding-left: 1rem;
+        }
+
+        .vital {
+            & + .vital {
+                padding-top: 2rem;
+            }
+
+            h4 {
+                color: $black;
+                font-weight: bold;
+            }
+        }
+
+        .contact {
+            p {
+                span {
+                    display: block;
+                }
+            }
+        }
+
+        .social-links {
+            display: flex;
+            align-items: center;
+
+            .link {
+                & + .link {
+                    margin-left: 1rem;
+                }
+
+                a {
+                    display: block;
+                    max-width: 2rem;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
