@@ -1,0 +1,65 @@
+.tab-links {
+    padding-top: 2rem;
+    display: flex;
+
+    .link {
+        & + .link {
+            margin-left: 2rem;
+        }
+
+        a {
+            display: block;
+            color: $black;
+            font-weight: bold;
+            font-size: clamp(0.8125rem, 0.9vw, 1rem);
+            padding-bottom: 0.75rem;
+            border-bottom: 4px solid transparent;
+
+            &:hover,
+            &.active {
+                border-bottom: 4px solid $orange;
+            }
+        }
+    }
+}
+
+.tab-content {
+    padding-top: 3rem;
+
+    .tab {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+        &-flex {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            @include tablet {
+                .photo {
+                    order: -1;
+                }
+
+                .info {
+                    flex: 1;
+                    padding-left: 3rem;
+                    padding-bottom: 0;           
+                }
+            }
+        }
+        
+        .info {
+            padding-bottom: 2rem;
+
+            .headline {
+                padding-bottom: 2rem;
+                h4 {
+                    font-weight: bold;
+                    font-size: clamp(1rem, 1.1vw, 1.125rem);
+                }
+            }
+        }
+    }
+}

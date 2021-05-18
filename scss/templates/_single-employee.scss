@@ -1,0 +1,38 @@
+body.single-employee {
+
+    section.profile {
+        padding-bottom: 6rem;
+    }
+
+    .biography {
+        .copy-1 {
+            padding: 2rem 0;
+        }
+
+        @include desktop-small {
+            grid-column: 2 / span 8;
+        }
+    }
+
+    .sidebar {
+        padding-top: 3rem;
+        
+        @include desktop-small {
+            padding-top: 0;
+            grid-column: 10 / span 4;
+            padding-left: 1rem;
+        }
+
+        .vital {
+            & + .vital {
+                padding-top: 2rem;
+            }
+
+            h4 {
+                color: $black;
+                font-weight: bold;
+            }
+        }
+
+    }
+}

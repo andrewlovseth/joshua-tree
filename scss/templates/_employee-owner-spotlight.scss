@@ -1,0 +1,142 @@
+body.page-template-employee-owner-spotlight {
+
+    .page-header {
+        padding-bottom: 0;
+    }
+
+    .featured-owners {
+        @include section-spacing;
+
+        .owner {
+            display: grid;
+            gap: 2rem 4rem;
+
+            @include tablet {
+                grid-template-columns: 1fr 3fr;
+            }
+
+            @include desktop-small {
+                grid-template-columns: 20rem 1fr;
+            }
+
+            & + .owner {
+                padding-top: 4rem;
+                border-top: 4px double $teal;
+                margin-top: 4rem;
+            }
+            
+            .photo {
+                &-link {
+                    display: flex;
+                    justify-content: center;
+                    
+                    img {
+                        border-radius: 50%;
+                    }
+                }
+            }
+
+            .name {
+                text-align: center;
+                padding-top: 2rem;
+
+                h3 {
+                    font-weight: bold;
+                    
+                    a {
+                        color: $black;
+                    }
+                }
+            }
+
+            .info {
+                align-self: center;
+
+                .copy-2 + .cta {
+                    margin-top: 2rem;
+                }
+            }
+        }
+    }
+
+    .more-owners {
+        @include section-spacing;
+        padding-top: 0 !important;
+
+        .section-header {
+            border-top: 4px double $teal;
+            padding-top: 4.5rem;
+
+            @include desktop-small {
+                padding-top: 9rem;
+            }   
+        }
+
+        .employee-grid {
+            display: grid;
+            gap: 4rem;
+
+            @include tablet-small {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @include desktop-small {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .owner {
+                .photo {
+                    a {
+                        display: block;
+                    }
+
+                    img {
+                        border-radius: 50%;
+                    }
+                }
+                .info {
+                    padding-top: 2rem;
+                    text-align: center;
+                }
+
+                .name {
+                    h3 {
+                        font-size: clamp(1.125rem, 1.2vw, 1.25rem);
+                        text-transform: uppercase;
+                        font-weight: bold;
+    
+                        a {
+                            color: $black;
+                        }
+                    }
+                }
+
+                .position {
+                    padding-top: 0.5rem;
+                    
+                    h4 {
+                        font-style: italic;
+                        font-size: 0.875rem;
+                        line-height: 1.25em;
+                    }
+
+                    & + .cta {
+                        padding-top: 1rem;
+                    }
+                }
+
+
+
+                .copy-2 {
+                    padding: 1rem 0;
+                }
+
+                .cta {
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
+
+    }
+}

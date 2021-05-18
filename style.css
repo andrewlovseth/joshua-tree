@@ -437,7 +437,17 @@ body.show-top-btn .top-btn {
       .cta .btn-green:hover {
         color: #000; }
     .cta .btn-white-green {
+      padding: 0;
       color: #A0CF67; }
+
+.back .cta .btn:after {
+  display: none; }
+
+.back .cta .btn:before {
+  content: '«';
+  display: inline-block;
+  font-size: clamp(0.875rem, 0.9vw, 1rem);
+  padding-right: 0.5rem; }
 
 .screen-reader-text {
   border: 0;
@@ -490,6 +500,46 @@ body.show-top-btn .top-btn {
     @media screen and (min-width: 992px) {
       .page-header .photo {
         grid-column: 2 / span 12; } }
+
+.tab-links {
+  padding-top: 2rem;
+  display: flex; }
+  .tab-links .link + .link {
+    margin-left: 2rem; }
+  .tab-links .link a {
+    display: block;
+    color: #000;
+    font-weight: bold;
+    font-size: clamp(0.8125rem, 0.9vw, 1rem);
+    padding-bottom: 0.75rem;
+    border-bottom: 4px solid transparent; }
+    .tab-links .link a:hover, .tab-links .link a.active {
+      border-bottom: 4px solid #F9A134; }
+
+.tab-content {
+  padding-top: 3rem; }
+  .tab-content .tab {
+    display: none; }
+    .tab-content .tab.active {
+      display: block; }
+    .tab-content .tab-flex {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap; }
+      @media screen and (min-width: 768px) {
+        .tab-content .tab-flex .photo {
+          order: -1; }
+        .tab-content .tab-flex .info {
+          flex: 1;
+          padding-left: 3rem;
+          padding-bottom: 0; } }
+    .tab-content .tab .info {
+      padding-bottom: 2rem; }
+      .tab-content .tab .info .headline {
+        padding-bottom: 2rem; }
+        .tab-content .tab .info .headline h4 {
+          font-weight: bold;
+          font-size: clamp(1rem, 1.1vw, 1.125rem); }
 
 .site-header {
   padding: 2rem 0;
@@ -1071,44 +1121,6 @@ body.page-template-about section.history {
 
 body.page-template-about section.values {
   padding: 6rem 0; }
-  body.page-template-about section.values .tab-links {
-    padding-top: 2rem;
-    display: flex; }
-    body.page-template-about section.values .tab-links .link + .link {
-      margin-left: 2rem; }
-    body.page-template-about section.values .tab-links .link a {
-      display: block;
-      color: #000;
-      font-weight: bold;
-      font-size: clamp(0.8125rem, 0.9vw, 1rem);
-      padding-bottom: 0.75rem;
-      border-bottom: 4px solid transparent; }
-      body.page-template-about section.values .tab-links .link a:hover, body.page-template-about section.values .tab-links .link a.active {
-        border-bottom: 4px solid #F9A134; }
-  body.page-template-about section.values .tab-content {
-    padding-top: 3rem; }
-    body.page-template-about section.values .tab-content .tab {
-      display: none; }
-      body.page-template-about section.values .tab-content .tab.active {
-        display: block; }
-      body.page-template-about section.values .tab-content .tab-flex {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap; }
-        @media screen and (min-width: 768px) {
-          body.page-template-about section.values .tab-content .tab-flex .photo {
-            order: -1; }
-          body.page-template-about section.values .tab-content .tab-flex .info {
-            flex: 1;
-            padding-left: 3rem;
-            padding-bottom: 0; } }
-      body.page-template-about section.values .tab-content .tab .info {
-        padding-bottom: 2rem; }
-        body.page-template-about section.values .tab-content .tab .info .headline {
-          padding-bottom: 2rem; }
-          body.page-template-about section.values .tab-content .tab .info .headline h4 {
-            font-weight: bold;
-            font-size: clamp(1rem, 1.1vw, 1.125rem); }
 
 body.page-template-leadership .leaders-grid {
   display: grid;
@@ -1179,15 +1191,6 @@ body.single-leadership .biography {
       transform: translateY(-3em);
       padding: 2rem; } }
 
-body.single-leadership .back .cta .btn:after {
-  display: none; }
-
-body.single-leadership .back .cta .btn:before {
-  content: '«';
-  display: inline-block;
-  font-size: clamp(0.875rem, 0.9vw, 1rem);
-  padding-right: 0.5rem; }
-
 @media screen and (min-width: 992px) {
   body.single-leadership .sidebar {
     padding-top: 3rem;
@@ -1214,3 +1217,156 @@ body.single-leadership .sidebar .social-links {
     max-width: 2rem; }
     body.single-leadership .sidebar .social-links .link a img {
       width: 100%; }
+
+body.page-template-esop section.features {
+  padding: 0 0 3rem 0; }
+  @media screen and (min-width: 992px) {
+    body.page-template-esop section.features {
+      padding: 3rem 0 6rem 0; } }
+  body.page-template-esop section.features .deck {
+    padding-top: 1rem; }
+    @media screen and (min-width: 992px) {
+      body.page-template-esop section.features .deck {
+        grid-column: 2 / span 8; } }
+  body.page-template-esop section.features .sub-features {
+    padding-top: 3rem;
+    display: grid;
+    gap: 2rem; }
+    @media screen and (min-width: 768px) {
+      body.page-template-esop section.features .sub-features {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4rem; } }
+  body.page-template-esop section.features .sub-feature .headline {
+    padding-bottom: 0.5rem; }
+    body.page-template-esop section.features .sub-feature .headline h3 {
+      font-weight: bold;
+      color: #000; }
+
+body.page-template-esop section.whats-an-esop {
+  padding-bottom: 3rem; }
+  @media screen and (min-width: 992px) {
+    body.page-template-esop section.whats-an-esop {
+      padding-bottom: 6rem; } }
+  body.page-template-esop section.whats-an-esop .info {
+    background: #EDEDED;
+    padding: 2rem; }
+    @media screen and (min-width: 992px) {
+      body.page-template-esop section.whats-an-esop .info {
+        padding: 4rem;
+        grid-column: 8 / -1; } }
+  body.page-template-esop section.whats-an-esop .headline {
+    padding-bottom: 1rem; }
+  body.page-template-esop section.whats-an-esop .deck {
+    max-width: 575px; }
+
+body.page-template-esop section.benefits {
+  padding-bottom: 6rem; }
+
+body.page-template-employee-owner-spotlight .page-header {
+  padding-bottom: 0; }
+
+body.page-template-employee-owner-spotlight .featured-owners {
+  padding: 4.5rem 0; }
+  @media screen and (min-width: 992px) {
+    body.page-template-employee-owner-spotlight .featured-owners {
+      padding: 9rem 0; } }
+  body.page-template-employee-owner-spotlight .featured-owners .owner {
+    display: grid;
+    gap: 2rem 4rem; }
+    @media screen and (min-width: 768px) {
+      body.page-template-employee-owner-spotlight .featured-owners .owner {
+        grid-template-columns: 1fr 3fr; } }
+    @media screen and (min-width: 992px) {
+      body.page-template-employee-owner-spotlight .featured-owners .owner {
+        grid-template-columns: 20rem 1fr; } }
+    body.page-template-employee-owner-spotlight .featured-owners .owner + .owner {
+      padding-top: 4rem;
+      border-top: 4px double #72CCD2;
+      margin-top: 4rem; }
+    body.page-template-employee-owner-spotlight .featured-owners .owner .photo-link {
+      display: flex;
+      justify-content: center; }
+      body.page-template-employee-owner-spotlight .featured-owners .owner .photo-link img {
+        border-radius: 50%; }
+    body.page-template-employee-owner-spotlight .featured-owners .owner .name {
+      text-align: center;
+      padding-top: 2rem; }
+      body.page-template-employee-owner-spotlight .featured-owners .owner .name h3 {
+        font-weight: bold; }
+        body.page-template-employee-owner-spotlight .featured-owners .owner .name h3 a {
+          color: #000; }
+    body.page-template-employee-owner-spotlight .featured-owners .owner .info {
+      align-self: center; }
+      body.page-template-employee-owner-spotlight .featured-owners .owner .info .copy-2 + .cta {
+        margin-top: 2rem; }
+
+body.page-template-employee-owner-spotlight .more-owners {
+  padding: 4.5rem 0;
+  padding-top: 0 !important; }
+  @media screen and (min-width: 992px) {
+    body.page-template-employee-owner-spotlight .more-owners {
+      padding: 9rem 0; } }
+  body.page-template-employee-owner-spotlight .more-owners .section-header {
+    border-top: 4px double #72CCD2;
+    padding-top: 4.5rem; }
+    @media screen and (min-width: 992px) {
+      body.page-template-employee-owner-spotlight .more-owners .section-header {
+        padding-top: 9rem; } }
+  body.page-template-employee-owner-spotlight .more-owners .employee-grid {
+    display: grid;
+    gap: 4rem; }
+    @media screen and (min-width: 480px) {
+      body.page-template-employee-owner-spotlight .more-owners .employee-grid {
+        grid-template-columns: repeat(2, 1fr); } }
+    @media screen and (min-width: 992px) {
+      body.page-template-employee-owner-spotlight .more-owners .employee-grid {
+        grid-template-columns: repeat(3, 1fr); } }
+    body.page-template-employee-owner-spotlight .more-owners .employee-grid .owner .photo a {
+      display: block; }
+    body.page-template-employee-owner-spotlight .more-owners .employee-grid .owner .photo img {
+      border-radius: 50%; }
+    body.page-template-employee-owner-spotlight .more-owners .employee-grid .owner .info {
+      padding-top: 2rem;
+      text-align: center; }
+    body.page-template-employee-owner-spotlight .more-owners .employee-grid .owner .name h3 {
+      font-size: clamp(1.125rem, 1.2vw, 1.25rem);
+      text-transform: uppercase;
+      font-weight: bold; }
+      body.page-template-employee-owner-spotlight .more-owners .employee-grid .owner .name h3 a {
+        color: #000; }
+    body.page-template-employee-owner-spotlight .more-owners .employee-grid .owner .position {
+      padding-top: 0.5rem; }
+      body.page-template-employee-owner-spotlight .more-owners .employee-grid .owner .position h4 {
+        font-style: italic;
+        font-size: 0.875rem;
+        line-height: 1.25em; }
+      body.page-template-employee-owner-spotlight .more-owners .employee-grid .owner .position + .cta {
+        padding-top: 1rem; }
+    body.page-template-employee-owner-spotlight .more-owners .employee-grid .owner .copy-2 {
+      padding: 1rem 0; }
+    body.page-template-employee-owner-spotlight .more-owners .employee-grid .owner .cta {
+      display: flex;
+      justify-content: center; }
+
+body.single-employee section.profile {
+  padding-bottom: 6rem; }
+
+body.single-employee .biography .copy-1 {
+  padding: 2rem 0; }
+
+@media screen and (min-width: 992px) {
+  body.single-employee .biography {
+    grid-column: 2 / span 8; } }
+
+body.single-employee .sidebar {
+  padding-top: 3rem; }
+  @media screen and (min-width: 992px) {
+    body.single-employee .sidebar {
+      padding-top: 0;
+      grid-column: 10 / span 4;
+      padding-left: 1rem; } }
+  body.single-employee .sidebar .vital + .vital {
+    padding-top: 2rem; }
+  body.single-employee .sidebar .vital h4 {
+    color: #000;
+    font-weight: bold; }

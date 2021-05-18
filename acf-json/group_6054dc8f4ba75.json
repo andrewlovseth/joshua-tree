@@ -42,7 +42,31 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_60a3fdeda89cd",
+                    "label": "Hero Photo",
+                    "name": "hero_photo",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -149,8 +173,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "display_format": "d\/m\/Y",
-                    "return_format": "d\/m\/Y",
+                    "display_format": "m\/d\/Y",
+                    "return_format": "Ymd",
                     "first_day": 1
                 },
                 {
@@ -296,9 +320,28 @@
             "layout": "block",
             "sub_fields": [
                 {
+                    "key": "field_60a3f5c73714c",
+                    "label": "Short Bio",
+                    "name": "short_bio",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 0
+                },
+                {
                     "key": "field_6054dd2e35d58",
-                    "label": "Copy",
-                    "name": "copy",
+                    "label": "Long Bio",
+                    "name": "long_bio",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
@@ -501,5 +544,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1620689267
+    "modified": 1621361230
 }

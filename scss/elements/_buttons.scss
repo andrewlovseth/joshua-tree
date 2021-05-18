@@ -65,9 +65,27 @@ body.show-top-btn {
         }
 
         &-white-green {
+            padding: 0;
             color: $light-green;
         }
     }
 
     
+}
+
+.back {
+    .cta {
+        .btn {
+            &:after {
+                display: none;
+            }
+
+            &:before {
+                content: '«';
+                display: inline-block;
+                font-size: clamp(0.875rem, 0.9vw, 1rem);
+                padding-right: 0.5rem;
+            }
+        }
+    }
 }
