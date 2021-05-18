@@ -1,0 +1,45 @@
+section.sustainability {
+    background: $off-white;
+    @include section-spacing;
+
+    .info {
+        @include tablet {
+            grid-column: 2 / span 6;
+        }
+
+        @include desktop-small {
+            grid-column: 2 / span 8;
+        }
+
+        strong.copy-headline {
+            display: block;
+        }
+    }
+
+    .photo {
+        padding-top: 2rem;
+
+        @include tablet {
+            padding-top: 0;
+            grid-column: 8 / span 2;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+        }
+
+        @include desktop-small {
+            grid-column: 10 / span 4;
+        }
+
+        img {
+            width: 100%;
+            max-width: 10rem;
+            margin: 0 auto;
+
+            @include desktop-small {
+                max-width: 16rem;
+                margin: 0;
+            }
+        }
+    }
+}

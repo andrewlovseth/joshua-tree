@@ -1,0 +1,43 @@
+section.dei {
+    @include section-spacing;
+    .section-header {
+        text-align: center;
+    }
+
+    .photo {
+        @include tablet {
+            grid-column: 2 / span 4;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .caption {
+            padding-top: 1rem;
+
+            p {
+                font-size: 0.875rem;
+                line-height: 1.25em;
+                font-style: italic;
+            }
+        }
+    }
+
+    .info {
+        padding-top: 2rem;
+
+        @include tablet {
+            padding-top: 0;
+            grid-column: 6 / span 4;
+        }
+
+        @include desktop-small {
+            grid-column: 6 / span 8;
+        }
+
+        strong.copy-headline {
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+body.page-template-culture {
+    .page-header {
+        padding-bottom: 0;
+    }
+
+    @import 'culture/dei';
+
+    @import 'culture/sustainability';
+
+    @import 'culture/fun-traditions';
+}
