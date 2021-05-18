@@ -1,0 +1,41 @@
+body.page-template-history {
+
+
+    section.timeline {
+        padding-bottom: 6rem;
+
+        .event {
+            display: flex;
+            align-items: flex-start;
+
+            @include desktop-small {
+                grid-column: 2 / span 10;
+            }
+
+            & + .event {
+                padding-top: 3rem;
+                border-top: 1px solid $off-white;
+                margin-top: 3rem;
+            }
+
+            .date {
+                width: 6rem;
+                padding-right: 2rem;
+
+                @include tablet {
+                    width: 12rem;
+                }
+
+                h5 {
+                    font-weight: bold;
+                    color: $black;
+                }
+
+            }
+
+            .description {
+                flex: 1;
+            }
+        }
+    }
+}

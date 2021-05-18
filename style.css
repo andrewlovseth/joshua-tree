@@ -1493,3 +1493,27 @@ body.page-template-culture section.fun-traditions {
         text-transform: uppercase;
         letter-spacing: 0.05em;
         font-size: 1.125rem; }
+
+body.page-template-history section.timeline {
+  padding-bottom: 6rem; }
+  body.page-template-history section.timeline .event {
+    display: flex;
+    align-items: flex-start; }
+    @media screen and (min-width: 992px) {
+      body.page-template-history section.timeline .event {
+        grid-column: 2 / span 10; } }
+    body.page-template-history section.timeline .event + .event {
+      padding-top: 3rem;
+      border-top: 1px solid #EDEDED;
+      margin-top: 3rem; }
+    body.page-template-history section.timeline .event .date {
+      width: 6rem;
+      padding-right: 2rem; }
+      @media screen and (min-width: 768px) {
+        body.page-template-history section.timeline .event .date {
+          width: 12rem; } }
+      body.page-template-history section.timeline .event .date h5 {
+        font-weight: bold;
+        color: #000; }
+    body.page-template-history section.timeline .event .description {
+      flex: 1; }
