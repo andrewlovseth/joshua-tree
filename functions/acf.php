@@ -35,3 +35,9 @@ function bearsmith_acf_styles() {
     <?php
 }
 add_action('acf/input/admin_head', 'bearsmith_acf_styles');
+
+function my_acf_init() {
+	acf_update_setting('google_api_key', 'GOOGLE_MAPS_API_KEY_REMOVED');
+}
+
+add_action('acf/init', 'my_acf_init');

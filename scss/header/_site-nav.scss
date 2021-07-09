@@ -22,11 +22,24 @@
 
             a {
                 color: $dark-gray;
-                font-weight: 300;
+                display: block;
+                font-weight: 600;
                 text-transform: uppercase;
                 letter-spacing: 0.1em;
                 font-size: 0.875rem;
                 transition: all 0.2s ease-in;
+
+                @include desktop-small {
+                    padding: 3.25rem 0;
+                    border-top: 0.375rem solid transparent;
+                    border-bottom: 0.375rem solid transparent;
+
+                    &:hover,
+                    &.active {
+                        border-bottom-color: $orange;
+                        color: $black;
+                    }
+                }
 
                 @include desktop-medium {
                     font-size: 1rem;
@@ -39,3 +52,5 @@
         }
     }
 }
+
+

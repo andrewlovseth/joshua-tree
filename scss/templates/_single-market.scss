@@ -1,0 +1,20 @@
+body.single-market {
+
+
+    .site-content {
+        padding: 3rem 0 0 0;
+    }
+
+    .page-header {
+        .parent-market {
+            padding-bottom: 1rem;
+        }
+    }
+
+    @import 'single-market/featured-projects';
+    
+    @import 'single-market/market-info';
+
+    @import 'single-market/more-projects';
+
+}

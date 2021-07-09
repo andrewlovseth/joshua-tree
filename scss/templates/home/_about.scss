@@ -28,13 +28,11 @@ section.about {
 
         .about-link {
             .cta {
-                position: absolute;
-                right: 0;
+                margin-left: auto;
+
                 z-index: 5;
                 transform: translateY(-50%);
             }
         }
     }
-    
-
 }

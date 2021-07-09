@@ -1,5 +1,5 @@
 nav.search-nav {
-    background: $teal;
+    background: $dark-teal;
     padding: 2rem 0;
     position: fixed;
     z-index: 1000;
@@ -45,7 +45,7 @@ nav.search-nav {
         }
 
         .search-submit {
-            background: $dark-blue;
+            background: #414141;
             color: $white;
             border: none;
             border-radius: 3px;

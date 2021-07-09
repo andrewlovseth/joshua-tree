@@ -1,6 +1,6 @@
 .sign-up {
     padding: 3rem 0;
-    background: $teal;
+    background: $dark-teal;
     color: $white;
 
     @include desktop-small {
@@ -46,7 +46,7 @@
                 display: inline-block;
                 content: '>>';
                 background: $white;
-                color: $teal;
+                color: $dark-teal;
                 padding: 0.5rem;
                 margin-right: 1rem;
             }
@@ -63,7 +63,7 @@
         padding-top: 3rem;
 
         @include desktop-small {
-            border-left: 7px double #707070;
+            border-left: 7px double $white;
             padding: 2rem 3rem;
             grid-column: 7 / span 6;
         }

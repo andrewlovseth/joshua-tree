@@ -20,10 +20,14 @@
 			<?php get_template_part('template-parts/header/search'); ?>
 			<?php get_template_part('template-parts/header/hamburger'); ?>		
 		</div>
+
+
+		<?php get_template_part('template-parts/header/work-navigation'); ?>
 	</header>
 
 	<?php get_template_part('template-parts/header/mobile-navigation'); ?>
 
 	<?php get_template_part('template-parts/header/search-navigation'); ?>
+
 
 	<main class="site-content">

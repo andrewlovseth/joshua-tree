@@ -1,7 +1,42 @@
 {
     "key": "group_6054d35f8d96a",
-    "title": "Post Type: Project Categories",
+    "title": "Post Type: Market",
     "fields": [
+        {
+            "key": "field_60e76e4e99d76",
+            "label": "Intro",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_60e76e5399d77",
+            "label": "Intro",
+            "name": "intro",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        },
         {
             "key": "field_6054d376cc21d",
             "label": "Featured Projects",
@@ -90,8 +125,33 @@
                     "default_value": "",
                     "tabs": "all",
                     "toolbar": "full",
-                    "media_upload": 1,
+                    "media_upload": 0,
                     "delay": 0
+                },
+                {
+                    "key": "field_60e76ea941e62",
+                    "label": "Sub Markets",
+                    "name": "sub_markets",
+                    "type": "relationship",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "market"
+                    ],
+                    "taxonomy": "",
+                    "filters": [
+                        "search"
+                    ],
+                    "elements": "",
+                    "min": "",
+                    "max": "",
+                    "return_format": "object"
                 },
                 {
                     "key": "field_6054d39f1215a",
@@ -117,36 +177,12 @@
                     "min": "",
                     "max": "",
                     "return_format": "object"
-                },
-                {
-                    "key": "field_6054d3d2b2bb8",
-                    "label": "Photo",
-                    "name": "photo",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
                 }
             ]
         },
         {
             "key": "field_6054d3b385c28",
-            "label": "Experts",
+            "label": "Lead",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -162,9 +198,9 @@
         },
         {
             "key": "field_6054d3b885c29",
-            "label": "Experts",
-            "name": "experts",
-            "type": "relationship",
+            "label": "Lead",
+            "name": "lead",
+            "type": "post_object",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -178,13 +214,10 @@
                 "leadership"
             ],
             "taxonomy": "",
-            "filters": [
-                "search"
-            ],
-            "elements": "",
-            "min": "",
-            "max": "",
-            "return_format": "object"
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
         },
         {
             "key": "field_6054d3cab2bb7",
@@ -217,47 +250,6 @@
             },
             "post_type": [
                 "projects"
-            ],
-            "taxonomy": "",
-            "filters": [
-                "search"
-            ],
-            "elements": "",
-            "min": "",
-            "max": "",
-            "return_format": "object"
-        },
-        {
-            "key": "field_6054d3fa4f8a3",
-            "label": "News",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_6054d4004f8a4",
-            "label": "News",
-            "name": "news",
-            "type": "relationship",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "post"
             ],
             "taxonomy": "",
             "filters": [
@@ -324,6 +316,88 @@
                     "mime_types": ""
                 }
             ]
+        },
+        {
+            "key": "field_60e786865ef21",
+            "label": "Sub Market",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_60e786bd5ef25",
+            "label": "Is Sub Market?",
+            "name": "is_sub_market",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_60e786925ef22",
+            "label": "Sub Market",
+            "name": "sub_market",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60e786bd5ef25",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_60e7869a5ef23",
+                    "label": "Parent Market",
+                    "name": "parent_market",
+                    "type": "post_object",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "market"
+                    ],
+                    "taxonomy": "",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "return_format": "object",
+                    "ui": 1
+                }
+            ]
         }
     ],
     "location": [
@@ -331,7 +405,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "project_category"
+                "value": "market"
             }
         ]
     ],
@@ -356,5 +430,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1616172512
+    "modified": 1625786081
 }

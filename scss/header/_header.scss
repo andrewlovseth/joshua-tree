@@ -3,6 +3,10 @@
     transition: all 0.3s ease-in;
     background: $white;
 
+    @include desktop-small {
+        padding: 0;
+    }
+
     .nav-wrapper {
         display: flex;
         align-items: center;
@@ -22,6 +26,8 @@
 
 @import 'nav-overlay-open';
 
+@import 'work-nav';
+
 @import 'search-nav';
 
 @import 'search-overlay-open';
@@ -35,6 +41,42 @@ body.show-top-btn {
             z-index: 100;
             border-bottom: 1px solid $light-gray;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        }
+    }
+}
+
+
+// About
+.page-template-about,
+.parent-pageid-171,
+.single-leadership {
+    .site-header .site-nav ul li a {
+        &.link-about {
+            border-bottom-color: $orange;
+        }
+    }
+}
+
+
+// Our Work
+.single-market,
+.single-service,
+.post-type-archive-projects,
+.single-projects {
+    .site-header .site-nav ul li a {
+        &.link-our-work {
+            border-bottom-color: $orange;
+        }
+    }
+}
+
+
+// News & Ideas
+.blog,
+.single-post {
+    .site-header .site-nav ul li a {
+        &.link-news-ideas {
+            border-bottom-color: $orange;
         }
     }
 }

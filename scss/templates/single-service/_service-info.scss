@@ -1,0 +1,63 @@
+.service-info {
+
+    .about {
+        @include tablet {
+            grid-column: 5 / span 5;
+        }
+
+        @include desktop-small {
+            grid-column: 6 / span 8;
+        }
+
+        .copy-2 {
+            background: $white;
+            margin-top: -3rem;
+            z-index: 10;
+            padding: 1rem;
+
+            @include tablet {
+                padding: 2rem;
+                margin-top: -6rem;
+            }
+        }
+
+        .sub-services {
+            padding: 1rem;
+
+            @include tablet {
+                padding: 1rem 2rem;
+            }
+
+            h4 {
+                font-weight: bold;
+                margin: 0;
+                padding-bottom: 1rem;
+            }
+
+            ul {
+                li {
+                    padding-bottom: 0.5rem;
+
+                    a {
+                        font-weight: bold;
+                    }
+                }
+            }
+        }        
+    }
+
+    .experts {
+        text-align: center;
+        padding: 3rem 0;
+
+        @include tablet {
+            grid-row: 1;
+            grid-column: 2 / span 3;
+        }
+
+        @include desktop-small {
+            padding: 6rem 0;
+            grid-column: 2 / span 4;
+        }
+    }
+}

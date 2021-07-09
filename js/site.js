@@ -35,6 +35,50 @@
 			
 			return false;
 		});
+
+
+		// Our Work Nav
+		$('.link-our-work').on('click', function() {
+
+			$('.work-nav').toggleClass('active');
+			
+			return false;
+		});
+
+
+		// Markets / Featured Projects Slider
+		$('.projects-slider').slick({
+			dots: true,
+			arrows: false,
+			infinite: true,
+			autoplay: true,
+			autoplaySpeed: 6000,
+		});
+
+		// Markets / More Projects Slider
+		$('.more-projects-slider').slick({
+			dots: false,
+			arrows: true,
+			infinite: true,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			adaptiveHeight: false,
+			mobileFirst: true,
+			responsive: [
+				{
+				  breakpoint: 768,
+				  settings: {
+					slidesToShow: 2,
+					slidesToScroll: 1,
+				  }
+				}
+			]
+		});
+
+
+
+
+
 	});
 
 
@@ -54,12 +98,20 @@
 		if (!menu.is(e.target) && menu.has(e.target).length === 0) {
 			$('body').removeClass('nav-overlay-open search-overlay-open');
 		}
+
+
+		var work_nav = $('.work-nav, .link-our-work');
+		if (!work_nav.is(e.target) && work_nav.has(e.target).length === 0) {
+			$('.work-nav').removeClass('active');
+		}
+
 	});
 
 
 	$(document).keyup(function(e) {		
 		if (e.keyCode == 27) {
 			$('body').removeClass('nav-overlay-open search-overlay-open');
+			$('.work-nav').removeClass('active');
 		}
 	});
 

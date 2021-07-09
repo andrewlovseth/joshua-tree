@@ -19,11 +19,11 @@
 	&-2,
 	&-3 {
 		a {
-			color: $light-green;
+			color: $dark-teal;
 			font-weight: bold;
 
 			&:hover {
-				color: $black;
+				text-decoration: underline;
 			}
 		}
 

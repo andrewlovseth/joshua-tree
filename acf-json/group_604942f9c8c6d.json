@@ -195,8 +195,8 @@
                 },
                 {
                     "key": "field_6054d322e317e",
-                    "label": "Project Category",
-                    "name": "project_category",
+                    "label": "Market",
+                    "name": "market",
                     "type": "post_object",
                     "instructions": "",
                     "required": 0,
@@ -207,7 +207,7 @@
                         "id": ""
                     },
                     "post_type": [
-                        "project_category"
+                        "market"
                     ],
                     "taxonomy": "",
                     "allow_null": 0,
@@ -608,5 +608,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1616171829
+    "modified": 1625784756
 }

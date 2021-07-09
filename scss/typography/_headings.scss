@@ -19,6 +19,11 @@
 	font-size: clamp(1.75rem, 2vw, 2.25rem);
 	font-weight: 700;
 	line-height: 1.25em;
+
+	&.small {
+		font-size: clamp(1.375rem, 1.5vw, 1.75rem);
+
+	}
 }
 
 
@@ -26,4 +31,9 @@
 	font-size: clamp(2.5rem, 3vw, 3rem);
 	font-weight: 700;
 	line-height: 1.25em;
+
+	&.small {
+		font-size: clamp(2rem, 2.5vw, 2.75rem);
+
+	}
 }

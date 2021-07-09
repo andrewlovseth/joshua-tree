@@ -1,6 +1,6 @@
 {
     "key": "group_6054d4e963ae1",
-    "title": "Project Type: Services",
+    "title": "Post Type: Services",
     "fields": [
         {
             "key": "field_6054d521cb932",
@@ -108,6 +108,31 @@
                     "toolbar": "full",
                     "media_upload": 0,
                     "delay": 0
+                },
+                {
+                    "key": "field_60e87d5480ce1",
+                    "label": "Sub Services",
+                    "name": "sub_services",
+                    "type": "relationship",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "service"
+                    ],
+                    "taxonomy": "",
+                    "filters": [
+                        "search"
+                    ],
+                    "elements": "",
+                    "min": "",
+                    "max": "",
+                    "return_format": "object"
                 }
             ]
         },
@@ -266,5 +291,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1616172413
+    "modified": 1625849182
 }

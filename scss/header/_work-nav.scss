@@ -1,0 +1,144 @@
+.work-nav {
+    background: #414141;
+    color: $white;
+    height: 0;
+    overflow: hidden;
+    opacity: 0.8;
+    transition: all 0.2s ease-in;
+    grid-column: 1 / -1;
+
+    &.active {
+        padding: 3rem 0;
+        height: auto;
+        overflow: auto;
+        opacity: 1;
+        z-index: 1000;
+
+        @include tablet {
+            padding: 6rem 0;
+    
+        }
+    }
+
+    a {
+        color: $white;
+
+        &:hover {
+            color: $dark-teal;
+        }
+    }
+
+    .nav-section-header {
+        padding-bottom: 1.5rem;
+
+        @include desktop-small {
+            padding-bottom: 3rem;
+        }
+    }
+
+    .nav-header {
+        font-size: clamp(1.5rem, 2vw, 2.25rem);
+        font-weight: 700;
+        line-height: 1.25em;
+    }
+
+    .markets {
+
+        @include tablet {
+            grid-column: 2 / span 4;
+        }
+        @include desktop-small {
+            grid-column: 2 / span 4;
+        }
+
+        .link {
+
+            &  + .link {
+                padding-top: 1.5rem;
+            }
+
+            a {
+                display: inline-block;
+                font-size: clamp(1.125rem, 1.25vw, 1.625rem);
+                font-weight: 300;
+            }
+        }
+
+    }
+
+    .services {
+        padding-top: 4rem;
+
+        @include tablet {
+            grid-column: 6 / span 4;
+            padding-top: 0;
+        }
+
+
+        .link {
+            padding-bottom: 1.5rem;
+
+            a {
+                font-size: clamp(1.125rem, 1.2vw, 1.25rem);
+                display: flex;
+                align-items: center;
+                line-height: 1.25em;
+
+                .label {
+                    display: block;
+                    padding-left: 1rem;
+                }
+
+                .icon {
+                    display: flex;
+                    justify-content: center;
+                    width: 1.5rem;
+
+                }
+
+                svg g,
+                svg path {
+                    transition: all 0.2s ease;
+                }
+                
+
+                &:hover {
+                    svg g,
+                    svg path {
+                        fill: $dark-teal;
+                    }
+                }
+            }
+
+        }
+
+        @include desktop-small {
+            grid-column: 7 / span 7;
+
+            .links {
+                columns: 2;
+                column-gap: 2rem;
+
+                .link {
+                    break-inside: avoid;
+
+
+                }
+            }
+        }
+    }
+
+    .projects {
+        padding-top: 4rem;
+
+        .cta {
+            .btn {
+                padding: 0;
+                border: none;
+            }
+        }
+
+    }
+
+
+}

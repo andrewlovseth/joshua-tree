@@ -1,0 +1,116 @@
+.featured-projects {
+
+    .project {
+        a {
+            display: grid;
+            color: $black;
+        }
+
+        .photo {
+            grid-row: 1;
+            grid-column: 1 / -1;
+            @include aspect-ratio(1, 1);
+            @include cover-fill-image;
+
+            @include tablet-small {
+                @include aspect-ratio(4, 3);
+            }
+
+            @include tablet {
+                @include aspect-ratio(16, 9);
+            }
+        }
+
+        .info {
+            grid-row: 1;
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding: 1rem;
+
+            @include desktop-small {
+                padding: 2rem;
+            }
+
+            &__wrapper {
+                background: rgba(255, 255, 255, 0.95);
+                padding: 2rem;
+
+
+
+
+                @include tablet-small {
+                    width: 100%;
+                    max-width: 30rem;
+                }
+
+                &:before {
+                    content: '';
+                    display: block;
+                    width: 0.25rem;
+                    height: 100%;
+                    background: $orange;
+                    position: absolute;
+                    left: -0.5rem;
+                    top: 0;
+
+                    @include tablet {
+                        left: -1rem;
+                        width: 0.5rem;
+                    }
+
+                }
+            }
+
+
+            .headline {
+                h3 {
+                    font-weight: bold;
+                    font-size: clamp(1.25rem, 1.5vw, 1.5rem);
+                    line-height: 1.25em;
+                }
+            }
+
+            .copy-3 {
+                display: none;
+                padding: 1rem 0 0 0;
+
+                @include tablet {
+                    display: block;
+                }
+            }
+
+            .location {
+                padding: 1rem 0;
+
+                h4 {
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    letter-spacing: 0.05em;
+                    font-size: clamp(0.875rem, 1vw, 1rem);
+                }
+            }
+
+            .client {
+                max-width: 16rem;
+
+                h5 {
+                    font-size: clamp(0.875rem, 1vw, 1rem);
+                    line-height: 1.25em;
+
+                    strong {
+                        text-transform: uppercase;
+                        font-weight: bold;
+                        letter-spacing: 0.05em;
+                    }
+                }
+
+
+            }
+        }
+
+    }
+ 
+
+}
