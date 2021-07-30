@@ -1,0 +1,73 @@
+.projects-grid {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    padding-bottom: 4rem;
+}
+
+
+.project {
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    background: $charcoal;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+
+    a {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .photo {
+        @include aspect-ratio(1, 1);
+        @include cover-fill-image;
+
+        @include tablet-small {
+            @include aspect-ratio(4, 3);
+        }
+
+        img {
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+    }
+
+    .info {
+        color: $white;
+        padding: 2rem;
+
+        a {
+            color: $white;
+
+            &:hover {
+                color: $white;
+            }
+        }
+
+        .market {
+            padding-bottom: 0.5rem;
+            h4 {
+                text-transform: uppercase;
+                font-weight: bold;
+                letter-spacing: 0.05em;
+                font-size: clamp(0.75rem, 0.9vw, 0.875rem);
+                
+            }
+        }
+
+        .location {
+            padding-top: 1rem;
+
+            h4 {
+                text-transform: uppercase;
+                font-weight: bold;
+                letter-spacing: 0.1em;
+                font-size: clamp(0.6125rem, 0.8vw, 0.75rem);
+            }
+        }
+    }
+
+    &:hover{
+        background: $orange;
+    }
+}
