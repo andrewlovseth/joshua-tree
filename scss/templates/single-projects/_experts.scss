@@ -1,0 +1,22 @@
+section.experts {
+    padding-top: 2rem;
+
+    @include tablet {
+        grid-column: 7 / span 3;
+    }
+
+    @include desktop-small {
+        grid-column: 10 / span 4;
+    }
+
+    .section-header {
+        text-align: center;
+        padding-bottom: 1rem;
+        .section-headline.small {
+            font-size: clamp(1.5rem, 2vw, 2rem);
+        }
+    }
+
+
+
+}

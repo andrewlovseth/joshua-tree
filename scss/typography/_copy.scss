@@ -34,4 +34,22 @@
 		}
 	}
 
+	ul {
+		list-style-type: disc;
+	}
+
+	ol {
+		list-style-type: decimal;
+	}
+
+	ul, ol {
+		padding-left: 1.5rem;
+
+		li {
+			& + li {
+				padding-top: 0.5rem;
+			}
+		}
+	}
+
 }

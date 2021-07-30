@@ -1,13 +1,19 @@
 <?php get_header(); ?>
 
-<?php 
+    <?php get_template_part('templates/single-projects/hero'); ?>
 
-    var_dump(get_field('key_area'));
+    <?php get_template_part('templates/single-projects/overview'); ?>
 
+    <section class="main grid">
+        <?php get_template_part('templates/single-projects/about'); ?>
 
-    var_dump($post);
+        <?php get_template_part('templates/single-projects/experts'); ?>
+    </section>
 
-    var_dump(get_the_permalink());
-?>
+    <?php get_template_part('templates/single-projects/details'); ?>
+
+    <?php get_template_part('templates/single-projects/news'); ?>
+
+    <?php get_template_part('templates/single-projects/similar-projects'); ?>
 
 <?php get_footer(); ?>

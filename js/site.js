@@ -55,6 +55,16 @@
 			autoplaySpeed: 6000,
 		});
 
+
+		$('.news-slider').slick({
+			dots: true,
+			arrows: false,
+			infinite: true,
+			autoplay: true,
+			autoplaySpeed: 6000,
+		});
+
+
 		// Markets / More Projects Slider
 		$('.more-projects-slider').slick({
 			dots: false,

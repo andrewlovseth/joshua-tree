@@ -64,6 +64,15 @@ body.show-top-btn {
             }
         }
 
+        &-teal {
+            background: $dark-teal;
+            color: $white;
+
+            &:hover {
+                color: $black;
+            }
+        }
+
         &-white-green {
             padding: 0;
             color: $light-green;

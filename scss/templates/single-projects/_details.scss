@@ -1,0 +1,38 @@
+section.details {
+    padding: 4rem 0;
+
+    .section-header {
+        padding-bottom: 1rem;
+    }
+
+    .info {
+        @include tablet {
+            grid-column: 2 / span 3;
+        }
+
+        @include desktop-small {
+            grid-column: 2 / span 5;
+        }
+
+        .vital {
+
+            & + .vital {
+                padding-top: 2rem;
+            }
+            strong {
+                display: block;
+            }
+        }
+    }
+
+    .photo {
+        @include tablet {
+            grid-column: 5 / -1;
+        }
+
+        @include desktop-small {
+            grid-column: 8 / span 6;
+        }
+
+    }
+}

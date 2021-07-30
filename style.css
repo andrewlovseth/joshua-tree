@@ -311,7 +311,7 @@ a {
 .page-title {
   color: #000;
   font-weight: 700;
-  font-size: clamp(3.5rem, 4vw, 4.5rem);
+  font-size: clamp(2.5rem, 4vw, 4.5rem);
   line-height: 1.125em; }
 
 .title-headline {
@@ -348,6 +348,17 @@ a {
 
 .copy-1.extended > *, .copy-2.extended > *, .copy-3.extended > * {
   margin-bottom: 2rem; }
+
+.copy ul {
+  list-style-type: disc; }
+
+.copy ol {
+  list-style-type: decimal; }
+
+.copy ul, .copy ol {
+  padding-left: 1.5rem; }
+  .copy ul li + li, .copy ol li + li {
+    padding-top: 0.5rem; }
 
 body {
   background: #fff;
@@ -454,6 +465,11 @@ body.show-top-btn .top-btn {
       background: #A0CF67;
       color: #fff; }
       .cta .btn-green:hover {
+        color: #000; }
+    .cta .btn-teal {
+      background: #00A69C;
+      color: #fff; }
+      .cta .btn-teal:hover {
         color: #000; }
     .cta .btn-white-green {
       padding: 0;
@@ -1952,6 +1968,167 @@ body.page-template-history section.timeline {
         color: #000; }
     body.page-template-history section.timeline .event .description {
       flex: 1; }
+
+body.single-projects .project-hero .photo {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  z-index: 1;
+  position: relative; }
+  body.single-projects .project-hero .photo:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 75%; }
+  body.single-projects .project-hero .photo > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; }
+  body.single-projects .project-hero .photo img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover; }
+  @media screen and (min-width: 768px) {
+    body.single-projects .project-hero .photo {
+      position: relative;
+      max-height: 70vh; }
+      body.single-projects .project-hero .photo:before {
+        display: block;
+        content: "";
+        width: 100%;
+        padding-top: 56.25%; }
+      body.single-projects .project-hero .photo > .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0; } }
+
+body.single-projects .project-hero .page-header {
+  grid-row: 1;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem 0; }
+  @media screen and (min-width: 768px) {
+    body.single-projects .project-hero .page-header {
+      padding: 6rem 0; } }
+  body.single-projects .project-hero .page-header h1 {
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); }
+
+body.single-projects section.overview {
+  padding: 2rem 0; }
+  @media screen and (min-width: 768px) {
+    body.single-projects section.overview {
+      padding: 0; } }
+  @media screen and (min-width: 768px) {
+    body.single-projects section.overview .copy-2 {
+      margin-top: -4rem;
+      background: #fff;
+      padding: 2rem;
+      z-index: 10;
+      grid-column: 2 / span 7; } }
+  @media screen and (min-width: 992px) {
+    body.single-projects section.overview .copy-2 {
+      padding: 2rem 3rem;
+      grid-column: 2 / span 8; } }
+  body.single-projects section.overview .copy-2 * {
+    font-weight: bold; }
+
+@media screen and (min-width: 768px) {
+  body.single-projects section.about {
+    grid-column: 2 / span 5;
+    padding-top: 2rem; } }
+
+@media screen and (min-width: 992px) {
+  body.single-projects section.about {
+    grid-column: 2 / span 8; } }
+
+body.single-projects section.about .content-section + .content-section {
+  padding-top: 2rem; }
+
+body.single-projects section.about .content-section .headline {
+  padding-bottom: 1rem; }
+
+body.single-projects section.experts {
+  padding-top: 2rem; }
+  @media screen and (min-width: 768px) {
+    body.single-projects section.experts {
+      grid-column: 7 / span 3; } }
+  @media screen and (min-width: 992px) {
+    body.single-projects section.experts {
+      grid-column: 10 / span 4; } }
+  body.single-projects section.experts .section-header {
+    text-align: center;
+    padding-bottom: 1rem; }
+    body.single-projects section.experts .section-header .section-headline.small {
+      font-size: clamp(1.5rem, 2vw, 2rem); }
+
+body.single-projects section.details {
+  padding: 4rem 0; }
+  body.single-projects section.details .section-header {
+    padding-bottom: 1rem; }
+  @media screen and (min-width: 768px) {
+    body.single-projects section.details .info {
+      grid-column: 2 / span 3; } }
+  @media screen and (min-width: 992px) {
+    body.single-projects section.details .info {
+      grid-column: 2 / span 5; } }
+  body.single-projects section.details .info .vital + .vital {
+    padding-top: 2rem; }
+  body.single-projects section.details .info .vital strong {
+    display: block; }
+  @media screen and (min-width: 768px) {
+    body.single-projects section.details .photo {
+      grid-column: 5 / -1; } }
+  @media screen and (min-width: 992px) {
+    body.single-projects section.details .photo {
+      grid-column: 8 / span 6; } }
+
+body.single-projects section.news {
+  padding-bottom: 6rem; }
+  @media screen and (min-width: 992px) {
+    body.single-projects section.news {
+      padding-bottom: 8rem; } }
+  body.single-projects section.news .section-header {
+    border-top: 4px double #00A69C;
+    padding-top: 4rem; }
+  @media screen and (min-width: 992px) {
+    body.single-projects section.news .news-slider-wrapper {
+      grid-column: 2 / span 8; } }
+  body.single-projects section.news .news-item .photo {
+    position: relative; }
+    body.single-projects section.news .news-item .photo:before {
+      display: block;
+      content: "";
+      width: 100%;
+      padding-top: 56.25%; }
+    body.single-projects section.news .news-item .photo > .content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0; }
+    body.single-projects section.news .news-item .photo img {
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+         object-fit: cover; }
+    body.single-projects section.news .news-item .photo a {
+      display: block;
+      width: 100%;
+      height: 100%; }
+  body.single-projects section.news .news-item .info {
+    padding-top: 2rem; }
+  body.single-projects section.news .news-item .headline a {
+    color: #000; }
+  body.single-projects section.news .news-item .excerpt {
+    padding-top: 1rem; }
+  body.single-projects section.news .news-item .cta {
+    padding-top: 2rem; }
 
 body.single-office section.map .acf-map {
   grid-column: 1 / -1;

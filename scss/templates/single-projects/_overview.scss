@@ -1,0 +1,27 @@
+section.overview {
+    padding: 2rem 0;
+
+    @include tablet {
+        padding: 0;
+    }
+
+    .copy-2 {
+        @include tablet {
+            margin-top: -4rem;
+            background: $white;
+            padding: 2rem;
+            z-index: 10;
+            grid-column: 2 / span 7;
+        }
+
+        @include desktop-small {
+            padding: 2rem 3rem;
+            grid-column: 2 / span 8;
+        }
+
+        * {
+            font-weight: bold;
+
+        }
+    }
+}
