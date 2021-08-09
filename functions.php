@@ -10,3 +10,4 @@ require_once( plugin_dir_path( __FILE__ ) . '/functions/register-blocks.php');
 
 require_once( plugin_dir_path( __FILE__ ) . '/functions/disable-gutenberg-editor.php');
 
+require_once( plugin_dir_path( __FILE__ ) . '/functions/svg.php');

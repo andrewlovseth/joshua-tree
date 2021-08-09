@@ -1,7 +1,11 @@
 body.post-type-archive-service {
 
-    @import 'archive-service/main-services';
+    .page-header {
+        @include desktop-small {
+            padding-bottom: 8rem;
+        }
+    }
 
-    @import 'archive-service/additional-services';
-    
+    @import 'archive-service/services-list';
+
 }
