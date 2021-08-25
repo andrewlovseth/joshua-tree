@@ -175,6 +175,60 @@
                     "ui": 1
                 },
                 {
+                    "key": "field_61268eb5f8b30",
+                    "label": "Client Type",
+                    "name": "client_type",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "public": "Public",
+                        "industry": "Industry",
+                        "tribes": "Tribes",
+                        "non-profit": "Non-Profit"
+                    },
+                    "default_value": false,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_6126979ff16be",
+                    "label": "Type",
+                    "name": "type",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "public": "Public",
+                        "industry": "Industry",
+                        "tribes": "Tribes",
+                        "non-profit": "Non-Profit"
+                    },
+                    "default_value": false,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
                     "key": "field_6054cbf1493ec",
                     "label": "Location",
                     "name": "location",
@@ -192,6 +246,33 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
+                },
+                {
+                    "key": "field_61268ef2f8b32",
+                    "label": "Region",
+                    "name": "region",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "northern-california": "Northern California",
+                        "southern-california": "Southern California",
+                        "oregon": "Oregon",
+                        "washington": "Washington"
+                    },
+                    "default_value": false,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
                 },
                 {
                     "key": "field_6054d322e317e",
@@ -238,7 +319,7 @@
                     "elements": "",
                     "min": "",
                     "max": "",
-                    "return_format": "object"
+                    "return_format": "id"
                 },
                 {
                     "key": "field_6054cc04493ee",
@@ -608,5 +689,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1625784756
+    "modified": 1629919141
 }

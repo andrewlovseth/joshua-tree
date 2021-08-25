@@ -128,8 +128,8 @@
         }
     }
 
-    .projects {
-        padding-top: 4rem;
+    .projects,
+    .clients {
 
         .cta {
             .btn {
@@ -138,6 +138,14 @@
             }
         }
 
+    }
+
+    .projects {
+        padding-top: 4rem;
+    }
+
+    .clients {
+        padding-top: 2rem;
     }
 
 

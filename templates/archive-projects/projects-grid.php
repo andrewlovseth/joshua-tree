@@ -1,42 +1,5 @@
 <section class="projects grid">
-    <div class="projects-grid">
 
-        <?php
-            $args = array(
-                'post_type' => 'projects',
-                'posts_per_page' => 100
-            );
-            $query = new WP_Query( $args );
-            if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
-                <div class="project">
-                    <a href="<?php echo get_permalink(  ); ?>">
-                        <?php $image = get_field('hero_photo'); if( $image ): ?>
-                            <div class="photo">
-                                <div class="content">
-                                    <?php echo wp_get_attachment_image($image['ID'], 'full'); ?>
-                                </div>
-                            </div>
-                        <?php endif; ?>
-
-                        <div class="info">
-                            <div class="info__wrapper">
-                                <div class="market">
-                                    <?php $market = get_field('details_market'); ?>
-                                    <h4><?php echo get_the_title($market->ID); ?></h4>
-                                </div>
-
-                                <div class="headline">
-                                    <h3 class="title-headline small"><?php echo get_the_title(); ?></h3>
-                                </div>
-
-                                <div class="location">
-                                    <h4><?php the_field('details_location'); ?></h4>
-                                </div>
-                            </div>
-                        </div>                    
-                    </a>
-                </div>
-        <?php endwhile; endif; wp_reset_postdata(); ?>
-        
-    </div>
+    <?php echo do_shortcode('[ajax_load_more id="projects" transition_container="false" theme_repeater="project.php" container_type="div" css_classes="projects-grid" filters_url="false" target="projects_filter" filters="true" preloaded="true" preloaded_amount="9" post_type="projects" posts_per_page="24" scroll="false"]'); ?>
+    <div class="alm-results-text"></div>
 </section>

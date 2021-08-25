@@ -1,27 +1,11 @@
 <section class="filters grid">
 
-    <div class="section-header">
-        <h4>Filter projects</h4>
-    </div>
-
-    <div class="filter-grid">
-        <div class="filter market">
-
+    <div class="filters-wrapper">
+        <div class="filters-header">
+            <h4>Filters</h4>
         </div>
 
-        <div class="filter service">
-            
-        </div>
-
-        <div class="filter location">
-            
-        </div>
-
-        <div class="clear">
-
-        </div>
-
-
+        <?php echo do_shortcode('[ajax_load_more_filters id="projects_filter" target="projects"]'); ?>
     </div>
 
 </section>

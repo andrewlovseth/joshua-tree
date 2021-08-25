@@ -1,0 +1,39 @@
+section.filters {
+    padding-bottom: 3rem;
+
+    .filters-wrapper {
+        background: $off-white;
+        padding: 2rem
+    }
+
+    .filters-header {
+        padding-bottom: 1rem;
+
+        h4 {
+            font-weight: bold;
+            font-size: clamp(1.125rem, 1.2vw, 1.25rem);
+        }
+    }
+
+    .alm-filters-container {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(1, 1fr);
+
+        @include tablet-small {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include tablet {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0 1rem;
+        }
+
+        select {
+            width: 100%;
+            height: 2rem;
+            padding: 0 0.5rem;
+            font-size: 0.875rem;
+        }
+    }
+}

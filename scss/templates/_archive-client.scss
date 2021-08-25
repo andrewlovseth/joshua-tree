@@ -1,7 +1,6 @@
 body.post-type-archive-client {
 
     .jump-links {
-        padding-bottom: 4rem;
 
         nav.clients-nav {
             display: flex;
@@ -37,8 +36,8 @@ body.post-type-archive-client {
     .region {
         padding: 8rem 0;
 
-        &:nth-child(odd) {
-            background: $off-white;
+        &:nth-child(even) {
+            background: #fafafa;
         }
 
 
@@ -46,6 +45,7 @@ body.post-type-archive-client {
         .section-header {
             display: flex;
             align-items: center;
+            padding-bottom: 2rem;
 
             .icon {
                 display: flex;
@@ -56,7 +56,7 @@ body.post-type-archive-client {
 
                 .svg {
                     display: block;
-                    max-width: 6.5rem;
+                    max-width: 3.5rem;
                 }
 
                 &:before {
@@ -92,7 +92,7 @@ body.post-type-archive-client {
         }
 
         .client-list {
-            border-top: 1px solid $medium-blue;
+            border-top: 2px solid $dark-blue;
             padding-top: 2rem;
             display: grid;
             gap: 1rem 2rem;

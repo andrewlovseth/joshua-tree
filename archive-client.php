@@ -42,17 +42,8 @@
                     <div class="icon">
                         <span class="svg">
                             <?php 
-                                $stream_opts = [
-                                    "ssl" => [
-                                        "verify_peer"=>false,
-                                        "verify_peer_name"=>false,
-                                    ]
-                                ];
                                 $icon = get_sub_field('icon');
-                                if($icon) {
-                                    $svg = file_get_contents($icon['url'], false, stream_context_create($stream_opts));
-                                    echo $svg;
-                                }
+                                echo esa_svg($icon['url']);       
                             ?>
                         </span>
                     </div>
@@ -64,15 +55,16 @@
 
                 <div class="client-list">
                     <?php
-                        $region = get_sub_field('region');
+                        $type = get_sub_field('label');
                         $args = array(
                             'post_type' => 'client',
                             'posts_per_page' => 100,
-                            'tax_query' => array(
+                            'orderby' => 'title',
+                            'order' => 'ASC',
+                            'meta_query' => array(
                                 array(
-                                    'taxonomy' => 'region',
-                                    'field'    => 'slug',
-                                    'terms'    => $region->slug,
+                                    'key' => 'meta_type',
+                                    'value' => $type
                                 ),
                             ),
                         );
