@@ -9,7 +9,7 @@
     <?php if(get_field('is_sub_market') == TRUE): ?>
         <?php if($parent_market): ?>
             <div class="parent-market copy-3">
-                <a href="<?php echo get_permalink($parent_market->ID); ?>"><?php echo get_the_title($parent_market->ID); ?></a>
+                <a href="<?php echo get_permalink($parent_market->ID); ?>">&lt; Back to <?php echo get_the_title($parent_market->ID); ?></a>
             </div>
         <?php endif; ?>
     <?php endif; ?>

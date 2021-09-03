@@ -1,7 +1,6 @@
 <?php
 
     $curated_news = get_field('news');
-
     $news_category = get_field('news_category');
     $args = array(
         'numberposts' => 2,

@@ -10,9 +10,11 @@
         <?php get_template_part('templates/single-projects/experts'); ?>
     </section>
 
+    <?php get_template_part('templates/single-projects/testimonial'); ?>
+
     <?php get_template_part('templates/single-projects/details'); ?>
 
-    <?php get_template_part('templates/single-projects/news'); ?>
+    <?php get_template_part('template-parts/global/news'); ?>
 
     <?php get_template_part('templates/single-projects/similar-projects'); ?>
 

@@ -51,6 +51,14 @@
                         </a>
                     </div>
                 <?php endforeach; ?>
+
+                <div class="link">
+                        <a href="<?php echo site_url('/services/') ?>">
+                             <span class="icon empty"></span>
+                            <span class="label">All Services</span>
+                        </a>
+                    </div>
+
             </div>
         <?php endif; ?>
     </div>

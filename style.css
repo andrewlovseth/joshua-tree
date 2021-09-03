@@ -708,6 +708,48 @@ body.show-top-btn .top-btn {
     .more-projects .project:hover {
       background: #F9A134; }
 
+section.news {
+  padding-bottom: 6rem; }
+  @media screen and (min-width: 992px) {
+    section.news {
+      padding-bottom: 8rem; } }
+  section.news .section-header {
+    border-top: 4px double #00A69C;
+    padding-top: 4rem; }
+  @media screen and (min-width: 992px) {
+    section.news .news-slider-wrapper {
+      grid-column: 2 / span 8; } }
+  section.news .news-item .photo {
+    position: relative; }
+    section.news .news-item .photo:before {
+      display: block;
+      content: "";
+      width: 100%;
+      padding-top: 56.25%; }
+    section.news .news-item .photo > .content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0; }
+    section.news .news-item .photo img {
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+         object-fit: cover; }
+    section.news .news-item .photo a {
+      display: block;
+      width: 100%;
+      height: 100%; }
+  section.news .news-item .info {
+    padding-top: 2rem; }
+  section.news .news-item .headline a {
+    color: #000; }
+  section.news .news-item .excerpt {
+    padding-top: 1rem; }
+  section.news .news-item .cta {
+    padding-top: 2rem; }
+
 /* Slider */
 .slick-slider {
   position: relative;
@@ -2360,6 +2402,41 @@ body.single-projects section.experts {
     body.single-projects section.experts .section-header .section-headline.small {
       font-size: clamp(1.5rem, 2vw, 2rem); }
 
+body.single-projects section.testimonial {
+  background: #EDEDED;
+  padding: 3rem 0;
+  margin: 3rem 0;
+  align-items: center; }
+  @media screen and (min-width: 768px) {
+    body.single-projects section.testimonial {
+      padding: 6rem 0; } }
+  body.single-projects section.testimonial .icon {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3rem;
+    max-width: 268px; }
+    @media screen and (min-width: 768px) {
+      body.single-projects section.testimonial .icon {
+        justify-content: flex-start;
+        grid-column: 2 / span 3;
+        padding-bottom: 0; } }
+    @media screen and (min-width: 992px) {
+      body.single-projects section.testimonial .icon {
+        grid-column: 2 / span 4; } }
+  @media screen and (min-width: 768px) {
+    body.single-projects section.testimonial .info {
+      grid-column: 5 / span 5; } }
+  @media screen and (min-width: 992px) {
+    body.single-projects section.testimonial .info {
+      grid-column: 6 / span 6; } }
+  body.single-projects section.testimonial .info blockquote {
+    padding: 0;
+    margin: 0; }
+  body.single-projects section.testimonial .info .meta {
+    padding-top: 2rem; }
+    body.single-projects section.testimonial .info .meta .person h4 {
+      font-weight: bold; }
+
 body.single-projects section.details {
   padding: 4rem 0; }
   body.single-projects section.details .section-header {
@@ -2380,48 +2457,6 @@ body.single-projects section.details {
   @media screen and (min-width: 992px) {
     body.single-projects section.details .photo {
       grid-column: 8 / span 6; } }
-
-body.single-projects section.news {
-  padding-bottom: 6rem; }
-  @media screen and (min-width: 992px) {
-    body.single-projects section.news {
-      padding-bottom: 8rem; } }
-  body.single-projects section.news .section-header {
-    border-top: 4px double #00A69C;
-    padding-top: 4rem; }
-  @media screen and (min-width: 992px) {
-    body.single-projects section.news .news-slider-wrapper {
-      grid-column: 2 / span 8; } }
-  body.single-projects section.news .news-item .photo {
-    position: relative; }
-    body.single-projects section.news .news-item .photo:before {
-      display: block;
-      content: "";
-      width: 100%;
-      padding-top: 56.25%; }
-    body.single-projects section.news .news-item .photo > .content {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0; }
-    body.single-projects section.news .news-item .photo img {
-      width: 100%;
-      height: 100%;
-      -o-object-fit: cover;
-         object-fit: cover; }
-    body.single-projects section.news .news-item .photo a {
-      display: block;
-      width: 100%;
-      height: 100%; }
-  body.single-projects section.news .news-item .info {
-    padding-top: 2rem; }
-  body.single-projects section.news .news-item .headline a {
-    color: #000; }
-  body.single-projects section.news .news-item .excerpt {
-    padding-top: 1rem; }
-  body.single-projects section.news .news-item .cta {
-    padding-top: 2rem; }
 
 body.single-office section.map .acf-map {
   grid-column: 1 / -1;

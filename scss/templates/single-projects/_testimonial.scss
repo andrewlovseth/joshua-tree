@@ -1,0 +1,55 @@
+section.testimonial {
+    background: $off-white;
+    padding: 3rem 0;
+    margin: 3rem 0;
+    align-items: center;
+
+    @include tablet {
+        padding: 6rem 0;
+    }
+
+    .icon {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 3rem;
+        max-width: 268px;
+
+        @include tablet {
+            justify-content: flex-start;
+            grid-column: 2 / span 3;
+            padding-bottom: 0;
+        }
+
+        @include desktop-small {
+            grid-column: 2 / span 4;
+        }
+    }
+
+    .info {
+        @include tablet {
+            grid-column: 5 / span 5;
+        }
+
+        @include desktop-small {
+            grid-column: 6 / span 6;
+        }
+
+        blockquote {
+            padding: 0;
+            margin: 0;
+        }
+
+        .meta {
+            padding-top: 2rem;
+            .person {
+                h4 {
+                    font-weight: bold;
+                }
+            }
+        }
+
+    }
+
+
+
+}
