@@ -1,0 +1,29 @@
+section.features {
+    padding-top: 3rem;
+
+    @include tablet {
+        padding-top: 6rem;
+    }
+
+    .two-col-grid {
+        padding: 3rem 0;
+        border-top: 4px double $teal;
+        display: grid;
+        gap: 4rem 2rem;
+    
+        @include tablet {
+            grid-template-columns: repeat(2, 1fr);
+            padding: 6rem 0;
+        }
+    }
+
+
+
+    .headline {
+        padding-bottom: 0.5rem;
+    }
+
+    .copy {
+        padding: 1rem 0 2rem 0;
+    }
+}

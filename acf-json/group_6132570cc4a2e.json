@@ -1,10 +1,10 @@
 {
-    "key": "group_606751e0ac086",
-    "title": "Template: Home",
+    "key": "group_6132570cc4a2e",
+    "title": "Template: Join Us",
     "fields": [
         {
-            "key": "field_606752543cf2e",
-            "label": "About",
+            "key": "field_6132570cc720d",
+            "label": "Page Header",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -19,9 +19,9 @@
             "endpoint": 0
         },
         {
-            "key": "field_6067557cc48f4",
-            "label": "About",
-            "name": "about",
+            "key": "field_6132570cc7213",
+            "label": "Page Header",
+            "name": "page_header",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -34,98 +34,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_6067525d3cf2f",
-                    "label": "Headline",
-                    "name": "headline",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": "",
-                    "new_lines": "br"
-                },
-                {
-                    "key": "field_6067559dffcfa",
-                    "label": "Photo",
-                    "name": "photo",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
-                },
-                {
-                    "key": "field_60995cce9d0e9",
-                    "label": "Link",
-                    "name": "link",
-                    "type": "link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array"
-                }
-            ]
-        },
-        {
-            "key": "field_60996260cc602",
-            "label": "Employee-Owner Spotlight",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_6099627ecc603",
-            "label": "Employee-Owner Spotlight",
-            "name": "employee_owner_spotlight",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_60996283cc604",
+                    "key": "field_6132570cc97ff",
                     "label": "Headline",
                     "name": "headline",
                     "type": "text",
@@ -144,192 +53,9 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_60996289cc605",
-                    "label": "Owners",
-                    "name": "owners",
-                    "type": "relationship",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "post_type": [
-                        "employee",
-                        "leadership"
-                    ],
-                    "taxonomy": "",
-                    "filters": [
-                        "search"
-                    ],
-                    "elements": "",
-                    "min": "",
-                    "max": "",
-                    "return_format": "object"
-                }
-            ]
-        },
-        {
-            "key": "field_61325884e8a88",
-            "label": "Employee-Owner Spotlight (copy)",
-            "name": "employee_owner_spotlight_copy",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_61325884e8a89",
-                    "label": "Headline",
-                    "name": "headline",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_61325884e8a8a",
-                    "label": "Owners",
-                    "name": "owners",
-                    "type": "relationship",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "post_type": [
-                        "employee",
-                        "leadership"
-                    ],
-                    "taxonomy": "",
-                    "filters": [
-                        "search"
-                    ],
-                    "elements": "",
-                    "min": "",
-                    "max": "",
-                    "return_format": "object"
-                }
-            ]
-        },
-        {
-            "key": "field_6099659cefe1e",
-            "label": "Join Us",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_609965a2efe1f",
-            "label": "Join Us",
-            "name": "join_us",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_609965adefe21",
-                    "label": "Headline",
-                    "name": "headline",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_609965a9efe20",
-                    "label": "Photo",
-                    "name": "photo",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
-                },
-                {
-                    "key": "field_6099667e62c0b",
-                    "label": "Sub Headline",
-                    "name": "sub_headline",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_609965b4efe22",
-                    "label": "Dek",
-                    "name": "dek",
+                    "key": "field_6132570cc980b",
+                    "label": "Deck",
+                    "name": "deck",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
@@ -346,9 +72,52 @@
                     "delay": 0
                 },
                 {
-                    "key": "field_609965beefe23",
-                    "label": "Link",
-                    "name": "link",
+                    "key": "field_6132570cc9818",
+                    "label": "Copy",
+                    "name": "copy",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 0
+                },
+                {
+                    "key": "field_6132570cc9821",
+                    "label": "Photo",
+                    "name": "photo",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_613266ffb39b5",
+                    "label": "CTA",
+                    "name": "cta",
                     "type": "link",
                     "instructions": "",
                     "required": 0,
@@ -358,12 +127,261 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": ""
+                    "return_format": "array"
                 }
             ]
         },
         {
-            "key": "field_609965cfefe29",
+            "key": "field_613257f931010",
+            "label": "Why We Work Here",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_613257b93100a",
+            "label": "Why We Work Here",
+            "name": "why_we_work_here",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_613257c93100b",
+                    "label": "Headline",
+                    "name": "headline",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_613257cc3100c",
+                    "label": "Items",
+                    "name": "items",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "collapsed": "",
+                    "min": 0,
+                    "max": 0,
+                    "layout": "block",
+                    "button_label": "+ Add Item",
+                    "sub_fields": [
+                        {
+                            "key": "field_613257d53100d",
+                            "label": "Photo",
+                            "name": "photo",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        },
+                        {
+                            "key": "field_613257d83100e",
+                            "label": "Headline",
+                            "name": "headline",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_613257dd3100f",
+                            "label": "Copy",
+                            "name": "copy",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 0,
+                            "delay": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_6132580131011",
+            "label": "Features",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6132580831014",
+            "label": "Features",
+            "name": "features",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "+ Add Item",
+            "sub_fields": [
+                {
+                    "key": "field_61325989f4b6e",
+                    "label": "Headline",
+                    "name": "headline",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_6132580831015",
+                    "label": "Photo",
+                    "name": "photo",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_6132580831017",
+                    "label": "Copy",
+                    "name": "copy",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 0
+                },
+                {
+                    "key": "field_6132581c31018",
+                    "label": "CTA",
+                    "name": "cta",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                }
+            ]
+        },
+        {
+            "key": "field_6132582a31019",
             "label": "Featured Project",
             "name": "",
             "type": "tab",
@@ -379,7 +397,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_609965c7efe24",
+            "key": "field_61325855763e5",
             "label": "Featured Project",
             "name": "featured_project",
             "type": "group",
@@ -394,7 +412,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_609965c7efe25",
+                    "key": "field_61325855763e6",
                     "label": "Photo",
                     "name": "photo",
                     "type": "image",
@@ -418,7 +436,7 @@
                     "mime_types": ""
                 },
                 {
-                    "key": "field_609965c7efe26",
+                    "key": "field_61325855763e7",
                     "label": "Headline",
                     "name": "headline",
                     "type": "text",
@@ -437,7 +455,7 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_609965c7efe27",
+                    "key": "field_61325855763e8",
                     "label": "Dek",
                     "name": "dek",
                     "type": "wysiwyg",
@@ -456,7 +474,7 @@
                     "delay": 0
                 },
                 {
-                    "key": "field_609965c7efe28",
+                    "key": "field_61325855763e9",
                     "label": "Link",
                     "name": "link",
                     "type": "link",
@@ -473,8 +491,8 @@
             ]
         },
         {
-            "key": "field_609965daefe2a",
-            "label": "News & Ideas",
+            "key": "field_613258a40eb7b",
+            "label": "Employee-Owner Spotlight",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -489,9 +507,9 @@
             "endpoint": 0
         },
         {
-            "key": "field_609965ecefe2b",
-            "label": "News",
-            "name": "news",
+            "key": "field_61325b902f341",
+            "label": "Employee-Owner Spotlight",
+            "name": "employee_owner_spotlight",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -504,7 +522,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_609965f0efe2c",
+                    "key": "field_61325b982f342",
                     "label": "Headline",
                     "name": "headline",
                     "type": "text",
@@ -523,9 +541,9 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_60996a77f2aed",
-                    "label": "Posts",
-                    "name": "posts",
+                    "key": "field_61325b9d2f343",
+                    "label": "Owners",
+                    "name": "owners",
                     "type": "relationship",
                     "instructions": "",
                     "required": 0,
@@ -536,7 +554,8 @@
                         "id": ""
                     },
                     "post_type": [
-                        "post"
+                        "employee",
+                        "leadership"
                     ],
                     "taxonomy": "",
                     "filters": [
@@ -548,6 +567,58 @@
                     "return_format": "object"
                 }
             ]
+        },
+        {
+            "key": "field_6132570cc7230",
+            "label": "Sub Nav",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6132570cc7236",
+            "label": "Sub Nav",
+            "name": "sub_nav",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "+ Add Link",
+            "sub_fields": [
+                {
+                    "key": "field_6132570ce44e2",
+                    "label": "Link",
+                    "name": "link",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                }
+            ]
         }
     ],
     "location": [
@@ -555,7 +626,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/home.php"
+                "value": "templates\/join-us.php"
             }
         ]
     ],
@@ -580,5 +651,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1630689419
+    "modified": 1630693122
 }

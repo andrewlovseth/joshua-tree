@@ -1,0 +1,26 @@
+section.why-we-work-here {
+    padding-top: 3rem;
+
+    @include tablet {
+        padding-top: 6rem;
+    }
+
+    .section-header {
+        padding-bottom: 1.5rem;
+    }
+
+    .item {
+        .headline {
+            padding: 1rem 0;
+            text-align: center;
+
+            h4 {
+                font-weight: bold;
+            }
+        }
+
+        .copy {
+            text-align: center;
+        }
+    }
+}

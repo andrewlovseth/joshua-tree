@@ -17,6 +17,21 @@
         @include desktop-small {
             grid-column: 2 / span 12;
         }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .cta {
+        padding-top: 2rem;
+
+        @include desktop-small {
+            grid-column: 10 / span 4;
+            grid-row: 2;
+            align-self: start;
+            justify-self: end;
+        }
     }
 
 

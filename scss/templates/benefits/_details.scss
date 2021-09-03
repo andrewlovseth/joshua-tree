@@ -1,0 +1,27 @@
+section.details {
+    .two-col-grid {
+        display: grid;
+        gap: 2rem;
+        padding: 3rem 0;
+        border-bottom: 4px double $teal;
+
+        @include tablet {
+            grid-template-columns: repeat(2, 1fr);
+            padding: 3rem 0 6rem 0;
+        }
+
+        .copy {
+            h3 {
+                font-weight: bold;
+                padding-bottom: 0.5rem;
+                font-size: clamp(1.375rem, 1.5vw, 1.75rem);
+            }
+
+            ul, p {
+                & + h3 {
+                    padding-top: 3rem;
+                }
+            }
+        }
+    }
+}
