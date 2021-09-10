@@ -1,0 +1,81 @@
+.archived-posts.search-results {
+
+    .page-header {
+        .results-count {
+            padding-top: 0.5rem;
+
+            p {
+                display: inline-block;
+                background: $teal;
+                padding: 0.75rem 1.25rem 0.675rem 1.25rem;
+                border-radius: 3px;
+                color: $white;
+                font-weight: bold;
+                font-size: 0.75rem;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .search-form-wrapper {
+        background: $dark-teal;
+        grid-column: 1 / -1;
+        padding: 3rem 0;
+    }
+
+    form {
+        display: flex;
+        align-items: center;
+
+        @include desktop-small {
+            grid-column: 2 / span 8;
+        }
+
+        label {
+            display: block;
+            width: 100%;
+            padding-right: 1rem;
+
+            input {
+                width: 100%;
+                border: none;
+                border-radius: 3px;
+                padding: 0 0.75rem;
+                height: 3rem;
+                line-height: 1em;
+                color: $black;
+                font-size: 1.25rem;
+                font-weight: 700;
+
+                &:focus,
+                &:active {
+                    outline-color: $orange;
+                }
+
+                @include placeholder {
+                    color: $medium-gray;
+                }
+            }
+        }
+
+        .search-submit {
+            background: #414141;
+            color: $white;
+            border: none;
+            border-radius: 3px;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+            padding: 0 2rem;
+            height: 3rem;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+
+            &:focus,
+            &:active {
+                outline-color: $blue;
+            }
+        }
+    }
+}

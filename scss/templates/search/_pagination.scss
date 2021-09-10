@@ -1,0 +1,39 @@
+.pagination {
+    border-top: 1px solid $off-white;
+    margin: 6rem 0 3rem 0;
+    padding: 2rem 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    @include desktop-small {
+        margin: 12rem 0 6rem 0;
+    }
+
+    a {
+        font-weight: bold;
+        display: block;
+        padding: 0.5rem 0.75rem;
+        border: 2px solid;
+        margin: 0 0.5rem;
+        font-size: 0.875rem;
+
+        &:hover {
+            background: $dark-teal;
+            color: $white;
+            text-decoration: none;
+            border: 2px solid $dark-teal;
+        }
+    }
+    
+    span.current {
+        font-weight: bold;
+        display: block;
+        padding: 0.5rem 0.75rem;
+        border: 2px solid $dark-teal;
+        margin: 0 0.5rem;
+        color: $white;
+        background: $dark-teal;
+        font-size: 0.875rem;
+    }
+}
