@@ -1,10 +1,13 @@
 <article class="service">
-    <div class="photo">
+    <div class="photo icon">
         <div class="content">
-            <?php $image = get_field('hero_photo'); if( $image ): ?>
-                <?php echo wp_get_attachment_image($image['ID'], 'large'); ?>
-            <?php endif; ?>
-        </div>        
+            <div class="svg">
+                <?php 
+                    $icon = get_field('meta_icon');
+                    echo esa_svg($icon['url']);       
+                ?>
+            </div>
+        </div>
     </div>
 
     <div class="info">

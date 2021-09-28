@@ -19,18 +19,17 @@
             line-height: 1.25em;
             
             &::marker {
-                color: $dark-teal;
-
+                color: $medium-blue;
             }
 
             a {
+                color: $medium-blue;
+
                 &:hover {
                     text-decoration: underline;
                 }
             }
         }
-
-
     }
 }
 
@@ -39,7 +38,7 @@
 
     & > * {
         @include desktop-small {
-            grid-column: 3 / span 10;
+            grid-column: 2 / span 10;
         }
     }
 
@@ -49,7 +48,7 @@
 
     .header {
         padding-bottom: 0.5rem;
-        border-bottom: 2px solid $dark-teal;
+        border-bottom: 2px solid $medium-blue;
 
         h3 {
             display: flex;
@@ -58,75 +57,14 @@
         .icon {
             display: block;
             svg * {
-                fill: $dark-teal;
+                fill: $medium-blue;
             }
         }
 
         .label {
             display: block;
-            color: $dark-teal;
+            color: $medium-blue;
             padding-left: 0.5rem;
-        }
-    }
-
-
-    &:nth-of-type(3n + 2) {
-        .header {
-            border-color: $medium-blue;
-
-            .icon {   
-                svg * {
-                    fill: $medium-blue;
-                }
-            }
-
-            .label {
-                color: $medium-blue;
-            }
-        }
-
-        .sub-services {
-            ul {
-                li {
-                    &::marker {
-                        color: $medium-blue;
-                    }
-
-                    a {
-                        color: $medium-blue;
-                    }
-                }
-            }
-        }
-    }
-
-    &:nth-of-type(3n + 3) {
-        .header {
-            border-color: $light-purple;
-
-            .icon {   
-                svg * {
-                    fill: $light-purple;
-                }
-            }
-
-            .label {
-                color: $light-purple;
-            }
-        }
-
-        .sub-services {
-            ul {
-                li {
-                    &::marker {
-                        color: $light-purple;
-                    }
-
-                    a {
-                        color: $light-purple;
-                    }
-                }
-            }
         }
     }
 }

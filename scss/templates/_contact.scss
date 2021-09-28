@@ -1,33 +1,29 @@
 body.page-template-contact {
 
-    section.contact-form {
-        padding: 3rem 0;
+    .section-header {
+        padding-top: 3rem;
+        border-top: 4px double $teal;      
+    }
+
+    
+    section.offices {
+        padding-bottom: 3rem;
 
         @include tablet {
-            padding: 3rem 0 6rem 0;
-        }
-        
-        .headline {
-            padding-top: 3rem;
-            border-top: 4px double $teal;      
+            padding-bottom: 6rem;
         }
 
-        .copy {
-            padding: 1rem 0 2rem 0;
-
-            @include desktop-small {
-                grid-column: 2 / span 8;
-            }
-        }
-
-        .form-embed {
-            @include desktop-small {
-                grid-column: 2 / span 8;
+        .office {
+            .headline {
+                padding-bottom: 0.25rem;
+                
+                h4 {
+                    font-weight: bold;
+                    font-size: clamp(0.875rem, 0.9vw, 1rem);
+                }
             }
 
-            fieldset > div {
-                margin-top: 0.25rem;
-            }
+
         }
     }
 

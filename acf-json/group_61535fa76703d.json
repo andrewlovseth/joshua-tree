@@ -1,9 +1,9 @@
 {
-    "key": "group_61326b0bafdb4",
-    "title": "Template: Contact",
+    "key": "group_61535fa76703d",
+    "title": "Template: Newsletter",
     "fields": [
         {
-            "key": "field_61326b0bb25d9",
+            "key": "field_61535fa769af2",
             "label": "Page Header",
             "name": "",
             "type": "tab",
@@ -19,7 +19,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_61326b0bb25df",
+            "key": "field_61535fa769af9",
             "label": "Page Header",
             "name": "page_header",
             "type": "group",
@@ -34,7 +34,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_61326b0bb4a3a",
+                    "key": "field_61535fa76c016",
                     "label": "Headline",
                     "name": "headline",
                     "type": "text",
@@ -53,7 +53,7 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_61326b0bb4a41",
+                    "key": "field_61535fa76c01e",
                     "label": "Deck",
                     "name": "deck",
                     "type": "wysiwyg",
@@ -72,7 +72,7 @@
                     "delay": 0
                 },
                 {
-                    "key": "field_61326b0bb4a47",
+                    "key": "field_61535fa76c024",
                     "label": "Copy",
                     "name": "copy",
                     "type": "wysiwyg",
@@ -91,7 +91,7 @@
                     "delay": 0
                 },
                 {
-                    "key": "field_61326b0bb4a4e",
+                    "key": "field_61535fa76c02a",
                     "label": "Photo",
                     "name": "photo",
                     "type": "image",
@@ -115,7 +115,7 @@
                     "mime_types": ""
                 },
                 {
-                    "key": "field_61326b0bb4a53",
+                    "key": "field_61535fa76c030",
                     "label": "CTA",
                     "name": "cta",
                     "type": "link",
@@ -132,8 +132,8 @@
             ]
         },
         {
-            "key": "field_61326b0bb25e6",
-            "label": "Offices",
+            "key": "field_61535fa769aff",
+            "label": "Form",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -148,10 +148,10 @@
             "endpoint": 0
         },
         {
-            "key": "field_61536b8fb8a6e",
-            "label": "Offices Headline",
-            "name": "offices_headline",
-            "type": "text",
+            "key": "field_61535fa769b05",
+            "label": "Form",
+            "name": "form",
+            "type": "group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -160,113 +160,28 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_615369241e7a6",
-            "label": "Offices",
-            "name": "offices",
-            "type": "flexible_content",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layouts": {
-                "layout_615369318b038": {
-                    "key": "layout_615369318b038",
-                    "name": "office",
-                    "label": "Office",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_6153693b1e7a7",
-                            "label": "Name",
-                            "name": "name",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_6153696f1e7a8",
-                            "label": "Address",
-                            "name": "address",
-                            "type": "textarea",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "maxlength": "",
-                            "rows": 4,
-                            "new_lines": "br"
-                        },
-                        {
-                            "key": "field_6153697a1e7a9",
-                            "label": "Phone",
-                            "name": "phone",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_615369861e7aa",
-                            "label": "Map Link",
-                            "name": "map_link",
-                            "type": "url",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": ""
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_61535fa774cd2",
+                    "label": "Code",
+                    "name": "code",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 20,
+                    "new_lines": ""
                 }
-            },
-            "button_label": "+ Add Office",
-            "min": "",
-            "max": ""
+            ]
         }
     ],
     "location": [
@@ -274,7 +189,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/contact.php"
+                "value": "templates\/newsletter.php"
             }
         ]
     ],
@@ -299,5 +214,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1632856983
+    "modified": 1632853940
 }

@@ -23,3 +23,20 @@
         }
 	}
 }
+
+.four-col-grid {
+    display: grid;
+	gap: 4rem 2rem;    
+
+    @include tablet-small {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include tablet {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include desktop-small {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

@@ -72,6 +72,22 @@
                 }
             }
         }
+
+        &.service {
+            .content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            svg {
+                width: 200px !important;
+            }
+
+            svg, g {
+                fill: $medium-blue;
+            }
+        }
     }
 
     .no-results {
