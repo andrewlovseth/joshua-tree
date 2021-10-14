@@ -13,6 +13,3 @@ require_once( plugin_dir_path( __FILE__ ) . '/functions/disable-gutenberg-editor
 require_once( plugin_dir_path( __FILE__ ) . '/functions/svg.php');
 
 require_once( plugin_dir_path( __FILE__ ) . '/functions/ajax-load-more.php');
-
-
-add_filter('https_ssl_verify', '__return_false');
