@@ -1,26 +1,10 @@
 <?php get_header(); ?>
 
-    <section class="page-header grid">
-        <div class="headline">
-            <h1 class="page-title">News & Ideas</h1>
-        </div>
-    </section>
+    <?php get_template_part('templates/index/featured-post'); ?>
 
-    <section class="post-list grid">
 
-        <?php if ( have_posts() ): while ( have_posts() ): the_post(); ?>
+    <?php get_template_part('templates/index/posts'); ?>
 
-            <article <?php post_class(); ?>>
-
-                <section class="article-header">
-                    <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                </section>
-                
-            </article>
-
-        <?php endwhile; endif; ?>
-
-    </section>
 
 
 <?php get_footer(); ?>
