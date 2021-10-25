@@ -2,6 +2,7 @@ body.single-employee {
 
     section.profile {
         padding-bottom: 6rem;
+        text-align: left;
     }
 
     .biography {
@@ -11,6 +12,10 @@ body.single-employee {
 
         @include desktop-small {
             grid-column: 2 / span 8;
+        }
+
+        .long-bio {
+            padding-top: 2rem;
         }
     }
 

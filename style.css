@@ -1718,7 +1718,8 @@ body.single-leadership .leadership-hero {
           font-size: clamp(3.5rem, 4vw, 4.5rem); } }
 
 body.single-leadership section.profile {
-  padding-bottom: 3rem; }
+  padding-bottom: 3rem;
+  text-align: left; }
 
 body.single-leadership .biography {
   background: #fff;
@@ -1887,7 +1888,8 @@ body.page-template-employee-owner-spotlight .more-owners {
       justify-content: center; }
 
 body.single-employee section.profile {
-  padding-bottom: 6rem; }
+  padding-bottom: 6rem;
+  text-align: left; }
 
 body.single-employee .biography .copy-1 {
   padding: 2rem 0; }
@@ -1895,6 +1897,9 @@ body.single-employee .biography .copy-1 {
 @media screen and (min-width: 992px) {
   body.single-employee .biography {
     grid-column: 2 / span 8; } }
+
+body.single-employee .biography .long-bio {
+  padding-top: 2rem; }
 
 body.single-employee .sidebar {
   padding-top: 3rem; }

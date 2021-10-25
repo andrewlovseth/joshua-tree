@@ -1,7 +1,7 @@
 <?php
 
     $info = get_field('info');
-    $photo = $info['hero_photo'];
+    $photo = $info['photo'];
 
     $bio = get_field('biography');
     $short_bio = $bio['short_bio'];
@@ -13,7 +13,9 @@
 
     <?php if( $photo ): ?>
         <div class="photo">
-            <?php echo wp_get_attachment_image($photo['ID'], 'full'); ?>
+            <div class="content">
+                <?php echo wp_get_attachment_image($photo['ID'], 'full'); ?>
+            </div>
         </div>
     <?php endif; ?>
 
