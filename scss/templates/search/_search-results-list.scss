@@ -53,6 +53,11 @@
 
             .copy {
                 padding-top: 1rem;
+
+                em.date {
+                    display: block;
+                    color: $dark-gray;
+                }
             }
 
             .cta {

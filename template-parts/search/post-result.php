@@ -10,6 +10,7 @@
 
 		<div class="copy copy-2">
 			<?php echo wp_trim_words( get_the_content(), 30, '...' ); ?>
+			<em class="date">&mdash; <?php the_time('F j, Y'); ?></em>
 		</div>
 		
 	</div>

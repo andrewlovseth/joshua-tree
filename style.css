@@ -2129,8 +2129,7 @@ body.post-type-archive-projects section.filters {
 body.post-type-archive-projects .alm-reveal {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(1, 1fr);
-  padding-bottom: 4rem; }
+  grid-template-columns: repeat(1, 1fr); }
   @media screen and (min-width: 768px) {
     body.post-type-archive-projects .alm-reveal {
       grid-template-columns: repeat(2, 1fr); } }
@@ -2214,21 +2213,34 @@ body.post-type-archive-projects .project {
     background: #00A69C; }
 
 body.post-type-archive-projects .alm-btn-wrap {
-  padding: 0;
+  padding: 3rem 0 3rem 0;
   margin: 0;
   height: 100%; }
-  body.post-type-archive-projects .alm-btn-wrap .alm-load-more-btn.done {
-    display: none; }
-  body.post-type-archive-projects .alm-btn-wrap .alm-load-more-btn.loading {
-    position: absolute;
-    left: calc(50% - 15px);
-    top: calc(50% - 15px);
-    background: transparent;
-    color: transparent;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-    display: none; }
+  @media screen and (min-width: 768px) {
+    body.post-type-archive-projects .alm-btn-wrap {
+      padding-bottom: 6rem; } }
+  body.post-type-archive-projects .alm-btn-wrap .alm-load-more-btn {
+    background: #00A69C;
+    font-weight: bold;
+    font-size: clamp(0.875rem, 1vw, 1rem);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    height: 3rem;
+    line-height: 1em;
+    padding: 0 3rem;
+    border-radius: 2px; }
+    body.post-type-archive-projects .alm-btn-wrap .alm-load-more-btn.done {
+      display: none; }
+    body.post-type-archive-projects .alm-btn-wrap .alm-load-more-btn.loading {
+      position: absolute;
+      left: calc(50% - 15px);
+      top: calc(50% - 15px);
+      background: transparent;
+      color: transparent;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      display: none; }
 
 body.post-type-archive-projects .alm-results-text .no-results {
   padding: 2rem;
@@ -3386,6 +3398,9 @@ body.search .search-results-list {
       color: #00A69C; }
   body.search .search-results-list article .info .copy {
     padding-top: 1rem; }
+    body.search .search-results-list article .info .copy em.date {
+      display: block;
+      color: #6D6E71; }
   body.search .search-results-list article .info .cta {
     padding-top: 2rem; }
     body.search .search-results-list article .info .cta a.underline {
