@@ -127,3 +127,4 @@ function bearsmith_change_post_object() {
     $wp_post_types['post']->menu_icon = 'dashicons-rss';
 } 
 add_action( 'init', 'bearsmith_change_post_object' );
+

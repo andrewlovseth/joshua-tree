@@ -1,0 +1,46 @@
+section.featured-posts {
+    padding-bottom: 3rem;
+
+    @include tablet {
+        padding-bottom: 4rem;
+    }
+
+    .featured-grid {
+        display: grid;
+        gap: 4rem 2rem;
+
+        @include tablet {
+            grid-template-areas: 
+            "featured-1 featured-1" 
+            "featured-2 featured-3"
+        }
+    }
+
+    .news-item {
+        .info {
+            padding: 2rem;
+            margin-top: -4rem;
+            &__wrapper {
+                padding: 2rem;
+                background: $white;
+            }
+        }
+    }
+
+    .featured-1 {
+        grid-area: featured-1;
+
+        .info__wrapper {
+            max-width: 75%;
+        }
+
+    }
+
+    .featured-2 {
+        grid-area: featured-2;
+    }
+
+    .featured-4 {
+        grid-area: featured-3;
+    }
+}

@@ -1,10 +1,11 @@
 <?php get_header(); ?>
 
-    <?php get_template_part('templates/index/featured-post'); ?>
+    <section class="page-header grid">
+        <h1 class="page-title">News & Ideas</h1>
+    </section>
 
+    <?php get_template_part('templates/news/featured-posts'); ?>
 
-    <?php get_template_part('templates/index/posts'); ?>
-
-
+    <?php get_template_part('templates/news/posts'); ?>
 
 <?php get_footer(); ?>
