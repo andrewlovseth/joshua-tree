@@ -1,8 +1,4 @@
 <article class="generic">
-    <div class="photo">
-        
-    </div>
-
     <div class="info">
         <div class="type">
             <h5><?php echo get_post_type(); ?></h5>

@@ -3285,29 +3285,20 @@ body.page-template-newsletter section.contact-form {
   body.page-template-newsletter section.contact-form .form-embed fieldset > div {
     margin-top: 0.25rem; }
 
-body.search .archived-posts.search-results .page-header .results-count {
-  padding-top: 0.5rem; }
-  body.search .archived-posts.search-results .page-header .results-count p {
-    display: inline-block;
-    background: #72CCD2;
-    padding: 0.75rem 1.25rem 0.675rem 1.25rem;
-    color: #fff;
-    font-weight: bold;
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase; }
-
 body.search .archived-posts.search-results .search-form-wrapper {
-  background: #00A69C;
+  background: #EDEDED;
   grid-column: 1 / -1;
   padding: 3rem 0; }
+  @media screen and (min-width: 992px) {
+    body.search .archived-posts.search-results .search-form-wrapper {
+      padding: 4rem 0; } }
 
 body.search .archived-posts.search-results form {
   display: flex;
   align-items: center; }
   @media screen and (min-width: 992px) {
     body.search .archived-posts.search-results form {
-      grid-column: 2 / span 8; } }
+      grid-column: 2 / span 9; } }
   body.search .archived-posts.search-results form label {
     display: block;
     width: 100%;
@@ -3320,8 +3311,11 @@ body.search .archived-posts.search-results form {
       height: 3rem;
       line-height: 1em;
       color: #000;
-      font-size: 1.25rem;
+      font-size: clamp(1.25rem, 1.6vw, 1.5rem);
       font-weight: 700; }
+      @media screen and (min-width: 768px) {
+        body.search .archived-posts.search-results form label input {
+          height: 4rem; } }
       body.search .archived-posts.search-results form label input:focus, body.search .archived-posts.search-results form label input:active {
         outline-color: #F9A134; }
       body.search .archived-posts.search-results form label input::-webkit-input-placeholder {
@@ -3333,7 +3327,7 @@ body.search .archived-posts.search-results form {
       body.search .archived-posts.search-results form label input:-ms-input-placeholder {
         color: #ADAFB2; }
   body.search .archived-posts.search-results form .search-submit {
-    background: #414141;
+    background: #00A69C;
     color: #fff;
     border: none;
     border-radius: 3px;
@@ -3341,11 +3335,23 @@ body.search .archived-posts.search-results form {
     padding: 0 2rem;
     height: 3rem;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: clamp(1rem, 1.4vw, 1.25rem);
     text-transform: uppercase;
     letter-spacing: 0.1em; }
+    @media screen and (min-width: 768px) {
+      body.search .archived-posts.search-results form .search-submit {
+        height: 4rem;
+        padding: 0 3rem; } }
     body.search .archived-posts.search-results form .search-submit:focus, body.search .archived-posts.search-results form .search-submit:active {
       outline-color: #699CC6; }
+
+body.search .archived-posts.search-results .results-count {
+  padding-top: 3rem; }
+  body.search .archived-posts.search-results .results-count p {
+    display: inline-block;
+    color: #ADAFB2;
+    font-weight: bold;
+    font-size: clamp(1.375rem, 1.8vw, 1.675rem); }
 
 body.search .search-results-list {
   padding-top: 3rem;
@@ -3355,46 +3361,29 @@ body.search .search-results-list {
       padding-top: 6rem; } }
   @media screen and (min-width: 992px) {
     body.search .search-results-list {
-      grid-column: 2 / span 10; } }
-  @media screen and (min-width: 480px) {
-    body.search .search-results-list article {
-      display: grid;
-      gap: 2rem;
-      grid-template-columns: 1fr 2fr;
-      align-items: center; } }
+      grid-column: 2 / span 12; } }
   body.search .search-results-list article + article {
     margin-top: 3rem;
     border-top: 1px solid #EDEDED;
     padding-top: 3rem; }
-  body.search .search-results-list article .photo {
-    position: relative; }
-    body.search .search-results-list article .photo:before {
-      display: block;
-      content: "";
-      width: 100%;
-      padding-top: 75%; }
-    body.search .search-results-list article .photo > .content {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0; }
-    body.search .search-results-list article .photo a, body.search .search-results-list article .photo img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      -o-object-fit: cover;
-         object-fit: cover; }
+  @media screen and (min-width: 992px) {
+    body.search .search-results-list article .info {
+      max-width: 75%; } }
   body.search .search-results-list article .info .type {
     padding-bottom: 0.5rem; }
     body.search .search-results-list article .info .type h5 {
       text-transform: uppercase;
+      letter-spacing: 0.05em;
       font-weight: bold;
-      color: #00A69C; }
+      color: #6D6E71;
+      font-size: clamp(1rem, 1.2vw, 1.125rem); }
+  body.search .search-results-list article .info .headline h4 br {
+    display: none; }
   body.search .search-results-list article .info .headline h4 a {
     color: #000; }
     body.search .search-results-list article .info .headline h4 a:hover {
-      text-decoration: underline; }
+      text-decoration: none;
+      color: #00A69C; }
   body.search .search-results-list article .info .copy {
     padding-top: 1rem; }
   body.search .search-results-list article .info .cta {
@@ -3424,7 +3413,7 @@ body.search .pagination {
   justify-content: flex-start; }
   @media screen and (min-width: 992px) {
     body.search .pagination {
-      margin: 12rem 0 6rem 0; } }
+      margin: 6rem 0 6rem 0; } }
   body.search .pagination a {
     font-weight: bold;
     display: block;

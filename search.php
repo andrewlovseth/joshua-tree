@@ -10,12 +10,6 @@ get_header(); ?>
 
         <section class="page-header">
             <h1 class="page-title">Search Results: <?php echo $search_term; ?></h1>
-
-            <?php if($count > 0): ?>
-                <div class="results-count">
-                    <p><?php echo $count; ?> results</p>
-                </div>                
-            <?php endif; ?>
         </section>
 
         <section class="search-form-wrapper grid">
@@ -31,6 +25,12 @@ get_header(); ?>
                     value="<?php echo esc_attr_x( 'Search', 'submit button' ) ?>" />
             </form>
         </section>
+
+        <?php if($count > 0): ?>
+            <section class="results-count">
+                <p><?php echo $count; ?> Results</p>
+            </section>                
+        <?php endif; ?>
 
 		<div class="search-results-list">
 
