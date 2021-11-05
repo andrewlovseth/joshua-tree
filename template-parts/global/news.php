@@ -2,18 +2,25 @@
 
     $curated_news = get_field('news');
     $news_category = get_field('news_category');
-    $args = array(
-        'numberposts' => 2,
-        'category' => $news_category
-    );    
-    $latest_news = get_posts($args);
+    if($news_category) {
+        $args = array(
+            'numberposts' => 2,
+            'category' => $news_category
+        );
+        $latest_news = get_posts($args);
+    } else {
+        $args = array(
+            'numberposts' => 2
+        );
+        $latest_news = get_posts($args);
+    }
 
-    if($latest_news) {
+    if($latest_new && $curated_news) {
         $news = array_merge($curated_news, $latest_news);
     } else {
         $news = $curated_news;
     }
-
+    
     if($news):
 ?>
 

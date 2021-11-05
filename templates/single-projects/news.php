@@ -3,10 +3,17 @@
     $curated_news = get_field('news');
 
     $news_category = get_field('news_category');
-    $args = array(
-        'numberposts' => 2,
-        'category' => $news_category
-    );    
+    if($news_category) {
+        $args = array(
+            'numberposts' => 2,
+            'category' => $news_category
+        );    
+    } else {
+        $args = array(
+            'numberposts' => 2,
+        );    
+    }
+
     $latest_news = get_posts($args);
 
     if($latest_news) {

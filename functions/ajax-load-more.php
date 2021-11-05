@@ -1,5 +1,5 @@
 <?php
-
+/*
 add_filter('alm_filters_projects_filter_details_market', function(){ 
    
    // Define empty array
@@ -18,7 +18,7 @@ add_filter('alm_filters_projects_filter_details_market', function(){
    if($terms){      	  
       // Add All Item
       $values[] = array( 
-        'label' => '-- All Markets  --',
+        'label' => 'Market',
         'value' => ''
      );	
     foreach( $terms as $term ) { 
@@ -31,7 +31,6 @@ add_filter('alm_filters_projects_filter_details_market', function(){
    }		
    return $values; // Return values	
 });
-
 
 add_filter('alm_filters_projects_filter_detail_services', function(){ 
    
@@ -53,7 +52,7 @@ add_filter('alm_filters_projects_filter_detail_services', function(){
     if($terms){      	  
        // Add All Item
        $values[] = array( 
-         'label' => '-- All Services  --',
+         'label' => 'Services',
          'value' => ''
       );	
      foreach( $terms as $term ) { 
@@ -68,6 +67,8 @@ add_filter('alm_filters_projects_filter_detail_services', function(){
     return $values; // Return values	
  });
 
+
+*/
 
  add_filter('alm_no_results_text', function(){
 	return '<div class="no-results"><p>No results found.</p></div>';

@@ -109,7 +109,13 @@
 
 		});
 
-
+		let clearBtn = document.getElementById('alm-filters-reset-button');
+		clearBtn.addEventListener('click', function(e){
+		   almfilters.reset();
+		   $('.alm-filter--select select option').prop('selected', function() {
+			   return this.defaultSelected;
+			});
+		});
 
 
 

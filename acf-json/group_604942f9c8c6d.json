@@ -221,33 +221,6 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_61268ef2f8b32",
-                    "label": "Region",
-                    "name": "region",
-                    "type": "select",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "northern-california": "Northern California",
-                        "southern-california": "Southern California",
-                        "oregon": "Oregon",
-                        "washington": "Washington"
-                    },
-                    "default_value": false,
-                    "allow_null": 0,
-                    "multiple": 0,
-                    "ui": 0,
-                    "return_format": "value",
-                    "ajax": 0,
-                    "placeholder": ""
-                },
-                {
                     "key": "field_6054d322e317e",
                     "label": "Market",
                     "name": "market",
@@ -266,7 +239,7 @@
                     "taxonomy": "",
                     "allow_null": 0,
                     "multiple": 0,
-                    "return_format": "object",
+                    "return_format": "id",
                     "ui": 1
                 },
                 {
@@ -684,5 +657,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1630687841
+    "modified": 1636131630
 }

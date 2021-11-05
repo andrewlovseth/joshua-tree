@@ -38,7 +38,7 @@
             <div class="vital market copy copy-2">
                 <p>
                     <strong>Market</strong>
-                    <a href="<?php echo get_permalink($market->ID); ?>"><?php echo get_the_title($market->ID); ?></a>
+                    <a href="<?php echo get_permalink($market); ?>"><?php echo get_the_title($market); ?></a>
                 </p>
             </div>
         <?php endif; ?>
@@ -48,7 +48,7 @@
                 <p>
                     <strong>Services</strong>
                     <?php foreach( $services as $service ): ?>
-                        <a href="<?php echo get_permalink( $service->ID ); ?>"><?php echo get_the_title( $service->ID ); ?></a><br/>
+                        <a href="<?php echo get_permalink( $service ); ?>"><?php echo get_the_title( $service ); ?></a><br/>
                     <?php endforeach; ?>
                 </p>
             </div>
