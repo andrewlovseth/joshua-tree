@@ -2239,82 +2239,89 @@ body.post-type-archive-service .service {
       color: #00728F;
       padding-left: 0.5rem; }
 
-body.post-type-archive-client .jump-links nav.clients-nav {
+body.post-type-archive-client .client-tabs nav.clients-nav {
   display: flex;
-  align-items: center;
-  background: #00A69C;
-  padding: 1rem 2rem; }
-  body.post-type-archive-client .jump-links nav.clients-nav span.header {
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    display: block;
-    padding-right: 2rem;
-    color: #fff; }
-  body.post-type-archive-client .jump-links nav.clients-nav .link + .link {
-    padding-left: 2rem; }
-  body.post-type-archive-client .jump-links nav.clients-nav .link a {
-    color: #fff; }
-    body.post-type-archive-client .jump-links nav.clients-nav .link a:hover {
-      text-decoration: underline; }
-
-body.post-type-archive-client .region {
-  padding: 8rem 0; }
-  body.post-type-archive-client .region:nth-child(even) {
-    background: #fafafa; }
-  body.post-type-archive-client .region .section-header {
-    display: flex;
-    align-items: center;
-    padding-bottom: 2rem; }
-    body.post-type-archive-client .region .section-header .icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 7rem;
-      height: 7rem; }
-      body.post-type-archive-client .region .section-header .icon .svg {
-        display: block;
-        max-width: 3.5rem; }
-      body.post-type-archive-client .region .section-header .icon:before {
-        content: '';
-        display: block;
-        width: 90%;
-        height: 90%;
-        background: #004261;
-        border-radius: 50%;
-        position: absolute;
-        z-index: 1; }
-      body.post-type-archive-client .region .section-header .icon svg {
-        position: relative;
-        z-index: 2;
-        width: 100%;
-        height: auto; }
-    body.post-type-archive-client .region .section-header .label {
-      padding-left: 2rem; }
-      body.post-type-archive-client .region .section-header .label h3 {
-        font-weight: bold;
-        font-size: clamp(1.5rem, 3vw, 2rem);
-        text-transform: uppercase;
-        letter-spacing: 0.1em; }
-  body.post-type-archive-client .region .client-list {
-    border-top: 2px solid #004261;
-    padding-top: 2rem;
-    display: grid;
-    gap: 1rem 2rem; }
-    @media screen and (min-width: 480px) {
-      body.post-type-archive-client .region .client-list {
-        grid-template-columns: repeat(2, 1fr); } }
+  align-items: center; }
+  body.post-type-archive-client .client-tabs nav.clients-nav .link + .link {
+    padding-left: 1.5rem; }
     @media screen and (min-width: 768px) {
-      body.post-type-archive-client .region .client-list {
-        grid-template-columns: repeat(3, 1fr); } }
+      body.post-type-archive-client .client-tabs nav.clients-nav .link + .link {
+        padding-left: 4rem; } }
+  body.post-type-archive-client .client-tabs nav.clients-nav .link a {
+    color: #000;
+    font-weight: bold;
+    font-size: clamp(1rem, 1.3vw, 1.125rem);
+    padding-bottom: 0.25rem;
+    border-bottom: 4px solid transparent; }
+    @media screen and (min-width: 768px) {
+      body.post-type-archive-client .client-tabs nav.clients-nav .link a {
+        font-size: clamp(1.25rem, 2vw, 1.5rem); } }
+    body.post-type-archive-client .client-tabs nav.clients-nav .link a:hover, body.post-type-archive-client .client-tabs nav.clients-nav .link a.active {
+      border-color: #F9A134; }
+
+body.post-type-archive-client .client-type {
+  display: none;
+  padding: 3rem 0; }
+  @media screen and (min-width: 768px) {
+    body.post-type-archive-client .client-type {
+      padding: 6rem 0;
+      min-height: 60vh; } }
+  body.post-type-archive-client .client-type.active {
+    display: grid; }
+  @media screen and (min-width: 480px) {
+    body.post-type-archive-client .client-type .client-list {
+      -moz-column-count: 2;
+           column-count: 2; } }
+  @media screen and (min-width: 768px) {
+    body.post-type-archive-client .client-type .client-list {
+      -moz-column-count: 3;
+           column-count: 3; } }
+  body.post-type-archive-client .client-type .client-list .client {
+    -moz-column-break-inside: avoid;
+         break-inside: avoid;
+    margin-bottom: 1.5rem; }
     @media screen and (min-width: 992px) {
-      body.post-type-archive-client .region .client-list .link {
+      body.post-type-archive-client .client-type .client-list .client {
         padding-right: 4rem; } }
-    body.post-type-archive-client .region .client-list a {
-      color: #00728F;
+    body.post-type-archive-client .client-type .client-list .client .name {
       display: inline-block;
-      line-height: 1.125em; }
-      body.post-type-archive-client .region .client-list a:hover {
+      position: relative;
+      line-height: 1.25em;
+      font-size: clamp(0.875rem, 1vw, 1rem); }
+    body.post-type-archive-client .client-type .client-list .client.has-projects .name:after {
+      position: absolute;
+      top: 0.3125rem;
+      right: -1.25rem;
+      content: '';
+      display: inline-block;
+      width: 0.875rem;
+      height: 0.375rem;
+      background: url("data:image/svg+xml,%3Csvg width='22px' height='13px' viewBox='0 0 22 13' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Page-1' stroke='none' stroke-width='4' fill='none' fill-rule='evenodd'%3E%3Cg id='down-svgrepo-com' transform='translate(1.000222, 1.000278)' stroke='%2300A69C' stroke-width='4'%3E%3Cpolyline id='Path' transform='translate(10.085739, 5.173763) scale(-1, 1) rotate(91.000000) translate(-10.085739, -5.173763) ' points='5.08573898 -4.82623746 15.085739 5.17376254 5.08573898 15.1737625'%3E%3C/polyline%3E%3C/g%3E%3C/g%3E%3C/svg%3E") no-repeat 0 0;
+      background-size: contain; }
+    body.post-type-archive-client .client-type .client-list .client.has-projects .name:hover {
+      cursor: pointer; }
+    body.post-type-archive-client .client-type .client-list .client.has-projects .name.active:after {
+      transform: rotate(180deg) translateY(1px); }
+  body.post-type-archive-client .client-type .client-list .projects {
+    padding-top: 0.75rem;
+    display: none; }
+    body.post-type-archive-client .client-type .client-list .projects .project {
+      display: grid;
+      grid-template-columns: 1.5rem 1fr; }
+      body.post-type-archive-client .client-type .client-list .projects .project:before {
+        content: ">>";
+        color: #00A69C;
+        font-weight: bold;
+        font-size: clamp(0.875rem, 1vw, 1rem); }
+      body.post-type-archive-client .client-type .client-list .projects .project + .project {
+        margin-top: 1em; }
+    body.post-type-archive-client .client-type .client-list .projects a {
+      color: #00A69C;
+      font-weight: bold;
+      display: inline-block;
+      line-height: 1.125em;
+      font-size: clamp(0.875rem, 1vw, 1rem); }
+      body.post-type-archive-client .client-type .client-list .projects a:hover {
         text-decoration: underline; }
 
 body.single-projects .project-hero .photo {

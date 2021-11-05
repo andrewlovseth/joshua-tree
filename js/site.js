@@ -86,6 +86,30 @@
 		});
 
 
+		//Clients: Tabs
+		$('.client-tabs a').on('click', function(){
+			let section = $(this).attr('href');
+			console.log(section);
+
+			$('.client-type').removeClass('active');
+			$(section).addClass('active');
+
+			$('.client-tabs a').removeClass('active');
+			$(this).addClass('active');
+
+			return false;
+		});
+
+		// Clients: Projects Toggle
+		$('.client.has-projects .name').on('click', function(){
+			let projects = $(this).siblings('.projects');
+			$(projects).toggle();
+
+			$(this).toggleClass('active');
+
+		});
+
+
 
 
 
