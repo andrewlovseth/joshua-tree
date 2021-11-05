@@ -1,10 +1,75 @@
+
+.service {
+    
+    & + .service {
+        .header {
+            margin-top: 4rem;
+            border-top: 4px double $teal;
+            padding-top: 4rem;
+
+            @include desktop-medium {
+                margin-top: 6rem;
+                padding-top: 6rem;
+            }
+        }
+    }
+
+    &:last-of-type {
+        margin-bottom: 12rem;
+    }
+
+    .header {
+        h3 {
+            display: flex;
+            align-items: center;
+        }
+
+        .icon {
+            display: block;
+            width: 3rem;
+            height: 3rem;
+            margin-right: 0.5rem;
+
+            @include tablet {
+                width: 5rem;
+                height: 5rem;
+            }
+
+            svg {
+                width: 100%;
+                display: block;
+                object-fit: contain;
+                height: 100%;
+
+                
+                * {
+                    fill: $dark-teal;
+                }
+            }
+        }
+
+        .label {
+            display: block;
+            color: $black;
+            padding-left: 0.5rem;
+            font-size: clamp(1.25rem, 1.7vw, 1.5rem);
+            line-height: 1em;
+
+            @include tablet {
+                font-size: clamp(2rem, 2.5vw, 2.75rem);
+            }
+        }
+    }
+}
+
 .sub-services {
-    padding-top: 1rem;
+    padding-top: 2rem;
+
+    @include tablet {
+        padding-top: 4rem;
+    }
 
     ul {
-        list-style: disc;
-        padding-left: 1.125rem;
-
         @include tablet {
             columns: 2;
             column-gap: 2rem;
@@ -15,56 +80,22 @@
         }
 
         li {
-            margin-bottom: 0.5rem;
+            break-inside: avoid;
+            margin-bottom: 1rem;
             line-height: 1.25em;
-            
-            &::marker {
-                color: $medium-blue;
+
+            @include desktop-small {
+                padding-right: 4rem;
             }
 
             a {
-                color: $medium-blue;
+                color: $black;
 
                 &:hover {
-                    text-decoration: underline;
+                    text-decoration: none;
+                    color: $dark-teal;
                 }
             }
-        }
-    }
-}
-
-.service {
-    margin-bottom: 8rem;
-
-    & > * {
-        @include desktop-small {
-            grid-column: 2 / span 10;
-        }
-    }
-
-    &:last-of-type {
-        margin-bottom: 12rem;
-    }
-
-    .header {
-        padding-bottom: 0.5rem;
-        border-bottom: 2px solid $medium-blue;
-
-        h3 {
-            display: flex;
-            align-items: center;
-        }
-        .icon {
-            display: block;
-            svg * {
-                fill: $medium-blue;
-            }
-        }
-
-        .label {
-            display: block;
-            color: $medium-blue;
-            padding-left: 0.5rem;
         }
     }
 }

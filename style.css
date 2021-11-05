@@ -2190,54 +2190,80 @@ body.post-type-archive-projects .alm-results-text .no-results {
 
 @media screen and (min-width: 992px) {
   body.post-type-archive-service .page-header {
-    padding-bottom: 8rem; } }
+    padding-bottom: 6rem; } }
+
+body.post-type-archive-service .service + .service .header {
+  margin-top: 4rem;
+  border-top: 4px double #72CCD2;
+  padding-top: 4rem; }
+  @media screen and (min-width: 1280px) {
+    body.post-type-archive-service .service + .service .header {
+      margin-top: 6rem;
+      padding-top: 6rem; } }
+
+body.post-type-archive-service .service:last-of-type {
+  margin-bottom: 12rem; }
+
+body.post-type-archive-service .service .header h3 {
+  display: flex;
+  align-items: center; }
+
+body.post-type-archive-service .service .header .icon {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  margin-right: 0.5rem; }
+  @media screen and (min-width: 768px) {
+    body.post-type-archive-service .service .header .icon {
+      width: 5rem;
+      height: 5rem; } }
+  body.post-type-archive-service .service .header .icon svg {
+    width: 100%;
+    display: block;
+    -o-object-fit: contain;
+       object-fit: contain;
+    height: 100%; }
+    body.post-type-archive-service .service .header .icon svg * {
+      fill: #00A69C; }
+
+body.post-type-archive-service .service .header .label {
+  display: block;
+  color: #000;
+  padding-left: 0.5rem;
+  font-size: clamp(1.25rem, 1.7vw, 1.5rem);
+  line-height: 1em; }
+  @media screen and (min-width: 768px) {
+    body.post-type-archive-service .service .header .label {
+      font-size: clamp(2rem, 2.5vw, 2.75rem); } }
 
 body.post-type-archive-service .sub-services {
-  padding-top: 1rem; }
-  body.post-type-archive-service .sub-services ul {
-    list-style: disc;
-    padding-left: 1.125rem; }
-    @media screen and (min-width: 768px) {
-      body.post-type-archive-service .sub-services ul {
-        -moz-columns: 2;
-             columns: 2;
-        -moz-column-gap: 2rem;
-             column-gap: 2rem; } }
-    @media screen and (min-width: 992px) {
-      body.post-type-archive-service .sub-services ul {
-        -moz-columns: 3;
-             columns: 3; } }
-    body.post-type-archive-service .sub-services ul li {
-      margin-bottom: 0.5rem;
-      line-height: 1.25em; }
-      body.post-type-archive-service .sub-services ul li::marker {
-        color: #00728F; }
-      body.post-type-archive-service .sub-services ul li a {
-        color: #00728F; }
-        body.post-type-archive-service .sub-services ul li a:hover {
-          text-decoration: underline; }
-
-body.post-type-archive-service .service {
-  margin-bottom: 8rem; }
+  padding-top: 2rem; }
+  @media screen and (min-width: 768px) {
+    body.post-type-archive-service .sub-services {
+      padding-top: 4rem; } }
+  @media screen and (min-width: 768px) {
+    body.post-type-archive-service .sub-services ul {
+      -moz-columns: 2;
+           columns: 2;
+      -moz-column-gap: 2rem;
+           column-gap: 2rem; } }
   @media screen and (min-width: 992px) {
-    body.post-type-archive-service .service > * {
-      grid-column: 2 / span 10; } }
-  body.post-type-archive-service .service:last-of-type {
-    margin-bottom: 12rem; }
-  body.post-type-archive-service .service .header {
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #00728F; }
-    body.post-type-archive-service .service .header h3 {
-      display: flex;
-      align-items: center; }
-    body.post-type-archive-service .service .header .icon {
-      display: block; }
-      body.post-type-archive-service .service .header .icon svg * {
-        fill: #00728F; }
-    body.post-type-archive-service .service .header .label {
-      display: block;
-      color: #00728F;
-      padding-left: 0.5rem; }
+    body.post-type-archive-service .sub-services ul {
+      -moz-columns: 3;
+           columns: 3; } }
+  body.post-type-archive-service .sub-services ul li {
+    -moz-column-break-inside: avoid;
+         break-inside: avoid;
+    margin-bottom: 1rem;
+    line-height: 1.25em; }
+    @media screen and (min-width: 992px) {
+      body.post-type-archive-service .sub-services ul li {
+        padding-right: 4rem; } }
+    body.post-type-archive-service .sub-services ul li a {
+      color: #000; }
+      body.post-type-archive-service .sub-services ul li a:hover {
+        text-decoration: none;
+        color: #00A69C; }
 
 body.post-type-archive-client .client-tabs nav.clients-nav {
   display: flex;
