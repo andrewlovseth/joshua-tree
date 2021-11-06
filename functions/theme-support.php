@@ -5,9 +5,6 @@
 */
 
 
-// Remove Admin bar from front-end
-show_admin_bar(false);
-
 
 // Theme Support for title tags, post thumbnails, HTML5 elements, feed links
 add_theme_support('title-tag');
@@ -128,3 +125,15 @@ function bearsmith_change_post_object() {
 } 
 add_action( 'init', 'bearsmith_change_post_object' );
 
+
+
+
+function exclude_single_posts_home($query) {
+    if( $query->is_main_query() && ! is_admin() && $query->is_home() ) {
+
+        $news_id = get_option('page_for_posts'); 
+        $featured_posts = get_field('featured_posts', $news_id);
+        $query->set('post__not_in', array($featured_posts[0]->ID, $featured_posts[1]->ID, $featured_posts[2]->ID));
+    }
+}
+add_action( 'pre_get_posts', 'exclude_single_posts_home' );

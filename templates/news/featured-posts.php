@@ -1,4 +1,5 @@
 <?php
+
     $news_id = get_option('page_for_posts'); 
     $featured_posts = get_field('featured_posts', $news_id);
 
@@ -22,6 +23,8 @@ if( $featured_posts ): ?>
 
                     <div class="info">
                         <div class="info__wrapper">
+                            <em class="date"><?php the_time('F j, Y'); ?></em>
+    
                             <div class="headline">
                                 <h3 class="title-headline small">
                                     <a href="<?php echo get_permalink( $p->ID ); ?>">

@@ -1,4 +1,14 @@
-body.blog {
+body.blog,
+body.category {
+    .page-header {
+        h4.sub-head {
+            display: inline-block;
+            color: $medium-gray;
+            font-weight: bold;
+            font-size: clamp(1.125rem, 1.4vw, 1.25rem);
+            padding-bottom: 0.5rem;          
+        }
+    }
     @import 'featured-posts';
     
     .post-list {
@@ -12,11 +22,11 @@ body.blog {
             display: grid;
             gap: 4rem 2rem;
 
-            @include tablet-small {
+            @include tablet {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            @include tablet {
+            @include desktop-small {
                 grid-template-columns: repeat(3, 1fr);
             }
         }

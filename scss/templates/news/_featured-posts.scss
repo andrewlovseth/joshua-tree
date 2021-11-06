@@ -7,7 +7,11 @@ section.featured-posts {
 
     .featured-grid {
         display: grid;
-        gap: 4rem 2rem;
+        gap: 2rem;
+        grid-template-areas: 
+        "featured-1" 
+        "featured-2"
+        "featured-3";
 
         @include tablet {
             grid-template-areas: 
@@ -31,9 +35,10 @@ section.featured-posts {
         grid-area: featured-1;
 
         .info__wrapper {
-            max-width: 75%;
+            @include tablet {
+                max-width: 75%;
+            }            
         }
-
     }
 
     .featured-2 {

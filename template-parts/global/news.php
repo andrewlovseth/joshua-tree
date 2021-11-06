@@ -20,7 +20,6 @@
     } else {
         $news = $curated_news;
     }
-    
     if($news):
 ?>
 

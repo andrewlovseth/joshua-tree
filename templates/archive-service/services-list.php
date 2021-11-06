@@ -12,10 +12,12 @@
 
             <div class="header">
                 <h3 class="title-headline small">
-                    <?php if($icon): ?>
-                        <span class="icon"><?php echo $svg; ?></span>
-                    <?php endif; ?>
-                    <span class="label"><?php echo get_the_title($service->ID); ?></span>
+                    <a href="<?php echo get_permalink($service->ID); ?>">
+                        <?php if($icon): ?>
+                            <span class="icon"><?php echo $svg; ?></span>
+                        <?php endif; ?>
+                        <span class="label"><?php echo get_the_title($service->ID); ?></span>
+                    </a>
                 </h3>
             </div>
 
