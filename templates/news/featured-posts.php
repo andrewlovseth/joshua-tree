@@ -23,7 +23,7 @@ if( $featured_posts ): ?>
 
                     <div class="info">
                         <div class="info__wrapper">
-                            <em class="date"><?php the_time('F j, Y'); ?></em>
+                            <em class="date"><?php echo get_the_time('F j, Y',  $p->ID); ?></em>
     
                             <div class="headline">
                                 <h3 class="title-headline small">
