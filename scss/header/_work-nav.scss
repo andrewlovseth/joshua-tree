@@ -59,7 +59,7 @@
 
             a {
                 display: inline-block;
-                font-size: clamp(1.125rem, 1.25vw, 1.625rem);
+                font-size: clamp(1.125rem, 1.25vw, 1.5rem);
                 font-weight: 300;
             }
         }
@@ -147,6 +147,46 @@
     .clients {
         padding-top: 2rem;
     }
+
+    @media screen and (max-height: 1024px) and (min-width: 768px) {
+		//background: red;
+
+        &.active {
+            padding: 3rem 0;
+        }
+
+        .nav-section-header {
+            padding-bottom: 1.5rem;
+        }
+
+        .markets {
+            .link {
+                & + .link {
+                    padding-top: 1rem;
+                }
+            
+                a {
+                    font-size: clamp(1rem, 1vw, 1.125rem);
+                }
+            }
+        }
+
+        .services {
+            .link {
+                padding-bottom: 1rem;
+
+                a {
+                    font-size: clamp(1rem, 1vw, 1.125rem);
+                }
+            }
+        }
+
+        .cta {
+            .btn {
+                font-size: clamp(0.875rem, 1vw, 1rem);
+            }
+        }
+	}
 
 
 }

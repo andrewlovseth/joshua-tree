@@ -1208,7 +1208,7 @@ body.nav-overlay-open .mobile-nav {
     padding-top: 1.5rem; }
   .work-nav .markets .link a {
     display: inline-block;
-    font-size: clamp(1.125rem, 1.25vw, 1.625rem);
+    font-size: clamp(1.125rem, 1.25vw, 1.5rem);
     font-weight: 300; }
   .work-nav .services {
     padding-top: 4rem; }
@@ -1255,6 +1255,21 @@ body.nav-overlay-open .mobile-nav {
     padding-top: 4rem; }
   .work-nav .clients {
     padding-top: 2rem; }
+  @media screen and (max-height: 1024px) and (min-width: 768px) {
+    .work-nav.active {
+      padding: 3rem 0; }
+    .work-nav .nav-section-header {
+      padding-bottom: 1.5rem; }
+    .work-nav .markets .link + .link {
+      padding-top: 1rem; }
+    .work-nav .markets .link a {
+      font-size: clamp(1rem, 1vw, 1.125rem); }
+    .work-nav .services .link {
+      padding-bottom: 1rem; }
+      .work-nav .services .link a {
+        font-size: clamp(1rem, 1vw, 1.125rem); }
+    .work-nav .cta .btn {
+      font-size: clamp(0.875rem, 1vw, 1rem); } }
 
 nav.search-nav {
   background: #00A69C;
