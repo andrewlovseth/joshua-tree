@@ -8,25 +8,40 @@ section.featured-posts {
     .featured-grid {
         display: grid;
         gap: 2rem;
+        grid-column: 1 / -1;
         grid-template-areas: 
         "featured-1" 
         "featured-2"
         "featured-3";
 
         @include tablet {
+            grid-column: 2 / span 8;
             grid-template-areas: 
             "featured-1 featured-1" 
             "featured-2 featured-3"
+        }
+
+        @include desktop-small {
+            grid-column: 2 / span 12;
         }
     }
 
     .news-item {
         .info {
-            padding: 2rem;
+            padding: 1rem;
             margin-top: -4rem;
-            &__wrapper {
+
+            @include desktop-small {
                 padding: 2rem;
+            }
+
+            &__wrapper {
+                padding: 1.5rem;
                 background: $white;
+
+                @include desktop-small {
+                    padding: 2rem;
+                }
             }
         }
     }

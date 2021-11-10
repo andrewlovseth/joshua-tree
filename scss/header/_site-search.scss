@@ -8,6 +8,10 @@
 
     a {
         display: block;
+
+        &:hover {
+            cursor: pointer;
+        }
         
         img {
             width: 100%;

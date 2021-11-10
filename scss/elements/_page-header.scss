@@ -34,5 +34,16 @@
         }
     }
 
+    .page-count {
+        padding-top: 0.5rem;
+
+        h4 {
+            color: $dark-gray;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+
+        }
+    }
+
 
 }

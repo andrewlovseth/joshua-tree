@@ -24,6 +24,20 @@
 		$('.smooth').smoothScroll();
 
 
+		// Mobile Nav Dropdown Toggle
+		$('.mobile-nav .dropdown .section-header').on('click', function() {
+
+			let subnav = $(this).attr('href');
+			let dropdown = $(this).closest('.dropdown');
+
+			$(subnav).slideToggle(400).toggleClass('active');;
+			$(dropdown).toggleClass('active');
+
+			return false;
+		});
+
+
+
 		// Tab Links
 		$('.tab-links a').on('click', function() {
 			$('.tab-links a').removeClass('active');
@@ -110,7 +124,7 @@
 		});
 
 		let clearBtn = document.getElementById('alm-filters-reset-button');
-		clearBtn.addEventListener('click', function(e){
+		$(clearBtn).on('click', function(e){
 		   almfilters.reset();
 		   $('.alm-filter--select select option').prop('selected', function() {
 			   return this.defaultSelected;
