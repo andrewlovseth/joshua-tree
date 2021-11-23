@@ -7,32 +7,13 @@ section.filters {
 
     .filters-header {
         padding-bottom: 2rem;
-
-        @include tablet {
-            padding-bottom: 3rem;
-        }
     }
 
-    .alm-filters-container {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-
+    .alm-filters-container {        
         .alm-filter {
             width: 100%;
             margin-bottom: 1rem;
-
-            @include tablet {
-                margin-bottom: 0;
-                width: auto;
-
-                & + .alm-filter {
-                    padding-left: 3rem;
-                }
-            }
-
-
-
+            max-width: 30rem;
 
             &--select {
                 position: relative;
@@ -40,7 +21,7 @@ section.filters {
                 &:after {
                     position: absolute;
                     top: 0.75rem;
-                    left: 0;
+                    right: 0.5rem;
                     content: '';
                     display: inline-block;
                     width: 1rem;
@@ -52,18 +33,16 @@ section.filters {
         }
 
         select {
-            width: 100%;            
+            width: 100%;
+            max-width: 30rem; 
             height: 2rem;
-            padding: 0 1.75rem;
+            padding: 0 1.75rem 0.25rem 0.75rem;
             font-size: 1.25rem;
             border: none;
+            border-bottom: 1px solid $light-gray;
             background: $white;
             appearance: none;
             overflow: visible;
-
-            @include tablet {
-                max-width: 12rem;
-            }
 
             &:active,
             &:focus {
@@ -73,16 +52,6 @@ section.filters {
 
         .alm-filters--reset {
             width: 100%;
-
-            @include tablet {
-                margin-top: 2rem;
-            }
-
-            @include desktop-small {
-                width: auto;
-                margin-left: 4rem;
-                margin-top: 0;
-            }
 
             &:before {
                 content: '✕';

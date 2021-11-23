@@ -1,0 +1,22 @@
+.news-grid {
+    display: grid;
+    gap: 4rem 2rem;
+
+    @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include desktop-small {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.news-item {
+    .info {
+        padding-top: 1rem;
+    }
+
+    .cta {
+        padding-top: 1rem;
+    }
+}

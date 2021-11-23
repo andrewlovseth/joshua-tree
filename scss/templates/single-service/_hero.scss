@@ -8,7 +8,7 @@
         @include cover-fill-image;
 
         @include tablet {
-            @include aspect-ratio(16, 9);
+            @include aspect-ratio(16, 7);
             max-height: 70vh;
         }
     }

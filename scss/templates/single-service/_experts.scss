@@ -1,0 +1,29 @@
+.experts {
+    padding: 3rem 0;
+    display: grid;
+    gap: 2rem;
+
+    @include tablet-small {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include tablet {
+        grid-template-columns: repeat(3, 1fr);
+        padding-bottom: 6rem;
+    }
+
+    @include desktop-small {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .section-header {
+        grid-column: 1 / -1;
+        padding-bottom: 0;
+        padding-left: 1rem;
+
+        @include tablet {
+            padding-left: 2rem;
+        }
+    }
+
+}

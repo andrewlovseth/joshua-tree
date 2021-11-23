@@ -6,8 +6,7 @@
         'category__in' => $cats 
 	);
 	$query = new WP_Query( $args );
-	if ( $query->have_posts() ) : ?>
-
+	if ( $query->have_posts()): ?>
 
     <section class="news grid">
         <div class="section-header">

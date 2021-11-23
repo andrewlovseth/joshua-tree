@@ -539,31 +539,6 @@
             "endpoint": 0
         },
         {
-            "key": "field_6054cd1f77530",
-            "label": "News",
-            "name": "news",
-            "type": "relationship",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "post"
-            ],
-            "taxonomy": "",
-            "filters": [
-                "search"
-            ],
-            "elements": "",
-            "min": "",
-            "max": "",
-            "return_format": "object"
-        },
-        {
             "key": "field_61325229b4b33",
             "label": "News Category",
             "name": "news_category",
@@ -657,5 +632,6 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1636131630
+    "show_in_rest": 0,
+    "modified": 1637628892
 }

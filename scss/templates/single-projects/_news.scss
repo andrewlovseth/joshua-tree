@@ -1,18 +1,7 @@
 section.news {
-    padding-bottom: 6rem;
+    padding: 4rem 0;
 
     @include desktop-small {
         padding-bottom: 8rem;
-    }
-
-    .section-header {
-        border-top: 4px double $dark-teal;
-        padding-top: 4rem;
-    }
-
-    .news-slider-wrapper {
-        @include desktop-small {
-            grid-column: 2 / span 8;
-        }
     }
 }

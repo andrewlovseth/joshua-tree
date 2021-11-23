@@ -52,7 +52,7 @@
 
                     <div class="info">
                         <div class="name">
-                            <h3><?php echo get_the_title($expert->ID); ?></h3>
+                            <h3><a href="<?php echo get_permalink($expert->ID); ?>"><?php echo get_the_title($expert->ID); ?></a></h3>
                         </div>
                         
                         <div class="meet vital">

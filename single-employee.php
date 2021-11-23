@@ -5,7 +5,7 @@
         get_template_part('templates/about/sub-nav', null, $args);
     ?>
 
-    <?php get_template_part('templates/single-employee/page-header'); ?>
+    <?php get_template_part('templates/single-employee/hero'); ?>
 
     <section class="profile grid">
         <?php get_template_part('templates/single-employee/bio'); ?>

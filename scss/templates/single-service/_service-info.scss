@@ -1,31 +1,32 @@
 .service-info {
 
     .about {
+
         @include tablet {
-            grid-column: 5 / span 5;
+            grid-column: 2 / span 6;
         }
 
-        @include desktop-small {
-            grid-column: 6 / span 8;
+        @include tablet {
+            grid-column: 2 / span 9;
         }
 
         .copy-2 {
             background: $white;
             margin-top: -3rem;
             z-index: 10;
-            padding: 1rem;
+            padding: 1rem 1rem 0 1rem;
 
             @include tablet {
-                padding: 2rem;
+                padding: 2rem 2rem 1rem 2rem;
                 margin-top: -6rem;
             }
         }
 
         .sub-services {
-            padding: 1rem;
+            padding: 0 1rem 3rem 1rem;
 
             @include tablet {
-                padding: 1rem 2rem;
+                padding: 0 2rem 3rem 2rem;
             }
 
             h4 {
@@ -35,29 +36,13 @@
             }
 
             ul {
+                list-style-type: disc;
+                margin-left: 1.25rem;
+
                 li {
                     padding-bottom: 0.5rem;
-
-                    a {
-                        font-weight: bold;
-                    }
                 }
             }
         }        
-    }
-
-    .experts {
-        text-align: center;
-        padding: 3rem 0;
-
-        @include tablet {
-            grid-row: 1;
-            grid-column: 2 / span 3;
-        }
-
-        @include desktop-small {
-            padding: 6rem 0;
-            grid-column: 2 / span 4;
-        }
     }
 }

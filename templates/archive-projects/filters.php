@@ -2,7 +2,7 @@
 
     <div class="filters-wrapper">
         <div class="filters-header">
-            <h4 class="title-headline small">Filter projects</h4>
+            <h4 class="title-headline small">Click on the drop-downs below to refine your search</h4>
         </div>
 
         <?php echo do_shortcode('[ajax_load_more_filters id="projects_filter" target="projects"]'); ?>

@@ -14,8 +14,8 @@
 
     <?php get_template_part('templates/single-projects/details'); ?>
 
-    <?php get_template_part('template-parts/global/news'); ?>
-
     <?php get_template_part('templates/single-projects/similar-projects'); ?>
+
+    <?php get_template_part('template-parts/global/news-grid'); ?>
 
 <?php get_footer(); ?>

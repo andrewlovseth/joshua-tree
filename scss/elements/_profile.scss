@@ -1,14 +1,10 @@
 .profile {
     text-align: center;
 
-    & + .profile {
-        margin-top: 3rem;
-    }
-
     .photo {
         @include aspect-ratio(1,1);
         @include cover-fill-image;
-        max-width: 16rem;
+        max-width: 12rem;
         margin: 0 auto;
 
         a {
@@ -36,7 +32,11 @@
         .name {
             h3 {
                 font-weight: bold;
-                font-size: clamp(1rem, 1.1vw, 1.125rem);
+                font-size: clamp(0.875rem, 1.1vw, 1rem);
+
+                a {
+                    color: $black;
+                }
             }
         }
         .vital {

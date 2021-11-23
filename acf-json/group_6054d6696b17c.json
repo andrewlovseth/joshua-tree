@@ -34,25 +34,6 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_6054d67e0f935",
-                    "label": "Location",
-                    "name": "location",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
                     "key": "field_6126979ff16be",
                     "label": "Type",
                     "name": "type",
@@ -61,7 +42,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "100",
                         "class": "",
                         "id": ""
                     },
@@ -112,5 +93,6 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1629919174
+    "show_in_rest": 0,
+    "modified": 1637628883
 }
