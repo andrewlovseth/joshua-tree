@@ -71,6 +71,15 @@
             </div>
         <?php endif; ?>
 
+        <?php if($linkedin): ?>
+            <div class="vital social">
+                <div class="social-links">
+                    <div class="link linkedin">
+                        <a href="<?php echo $linkedin; ?>" rel="external"><img src="<?php bloginfo('template_directory'); ?>/images/icon-linkedin.svg" alt="LinkedIn" /></a>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
     </div>
 
 <?php endwhile; endif; ?>

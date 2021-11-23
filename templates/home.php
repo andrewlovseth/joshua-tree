@@ -17,6 +17,6 @@ get_header(); ?>
 
     <?php get_template_part('templates/home/featured-project'); ?>
 
-    <?php get_template_part('templates/home/news-and-ideas'); ?>
+    <?php get_template_part('template-parts/global/news-grid'); ?>
 
 <?php get_footer(); ?>
