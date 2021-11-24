@@ -2,7 +2,7 @@
 
     $info = get_field('info');
     $position = $info['position'];
-    $terms = get_terms('region');
+    $terms = get_the_terms($post->ID, 'region');
 
     if($terms) {
         $region = '';

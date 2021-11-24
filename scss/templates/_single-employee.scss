@@ -73,6 +73,18 @@ body.single-employee {
             }
         }
 
+        .position {
+            span {
+                display: block;
+                font-size: 0.875em;
+                line-height: 1.375em;
+                
+                &.region {
+                    font-style: italic;
+                }
+            }
+        }
+
         .education-item {
             & + .education-item {
                 padding-top: 1.25rem;

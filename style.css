@@ -351,15 +351,44 @@ a {
 .copy-1.extended > *, .copy-2.extended > *, .copy-3.extended > * {
   margin-bottom: 2rem; }
 
-.copy ul {
+.copy-1.extended h1, .copy-1.extended h2, .copy-1.extended h3, .copy-1.extended h4, .copy-1.extended h5, .copy-1.extended h6, .copy-2.extended h1, .copy-2.extended h2, .copy-2.extended h3, .copy-2.extended h4, .copy-2.extended h5, .copy-2.extended h6, .copy-3.extended h1, .copy-3.extended h2, .copy-3.extended h3, .copy-3.extended h4, .copy-3.extended h5, .copy-3.extended h6 {
+  line-height: 1.375em; }
+
+.copy-1.extended h1, .copy-2.extended h1, .copy-3.extended h1 {
+  font-weight: 800;
+  font-size: clamp(3rem, 5vw, 4rem); }
+
+.copy-1.extended h2, .copy-2.extended h2, .copy-3.extended h2 {
+  font-size: clamp(2.5rem, 3.8vw, 3.75rem);
+  font-weight: 700; }
+
+.copy-1.extended h3, .copy-2.extended h3, .copy-3.extended h3 {
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.4vw, 2.25rem); }
+
+.copy-1.extended h4, .copy-2.extended h4, .copy-3.extended h4 {
+  font-weight: normal;
+  font-size: clamp(1.25rem, 1.75vw, 1.625rem); }
+
+.copy-1.extended h5, .copy-2.extended h5, .copy-3.extended h5 {
+  font-size: clamp(1.375rem, 1.6vw, 1.75rem);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  padding-top: 1rem; }
+
+.copy-1.extended h6, .copy-2.extended h6, .copy-3.extended h6 {
+  font-weight: normal;
+  font-size: clamp(1.25rem, 1.75vw, 1.625rem); }
+
+.copy-1.extended ul, .copy-2.extended ul, .copy-3.extended ul {
   list-style-type: disc; }
 
-.copy ol {
+.copy-1.extended ol, .copy-2.extended ol, .copy-3.extended ol {
   list-style-type: decimal; }
 
-.copy ul, .copy ol {
+.copy-1.extended ul, .copy-1.extended ol, .copy-2.extended ul, .copy-2.extended ol, .copy-3.extended ul, .copy-3.extended ol {
   padding-left: 1.5rem; }
-  .copy ul li + li, .copy ol li + li {
+  .copy-1.extended ul li + li, .copy-1.extended ol li + li, .copy-2.extended ul li + li, .copy-2.extended ol li + li, .copy-3.extended ul li + li, .copy-3.extended ol li + li {
     padding-top: 0.5rem; }
 
 body {
@@ -2080,6 +2109,13 @@ body.single-employee .sidebar .vital h4 {
   color: #000;
   font-weight: bold; }
 
+body.single-employee .sidebar .position span {
+  display: block;
+  font-size: 0.875em;
+  line-height: 1.375em; }
+  body.single-employee .sidebar .position span.region {
+    font-style: italic; }
+
 body.single-employee .sidebar .education-item + .education-item {
   padding-top: 1.25rem; }
 
@@ -3436,32 +3472,6 @@ body.single-post .article-body {
       body.single-post .article-body .copy {
         grid-column: 2 / span 8;
         margin-top: -10vh; } }
-    body.single-post .article-body .copy > h4:first-of-type {
-      font-size: 1.25em;
-      line-height: 1.5em; }
-      @media screen and (min-width: 768px) {
-        body.single-post .article-body .copy > h4:first-of-type {
-          font-size: 1.5em; } }
-    body.single-post .article-body .copy h1 {
-      font-weight: 800;
-      font-size: clamp(3rem, 5vw, 4rem); }
-    body.single-post .article-body .copy h2 {
-      font-size: clamp(2.5rem, 3.8vw, 3.75rem);
-      font-weight: 700; }
-    body.single-post .article-body .copy h3 {
-      font-weight: 700;
-      font-size: clamp(1.5rem, 2.4vw, 2.25rem); }
-    body.single-post .article-body .copy h4 {
-      font-weight: normal;
-      font-size: clamp(1.25rem, 1.75vw, 1.625rem); }
-    body.single-post .article-body .copy h5 {
-      font-size: clamp(1.375rem, 1.6vw, 1.75rem);
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-      padding-top: 1rem; }
-    body.single-post .article-body .copy h6 {
-      font-weight: normal;
-      font-size: clamp(1.25rem, 1.75vw, 1.625rem); }
     body.single-post .article-body .copy .alignleft {
       float: left;
       margin: 0 2rem 2rem 0; }
@@ -3497,6 +3507,8 @@ body.single-post .article-body {
       font-size: clamp(0.75rem, 1vw, 0.875rem); }
     body.single-post .article-body .sidebar a {
       font-weight: normal; }
+      body.single-post .article-body .sidebar a:hover {
+        text-decoration: underline; }
     body.single-post .article-body .sidebar .module + .module {
       padding-top: 3rem; }
     body.single-post .article-body .sidebar .categories p {
