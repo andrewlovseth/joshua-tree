@@ -132,6 +132,17 @@
 		});
 
 
+		// JEDI timeline
+        $('.js-progress-timeline').slick({
+            dots: true,
+            arrows: false,
+            infinite: false,
+            speed: 600,
+            adaptiveHeight: true,
+            variableWidth: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+        });
 
 	});
 

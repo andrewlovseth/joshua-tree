@@ -1,0 +1,5 @@
+section.news {
+    @include desktop-small {
+        padding-bottom: 8rem;
+    }
+}

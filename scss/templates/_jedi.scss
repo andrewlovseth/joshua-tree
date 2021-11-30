@@ -1,0 +1,13 @@
+body.page-template-jedi {
+    @import 'jedi/page-header';
+    
+    @import 'jedi/scholarship';
+
+    @import 'jedi/outreach-and-internship';
+
+    section.news {
+        padding: 0;
+    }
+
+    @import 'jedi/timeline';
+}

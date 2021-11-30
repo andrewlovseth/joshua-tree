@@ -1,0 +1,75 @@
+section.timeline {
+    @include section-spacing;
+
+    .section-header {
+        padding-bottom: 2rem;
+
+        .copy {
+            padding-top: 1rem;
+        }
+    }
+
+    .progress-timeline,
+    .js-progress-timeline {
+        display: block;
+    }
+
+
+    .entry-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .photo {            
+            @include tablet {
+                width: calc(50% - 1rem);
+            }        
+        }
+
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .info {
+            padding-top: 1rem;
+
+            @include tablet {
+                padding-top: 0;
+                width: calc(50% - 1rem);
+            }
+
+            .year {
+                h4 {
+                    font-weight: 700;
+                    color: $orange;
+
+                    &:after {
+                        display: block;
+                        content: '';
+                        width: 30px;
+                        height: 3px;
+                        background: $orange;
+                        margin-bottom: 1rem;
+                        margin-top: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .slick-dots {
+        bottom: -3rem;
+    }
+
+    .slick-dots li button:before {
+        font-size: 10px;
+        color: $dark-teal;
+    }
+
+    .slick-dots li.slick-active button:before {
+        color: $orange;
+    }
+    
+}

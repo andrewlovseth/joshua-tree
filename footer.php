@@ -10,7 +10,7 @@
 
 	</footer>
 
-	<?php get_template_part('template-parts/footer/top-btn'); ?>
+	<?php //get_template_part('template-parts/footer/top-btn'); ?>
 
 <?php wp_footer(); ?>
 

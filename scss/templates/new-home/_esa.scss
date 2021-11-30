@@ -1,0 +1,200 @@
+section.esa {
+    @include section-spacing;
+    max-width: 1920px;
+    margin: 0 auto;
+
+    .section-header {
+        padding-bottom: 1rem;
+    }
+
+    .esa-grid {
+        grid-column: 1 / -1;
+        display: grid;
+        gap: 0.5rem;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+        "people-1 people-1 people-1"
+        "cta-1 cta-1 photo-1"
+        "message message message"
+        "people-2 people-2 people-2"
+        "photo-2 cta-2 cta-2"
+        "people-3 people-3 people-3"
+        "cta-3 cta-3 photo-3"
+        "people-4 people-4 people-4"
+        "photo-4 photo-4 photo-4";
+
+
+        @include tablet {
+            grid-template-rows: repeat(5, 30vh);
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-areas:
+            "people-1 people-1 message message"
+            "cta-1 photo-1 message message"
+            "photo-2 photo-2 people-2 people-2"
+            "people-3 people-3 cta-3 photo-4"
+            "cta-2 photo-3 people-4 people-4";
+        }
+
+
+        
+        @include desktop-medium {
+            grid-template-rows: repeat(5, 25vh);
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-areas:
+            "people-1 photo-1 photo-1 message message"
+            "cta-1 photo-1 photo-1 message message"
+            "people-2 people-2 photo-2 message message"
+            "photo-3 people-3 people-3 cta-3 cta-3"
+            "cta-2 people-3 people-3 photo-4 people-4";
+        }
+
+    }
+
+    .logo {
+        margin-left: auto;
+        margin-bottom: 2rem;
+        max-width: 5rem;
+
+        @include tablet {
+            max-width: 8rem;
+        }
+    }
+
+    .message {
+        grid-area: message;
+        background: $dark-teal;
+        color: $white;
+        padding: 2rem;
+        text-align: right;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        @include desktop-small {
+            padding: 5rem;
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+            font-size: clamp(1rem, 1.25vw, 1.125rem);
+            line-height: 1.5em;
+
+            @include tablet {
+                font-size: clamp(1.75rem, 2vw, 2.25rem);
+            }
+
+        }
+    }
+
+    .cta {
+        background: rgba(0, 114, 143, 0.25);
+
+        a {
+            color: $black;
+        }
+
+        &-2 {
+            background: rgba(0, 166, 156, 0.25);
+
+        }
+
+
+
+        a {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .copy {
+            padding-top: 0.5rem;
+        }
+
+
+        .more {
+            display: inline-block;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 1rem;
+            border-bottom: 2px solid;
+        }
+    }
+
+    .photo {
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .people {
+        background: rgba(0, 166, 156, 0.5);
+
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .photo {
+            width: 100%;
+            height: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.25);
+            padding: 1rem;
+            width: 100%;
+
+            .headline {
+                h4 {
+                    font-weight: bold;
+                    color: $white;
+                    text-transform: uppercase;
+                    letter-spacing: 0.1em;
+                    font-size: clamp(0.75em, 1vw, 0.875rem);
+                }
+            }
+        }
+    }
+
+    @for $i from 1 through 3 {
+        .cta-#{$i} {
+            grid-area: cta-#{$i};
+        }
+    }
+
+    @for $i from 1 through 4 {
+        .people-#{$i} {
+            grid-area: people-#{$i};
+        }
+    }
+
+    .people-1 {
+        img {
+            object-position: left center;
+        }
+    }
+
+    @for $i from 1 through 4 {
+        .photo-#{$i} {
+            grid-area: photo-#{$i};
+        }
+    }
+
+}

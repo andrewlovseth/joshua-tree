@@ -1,0 +1,90 @@
+section.featured-projects {
+    max-width: 1920px;
+    margin: 0 auto;
+
+    .section-header {
+        padding-bottom: 1rem;
+
+        h2 {
+            color: $dark-gray;
+        }
+    }
+
+    .slider-wrapper {
+        grid-column: 1 / -1;
+
+    }
+
+    .project {
+        .info {
+            max-width: 1216px;
+            width: calc(100% - 4rem);
+            margin: 0 auto;
+            transform: translateY(-2rem);
+
+            &-wrapper {
+                max-width: 800px;
+                background: $white;
+                padding: 2rem;
+                box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
+            }
+        }
+
+        .market {
+            padding-bottom: 0.5rem;
+
+            h4 {
+                text-transform: uppercase;
+                font-weight: bold;
+                letter-spacing: 0.05em;
+                
+                a {
+                    color: $orange;
+                }
+            }
+        }
+
+        .headline {
+            h3 {
+                line-height: 1em;
+                a {
+                    color: $black;
+                }
+            }
+        }
+
+        .location {
+            padding: 1rem 0 1rem 0;
+
+            h4 {
+                text-transform: uppercase;
+                font-weight: bold;
+                letter-spacing: 0.05em;
+                color: $medium-gray;
+            }
+        }
+
+        .copy {
+            strong {
+                font-weight: normal;
+            }
+        }
+    }
+
+    .slick-dots {
+        transform: translateY(-2rem);
+
+        li {
+            button:before {
+                border-color: $orange;
+
+            }
+
+            &.slick-active {
+                button:before {
+                    background: $orange;
+                }
+            }
+        }
+    }
+}
