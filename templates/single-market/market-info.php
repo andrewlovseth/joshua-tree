@@ -51,41 +51,11 @@
                 <h3 class="section-headline">Market<br/>Lead</h3>
             </div>
 
-            <div class="profile">
-                <div class="photo">
-                    <div class="content">
-                        <a href="<?php echo get_permalink($lead->ID); ?>">
-                            <?php $image = get_field('info_photo', $lead->ID); if( $image ): ?>
-                                <?php echo wp_get_attachment_image($image['ID'], 'full'); ?>
-                            <?php endif; ?>
-                        </a>
-                    </div>                    
-                </div>
+            <?php
+                $args = [ 'expert' => $lead ];
+                get_template_part('template-parts/global/expert', null, $args);
+            ?>
 
-                <div class="info">
-                    <div class="name">
-                        <h3><?php echo get_the_title($lead->ID); ?></h3>
-                    </div>
-                    
-                    <div class="meet vital">
-                        <p>Meet <a href="<?php echo get_permalink($lead->ID); ?>"><?php the_field('info_first_name', $lead->ID); ?></a></p>
-                    </div>
-
-                    <div class="office vital">
-                        <p>Office: <a href="<?php $office = get_field('info_office', $lead->ID); echo get_permalink($office->ID); ?>"><?php echo get_the_title($office->ID); ?></a></p>
-                    </div>
-
-                    <div class="contact vital">
-                        <div class="phone">
-                            <p><a href="tel:<?php the_field('contact_phone', $lead->ID); ?>"><?php the_field('contact_phone', $lead->ID); ?></a></p>
-                        </div>
-
-                        <div class="email">
-                            <p><a href="mailto:<?php the_field('contact_email', $lead->ID); ?>">Email</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 
         </div>

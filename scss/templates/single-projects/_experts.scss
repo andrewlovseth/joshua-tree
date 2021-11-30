@@ -17,6 +17,10 @@ section.experts {
         }
     }
 
+    .expert + .expert {
+        padding-top: 2rem;
+    }
+
 
 
 }

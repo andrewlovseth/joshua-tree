@@ -1,0 +1,32 @@
+.employee-hero {
+    padding-top: 3rem;
+
+    .photo {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        @include cover-fill-image
+    }
+
+    .page-header {
+        grid-row: 1;
+        z-index: 2;
+        display: flex;
+        padding: 0 0 1rem 0;
+
+        @include desktop-small {
+            padding-bottom: 3.5rem;
+        }
+
+        .page-title {
+            color: $white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            align-self: flex-end;
+            font-size: clamp(1.75rem, 2vw, 2.25rem);
+
+            @include desktop-small {
+                font-size: clamp(3.5rem, 4vw, 4.5rem);
+                max-width: 48rem;
+            }
+        }
+    }
+}

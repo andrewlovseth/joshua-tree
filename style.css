@@ -867,6 +867,24 @@ section.news {
     background: #00A69C;
     font-size: 0.875rem; }
 
+.expert .region em {
+  display: inline-block;
+  font-size: clamp(0.75em, 1vw, 0.875rem); }
+
+.expert .social {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.5rem; }
+
+.expert .linkedin {
+  width: 1.5rem;
+  height: 1.5rem; }
+  .expert .linkedin img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain; }
+
 /* Slider */
 .slick-slider {
   position: relative;
@@ -1908,19 +1926,33 @@ body.single-leadership .sidebar .vital h4 {
   color: #000;
   font-weight: bold; }
 
+body.single-leadership .sidebar .vital p {
+  font-size: 0.875em;
+  line-height: 1.375em; }
+
+body.single-leadership .sidebar .education-item + .education-item {
+  padding-top: 1.25rem; }
+
+body.single-leadership .sidebar .education-item span {
+  display: block; }
+
 body.single-leadership .sidebar .contact p span {
   display: block; }
 
-body.single-leadership .sidebar .social-links {
+body.single-leadership .sidebar .social {
   display: flex;
   align-items: center; }
-  body.single-leadership .sidebar .social-links .link + .link {
+  body.single-leadership .sidebar .social .link + .link {
     margin-left: 1rem; }
-  body.single-leadership .sidebar .social-links .link a {
+  body.single-leadership .sidebar .social .link a {
     display: block;
-    max-width: 2rem; }
-    body.single-leadership .sidebar .social-links .link a img {
-      width: 100%; }
+    width: 1.5rem;
+    height: 1.5rem; }
+    body.single-leadership .sidebar .social .link a img {
+      width: 100%;
+      height: 100%;
+      -o-object-fit: contain;
+         object-fit: contain; }
 
 body.page-template-esop section.features {
   padding: 0 0 3rem 0; }
@@ -2109,19 +2141,12 @@ body.single-employee .sidebar .vital h4 {
   color: #000;
   font-weight: bold; }
 
-body.single-employee .sidebar .position span {
-  display: block;
+body.single-employee .sidebar .vital p {
   font-size: 0.875em;
   line-height: 1.375em; }
-  body.single-employee .sidebar .position span.region {
-    font-style: italic; }
 
 body.single-employee .sidebar .education-item + .education-item {
   padding-top: 1.25rem; }
-
-body.single-employee .sidebar .education-item p {
-  font-size: 0.875em;
-  line-height: 1.375em; }
 
 body.single-employee .sidebar .education-item span {
   display: block; }
@@ -2129,16 +2154,20 @@ body.single-employee .sidebar .education-item span {
 body.single-employee .sidebar .contact p span {
   display: block; }
 
-body.single-employee .sidebar .social-links {
+body.single-employee .sidebar .social {
   display: flex;
   align-items: center; }
-  body.single-employee .sidebar .social-links .link + .link {
+  body.single-employee .sidebar .social .link + .link {
     margin-left: 1rem; }
-  body.single-employee .sidebar .social-links .link a {
+  body.single-employee .sidebar .social .link a {
     display: block;
-    max-width: 2rem; }
-    body.single-employee .sidebar .social-links .link a img {
-      width: 100%; }
+    width: 1.5rem;
+    height: 1.5rem; }
+    body.single-employee .sidebar .social .link a img {
+      width: 100%;
+      height: 100%;
+      -o-object-fit: contain;
+         object-fit: contain; }
 
 body.page-template-culture .page-header {
   padding-bottom: 0; }
@@ -2721,6 +2750,8 @@ body.single-projects section.experts {
     padding-bottom: 1rem; }
     body.single-projects section.experts .section-header .section-headline.small {
       font-size: clamp(1.5rem, 2vw, 2rem); }
+  body.single-projects section.experts .expert + .expert {
+    padding-top: 2rem; }
 
 body.single-projects section.testimonial {
   background: #EDEDED;

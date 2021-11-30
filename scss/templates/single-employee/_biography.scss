@@ -1,0 +1,10 @@
+.biography {
+    background: $white;
+    padding: 2rem 0;
+
+    @include desktop-small {
+        grid-column: 2 / span 8;
+        transform: translateY(-3em);
+        padding: 2rem ;
+    }
+}

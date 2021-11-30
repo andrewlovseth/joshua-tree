@@ -36,67 +36,7 @@ body.single-leadership {
         text-align: left;
     }
 
-    .biography {
-        background: $white;
-        padding: 2rem 0;
+    @import 'single-employee/biography';
 
-        @include desktop-small {
-            grid-column: 2 / span 8;
-            transform: translateY(-3em);
-            padding: 2rem ;
-        }
-    }
-
-
-
-    .sidebar {
-        @include desktop-small {
-            padding-top: 3rem;
-            grid-column: 10 / span 4;
-            padding-left: 1rem;
-        }
-
-        a {
-            font-weight: normal;
-        }
-
-        .vital {
-            & + .vital {
-                padding-top: 2rem;
-            }
-
-            h4 {
-                color: $black;
-                font-weight: bold;
-            }
-        }
-
-        .contact {
-            p {
-                span {
-                    display: block;
-                }
-            }
-        }
-
-        .social-links {
-            display: flex;
-            align-items: center;
-
-            .link {
-                & + .link {
-                    margin-left: 1rem;
-                }
-
-                a {
-                    display: block;
-                    max-width: 2rem;
-
-                    img {
-                        width: 100%;
-                    }
-                }
-            }
-        }
-    }
+    @import 'single-employee/sidebar';
 }

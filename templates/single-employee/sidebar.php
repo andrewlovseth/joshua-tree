@@ -2,8 +2,8 @@
 
     $info = get_field('info');
     $position = $info['position'];
+    
     $terms = get_the_terms($post->ID, 'region');
-
     if($terms) {
         $region = '';
         foreach($terms as $term) {
@@ -28,12 +28,17 @@
         <?php if($position): ?>
             <div class="vital position">
                 <h4>Current Role</h4>
-                <p>
-                    <span class="title"><?php echo $position; ?></span>
-                    <?php if($region): ?><span class="region"><?php echo $region; ?></span><?php endif; ?>
-                </p>
+                <p><?php echo $position; ?></p>
             </div>
-        <?php endif; ?>        
+        <?php endif; ?>       
+
+        <?php if($region): ?>
+            <div class="vital region">
+                <h4>Region</h4>
+                <p><?php echo $region; ?></p>
+            </div>
+        <?php endif; ?>      
+
 
         <?php if(have_rows('education')): ?>
             <div class="vital education">
@@ -73,10 +78,8 @@
 
         <?php if($linkedin): ?>
             <div class="vital social">
-                <div class="social-links">
-                    <div class="link linkedin">
-                        <a href="<?php echo $linkedin; ?>" rel="external"><img src="<?php bloginfo('template_directory'); ?>/images/icon-linkedin.svg" alt="LinkedIn" /></a>
-                    </div>
+                <div class="link linkedin">
+                    <a href="<?php echo $linkedin; ?>" rel="external"><img src="<?php bloginfo('template_directory'); ?>/images/icon-linkedin.svg" alt="LinkedIn" /></a>
                 </div>
             </div>
         <?php endif; ?>

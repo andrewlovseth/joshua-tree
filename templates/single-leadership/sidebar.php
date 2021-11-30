@@ -4,7 +4,16 @@
     $education = $info['education'];
     $date_string = $info['start_date'];
     $date = DateTime::createFromFormat('Ymd', $date_string);
-    $office = $info['office'];
+
+    $terms = get_the_terms($post->ID, 'region');
+    if($terms) {
+        $region = '';
+        foreach($terms as $term) {
+            $region .= $term->name . ', ';
+        }
+        $region = rtrim($region, ', ');
+    }
+
 
     $contact = get_field('contact');
     $email = $contact['email'];
@@ -21,6 +30,13 @@
             <p><?php echo $position; ?></p>
         </div>
     <?php endif; ?>
+
+    <?php if($region): ?>
+        <div class="vital region">
+            <h4>Region</h4>
+            <p><?php echo $region; ?></p>
+        </div>
+    <?php endif; ?>      
 
     <?php if($education): ?>
         <div class="vital education">
