@@ -11,7 +11,6 @@
 <div class="join-us">
     <div class="wrapper">
 
-
         <?php if( $photo ): ?>
             <div class="photo">
                 <div class="content">

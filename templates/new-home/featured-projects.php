@@ -8,7 +8,7 @@
     <section class="featured-projects grid">
 
         <div class="slider-wrapper">
-            <div class="projects-slider">
+            <div class="js-featured-projects-slider">
 
                 <?php foreach( $posts as $p ): ?>
                     <div class="project">

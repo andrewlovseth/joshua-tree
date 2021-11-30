@@ -1892,11 +1892,26 @@ body.page-template-new-home section.featured-projects {
   body.page-template-new-home section.featured-projects .project .copy strong {
     font-weight: normal; }
   body.page-template-new-home section.featured-projects .slick-dots {
-    transform: translateY(-2rem); }
+    transform: translateY(-1rem); }
     body.page-template-new-home section.featured-projects .slick-dots li button:before {
       border-color: #F9A134; }
     body.page-template-new-home section.featured-projects .slick-dots li.slick-active button:before {
       background: #F9A134; }
+  body.page-template-new-home section.featured-projects .slick-arrow {
+    top: 0;
+    padding: 0 1rem;
+    width: auto; }
+    @media screen and (min-width: 992px) {
+      body.page-template-new-home section.featured-projects .slick-arrow {
+        padding: 0 2rem; } }
+  body.page-template-new-home section.featured-projects .slick-prev {
+    left: 0; }
+    body.page-template-new-home section.featured-projects .slick-prev:before {
+      background-image: url(images/left-arrow-white.svg); }
+  body.page-template-new-home section.featured-projects .slick-next {
+    right: 0; }
+    body.page-template-new-home section.featured-projects .slick-next:before {
+      background-image: url(images/right-arrow-white.svg); }
 
 body.page-template-new-home section.esa {
   padding: 4.5rem 0;
@@ -2026,20 +2041,25 @@ body.page-template-new-home section.esa {
     grid-area: photo-4; }
 
 body.page-template-new-home .join-us {
-  transform: translateY(-1.25rem);
+  padding-top: 4.5rem;
   z-index: 10; }
+  @media screen and (min-width: 480px) {
+    body.page-template-new-home .join-us {
+      grid-column: 3 / span 6; } }
   @media screen and (min-width: 992px) {
     body.page-template-new-home .join-us {
       grid-column: 4 / span 8; } }
   body.page-template-new-home .join-us .wrapper {
+    border: 1px solid #DCDDDE;
     background: #fff;
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
     padding: 2rem;
-    border-radius: 3px;
     display: grid;
     gap: 2rem;
-    grid-template-columns: 1fr 2fr;
     align-items: center; }
+    @media screen and (min-width: 768px) {
+      body.page-template-new-home .join-us .wrapper {
+        grid-template-columns: 1fr 2fr; } }
   body.page-template-new-home .join-us .photo {
     position: relative; }
     body.page-template-new-home .join-us .photo:before {

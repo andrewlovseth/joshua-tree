@@ -19,7 +19,6 @@
                         <?php the_sub_field('copy'); ?>
                     </div>
 
-
                     <?php
                         $link = get_sub_field('cta');
                         if( $link ): 
@@ -40,9 +39,3 @@
     </section>
 
 <?php endif; ?>
-
-
-
-    
-
-    

@@ -1,20 +1,27 @@
 .join-us {
-    transform: translateY(-1.25rem);
+    padding-top: 4.5rem;
     z-index: 10;
+
+    @include tablet-small {
+        grid-column: 3 / span 6;
+    }
 
     @include desktop-small {
         grid-column: 4 / span 8;
     }
 
     .wrapper {
+        border: 1px solid $light-gray;
         background: $white;
-        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
         padding: 2rem;
-        border-radius: 3px;
         display: grid;
         gap: 2rem;
-        grid-template-columns: 1fr 2fr;
         align-items: center;
+
+        @include tablet {
+            grid-template-columns: 1fr 2fr;
+        }
     }
 
     .photo {

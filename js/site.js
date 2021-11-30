@@ -60,6 +60,30 @@
 		});
 
 
+		// Homepage / Featured Projects Slider
+		$('.js-featured-projects-slider').slick({
+			dots: true,
+			arrows: true,
+			infinite: true,
+			autoplay: true,
+			autoplaySpeed: 6000,
+			adaptiveHeight: true
+		});
+
+		if($('.js-featured-projects-slider').length > 0) {
+			const arrows = $('.slick-arrow'),
+				  slide = $('.js-featured-projects-slider .project:first-of-type .photo');
+			
+			let slideHeight = slide.height();
+
+			$(arrows).css('height', slideHeight);		
+		}
+
+
+
+
+
+
 		// Markets / Featured Projects Slider
 		$('.projects-slider').slick({
 			dots: true,
@@ -178,6 +202,18 @@
 			$('body').removeClass('nav-overlay-open search-overlay-open');
 			$('.work-nav').removeClass('active');
 		}
+	});
+
+	$(window).resize(function() {
+		if($('.js-featured-projects-slider').length > 0) {
+			const arrows = $('.slick-arrow'),
+				  slide = $('.js-featured-projects-slider .project:first-of-type .photo');
+			
+			let slideHeight = slide.height();
+
+			$(arrows).css('height', slideHeight);		
+		}
+
 	});
 
 
