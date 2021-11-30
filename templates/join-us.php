@@ -19,9 +19,9 @@ get_header(); ?>
 
     <?php get_template_part('templates/join-us/features'); ?>
 
-    <?php get_template_part('templates/home/featured-project'); ?>
+    <?php // get_template_part('templates/home/featured-project'); ?>
 
-    <?php get_template_part('templates/home/employee-owner-spotlight'); ?>
+    <?php //get_template_part('templates/home/employee-owner-spotlight'); ?>
 
     <?php
         $args = [ 'position' => 'bottom' ];

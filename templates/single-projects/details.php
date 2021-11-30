@@ -20,7 +20,7 @@
             <div class="vital client copy copy-2">
                 <p>
                     <strong>Client</strong>
-                    <a href="<?php echo get_permalink($client->ID); ?>"><?php echo get_the_title($client->ID); ?></a>
+                    <?php echo get_the_title($client->ID); ?>
                 </p>
             </div>
         <?php endif; ?>

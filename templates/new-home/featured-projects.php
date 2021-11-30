@@ -6,9 +6,6 @@
 ?>
 
     <section class="featured-projects grid">
-        <div class="section-header">
-            <h2 class="special">Our Work</h2>
-        </div>
 
         <div class="slider-wrapper">
             <div class="projects-slider">

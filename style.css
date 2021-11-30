@@ -1868,7 +1868,8 @@ body.page-template-new-home section.featured-projects {
       max-width: 800px;
       background: #fff;
       padding: 2rem;
-      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15); }
+      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
+      border-radius: 3px; }
   body.page-template-new-home section.featured-projects .project .market {
     padding-bottom: 0.5rem; }
     body.page-template-new-home section.featured-projects .project .market h4 {
@@ -1910,20 +1911,40 @@ body.page-template-new-home section.esa {
     grid-column: 1 / -1;
     display: grid;
     gap: 0.5rem;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: "people-1 people-1 people-1" "cta-1 cta-1 photo-1" "message message message" "people-2 people-2 people-2" "photo-2 cta-2 cta-2" "people-3 people-3 people-3" "cta-3 cta-3 photo-3" "people-4 people-4 people-4" "photo-4 photo-4 photo-4"; }
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas: "message" "people-1" "cta-1" "people-2" "cta-2" "photo-1"; }
     @media screen and (min-width: 768px) {
       body.page-template-new-home section.esa .esa-grid {
-        grid-template-rows: repeat(5, 30vh);
+        grid-template-rows: repeat(6, 12.5vh);
         grid-template-columns: repeat(4, 1fr);
-        grid-template-areas: "people-1 people-1 message message" "cta-1 photo-1 message message" "photo-2 photo-2 people-2 people-2" "people-3 people-3 cta-3 photo-4" "cta-2 photo-3 people-4 people-4"; } }
+        grid-template-areas: "people-1 people-1 message message" "people-1 people-1 message message" "cta-1 cta-1 message message" "photo-1 photo-1 message message" "photo-1 photo-1 cta-2 people-2" "photo-1 photo-1 cta-2 people-2"; } }
     @media screen and (min-width: 1280px) {
       body.page-template-new-home section.esa .esa-grid {
-        grid-template-rows: repeat(5, 25vh);
+        grid-template-rows: repeat(3, 25vh);
         grid-template-columns: repeat(5, 1fr);
-        grid-template-areas: "people-1 photo-1 photo-1 message message" "cta-1 photo-1 photo-1 message message" "people-2 people-2 photo-2 message message" "photo-3 people-3 people-3 cta-3 cta-3" "cta-2 people-3 people-3 photo-4 people-4"; } }
+        grid-template-areas: "people-1 photo-1 photo-1 message message" "cta-1 photo-1 photo-1 message message" "people-2 people-2 cta-2 message message"; } }
+    body.page-template-new-home section.esa .esa-grid .cta {
+      background: rgba(0, 114, 143, 0.25); }
+      body.page-template-new-home section.esa .esa-grid .cta a {
+        color: #000; }
+      body.page-template-new-home section.esa .esa-grid .cta-2 {
+        background: rgba(0, 166, 156, 0.25); }
+      body.page-template-new-home section.esa .esa-grid .cta a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 2rem; }
+      body.page-template-new-home section.esa .esa-grid .cta .copy {
+        padding-top: 0.5rem; }
+      body.page-template-new-home section.esa .esa-grid .cta .more {
+        display: inline-block;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-top: 1rem;
+        border-bottom: 2px solid; }
   body.page-template-new-home section.esa .logo {
-    margin-left: auto;
     margin-bottom: 2rem;
     max-width: 5rem; }
     @media screen and (min-width: 768px) {
@@ -1934,7 +1955,6 @@ body.page-template-new-home section.esa {
     background: #00A69C;
     color: #fff;
     padding: 2rem;
-    text-align: right;
     display: flex;
     align-items: center;
     justify-content: flex-end; }
@@ -1944,32 +1964,8 @@ body.page-template-new-home section.esa {
     body.page-template-new-home section.esa .message p {
       margin: 0;
       padding: 0;
-      font-size: clamp(1rem, 1.25vw, 1.125rem);
+      font-size: clamp(1.75rem, 2vw, 2.25rem);
       line-height: 1.5em; }
-      @media screen and (min-width: 768px) {
-        body.page-template-new-home section.esa .message p {
-          font-size: clamp(1.75rem, 2vw, 2.25rem); } }
-  body.page-template-new-home section.esa .cta {
-    background: rgba(0, 114, 143, 0.25); }
-    body.page-template-new-home section.esa .cta a {
-      color: #000; }
-    body.page-template-new-home section.esa .cta-2 {
-      background: rgba(0, 166, 156, 0.25); }
-    body.page-template-new-home section.esa .cta a {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      padding: 2rem; }
-    body.page-template-new-home section.esa .cta .copy {
-      padding-top: 0.5rem; }
-    body.page-template-new-home section.esa .cta .more {
-      display: inline-block;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-top: 1rem;
-      border-bottom: 2px solid; }
   body.page-template-new-home section.esa .photo img {
     width: 100%;
     height: 100%;
@@ -2028,6 +2024,57 @@ body.page-template-new-home section.esa {
     grid-area: photo-3; }
   body.page-template-new-home section.esa .photo-4 {
     grid-area: photo-4; }
+
+body.page-template-new-home .join-us {
+  transform: translateY(-1.25rem);
+  z-index: 10; }
+  @media screen and (min-width: 992px) {
+    body.page-template-new-home .join-us {
+      grid-column: 4 / span 8; } }
+  body.page-template-new-home .join-us .wrapper {
+    background: #fff;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    border-radius: 3px;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 2fr;
+    align-items: center; }
+  body.page-template-new-home .join-us .photo {
+    position: relative; }
+    body.page-template-new-home .join-us .photo:before {
+      display: block;
+      content: "";
+      width: 100%;
+      padding-top: 100%; }
+    body.page-template-new-home .join-us .photo > .content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0; }
+    body.page-template-new-home .join-us .photo img {
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+         object-fit: cover; }
+    body.page-template-new-home .join-us .photo img {
+      -o-object-position: top center;
+         object-position: top center; }
+  body.page-template-new-home .join-us .section-header .special {
+    font-weight: bold; }
+  body.page-template-new-home .join-us .cta {
+    padding-top: 2rem;
+    display: block; }
+    body.page-template-new-home .join-us .cta .underline {
+      color: #F9A134;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding-bottom: 4px;
+      border-width: 2px;
+      font-weight: bold; }
+      body.page-template-new-home .join-us .cta .underline:hover {
+        cursor: pointer; }
 
 @media screen and (min-width: 992px) {
   body.page-template-new-home section.news {

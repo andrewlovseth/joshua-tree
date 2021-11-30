@@ -11,47 +11,72 @@ section.esa {
         grid-column: 1 / -1;
         display: grid;
         gap: 0.5rem;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(1, 1fr);
         grid-template-areas:
-        "people-1 people-1 people-1"
-        "cta-1 cta-1 photo-1"
-        "message message message"
-        "people-2 people-2 people-2"
-        "photo-2 cta-2 cta-2"
-        "people-3 people-3 people-3"
-        "cta-3 cta-3 photo-3"
-        "people-4 people-4 people-4"
-        "photo-4 photo-4 photo-4";
-
+        "message"
+        "people-1"
+        "cta-1"
+        "people-2"
+        "cta-2"
+        "photo-1";
 
         @include tablet {
-            grid-template-rows: repeat(5, 30vh);
+            grid-template-rows: repeat(6, 12.5vh);
             grid-template-columns: repeat(4, 1fr);
             grid-template-areas:
             "people-1 people-1 message message"
-            "cta-1 photo-1 message message"
-            "photo-2 photo-2 people-2 people-2"
-            "people-3 people-3 cta-3 photo-4"
-            "cta-2 photo-3 people-4 people-4";
+            "people-1 people-1 message message"
+            "cta-1 cta-1 message message"
+            "photo-1 photo-1 message message"
+            "photo-1 photo-1 cta-2 people-2"
+            "photo-1 photo-1 cta-2 people-2"
         }
-
-
         
         @include desktop-medium {
-            grid-template-rows: repeat(5, 25vh);
+            grid-template-rows: repeat(3, 25vh);
             grid-template-columns: repeat(5, 1fr);
             grid-template-areas:
             "people-1 photo-1 photo-1 message message"
             "cta-1 photo-1 photo-1 message message"
-            "people-2 people-2 photo-2 message message"
-            "photo-3 people-3 people-3 cta-3 cta-3"
-            "cta-2 people-3 people-3 photo-4 people-4";
+            "people-2 people-2 cta-2 message message"
         }
 
+        .cta {
+            background: rgba(0, 114, 143, 0.25);
+    
+            a {
+                color: $black;
+            }
+    
+            &-2 {
+                background: rgba(0, 166, 156, 0.25);
+    
+            }
+    
+            a {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                padding: 2rem;
+            }
+    
+            .copy {
+                padding-top: 0.5rem;
+            }
+    
+            .more {
+                display: inline-block;
+                font-weight: bold;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                margin-top: 1rem;
+                border-bottom: 2px solid;
+            }
+        }
     }
 
     .logo {
-        margin-left: auto;
         margin-bottom: 2rem;
         max-width: 5rem;
 
@@ -65,7 +90,6 @@ section.esa {
         background: $dark-teal;
         color: $white;
         padding: 2rem;
-        text-align: right;
         display: flex;
         align-items: center;
         justify-content: flex-end;
@@ -77,52 +101,12 @@ section.esa {
         p {
             margin: 0;
             padding: 0;
-            font-size: clamp(1rem, 1.25vw, 1.125rem);
+            font-size: clamp(1.75rem, 2vw, 2.25rem);
             line-height: 1.5em;
-
-            @include tablet {
-                font-size: clamp(1.75rem, 2vw, 2.25rem);
-            }
-
         }
     }
 
-    .cta {
-        background: rgba(0, 114, 143, 0.25);
 
-        a {
-            color: $black;
-        }
-
-        &-2 {
-            background: rgba(0, 166, 156, 0.25);
-
-        }
-
-
-
-        a {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            padding: 2rem;
-        }
-
-        .copy {
-            padding-top: 0.5rem;
-        }
-
-
-        .more {
-            display: inline-block;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-top: 1rem;
-            border-bottom: 2px solid;
-        }
-    }
 
     .photo {
         img {
@@ -196,5 +180,4 @@ section.esa {
             grid-area: photo-#{$i};
         }
     }
-
 }

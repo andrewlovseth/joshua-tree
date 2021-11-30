@@ -1,0 +1,52 @@
+.join-us {
+    transform: translateY(-1.25rem);
+    z-index: 10;
+
+    @include desktop-small {
+        grid-column: 4 / span 8;
+    }
+
+    .wrapper {
+        background: $white;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+        padding: 2rem;
+        border-radius: 3px;
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: 1fr 2fr;
+        align-items: center;
+    }
+
+    .photo {
+        @include aspect-ratio(1, 1);
+        @include cover-fill-image;
+
+        img {
+            object-position: top center;
+        }
+    }
+
+    .section-header {
+        .special {
+            font-weight: bold;
+        }
+    }
+
+    .cta {
+        padding-top: 2rem;
+        display: block;
+
+        .underline {
+            color: $orange;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding-bottom: 4px;
+            border-width: 2px;
+            font-weight: bold;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
