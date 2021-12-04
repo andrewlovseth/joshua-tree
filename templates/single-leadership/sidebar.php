@@ -52,32 +52,23 @@
         </div>
     <?php endif; ?>
 
-    <?php if($email || $phone): ?>
+    <?php if($email || $linkedin): ?>
         <div class="vital contact">
             <h4>Contact</h4>
-            <p>
-                <?php if($office): ?>
-                    <span class="office">Office: <a href="<?php echo get_the_permalink($office->ID); ?>"><?php echo get_the_title($office->ID); ?></a></span> 
+
+            <div class="links">
+                <?php if($email): ?>               
+                    <div class="link email">
+                        <a class="small-btn" href="mailto:<?php echo $email; ?>">Email</a>
+                    </div>
                 <?php endif; ?>
 
-                <?php if($phone): ?>
-                    <span class="phone">Phone: <?php echo $phone; ?></span> 
+
+                <?php if($linkedin): ?>               
+                    <div class="link linkedin">
+                        <a href="<?php echo $linkedin; ?>" rel="external"><img src="<?php bloginfo('template_directory'); ?>/images/icon-linkedin.svg" alt="LinkedIn" /></a>
+                    </div>
                 <?php endif; ?>
-
-                <?php if($email): ?>
-                    <span class="email"><a href="mailto:<?php echo $email; ?>">Email</a></span> 
-                <?php endif; ?>
-            </p>
-        </div>
-    <?php endif; ?>
-
-
-    <?php if($linkedin): ?>
-        <div class="vital social">
-            <div class="social-links">
-                <div class="link linkedin">
-                    <a href="<?php echo $linkedin; ?>" rel="external"><img src="<?php bloginfo('template_directory'); ?>/images/icon-linkedin.svg" alt="LinkedIn" /></a>
-                </div>
             </div>
         </div>
     <?php endif; ?>

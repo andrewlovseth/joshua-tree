@@ -76,10 +76,23 @@
             </div>
         <?php endif; ?>
 
-        <?php if($linkedin): ?>
-            <div class="vital social">
-                <div class="link linkedin">
-                    <a href="<?php echo $linkedin; ?>" rel="external"><img src="<?php bloginfo('template_directory'); ?>/images/icon-linkedin.svg" alt="LinkedIn" /></a>
+        <?php if($email || $linkedin): ?>
+            <div class="vital contact">
+                <h4>Contact</h4>
+
+                <div class="links">
+                    <?php if($email): ?>               
+                        <div class="link email">
+                            <a class="small-btn" href="mailto:<?php echo $email; ?>">Email</a>
+                        </div>
+                    <?php endif; ?>
+
+
+                    <?php if($linkedin): ?>               
+                        <div class="link linkedin">
+                            <a href="<?php echo $linkedin; ?>" rel="external"><img src="<?php bloginfo('template_directory'); ?>/images/icon-linkedin.svg" alt="LinkedIn" /></a>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         <?php endif; ?>

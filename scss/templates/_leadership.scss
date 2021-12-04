@@ -1,19 +1,31 @@
 body.page-template-leadership {
 
+    section.leaders {
+        padding-bottom: 6rem;
+    }
+
+    .leadership-group {
+
+        & + .leadership-group {
+            padding-top: 6rem;
+        }
+
+
+
+    }
+
     .leaders-grid {
         display: grid;
         gap: 2rem 4rem;
         grid-template-columns: repeat(1, 1fr);
-        padding: 0 0 3rem 0;
 
         @include tablet-small {
             grid-template-columns: repeat(2, 1fr);
         }
 
         @include tablet {
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 3rem 6rem;
-            padding: 3rem 0 6rem 0;
         }
 
 
@@ -45,7 +57,9 @@ body.page-template-leadership {
 
                     p {
                         color: $black;
-                        font-size: clamp(1rem, 1vw, 1.125rem);
+                        font-size: clamp(0.75em, 1vw, 0.875rem);
+                        line-height: 1.25em;
+                        font-style: italic;
                     }
                 }
             }
