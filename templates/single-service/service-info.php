@@ -35,7 +35,7 @@
     <?php if($experts): ?>
         <div class="experts">
             <div class="section-header">
-                <h3 class="section-headline">Experts</h3>
+                <h3 class="section-headline">Connect with our team</h3>
             </div>
 
             <?php foreach($experts as $expert): ?>

@@ -56,8 +56,6 @@
                 get_template_part('template-parts/global/expert', null, $args);
             ?>
 
-
-
         </div>
     <?php endif; ?>
 

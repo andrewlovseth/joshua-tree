@@ -26,10 +26,11 @@
 
                             <div class="info">
                                 <div class="info__wrapper">
-                                    <div class="market">
-                                        <?php $market = get_field('details_market', $project->ID); ?>
-                                        <h4><?php echo get_the_title($market->ID); ?></h4>
-                                    </div>
+                                    <?php $market = get_field('details_market', $project->ID); if($market): ?>
+                                        <div class="market">
+                                            <h4><?php echo get_the_title($market); ?></h4>
+                                        </div>
+                                    <?php endif; ?>
 
                                     <div class="headline">
                                         <h3 class="title-headline small"><?php echo get_the_title( $project->ID ); ?></h3>

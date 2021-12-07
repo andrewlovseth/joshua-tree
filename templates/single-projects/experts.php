@@ -5,7 +5,7 @@ $experts = get_field('experts');
 if($experts): ?>
     <section class="experts">
         <div class="section-header">
-            <h3 class="section-headline small">Experts</h3>
+            <h3 class="section-headline small">Connect with our team</h3>
         </div>
 
         <?php foreach($experts as $expert): ?>
