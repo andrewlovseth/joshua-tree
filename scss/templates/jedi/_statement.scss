@@ -1,4 +1,9 @@
 section.statement {
     @include section-spacing;
     
+    .copy {
+        p:first-of-type {
+            font-size: 1.125em;
+        }
+    }
 }

@@ -2640,6 +2640,8 @@ body.page-template-jedi section.ongoing-education {
   @media screen and (min-width: 992px) {
     body.page-template-jedi section.ongoing-education {
       padding: 9rem 0; } }
+  body.page-template-jedi section.ongoing-education .copy p:first-of-type {
+    font-size: 1.125em; }
 
 body.page-template-jedi section.outreach-and-internship {
   padding: 4.5rem 0;
@@ -2648,6 +2650,8 @@ body.page-template-jedi section.outreach-and-internship {
   @media screen and (min-width: 992px) {
     body.page-template-jedi section.outreach-and-internship {
       padding: 9rem 0; } }
+  body.page-template-jedi section.outreach-and-internship .copy p:first-of-type {
+    font-size: 1.125em; }
 
 body.page-template-jedi section.scholarship {
   margin-top: 3rem;
@@ -2676,6 +2680,8 @@ body.page-template-jedi section.scholarship {
     @media screen and (min-width: 992px) {
       body.page-template-jedi section.scholarship .copy {
         grid-column: 2 / span 7; } }
+    body.page-template-jedi section.scholarship .copy p:first-of-type {
+      font-size: 1.125em; }
   body.page-template-jedi section.scholarship ul li a {
     text-decoration: underline; }
   body.page-template-jedi section.scholarship ul li em {
@@ -2686,6 +2692,8 @@ body.page-template-jedi section.statement {
   @media screen and (min-width: 992px) {
     body.page-template-jedi section.statement {
       padding: 9rem 0; } }
+  body.page-template-jedi section.statement .copy p:first-of-type {
+    font-size: 1.125em; }
 
 body.page-template-jedi section.news {
   padding-top: 0; }

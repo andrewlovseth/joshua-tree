@@ -16,7 +16,7 @@
         <?php echo wp_get_attachment_image($photo['ID'], 'full'); ?>
     </div>
 
-    <div class="copy copy-1 extended">
+    <div class="copy copy-2 extended">
         <?php echo $copy; ?>
     </div>
 

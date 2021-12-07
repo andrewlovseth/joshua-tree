@@ -2,4 +2,10 @@ section.outreach-and-internship {
     @include section-spacing;
     background: #fdf6dd;
     margin-top: 3rem;
+
+    .copy {
+        p:first-of-type {
+            font-size: 1.125em;
+        }
+    }
 }

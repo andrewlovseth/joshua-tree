@@ -1,4 +1,10 @@
 section.ongoing-education {
     @include section-spacing;
     background: #D1EFF3;
+
+    .copy {
+        p:first-of-type {
+            font-size: 1.125em;
+        }
+    }
 }
