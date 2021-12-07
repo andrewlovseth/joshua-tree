@@ -2,5 +2,17 @@
 section.page-header {
     @include section-spacing;
 
-   
+    .copy {
+        @include desktop-small {
+            grid-column: 2 / span 9;
+        }
+
+        p:first-of-type {
+            font-size: 1.125em;
+        }
+    }
+
+    .photo {
+        padding-top: 0;
+    }
 }

@@ -11,15 +11,15 @@
         <h1 class="page-title"><?php echo $headline ?></h1>
     </div>
 
+    <div class="copy copy-1 extended">
+        <?php echo $copy; ?>
+    </div>
+    
     <?php if( $photo ): ?>
         <div class="photo">
             <?php echo wp_get_attachment_image($photo['ID'], 'full'); ?>
         </div>
     <?php endif; ?>
 
-    <div class="copy copy-1">
-        <p><?php echo $copy; ?></p>
-    </div>
-    
 </section>
 

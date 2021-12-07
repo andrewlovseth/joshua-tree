@@ -1,13 +1,12 @@
 <?php
 
-    $outreach = get_field('outreach_and_internship');
-    $headline = $outreach['headline'];
-    $copy = $outreach['copy'];
-    $photo = $outreach['photo'];
+    $statement = get_field('statement');
+    $headline = $statement['headline'];
+    $copy = $statement['copy'];
+    $photo = $statement['photo'];
 ?>
 
-<section class="outreach-and-internship grid left-flow">
-
+<section class="statement grid left-flow">
     <div class="headline section-header">
         <h2><?php echo $headline; ?></h2>
     </div>
@@ -19,5 +18,4 @@
     <div class="copy copy-1 extended">
         <?php echo $copy; ?>
     </div>
-
 </section>

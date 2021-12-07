@@ -1,13 +1,50 @@
 body.page-template-jedi {
     @import 'jedi/page-header';
+
+    .left-flow {
+        .photo {
+            @include tablet {
+                grid-row: 2;
+                grid-column: 2 / span 3;
+                padding-right: 1rem;
+            }
     
-    @import 'jedi/scholarship';
+            @include desktop-small {
+                grid-column: 2 / span 5;
+                padding-right: 2rem;
+            }
+    
+        }
+    
+        .copy {
+            padding-top: 2rem;
+            @include tablet {
+                padding-top: 0;
+                grid-row: 2;
+                grid-column: 5 / span 5;
+            }
+            
+            @include desktop-small {
+                grid-column: 7 / span 7;
+            }
+        }
+    }
+
+    @import 'jedi/ongoing-education';
 
     @import 'jedi/outreach-and-internship';
 
+    @import 'jedi/scholarship';
+
+    @import 'jedi/statement';
+
     section.news {
-        padding: 0;
+        padding-top: 0;
+
+        @include desktop-small {
+            padding-bottom: 8rem;
+        }
     }
 
-    @import 'jedi/timeline';
+    //@import 'jedi/timeline';
 }

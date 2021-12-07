@@ -1,28 +1,5 @@
 section.outreach-and-internship {
     @include section-spacing;
-
-    .headline {
-        padding-bottom: 2rem;
-    }
-
-    .copy {
-        @include tablet {
-            grid-row: 2;
-            grid-column: 2 / span 4;
-        }
-
-        @include desktop-small {
-            grid-column: 2 / span 7;
-        }
-    }
-
-    .photo {
-        @include tablet {
-            grid-row: 2;
-            grid-column: 6 / span 4;
-        }
-        @include desktop-small {
-            grid-column: 9 / span 5;
-        }
-    }
+    background: #fdf6dd;
+    margin-top: 3rem;
 }

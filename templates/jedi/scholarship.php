@@ -8,15 +8,15 @@
 
 <section class="scholarship grid">
 
-    <div class="headline">
-        <h2 class="title-headline"><?php echo $headline; ?></h2>
+    <div class="headline section-header">
+        <h2><?php echo $headline; ?></h2>
     </div>
 
     <div class="photo">
         <?php echo wp_get_attachment_image($photo['ID'], 'full'); ?>
     </div>
 
-    <div class="copy copy-2 extended">
+    <div class="copy copy-1 extended">
         <?php echo $copy; ?>
     </div>
 
