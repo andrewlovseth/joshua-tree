@@ -26,3 +26,10 @@ function bearsmith_enqueue_styles_and_scripts() {
     wp_enqueue_script( 'custom-site', get_stylesheet_directory_uri() . '/js/site.js', array( 'jquery.3.5.1' ), $script_last_updated_at, true );
 }
 add_action( 'wp_enqueue_scripts', 'bearsmith_enqueue_styles_and_scripts' );
+
+
+// Add backend styles for Gutenberg
+function gutenberg_styles() {
+    wp_enqueue_style( 'gutenberg-styles', get_theme_file_uri('gutenberg.css'), false );
+}
+add_action( 'enqueue_block_editor_assets', 'gutenberg_styles' );

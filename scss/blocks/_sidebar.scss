@@ -1,0 +1,22 @@
+.copy-2.extended {
+    .esa-sidebar {
+        width: 100%;
+        padding: 2rem 2rem 1rem 2rem;
+        background-color: #D5EDEF;
+
+        @include desktop-small {
+            max-width: 26rem;
+        }
+    
+        h4 {
+            font-size: clamp(1rem, 1.2vw, 1.125rem) !important;
+            line-height: 1.5em !important;
+            font-weight: bold;
+        }
+
+        & > * {
+            margin-bottom: 1rem;
+        }    
+    }
+}
+

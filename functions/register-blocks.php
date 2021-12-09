@@ -5,24 +5,27 @@
 */
 
 
-/*
+
 
 add_action('acf/init', 'my_register_blocks');
-function my_register_blocks() {
 
+function my_register_blocks() {
     if( function_exists('acf_register_block_type') ) {
 
         acf_register_block_type(array(
-            'name'              => 'block-name',
-            'title'             => __('Block Title'),
-            'description'       => __('Description of custom block.'),
-            'render_template'   => 'blocks/block-dir/block-file.php',
+            'name'              => 'sidebar',
+            'title'             => __('Sidebar'),
+            'description'       => __('Inset sidebar inline with copy.'),
+            'render_template'   => 'blocks/sidebar/sidebar.php',
             'category'          => 'layout',
-            'icon'              => 'XXXXXX',
-            'align'             => 'full',
+            'icon'              => 'welcome-widgets-menus',
+            'align'             => 'right',
+            'mode'			    => 'preview',
+            'supports'          => array(
+                'align' => array( 'left', 'right', 'full' ),
+                'jsx' => true
+            ),
         ));
 
     }
 }
-
- */

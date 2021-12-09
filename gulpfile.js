@@ -19,12 +19,24 @@ function style() {
         .pipe(browserSync.stream());
 }
 
+function gutenberg() {
+
+    // Main Stylesheet
+    return gulp.src('scss/gutenberg.scss')
+        .pipe(sass().on('error', errorlog))
+        .pipe(autoprefixer())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('./'))
+        .pipe(browserSync.stream());
+}
+
 function watch() {
     browserSync.init({
         proxy: "https://esassoc.local"
     });
 
     gulp.watch('./scss/**/*.scss', style);
+    gulp.watch('./scss/**/*.scss', gutenberg);
 
     gulp.watch('./*.php').on('change', browserSync.reload);
     gulp.watch('./template-parts/**/*.php').on('change', browserSync.reload);
@@ -35,4 +47,5 @@ function watch() {
 }
 
 exports.style = style;
+exports.gutenberg = gutenberg;
 exports.watch = watch;
