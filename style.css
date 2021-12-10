@@ -3309,13 +3309,16 @@ body.single-market .featured-projects .project .info {
     @media screen and (min-width: 768px) {
       body.single-market .featured-projects .project .info .copy-3 {
         display: block; } }
+    body.single-market .featured-projects .project .info .copy-3 strong {
+      font-weight: normal; }
   body.single-market .featured-projects .project .info .location {
     padding: 1rem 0; }
     body.single-market .featured-projects .project .info .location h4 {
       text-transform: uppercase;
       font-weight: bold;
       letter-spacing: 0.05em;
-      font-size: clamp(0.875rem, 1vw, 1rem); }
+      font-size: clamp(0.875rem, 1vw, 1rem);
+      line-height: 1.5em; }
   body.single-market .featured-projects .project .info .client {
     max-width: 16rem; }
     body.single-market .featured-projects .project .info .client h5 {

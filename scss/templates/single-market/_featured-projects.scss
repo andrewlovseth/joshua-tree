@@ -79,6 +79,10 @@
                 @include tablet {
                     display: block;
                 }
+
+                strong {
+                    font-weight: normal;
+                }
             }
 
             .location {
@@ -89,6 +93,7 @@
                     font-weight: bold;
                     letter-spacing: 0.05em;
                     font-size: clamp(0.875rem, 1vw, 1rem);
+                    line-height: 1.5em;
                 }
             }
 

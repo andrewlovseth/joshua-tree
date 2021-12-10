@@ -27,18 +27,25 @@
                                         <h3><?php echo get_the_title( $project->ID ); ?></h3>
                                     </div>
 
-                                    <div class="copy-3">
-                                        <p>In preparation for a multibillion-dollar expansion, the City of Chicago developed a master plan to consider future development scenarios at the Chicago O’Hare International Airport—the world’s busiest in terms of aircraft operations.</p>
-                                    </div>
+                                    <?php if(get_field('details_about', $project->ID)): ?>
+                                        <div class="copy-3">
+                                            <?php the_field('details_about', $project->ID); ?>
+                                        </div>
+                                    <?php endif; ?>
 
-                                    <div class="location">
-                                        <h4>Chicago, Illinois</h4>
-                                    </div>
+                                    <?php if(get_field('details_location', $project->ID)): ?>
+                                        <div class="location">
+                                            <h4><?php the_field('details_location', $project->ID); ?></h4>
+                                        </div>
+                                    <?php endif; ?>
 
-                                    <div class="client">
-                                        <h5><strong>Client:</strong> City of Chicago, Department of Aviation</h5>
-
-                                    </div>
+                                    <?php
+                                        $client = get_field('details_client', $project->ID);
+                                        if($client): ?>
+                                        <div class="client">
+                                            <h5><strong>Client:</strong> <?php echo get_the_title( $client->ID ); ?></h5>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
                             </div>                    
                         </a>
