@@ -66,8 +66,8 @@
 			arrows: true,
 			infinite: true,
 			autoplay: true,
-			autoplaySpeed: 6000,
-			adaptiveHeight: true
+			autoplaySpeed: 10000,
+			adaptiveHeight: false
 		});
 
 		if($('.js-featured-projects-slider').length > 0) {

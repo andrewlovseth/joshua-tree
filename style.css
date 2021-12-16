@@ -2998,61 +2998,71 @@ body.post-type-archive-client .client-type {
       min-height: 60vh; } }
   body.post-type-archive-client .client-type.active {
     display: grid; }
-  @media screen and (min-width: 480px) {
-    body.post-type-archive-client .client-type .client-list {
-      -moz-column-count: 2;
-           column-count: 2; } }
-  @media screen and (min-width: 768px) {
-    body.post-type-archive-client .client-type .client-list {
-      -moz-column-count: 3;
-           column-count: 3; } }
-  body.post-type-archive-client .client-type .client-list .client {
-    -moz-column-break-inside: avoid;
-         break-inside: avoid;
-    margin-bottom: 1.5rem; }
+  body.post-type-archive-client .client-type .client-list {
+    display: grid;
+    align-content: start;
+    gap: 1.5rem 2rem; }
+    @media screen and (min-width: 480px) {
+      body.post-type-archive-client .client-type .client-list {
+        grid-template-columns: repeat(2, 1fr); } }
+    @media screen and (min-width: 768px) {
+      body.post-type-archive-client .client-type .client-list {
+        grid-template-columns: repeat(3, 1fr); } }
+    @media screen and (min-width: 992px) {
+      body.post-type-archive-client .client-type .client-list {
+        grid-template-columns: repeat(4, 1fr); } }
     @media screen and (min-width: 992px) {
       body.post-type-archive-client .client-type .client-list .client {
         padding-right: 4rem; } }
     body.post-type-archive-client .client-type .client-list .client .name {
-      display: inline-block;
       position: relative;
       line-height: 1.25em;
-      font-size: clamp(0.875rem, 1vw, 1rem); }
-    body.post-type-archive-client .client-type .client-list .client.has-projects .name:after {
-      position: absolute;
-      top: 0.3125rem;
-      right: -1.25rem;
-      content: '';
-      display: inline-block;
-      width: 0.875rem;
-      height: 0.375rem;
-      background: url("data:image/svg+xml,%3Csvg width='22px' height='13px' viewBox='0 0 22 13' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Page-1' stroke='none' stroke-width='4' fill='none' fill-rule='evenodd'%3E%3Cg id='down-svgrepo-com' transform='translate(1.000222, 1.000278)' stroke='%2300A69C' stroke-width='4'%3E%3Cpolyline id='Path' transform='translate(10.085739, 5.173763) scale(-1, 1) rotate(91.000000) translate(-10.085739, -5.173763) ' points='5.08573898 -4.82623746 15.085739 5.17376254 5.08573898 15.1737625'%3E%3C/polyline%3E%3C/g%3E%3C/g%3E%3C/svg%3E") no-repeat 0 0;
-      background-size: contain; }
-    body.post-type-archive-client .client-type .client-list .client.has-projects .name:hover {
-      cursor: pointer; }
-    body.post-type-archive-client .client-type .client-list .client.has-projects .name.active:after {
-      transform: rotate(180deg) translateY(1px); }
-  body.post-type-archive-client .client-type .client-list .projects {
-    padding-top: 0.75rem;
-    display: none; }
-    body.post-type-archive-client .client-type .client-list .projects .project {
-      display: grid;
-      grid-template-columns: 1.5rem 1fr; }
-      body.post-type-archive-client .client-type .client-list .projects .project:before {
-        content: ">>";
+      font-size: clamp(0.75rem, 1vw, 0.875rem); }
+    body.post-type-archive-client .client-type .client-list .client.has-projects .name {
+      border-bottom: 1px dotted rgba(0, 166, 156, 0.75); }
+      body.post-type-archive-client .client-type .client-list .client.has-projects .name:after {
+        position: absolute;
+        bottom: 0.275rem;
+        right: -1.25rem;
+        content: '';
+        display: inline-block;
+        width: 0.875rem;
+        height: 0.375rem;
+        background: url("data:image/svg+xml,%3Csvg width='22px' height='13px' viewBox='0 0 22 13' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Page-1' stroke='none' stroke-width='4' fill='none' fill-rule='evenodd'%3E%3Cg id='down-svgrepo-com' transform='translate(1.000222, 1.000278)' stroke='%2300A69C' stroke-width='4'%3E%3Cpolyline id='Path' transform='translate(10.085739, 5.173763) scale(-1, 1) rotate(91.000000) translate(-10.085739, -5.173763) ' points='5.08573898 -4.82623746 15.085739 5.17376254 5.08573898 15.1737625'%3E%3C/polyline%3E%3C/g%3E%3C/g%3E%3C/svg%3E") no-repeat 0 0;
+        background-size: contain;
+        opacity: 0;
+        transition: all 0.2s ease; }
+      body.post-type-archive-client .client-type .client-list .client.has-projects .name:hover {
+        cursor: pointer; }
+        body.post-type-archive-client .client-type .client-list .client.has-projects .name:hover:after {
+          opacity: 1; }
+      body.post-type-archive-client .client-type .client-list .client.has-projects .name.active {
+        border: none; }
+        body.post-type-archive-client .client-type .client-list .client.has-projects .name.active:after {
+          opacity: 1;
+          transform: rotate(180deg) translateY(1px); }
+    body.post-type-archive-client .client-type .client-list .projects {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      display: none; }
+      body.post-type-archive-client .client-type .client-list .projects .project {
+        display: grid;
+        grid-template-columns: 1.25rem 1fr; }
+        body.post-type-archive-client .client-type .client-list .projects .project:before {
+          content: ">>";
+          color: #00A69C;
+          font-weight: bold;
+          font-size: 0.75rem; }
+        body.post-type-archive-client .client-type .client-list .projects .project + .project {
+          margin-top: 1em; }
+      body.post-type-archive-client .client-type .client-list .projects a {
         color: #00A69C;
         font-weight: bold;
-        font-size: clamp(0.875rem, 1vw, 1rem); }
-      body.post-type-archive-client .client-type .client-list .projects .project + .project {
-        margin-top: 1em; }
-    body.post-type-archive-client .client-type .client-list .projects a {
-      color: #00A69C;
-      font-weight: bold;
-      display: inline-block;
-      line-height: 1.125em;
-      font-size: clamp(0.875rem, 1vw, 1rem); }
-      body.post-type-archive-client .client-type .client-list .projects a:hover {
-        text-decoration: underline; }
+        display: inline-block;
+        line-height: 1.125em;
+        font-size: clamp(0.75rem, 1vw, 0.875rem); }
+        body.post-type-archive-client .client-type .client-list .projects a:hover {
+          text-decoration: underline; }
 
 body.single-projects .project-hero .photo {
   grid-column: 1 / -1;
