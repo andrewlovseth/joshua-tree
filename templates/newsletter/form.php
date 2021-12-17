@@ -8,15 +8,21 @@
 ?>
 
 <section class="contact-form grid">
-    <div class="headline">
-        <h3 class="section-headline small"><?php echo $headline; ?></h3>
-    </div>
+    <?php if($headline): ?>
+        <div class="headline">
+            <h3 class="section-headline small"><?php echo $headline; ?></h3>
+        </div>
+    <?php endif; ?>
 
-    <div class="copy copy-2">
-        <?php echo $copy; ?>
-    </div>
-
-    <div class="form-embed">
-        <?php echo $code; ?>
-    </div>
+    <?php if($copy): ?>
+        <div class="copy copy-2">
+            <?php echo $copy; ?>
+        </div>
+    <?php endif; ?>
+    
+    <?php if($code): ?>
+        <div class="form-embed">
+            <?php echo $code; ?>
+        </div>
+    <?php endif; ?>
 </section>
