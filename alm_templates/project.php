@@ -9,7 +9,6 @@
 ?>
 
 <div class="project">
-    <?php var_dump($market, $services, $client_type); ?>
     <a href="<?php echo get_permalink(); ?>">
         <?php if( $image ): ?>
             <div class="photo">
