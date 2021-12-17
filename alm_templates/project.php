@@ -1,9 +1,19 @@
+<?php 
+
+    $services = get_field('details_services');
+    $market = get_field('details_market'); 
+    $client_type = get_field('details_client_type'); 
+    $location = get_field('details_location');
+    $image = get_field('hero_photo'); 
+
+?>
+
 <div class="project">
     <a href="<?php echo get_permalink(); ?>">
-        <?php $image = get_field('hero_photo'); if( $image ): ?>
+        <?php if( $image ): ?>
             <div class="photo">
                 <div class="content">
-                    <?php echo wp_get_attachment_image($image['ID'], 'full'); ?>
+                    <?php echo wp_get_attachment_image($image['ID'], 'medium'); ?>
                 </div>
             </div>
         <?php endif; ?>
@@ -11,7 +21,7 @@
         <div class="info">
             <div class="info__wrapper">
 
-                <?php $market = get_field('details_market'); if($market): ?>
+                <?php if($market): ?>
                     <div class="market">
                         <h4><?php echo get_the_title($market); ?></h4>
                     </div>
@@ -21,9 +31,9 @@
                     <h3 class="title-headline small"><?php echo get_the_title(); ?></h3>
                 </div>
 
-                <?php if(get_field('details_location')): ?>
+                <?php if($location): ?>
                     <div class="location">
-                        <h4><?php the_field('details_location'); ?></h4>
+                        <h4><?php echo $location; ?></h4>
                     </div>
                 <?php endif; ?>
             </div>

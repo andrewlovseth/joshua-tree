@@ -87,14 +87,13 @@ section.projects {
     }
 }
 
+.alm-filters-edit {
+    display: none;
+}
+
 .alm-btn-wrap {
-    padding: 3rem 0 3rem 0;
     margin: 0;
     height: 100%;
-
-    @include tablet {
-        padding-bottom: 6rem;
-    }
 
     .alm-load-more-btn {
         background: $dark-teal;
@@ -106,6 +105,11 @@ section.projects {
         line-height: 1em;
         padding: 0 3rem;
         border-radius: 2px;
+        margin: 3rem 0;
+
+        @include tablet {
+            margin-bottom: 6rem;
+        }
 
         &.done {
             display: none;  

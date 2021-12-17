@@ -79,11 +79,6 @@
 			$(arrows).css('height', slideHeight);		
 		}
 
-
-
-
-
-
 		// Markets / Featured Projects Slider
 		$('.projects-slider').slick({
 			dots: true,

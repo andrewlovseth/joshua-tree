@@ -2847,13 +2847,12 @@ body.post-type-archive-projects .project {
   body.post-type-archive-projects .project:hover {
     background: #00A69C; }
 
+body.post-type-archive-projects .alm-filters-edit {
+  display: none; }
+
 body.post-type-archive-projects .alm-btn-wrap {
-  padding: 3rem 0 3rem 0;
   margin: 0;
   height: 100%; }
-  @media screen and (min-width: 768px) {
-    body.post-type-archive-projects .alm-btn-wrap {
-      padding-bottom: 6rem; } }
   body.post-type-archive-projects .alm-btn-wrap .alm-load-more-btn {
     background: #00A69C;
     font-weight: bold;
@@ -2863,7 +2862,11 @@ body.post-type-archive-projects .alm-btn-wrap {
     height: 3rem;
     line-height: 1em;
     padding: 0 3rem;
-    border-radius: 2px; }
+    border-radius: 2px;
+    margin: 3rem 0; }
+    @media screen and (min-width: 768px) {
+      body.post-type-archive-projects .alm-btn-wrap .alm-load-more-btn {
+        margin-bottom: 6rem; } }
     body.post-type-archive-projects .alm-btn-wrap .alm-load-more-btn.done {
       display: none; }
     body.post-type-archive-projects .alm-btn-wrap .alm-load-more-btn.loading {
