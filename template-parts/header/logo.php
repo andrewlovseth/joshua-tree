@@ -1,3 +1,9 @@
+<?php
+    $image = get_field('logo', 'options'); 
+?>
+
 <div class="site-logo">
-    <a href="<?php echo site_url('/'); ?>"><img src="<?php $image = get_field('logo', 'options'); echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" /></a>
+    <a href="<?php echo site_url('/'); ?>">
+        <?php echo wp_get_attachment_image($image['ID'], 'full'); ?>
+    </a>
 </div>

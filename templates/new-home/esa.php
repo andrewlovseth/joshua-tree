@@ -68,7 +68,7 @@
             <?php if( $photos ): ?>
                 <?php $count = 1; foreach( $photos as $photo ): ?>
                     <div class="photo photo-<?php echo $count; ?>">
-                        <?php echo wp_get_attachment_image($photo['ID'], 'full'); ?>
+                        <?php echo wp_get_attachment_image($photo['ID'], 'large'); ?>
                     </div>
                 <?php $count++; endforeach; ?>
             <?php endif; ?>

@@ -14,7 +14,7 @@
         <?php if( $photo ): ?>
             <div class="photo">
                 <div class="content">
-                    <?php echo wp_get_attachment_image($photo['ID'], 'full'); ?>
+                    <?php echo wp_get_attachment_image($photo['ID'], 'medium'); ?>
                 </div>
             </div>
         <?php endif; ?>

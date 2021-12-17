@@ -9,10 +9,13 @@
                 <?php if(have_rows('content')): while(have_rows('content')) : the_row(); ?>
 
                     <?php if( get_row_layout() == 'logo' ): ?>
+                        <?php 
+                            $image = get_sub_field('image');
+                        ?>
 
                         <div class="footer-logo">
                             <a href="<?php echo site_url('/'); ?>">
-                                <img src="<?php $image = get_sub_field('image'); echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+                                <?php echo wp_get_attachment_image($image['ID'], 'full'); ?>
                             </a>
                         </div>
 
