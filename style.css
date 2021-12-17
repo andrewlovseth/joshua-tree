@@ -1655,12 +1655,12 @@ body.page-template-new-home section.featured-projects {
       border-radius: 3px; }
   body.page-template-new-home section.featured-projects .project .market {
     padding-bottom: 0.5rem; }
-    body.page-template-new-home section.featured-projects .project .market h4 {
+    body.page-template-new-home section.featured-projects .project .market span.label {
       text-transform: uppercase;
       font-weight: bold;
       letter-spacing: 0.05em; }
-      body.page-template-new-home section.featured-projects .project .market h4 a {
-        color: #F9A134; }
+      body.page-template-new-home section.featured-projects .project .market span.label a {
+        color: #00A69C; }
   body.page-template-new-home section.featured-projects .project .headline h3 {
     line-height: 1em; }
     body.page-template-new-home section.featured-projects .project .headline h3 a {
@@ -1671,7 +1671,7 @@ body.page-template-new-home section.featured-projects {
       text-transform: uppercase;
       font-weight: bold;
       letter-spacing: 0.05em;
-      color: #ADAFB2; }
+      color: #767676; }
   body.page-template-new-home section.featured-projects .project .copy strong {
     font-weight: normal; }
   body.page-template-new-home section.featured-projects .slick-dots {

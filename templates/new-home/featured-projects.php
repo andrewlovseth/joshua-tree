@@ -15,7 +15,7 @@
                         <div class="photo">
                             <div class="content">
                                 <?php $image = get_field('hero_photo', $p->ID); if( $image ): ?>
-                                    <a href="<?php echo get_permalink( $p->ID ); ?>"><?php echo wp_get_attachment_image($image['ID'], 'full'); ?></a>
+                                    <a href="<?php echo get_permalink( $p->ID ); ?>" aria-label="<?php echo get_the_title( $p->ID ); ?>" title="<?php echo get_the_title( $p->ID ); ?>"><?php echo wp_get_attachment_image($image['ID'], 'full'); ?></a>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -25,7 +25,7 @@
 
                                 <?php $market = get_field('details_market', $p->ID); if($market): ?>
                                     <div class="market">
-                                        <h4><a href="<?php echo get_permalink( $market ); ?>"><?php echo get_the_title($market); ?></a></h4>
+                                        <span class="label"><a href="<?php echo get_permalink( $market ); ?>"><?php echo get_the_title($market); ?></a></span>
                                     </div>
                                 <?php endif; ?>
 

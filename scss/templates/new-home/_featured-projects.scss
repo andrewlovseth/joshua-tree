@@ -33,13 +33,13 @@ section.featured-projects {
         .market {
             padding-bottom: 0.5rem;
 
-            h4 {
+            span.label {
                 text-transform: uppercase;
                 font-weight: bold;
                 letter-spacing: 0.05em;
                 
                 a {
-                    color: $orange;
+                    color: $dark-teal;
                 }
             }
         }
@@ -60,7 +60,7 @@ section.featured-projects {
                 text-transform: uppercase;
                 font-weight: bold;
                 letter-spacing: 0.05em;
-                color: $medium-gray;
+                color: #767676;
             }
         }
 
