@@ -41,7 +41,7 @@
                             </div>
 
                             <div class="cta">
-                                <a href="<?php the_permalink(); ?>" class="underline" title="Read the article: <?php the_title(); ?>" aria-label="Read the article: <?php the_title(); ?>">Read More</a>
+                                <a href="<?php the_permalink(); ?>" class="underline" title="Read the article: <?php the_title(); ?>" aria-label="Read the article: <?php the_title(); ?>">Read the Article</a>
                             </div>
                         </div>
                     </div>                    
