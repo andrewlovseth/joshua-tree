@@ -25,10 +25,6 @@ function bearsmith_enqueue_styles_and_scripts() {
     // Add plugins.js & site.js (with jQuery dependency)
     wp_enqueue_script( 'custom-plugins', get_stylesheet_directory_uri() . '/js/plugins.js', array( 'jquery.3.6.0' ), $script_last_updated_at, true );
     wp_enqueue_script( 'custom-site', get_stylesheet_directory_uri() . '/js/site.js', array( 'jquery.3.6.0' ), $script_last_updated_at, true );
-
-
-
-
 }
 add_action( 'wp_enqueue_scripts', 'bearsmith_enqueue_styles_and_scripts' );
 
