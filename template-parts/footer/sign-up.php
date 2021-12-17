@@ -41,7 +41,7 @@
                         ?>
 
                             <div class="link">
-                                <a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>">
+                                <a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>" rel="noreferrer noopener">
                                     <img src="<?php echo $icon['url']; ?>" alt="<?php echo esc_html($link_title); ?>" />
                                 </a>
                             </div>
