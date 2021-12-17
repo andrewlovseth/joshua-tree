@@ -8,6 +8,7 @@
 // Enqueue custom styles and scripts
 function bearsmith_enqueue_styles_and_scripts() {
     // Register and noConflict jQuery 3.6.0
+    wp_deregister_script('jquery');
     wp_register_script( 'jquery.3.6.0', 'https://code.jquery.com/jquery-3.6.0.min.js' );
     wp_add_inline_script( 'jquery.3.6.0', 'var jQuery = $.noConflict(true);' );
 
