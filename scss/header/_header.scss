@@ -49,13 +49,25 @@ body.show-top-btn {
 // About
 .page-template-about,
 .parent-pageid-171,
-.single-leadership {
+.single-leadership,
+.category-employee-owner-spotlight {
     .site-header .site-nav ul li a {
         &.link-about {
             border-bottom-color: $orange;
         }
     }
 }
+
+// Join Us
+.page-template-join-us,
+.parent-pageid-183 {
+    .site-header .site-nav ul li a {
+        &.link-join-us {
+            border-bottom-color: $orange;
+        }
+    }
+}
+
 
 
 // Our Work
@@ -74,9 +86,20 @@ body.show-top-btn {
 
 // News & Ideas
 .blog,
+.category:not(.category-employee-owner-spotlight),
 .single-post {
     .site-header .site-nav ul li a {
         &.link-news-ideas {
+            border-bottom-color: $orange;
+        }
+    }
+}
+
+
+// Contact
+.page-template-contact {
+    .site-header .site-nav ul li a {
+        &.link-contact {
             border-bottom-color: $orange;
         }
     }

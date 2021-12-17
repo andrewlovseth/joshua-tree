@@ -12,7 +12,6 @@ section.featured-projects {
 
     .slider-wrapper {
         grid-column: 1 / -1;
-
     }
 
     .project {
@@ -73,12 +72,23 @@ section.featured-projects {
     }
 
     .slick-dots {
-        transform: translateY(-1rem);
+        bottom: -3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         li {
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
             button:before {
                 border-color: $orange;
-
+                position: relative;
+                display: block;
+                
             }
 
             &.slick-active {
