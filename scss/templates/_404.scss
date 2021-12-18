@@ -1,0 +1,45 @@
+body.error404 {
+    .site-content {
+        @include tablet {
+            min-height: 60vh;
+        }
+
+        nav.search-nav {
+            min-height: unset;
+            position: relative;
+            top: unset;
+            z-index: unset;
+            box-shadow: unset;
+            border-bottom: unset;
+            background: unset;
+            padding: unset;
+            opacity: 1;
+
+            form {
+                @include tablet-small {
+                    grid-column: 2 / span 8;
+                }
+                @include desktop-small {
+                    grid-column: 2 / span 8;
+                }
+            }
+        }
+    }
+
+    .page-header {
+        padding-bottom: 0;
+
+        @include desktop-small {
+            padding-top: 6rem;
+
+            .page-title {
+                grid-column: 2 / span 12;
+            }
+        }
+
+        .copy {
+            padding-top: 2rem;
+        }
+    }
+    
+}

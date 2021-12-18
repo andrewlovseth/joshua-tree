@@ -3901,6 +3901,37 @@ body.page-template-default .default-page {
   body.page-template-default .default-page .copy h6 {
     font-size: clamp(0.75rem, 0.9vw, 0.875rem); }
 
+@media screen and (min-width: 768px) {
+  body.error404 .site-content {
+    min-height: 60vh; } }
+
+body.error404 .site-content nav.search-nav {
+  min-height: unset;
+  position: relative;
+  top: unset;
+  z-index: unset;
+  box-shadow: unset;
+  border-bottom: unset;
+  background: unset;
+  padding: unset;
+  opacity: 1; }
+  @media screen and (min-width: 480px) {
+    body.error404 .site-content nav.search-nav form {
+      grid-column: 2 / span 8; } }
+  @media screen and (min-width: 992px) {
+    body.error404 .site-content nav.search-nav form {
+      grid-column: 2 / span 8; } }
+
+body.error404 .page-header {
+  padding-bottom: 0; }
+  @media screen and (min-width: 992px) {
+    body.error404 .page-header {
+      padding-top: 6rem; }
+      body.error404 .page-header .page-title {
+        grid-column: 2 / span 12; } }
+  body.error404 .page-header .copy {
+    padding-top: 2rem; }
+
 .copy-2.extended .esa-sidebar {
   width: 100%;
   padding: 2rem 2rem 1rem 2rem;
