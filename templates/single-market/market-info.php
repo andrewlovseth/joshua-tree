@@ -48,7 +48,7 @@
     <?php if($lead): ?>
         <div class="market-lead">
             <div class="section-header">
-                <h3 class="section-headline">Market<br/>Lead</h3>
+                <h3 class="section-headline">Connect with<br/> Our Team</h3>
             </div>
 
             <?php
