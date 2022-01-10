@@ -3748,6 +3748,91 @@ body.page-template-newsletter section.contact-form {
   body.page-template-newsletter section.contact-form .form-embed fieldset > div {
     margin-top: 0.25rem; }
 
+body.page-template-making-waves .making-waves-header {
+  text-align: center;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 0; }
+  body.page-template-making-waves .making-waves-header .headline h1 {
+    font-weight: 100;
+    color: #72CCD2;
+    padding-bottom: 1rem; }
+  body.page-template-making-waves .making-waves-header .headline h2 {
+    font-weight: 100;
+    color: #00728F; }
+  body.page-template-making-waves .making-waves-header .copy {
+    padding-top: 2rem;
+    font-style: italic; }
+
+body.page-template-making-waves .making-waves-body {
+  padding: 4rem 1.25rem 6rem;
+  position: relative; }
+  body.page-template-making-waves .making-waves-body:before {
+    display: block;
+    content: '';
+    width: 100%;
+    height: 100%;
+    max-height: 50vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100%; }
+
+body.page-template-making-waves .sign-up-form {
+  position: relative;
+  z-index: 1;
+  max-width: 30rem;
+  margin: 0 auto;
+  background: #fff;
+  padding: 3rem;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.1) 0px 4px 27px -5px, rgba(0, 0, 0, 0.15) 0px 2px 16px -8px; }
+  body.page-template-making-waves .sign-up-form .field + .field {
+    padding-top: 2rem; }
+  body.page-template-making-waves .sign-up-form .field label {
+    display: block;
+    font-weight: bold;
+    padding-bottom: 0.5rem; }
+  body.page-template-making-waves .sign-up-form .field input[type='text'],
+  body.page-template-making-waves .sign-up-form .field input[type='email'] {
+    width: 100%;
+    color: #666;
+    padding: 0.75rem;
+    height: auto;
+    border: 1px solid #eaeaea;
+    border-radius: 2px;
+    background: #fafafa; }
+  body.page-template-making-waves .sign-up-form .other-list {
+    display: flex; }
+    body.page-template-making-waves .sign-up-form .other-list input {
+      display: block;
+      margin-top: 6px; }
+    body.page-template-making-waves .sign-up-form .other-list label {
+      padding-left: 0.5rem;
+      font-size: clamp(0.875rem, 0.9vw, 1rem);
+      line-height: 1.25em;
+      font-weight: normal;
+      font-style: italic; }
+  body.page-template-making-waves .sign-up-form .submit button {
+    color: #fff;
+    background: #1193BA;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    padding: 1rem 1.5rem 0.875rem;
+    border: 2px solid #fff;
+    font-size: clamp(1rem, 1.2vw, 1.25rem);
+    transition: all 0.3s ease-in; }
+    @media screen and (min-width: 768px) {
+      body.page-template-making-waves .sign-up-form .submit button {
+        padding: 1.5rem 2rem 1.375rem; } }
+
 body.search .archived-posts.search-results .search-form-wrapper {
   background: #EDEDED;
   grid-column: 1 / -1;
