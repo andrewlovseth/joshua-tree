@@ -9,10 +9,8 @@ body.single-post {
             grid-row: 1;
             max-height: 95vh;
 
-
             @include desktop-small {
                 @include aspect-ratio(16, 7);
-
             }
         }
 
@@ -42,6 +40,10 @@ body.single-post {
 
             @include tablet {
                 font-size: clamp(3rem, 5vw, 4.5rem);
+            }
+
+            &.no-shadow {
+                text-shadow: none;
             }
         }
     }
