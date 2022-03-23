@@ -18,10 +18,18 @@
         <h4><?php echo $author_header; ?></h4>
 
         <?php foreach($authors as $author): ?>
+
             <?php 
+                $type = $author->post_type;
                 $link = get_permalink($author->ID);
                 $name = get_the_title($author->ID);
-                $photo = get_field('info_photo', $author->ID);
+
+                if($type === "leadership") {
+                    $photo = get_field('info_headshot', $author->ID);
+                } else {
+                    $photo = get_field('info_photo', $author->ID);
+                }
+                 
             ?>
             
             <div class="author">

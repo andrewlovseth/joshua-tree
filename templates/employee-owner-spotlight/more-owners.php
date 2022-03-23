@@ -9,8 +9,19 @@
                 <div class="owner">
                     <div class="photo">
                         <a href="<?php echo get_permalink($owner->ID); ?>" class="photo-link">
-                            <?php $image = get_field('info_photo', $owner->ID); if( $image ): ?>
-                                <?php echo wp_get_attachment_image($image['ID'], 'large'); ?>
+
+                            <?php
+                                $type = $owner->post_type;
+
+                                if($type === "leadership") {
+                                    $photo = get_field('info_headshot', $author->ID);
+                                } else {
+                                    $photo = get_field('info_photo', $author->ID);
+                                }
+                            ?>
+
+                            <?php if( $photo ): ?>
+                                <?php echo wp_get_attachment_image($photo['ID'], 'large'); ?>
                             <?php endif; ?>
                         </a>
                     </div>
