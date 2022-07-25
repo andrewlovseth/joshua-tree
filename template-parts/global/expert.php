@@ -28,13 +28,11 @@
 
 <div class="expert profile">
     <div class="photo">
-        <div class="content">
-            <a href="<?php echo get_permalink($expert->ID); ?>">
-                <?php if( $image ): ?>
-                    <?php echo wp_get_attachment_image($image['ID'], 'full'); ?>
-                <?php endif; ?>
-            </a>
-        </div>                    
+        <a href="<?php echo get_permalink($expert->ID); ?>">
+            <?php if( $image ): ?>
+                <?php echo wp_get_attachment_image($image['ID'], 'full'); ?>
+            <?php endif; ?>
+        </a>
     </div>
 
     <div class="info">

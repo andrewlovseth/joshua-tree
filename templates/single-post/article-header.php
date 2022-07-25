@@ -16,9 +16,7 @@ if($show == TRUE && $remove_drop_shadow ) {
 
 <section class="article-header grid">
     <div class="featured-image">
-        <div class="content">
-            <?php the_post_thumbnail(); ?>
-        </div>
+        <?php the_post_thumbnail(); ?>
     </div>
 
     <div class="info">

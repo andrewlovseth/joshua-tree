@@ -1,5 +1,4 @@
 .featured-projects {
-
     .project {
         a {
             display: grid;
@@ -9,15 +8,15 @@
         .photo {
             grid-row: 1;
             grid-column: 1 / -1;
-            @include aspect-ratio(1, 1);
+            aspect-ratio: 1 / 1;
             @include cover-fill-image;
 
             @include tablet-small {
-                @include aspect-ratio(4, 3);
+                aspect-ratio: 4 / 3;
             }
 
             @include tablet {
-                @include aspect-ratio(16, 9);
+                aspect-ratio: 16 / 9;
             }
         }
 
@@ -36,9 +35,6 @@
             &__wrapper {
                 background: rgba(255, 255, 255, 0.95);
                 padding: 2rem;
-
-
-
 
                 @include tablet-small {
                     width: 100%;
@@ -59,10 +55,8 @@
                         left: -1rem;
                         width: 0.5rem;
                     }
-
                 }
             }
-
 
             .headline {
                 h3 {
@@ -110,12 +104,7 @@
                         letter-spacing: 0.05em;
                     }
                 }
-
-
             }
         }
-
     }
- 
-
 }

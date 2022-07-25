@@ -6,11 +6,9 @@
             <article <?php post_class('news-item'); ?>>
 
                 <div class="photo">
-                    <div class="content">
-                        <a href="<?php the_permalink(); ?>">
-                            <?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
-                        </a>
-                    </div>
+                    <a href="<?php the_permalink(); ?>">
+                        <?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
+                    </a>
                 </div>
 
                 <div class="info">

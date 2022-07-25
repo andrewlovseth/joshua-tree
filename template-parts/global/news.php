@@ -34,11 +34,9 @@
                 <?php foreach( $news as $news_item ): ?>
                     <div class="news-item">
                         <div class="photo">
-                            <div class="content">
-                                <a href="<?php echo get_permalink( $news_item->ID ); ?>">
-                                    <?php echo get_the_post_thumbnail( $news_item->ID, 'large' ); ?>
-                                </a>
-                            </div>
+                            <a href="<?php echo get_permalink( $news_item->ID ); ?>">
+                                <?php echo get_the_post_thumbnail( $news_item->ID, 'large' ); ?>
+                            </a>
                         </div>
 
                         <div class="info">

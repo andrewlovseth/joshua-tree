@@ -13,11 +13,9 @@
                 <?php foreach( $posts as $p ): ?>
                     <div class="project">
                         <div class="photo">
-                            <div class="content">
-                                <?php $image = get_field('hero_photo', $p->ID); if( $image ): ?>
-                                    <a href="<?php echo get_permalink( $p->ID ); ?>" aria-label="<?php echo get_the_title( $p->ID ); ?>" title="<?php echo get_the_title( $p->ID ); ?>"><?php echo wp_get_attachment_image($image['ID'], 'full'); ?></a>
-                                <?php endif; ?>
-                            </div>
+                            <?php $image = get_field('hero_photo', $p->ID); if( $image ): ?>
+                                <a href="<?php echo get_permalink( $p->ID ); ?>" aria-label="<?php echo get_the_title( $p->ID ); ?>" title="<?php echo get_the_title( $p->ID ); ?>"><?php echo wp_get_attachment_image($image['ID'], 'full'); ?></a>
+                            <?php endif; ?>
                         </div>
 
                         <div class="info">

@@ -15,9 +15,7 @@
                         <a href="<?php echo get_permalink( $project->ID ); ?>">
                             <?php $image = get_field('hero_photo', $project->ID); if( $image ): ?>
                                 <div class="photo">
-                                    <div class="content">
-                                        <?php echo wp_get_attachment_image($image['ID'], 'full'); ?>
-                                    </div>
+                                    <?php echo wp_get_attachment_image($image['ID'], 'full'); ?>
                                 </div>
                             <?php endif; ?>
 

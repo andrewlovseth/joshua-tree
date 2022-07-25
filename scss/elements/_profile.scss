@@ -2,7 +2,7 @@
     text-align: center;
 
     .photo {
-        @include aspect-ratio(1,1);
+        aspect-ratio: 1 / 1;
         @include cover-fill-image;
         max-width: 12rem;
         margin: 0 auto;

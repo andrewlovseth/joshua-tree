@@ -14,11 +14,9 @@ if( $featured_posts ): ?>
 
                 <article <?php post_class($article_class, $p->ID); ?>>
                     <div class="photo">
-                        <div class="content">
-                            <a href="<?php echo get_permalink( $p->ID ); ?>">
-                                <?php echo get_the_post_thumbnail( $p->ID, 'large' ); ?>
-                            </a>
-                        </div>
+                        <a href="<?php echo get_permalink( $p->ID ); ?>">
+                            <?php echo get_the_post_thumbnail( $p->ID, 'large' ); ?>
+                        </a>
                     </div>
 
                     <div class="info">

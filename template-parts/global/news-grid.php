@@ -19,11 +19,9 @@
                 <article <?php post_class('news-item'); ?>>
 
                     <div class="photo">
-                        <div class="content">
-                            <a href="<?php the_permalink(); ?>">
-                                <?php echo get_the_post_thumbnail( $post->ID, 'medium', array( 'alt' => 'Photo for ' . wp_strip_all_tags(get_the_title()) ) ); ?>
-                            </a>
-                        </div>
+                        <a href="<?php the_permalink(); ?>">
+                            <?php echo get_the_post_thumbnail( $post->ID, 'medium', array( 'alt' => 'Photo for ' . wp_strip_all_tags(get_the_title()) ) ); ?>
+                        </a>
                     </div>
 
                     <div class="info">

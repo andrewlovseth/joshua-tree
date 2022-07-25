@@ -12,9 +12,7 @@
     <a href="<?php echo get_permalink(); ?>">
         <?php if( $image ): ?>
             <div class="photo">
-                <div class="content">
-                    <?php echo wp_get_attachment_image($image['ID'], 'medium'); ?>
-                </div>
+                <?php echo wp_get_attachment_image($image['ID'], 'medium'); ?>
             </div>
         <?php endif; ?>
 

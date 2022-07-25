@@ -10,14 +10,17 @@ section.features {
         border-top: 4px double $teal;
         display: grid;
         gap: 4rem 2rem;
-    
+
         @include tablet {
             grid-template-columns: repeat(2, 1fr);
             padding: 6rem 0;
         }
     }
 
-
+    .photo {
+        aspect-ratio: 4 / 3;
+        @include cover-fill-image;
+    }
 
     .headline {
         padding-bottom: 0.5rem;

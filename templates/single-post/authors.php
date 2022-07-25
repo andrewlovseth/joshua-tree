@@ -34,15 +34,13 @@
             
             <div class="author">
                     <div class="photo">
-                        <div class="content">
-                            <a href="<?php echo $link; ?>">
-                                <?php if($photo): ?>
-                                    <?php echo wp_get_attachment_image($photo['ID'], 'small'); ?>
-                                <?php else: ?>
-                                    <div class="placeholder"></div>
-                                <?php endif; ?>
-                            </a>
-                        </div>
+                        <a href="<?php echo $link; ?>">
+                            <?php if($photo): ?>
+                                <?php echo wp_get_attachment_image($photo['ID'], 'small'); ?>
+                            <?php else: ?>
+                                <div class="placeholder"></div>
+                            <?php endif; ?>
+                        </a>
                     </div>
 
                 <div class="info">

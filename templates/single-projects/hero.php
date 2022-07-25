@@ -10,9 +10,7 @@
 <section class="hero project-hero grid">
     <?php if( $photo ): ?>
         <div class="photo">
-            <div class="content">
-                <?php echo wp_get_attachment_image($photo['ID'], 'full'); ?>
-            </div>
+            <?php echo wp_get_attachment_image($photo['ID'], 'full'); ?>
         </div>
     <?php endif; ?>    
 

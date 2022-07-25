@@ -1,17 +1,16 @@
 body.single-office {
-
     section.map {
         .acf-map {
             grid-column: 1 / -1;
             width: 100%;
             height: 800px;
-            max-height: 70vh ;
+            max-height: 70vh;
             img {
                 max-width: inherit !important;
-             }
+            }
 
             .photo {
-                @include aspect-ratio(4, 3);
+                aspect-ratio: 4 / 3;
                 @include cover-fill-image;
                 width: 24rem;
 
@@ -35,10 +34,6 @@ body.single-office {
                     max-width: 10rem;
                 }
             }
-            
-
         }
-
-
     }
 }

@@ -9,7 +9,7 @@
     .section-header,
     .more-projects-slider-wrapper {
         @include desktop-small {
-            grid-column: 3 / span 10
+            grid-column: 3 / span 10;
         }
     }
 
@@ -28,11 +28,11 @@
         }
 
         .photo {
-            @include aspect-ratio(1, 1);
+            aspect-ratio: 1 / 1;
             @include cover-fill-image;
 
             @include tablet-small {
-                @include aspect-ratio(4, 3);
+                aspect-ratio: 4 / 3;
             }
 
             img {
@@ -60,7 +60,6 @@
                     font-weight: bold;
                     letter-spacing: 0.05em;
                     font-size: clamp(0.75rem, 0.9vw, 0.875rem);
-                    
                 }
             }
 
@@ -76,7 +75,7 @@
             }
         }
 
-        &:hover{
+        &:hover {
             background: $orange;
         }
     }
