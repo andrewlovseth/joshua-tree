@@ -8,8 +8,7 @@
 // Enqueue custom styles and scripts
 function bearsmith_enqueue_styles_and_scripts() {
     // Register and noConflict jQuery 3.6.0
-    wp_register_script( 'jquery.3.6.0', 'https://code.jquery.com/jquery-3.6.0.min.js' );
-    wp_add_inline_script( 'jquery.3.6.0', 'var jQuery = $.noConflict(true);' );
+
 
 
 	$uri = get_stylesheet_directory_uri();
@@ -22,8 +21,8 @@ function bearsmith_enqueue_styles_and_scripts() {
     wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/style.css', '', $style_last_updated_at );
 
     // Add plugins.js & site.js (with jQuery dependency)
-    wp_enqueue_script( 'custom-plugins', get_stylesheet_directory_uri() . '/js/plugins.js', array( 'jquery.3.6.0' ), $script_last_updated_at, true );
-    wp_enqueue_script( 'custom-site', get_stylesheet_directory_uri() . '/js/site.js', array( 'jquery.3.6.0' ), $script_last_updated_at, true );
+    wp_enqueue_script( 'custom-plugins', get_stylesheet_directory_uri() . '/js/plugins.js', array(), $script_last_updated_at, true );
+    wp_enqueue_script( 'custom-site', get_stylesheet_directory_uri() . '/js/site.js', array(), $script_last_updated_at, true );
 }
 add_action( 'wp_enqueue_scripts', 'bearsmith_enqueue_styles_and_scripts' );
 
