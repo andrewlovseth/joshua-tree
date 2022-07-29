@@ -417,7 +417,22 @@ a {
 .copy-1.extended > *, .copy-2.extended > *, .copy-3.extended > * {
   margin-bottom: 2rem;
 }
-.copy-1.extended h1, .copy-1.extended h2, .copy-1.extended h3, .copy-1.extended h4, .copy-1.extended h5, .copy-1.extended h6, .copy-2.extended h1, .copy-2.extended h2, .copy-2.extended h3, .copy-2.extended h4, .copy-2.extended h5, .copy-2.extended h6, .copy-3.extended h1, .copy-3.extended h2, .copy-3.extended h3, .copy-3.extended h4, .copy-3.extended h5, .copy-3.extended h6 {
+.copy-1.extended h1,
+.copy-1.extended h2,
+.copy-1.extended h3,
+.copy-1.extended h4,
+.copy-1.extended h5,
+.copy-1.extended h6, .copy-2.extended h1,
+.copy-2.extended h2,
+.copy-2.extended h3,
+.copy-2.extended h4,
+.copy-2.extended h5,
+.copy-2.extended h6, .copy-3.extended h1,
+.copy-3.extended h2,
+.copy-3.extended h3,
+.copy-3.extended h4,
+.copy-3.extended h5,
+.copy-3.extended h6 {
   line-height: 1.375em;
 }
 .copy-1.extended h1, .copy-2.extended h1, .copy-3.extended h1 {
@@ -425,7 +440,7 @@ a {
   font-size: clamp(3rem, 5vw, 4rem);
 }
 .copy-1.extended h2, .copy-2.extended h2, .copy-3.extended h2 {
-  font-size: clamp(2.5rem, 3.8vw, 3.75rem);
+  font-size: clamp(2.5rem, 3vw, 3rem);
   font-weight: 700;
 }
 .copy-1.extended h3, .copy-2.extended h3, .copy-3.extended h3 {
@@ -452,13 +467,22 @@ a {
 .copy-1.extended ol, .copy-2.extended ol, .copy-3.extended ol {
   list-style-type: decimal;
 }
-.copy-1.extended ul, .copy-1.extended ol, .copy-2.extended ul, .copy-2.extended ol, .copy-3.extended ul, .copy-3.extended ol {
+.copy-1.extended ul,
+.copy-1.extended ol, .copy-2.extended ul,
+.copy-2.extended ol, .copy-3.extended ul,
+.copy-3.extended ol {
   padding-left: 1.5rem;
 }
-.copy-1.extended ul li + li, .copy-1.extended ol li + li, .copy-2.extended ul li + li, .copy-2.extended ol li + li, .copy-3.extended ul li + li, .copy-3.extended ol li + li {
+.copy-1.extended ul li + li,
+.copy-1.extended ol li + li, .copy-2.extended ul li + li,
+.copy-2.extended ol li + li, .copy-3.extended ul li + li,
+.copy-3.extended ol li + li {
   padding-top: 0.5rem;
 }
-.copy-1.extended ul li p + p, .copy-1.extended ol li p + p, .copy-2.extended ul li p + p, .copy-2.extended ol li p + p, .copy-3.extended ul li p + p, .copy-3.extended ol li p + p {
+.copy-1.extended ul li p + p,
+.copy-1.extended ol li p + p, .copy-2.extended ul li p + p,
+.copy-2.extended ol li p + p, .copy-3.extended ul li p + p,
+.copy-3.extended ol li p + p {
   padding-top: 1rem;
 }
 
