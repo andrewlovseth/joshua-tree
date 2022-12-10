@@ -3887,12 +3887,12 @@ body.single-market .market-info {
 }
 @media screen and (min-width: 768px) {
   body.single-market .market-info .about {
-    grid-column: 5/span 5;
+    grid-column: 3/span 6;
   }
 }
 @media screen and (min-width: 992px) {
   body.single-market .market-info .about {
-    grid-column: 6/span 8;
+    grid-column: 2/span 8;
   }
 }
 body.single-market .market-info .about .sub-markets h4,
@@ -3901,24 +3901,56 @@ body.single-market .market-info .about .services h4 {
   margin: 0;
   padding-bottom: 0.5rem;
 }
+body.single-market .market-info .about .sub-markets ul,
+body.single-market .market-info .about .services ul {
+  list-style-type: none;
+  padding: 0;
+}
 body.single-market .market-info .about .sub-markets ul li,
 body.single-market .market-info .about .services ul li {
-  padding-bottom: 0.25rem;
+  padding-top: 0;
+  padding-bottom: 0;
 }
-body.single-market .market-info .market-lead {
-  text-align: center;
-  padding-top: 3rem;
+@media screen and (min-width: 992px) {
+  body.single-market .market-info .market-leaders {
+    padding-top: 3rem;
+  }
+}
+body.single-market .market-info .leader-grid {
+  display: grid;
+  gap: 2rem;
+  /*      .leader:first-of-type {
+      grid-row: 1 / span 2;
+      grid-column: 1 / span 2;
+      //background: rgba($teal, 0.2);
+
+      .photo {
+          max-width: 24rem;
+      }
+      .photo img {
+          //border: 0.5rem solid $teal;
+      }
+
+      .info a {
+          //color: $teal;
+      }
+  }
+  */
+}
+@media screen and (min-width: 480px) {
+  body.single-market .market-info .leader-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media screen and (min-width: 768px) {
-  body.single-market .market-info .market-lead {
-    padding-top: 0;
-    grid-row: 1;
-    grid-column: 2/span 3;
+  body.single-market .market-info .leader-grid {
+    grid-template-columns: repeat(3, 1fr);
+    padding-bottom: 6rem;
   }
 }
 @media screen and (min-width: 992px) {
-  body.single-market .market-info .market-lead {
-    grid-column: 2/span 4;
+  body.single-market .market-info .leader-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 body.single-market .more-projects {

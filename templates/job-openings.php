@@ -13,7 +13,7 @@ get_header(); ?>
         get_template_part('templates/join-us/sub-nav', null, $args);
     ?>
 
-    <?php get_template_part('templates/about/page-header'); ?>
+    <?php get_template_part('templates/job-openings/page-header'); ?>
 
     <?php get_template_part('templates/job-openings/listings'); ?>
 

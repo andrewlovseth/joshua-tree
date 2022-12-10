@@ -39,11 +39,6 @@
         <div class="name">
             <h3><a href="<?php echo get_permalink($expert->ID); ?>"><?php echo get_the_title($expert->ID); ?></a></h3>
         </div>
-        
-        <?php if($region): ?>
-            <div class="region vital">
-                <em><?php echo $region; ?></em>
-            </div>
-        <?php endif; ?>
+
     </div>
 </div>

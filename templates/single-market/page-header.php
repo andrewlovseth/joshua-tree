@@ -1,7 +1,9 @@
 <?php
 
     $sub_market = get_field('sub_market');
-    $parent_market = $sub_market['parent_market'];
+    if($sub_market) {
+        $parent_market = $sub_market['parent_market'];
+    }
 
 ?>
 

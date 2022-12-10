@@ -2,7 +2,6 @@
 
     $about = get_field('about');
     $copy = $about['copy'];
-    $sub_services = $about['sub_services'];
     $experts = get_field('experts');
 
 ?>
@@ -13,23 +12,6 @@
         <div class="copy-2 extended">
             <?php echo $copy; ?>
         </div>
-
-        <?php if($sub_services): ?>
-            <div class="sub-services">
-                <div class="header">
-                    <h4 class="title-headline small">Learn more about</h4>
-                </div>
-                <ul>
-                    <?php foreach($sub_services as $service): ?>
-                        <li>
-                            <a href="<?php echo get_permalink($service->ID); ?>">
-                                <?php echo get_the_title($service->ID); ?>
-                            </a>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-        <?php endif; ?>
     </div>
 
     <?php if($experts): ?>

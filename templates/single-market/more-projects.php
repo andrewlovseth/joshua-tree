@@ -26,7 +26,7 @@
                                 <div class="info__wrapper">
                                     <div class="market">
                                         <?php $market = get_field('details_market', $project->ID); ?>
-                                        <h4><?php echo get_the_title($market->ID); ?></h4>
+                                        <h4><?php echo get_the_title($market); ?></h4>
                                     </div>
 
                                     <div class="headline">

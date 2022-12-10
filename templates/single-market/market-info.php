@@ -33,7 +33,7 @@
         <?php if($services): ?>
             <div class="services">
                 <div class="copy-3 extended">
-                    <h4>Service</h4>
+                    <h4>Contact Us For</h4>
 
                     <ul>
                         <?php foreach($services as $service): ?>
@@ -45,17 +45,24 @@
         <?php endif; ?>
     </div>
 
-    <?php if($lead): ?>
-        <div class="market-lead">
+    <?php $leaders = get_field('leaders'); if( $leaders ): ?>
+        <div class="market-leaders">
             <div class="section-header">
-                <h3 class="section-headline">Connect with<br/> Our Team</h3>
+                <h3 class="section-headline">Connect with Our Team</h3>
             </div>
+            
+            <div class="leader-grid">
 
-            <?php
-                $args = [ 'expert' => $lead ];
-                get_template_part('template-parts/global/expert', null, $args);
-            ?>
+                <?php foreach( $leaders as $leader ): ?>
 
+                    <?php
+                        $args = [ 'leader' => $leader ];
+                        get_template_part('templates/single-market/market-leader', null, $args);
+                    ?>
+
+                <?php endforeach; ?>
+                
+            </div>            
         </div>
     <?php endif; ?>
 
