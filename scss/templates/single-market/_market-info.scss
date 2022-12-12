@@ -28,6 +28,12 @@
                 }
             }
         }
+
+        .services {
+            @include desktop-small {
+                padding-top: 1.5rem;
+            }
+        }
     }
 
     .market-leaders {

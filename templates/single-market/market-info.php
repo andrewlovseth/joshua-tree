@@ -32,8 +32,8 @@
 
         <?php if($services): ?>
             <div class="services">
-                <div class="copy-3 extended">
-                    <h4>Contact Us For</h4>
+                <div class="copy-2 extended">
+                    <h4 class="section-headline">Contact us for</h4>
 
                     <ul>
                         <?php foreach($services as $service): ?>
@@ -48,7 +48,7 @@
     <?php $leaders = get_field('leaders'); if( $leaders ): ?>
         <div class="market-leaders">
             <div class="section-header">
-                <h3 class="section-headline">Connect with Our Team</h3>
+                <h3 class="section-headline">Connect with our team</h3>
             </div>
             
             <div class="leader-grid">

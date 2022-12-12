@@ -451,6 +451,9 @@ a {
   font-weight: normal;
   font-size: clamp(1.25rem, 1.75vw, 1.625rem);
 }
+.copy-1.extended .section-headline, .copy-2.extended .section-headline, .copy-3.extended .section-headline {
+  font-size: clamp(2.5rem, 3vw, 3rem);
+}
 .copy-1.extended h5, .copy-2.extended h5, .copy-3.extended h5 {
   font-size: clamp(1.375rem, 1.6vw, 1.75rem);
   font-weight: 700;
@@ -3910,6 +3913,11 @@ body.single-market .market-info .about .sub-markets ul li,
 body.single-market .market-info .about .services ul li {
   padding-top: 0;
   padding-bottom: 0;
+}
+@media screen and (min-width: 992px) {
+  body.single-market .market-info .about .services {
+    padding-top: 1.5rem;
+  }
 }
 @media screen and (min-width: 992px) {
   body.single-market .market-info .market-leaders {
