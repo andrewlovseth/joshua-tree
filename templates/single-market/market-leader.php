@@ -28,11 +28,5 @@
         <div class="name">
             <h3><a href="<?php echo get_permalink($leader->ID); ?>"><?php echo get_the_title($leader->ID); ?></a></h3>
         </div>
-        
-        <?php if($position): ?>
-            <div class="position vital">
-                <em><?php echo $position; ?></em>
-            </div>
-        <?php endif; ?>
     </div>
 </div>
