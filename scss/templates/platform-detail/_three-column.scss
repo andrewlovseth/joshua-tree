@@ -1,0 +1,41 @@
+.three-column {
+    &__wrapper {
+        display: grid;
+        gap: 0.5rem 0;
+
+        @include tablet {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .section-headline {
+        color: #3da79d;
+    }
+
+    .column {
+        border-left: 1rem solid;
+        aspect-ratio: 16 / 6;
+        display: flex;
+        align-items: center;
+
+        p {
+            padding: 0 1rem 0 0.5rem;
+            font-weight: bold;
+        }
+
+        &:nth-child(1) {
+            color: #94cda2;
+            border-color: #94cda2;
+        }
+
+        &:nth-child(2) {
+            color: #3da79d;
+            border-color: #3da79d;
+        }
+
+        &:nth-child(3) {
+            color: #29777b;
+            border-color: #29777b;
+        }
+    }
+}

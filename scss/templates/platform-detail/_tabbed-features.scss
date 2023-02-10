@@ -1,0 +1,27 @@
+.tabbed-features {
+    .section-header {
+        padding-bottom: 0;
+
+        .copy-2 {
+            max-width: 48rem;
+            padding-top: 1rem;
+        }
+    }
+
+    .tab-content .tab-flex {
+        .copy-3 {
+            @include tablet {
+                max-width: 24rem;
+            }
+        }
+        .photo {
+            @include tablet {
+                width: 50%;
+            }
+        }
+    }
+
+    & + .cta-section {
+        padding-top: 0;
+    }
+}

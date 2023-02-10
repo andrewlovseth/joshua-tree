@@ -2,7 +2,7 @@
 
 /*
 
-    Template Name: Platforms
+    Template Name: Platform Index
     Template Post Type: service
 
 */

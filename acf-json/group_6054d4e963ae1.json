@@ -311,6 +311,16 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "service"
+            },
+            {
+                "param": "post_template",
+                "operator": "!=",
+                "value": "templates\/platforms.php"
+            },
+            {
+                "param": "post_template",
+                "operator": "!=",
+                "value": "templates\/platform-detail.php"
             }
         ]
     ],
@@ -336,5 +346,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1670630311
+    "modified": 1676054248
 }

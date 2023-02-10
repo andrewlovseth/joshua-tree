@@ -1,0 +1,48 @@
+body.service-template-platform-detail {
+    .service-hero {
+        .photo {
+            @include tablet {
+                max-height: 50vh;
+            }
+        }
+    }
+    .about {
+        .copy-2.extended {
+            padding-bottom: 0 !important;
+            p:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .platform-section {
+        padding: 3rem 0;
+
+        @include tablet {
+            padding: 4.5rem 0;
+        }
+
+        & > * {
+            @include tablet {
+                padding-right: 2rem;
+                padding-left: 2rem;
+            }
+        }
+    }
+
+    @import 'platform-detail/three-column';
+
+    @import 'platform-detail/graphic';
+
+    @import 'platform-detail/gray-text';
+
+    @import 'platform-detail/tabbed-features';
+
+    @import 'platform-detail/cta';
+
+    @import 'platform-detail/quote';
+
+    @import 'platform-detail/gallery';
+
+    @import 'platform-detail/experts';
+}

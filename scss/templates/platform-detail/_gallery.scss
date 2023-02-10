@@ -1,0 +1,26 @@
+.gallery {
+    &__items {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    }
+
+    &__item {
+        &-image {
+            display: flex;
+            justify-content: center;
+            aspect-ratio: 16 / 9;
+            max-width: 12rem;
+            margin: 0 auto;
+
+            img {
+                filter: grayscale(100%);
+                object-fit: contain;
+            }
+        }
+
+        &-copy {
+            text-align: center;
+        }
+    }
+}

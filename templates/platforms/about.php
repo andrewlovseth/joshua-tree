@@ -2,7 +2,6 @@
 
     $about = get_field('about');
     $copy = $about['copy'];
-    $sub_services = $about['sub_services'];
 
 ?>
 

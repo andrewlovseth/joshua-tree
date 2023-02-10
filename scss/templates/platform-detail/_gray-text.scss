@@ -1,0 +1,12 @@
+.gray-text {
+    background: $off-white;
+
+    .copy-2.extended {
+        padding-bottom: 0 !important;
+        max-width: 48rem;
+
+        *:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+}

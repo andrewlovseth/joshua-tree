@@ -399,13 +399,22 @@ a {
   font-size: clamp(1.375rem, 1.4vw, 1.625rem);
   line-height: 1.5em;
 }
+.copy-1.extended > * {
+  margin-bottom: 2rem;
+}
 .copy-2 {
   font-size: clamp(1rem, 1.2vw, 1.125rem);
   line-height: 1.5em;
 }
+.copy-2.extended > * {
+  margin-bottom: 2rem;
+}
 .copy-3 {
   font-size: clamp(0.875rem, 0.9vw, 1rem);
-  line-height: 1.5em;
+  line-height: 1.375em;
+}
+.copy-3.extended > * {
+  margin-bottom: 1rem;
 }
 .copy-1 a, .copy-2 a, .copy-3 a {
   color: #00A69C;
@@ -413,9 +422,6 @@ a {
 }
 .copy-1 a:hover, .copy-2 a:hover, .copy-3 a:hover {
   text-decoration: underline;
-}
-.copy-1.extended > *, .copy-2.extended > *, .copy-3.extended > * {
-  margin-bottom: 2rem;
 }
 .copy-1.extended h1,
 .copy-1.extended h2,
@@ -4229,6 +4235,199 @@ body.service-template-platforms .platform .cta {
 }
 body.service-template-platforms .platform .cta .btn {
   font-size: clamp(0.875rem, 1vw, 1rem);
+}
+
+@media screen and (min-width: 768px) {
+  body.service-template-platform-detail .service-hero .photo {
+    max-height: 50vh;
+  }
+}
+body.service-template-platform-detail .about .copy-2.extended {
+  padding-bottom: 0 !important;
+}
+body.service-template-platform-detail .about .copy-2.extended p:last-of-type {
+  margin-bottom: 0;
+}
+body.service-template-platform-detail .platform-section {
+  padding: 3rem 0;
+}
+@media screen and (min-width: 768px) {
+  body.service-template-platform-detail .platform-section {
+    padding: 4.5rem 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  body.service-template-platform-detail .platform-section > * {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+}
+body.service-template-platform-detail .three-column__wrapper {
+  display: grid;
+  gap: 0.5rem 0;
+}
+@media screen and (min-width: 768px) {
+  body.service-template-platform-detail .three-column__wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+body.service-template-platform-detail .three-column .section-headline {
+  color: #3da79d;
+}
+body.service-template-platform-detail .three-column .column {
+  border-left: 1rem solid;
+  aspect-ratio: 16/6;
+  display: flex;
+  align-items: center;
+}
+body.service-template-platform-detail .three-column .column p {
+  padding: 0 1rem 0 0.5rem;
+  font-weight: bold;
+}
+body.service-template-platform-detail .three-column .column:nth-child(1) {
+  color: #94cda2;
+  border-color: #94cda2;
+}
+body.service-template-platform-detail .three-column .column:nth-child(2) {
+  color: #3da79d;
+  border-color: #3da79d;
+}
+body.service-template-platform-detail .three-column .column:nth-child(3) {
+  color: #29777b;
+  border-color: #29777b;
+}
+body.service-template-platform-detail .graphic .caption {
+  padding-bottom: 3rem;
+  max-width: 48rem;
+}
+body.service-template-platform-detail .graphic .caption p {
+  font-weight: bold;
+}
+body.service-template-platform-detail .graphic .image img {
+  margin: 0 auto;
+}
+body.service-template-platform-detail .gray-text {
+  background: #EDEDED;
+}
+body.service-template-platform-detail .gray-text .copy-2.extended {
+  padding-bottom: 0 !important;
+  max-width: 48rem;
+}
+body.service-template-platform-detail .gray-text .copy-2.extended *:last-of-type {
+  margin-bottom: 0;
+}
+body.service-template-platform-detail .tabbed-features .section-header {
+  padding-bottom: 0;
+}
+body.service-template-platform-detail .tabbed-features .section-header .copy-2 {
+  max-width: 48rem;
+  padding-top: 1rem;
+}
+@media screen and (min-width: 768px) {
+  body.service-template-platform-detail .tabbed-features .tab-content .tab-flex .copy-3 {
+    max-width: 24rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  body.service-template-platform-detail .tabbed-features .tab-content .tab-flex .photo {
+    width: 50%;
+  }
+}
+body.service-template-platform-detail .tabbed-features + .cta-section {
+  padding-top: 0;
+}
+body.service-template-platform-detail .cta-section .cta {
+  justify-content: center;
+}
+body.service-template-platform-detail .quote {
+  background: #00A69C;
+  color: #fff;
+}
+body.service-template-platform-detail .quote__icon {
+  display: flex;
+  justify-content: center;
+}
+@media screen and (min-width: 768px) {
+  body.service-template-platform-detail .quote__icon {
+    padding: 0 !important;
+    grid-column: 2/span 2;
+  }
+}
+@media screen and (min-width: 992px) {
+  body.service-template-platform-detail .quote__icon {
+    grid-column: 3/span 2;
+  }
+}
+body.service-template-platform-detail .quote__icon-wrapper {
+  aspect-ratio: 185/167;
+  max-width: 6rem;
+}
+@media screen and (min-width: 768px) {
+  body.service-template-platform-detail .quote__icon-wrapper {
+    max-width: 8rem;
+  }
+}
+body.service-template-platform-detail .quote__icon svg {
+  display: block;
+  opacity: 0.25;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+body.service-template-platform-detail .quote__info {
+  padding-top: 2rem;
+}
+@media screen and (min-width: 768px) {
+  body.service-template-platform-detail .quote__info {
+    padding: 0 !important;
+    grid-column: 4/span 6;
+  }
+}
+@media screen and (min-width: 992px) {
+  body.service-template-platform-detail .quote__info {
+    grid-column: 5/span 8;
+  }
+}
+body.service-template-platform-detail .quote__text {
+  padding: 0;
+  margin: 0;
+}
+body.service-template-platform-detail .quote__text p {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.375em;
+}
+body.service-template-platform-detail .quote__source {
+  padding-top: 1rem;
+  opacity: 0.7;
+}
+body.service-template-platform-detail .gallery__items {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+body.service-template-platform-detail .gallery__item-image {
+  display: flex;
+  justify-content: center;
+  aspect-ratio: 16/9;
+  max-width: 12rem;
+  margin: 0 auto;
+}
+body.service-template-platform-detail .gallery__item-image img {
+  filter: grayscale(100%);
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+body.service-template-platform-detail .gallery__item-copy {
+  text-align: center;
+}
+body.service-template-platform-detail .experts-section .section-header {
+  padding-bottom: 1.5rem;
+}
+body.service-template-platform-detail .experts-section .experts {
+  padding: 0 0 6rem 0;
 }
 
 body.page-template-join-us section.why-we-work-here {
