@@ -2,13 +2,14 @@
 
     if( get_row_layout() == 'tabbed_features' ):
 
+    $anchor = get_sub_field('anchor');
     $section_header = get_sub_field('section_header');
     $headline = $section_header['headline'];
     $copy = $section_header['copy'];
     $tabs = get_sub_field('tabs');
 ?>
     
-    <section class="tabbed-features platform-section grid">
+    <section class="tabbed-features platform-section grid"<?php if($anchor): ?> id="<?php echo $anchor; ?>"<?php endif; ?>>
 
         <div class="section-header">
             <?php if($headline): ?>

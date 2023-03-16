@@ -1,19 +1,38 @@
 .tab-links {
     padding-top: 2rem;
     display: flex;
+    flex-wrap: wrap;
 
     .link {
+        width: 50%;
+        margin-bottom: 1.25rem;
+
+        @include tablet-small {
+            width: 33.3333%;
+        }
+
+        @include tablet {
+            width: auto;
+            margin-bottom: 0;
+        }
+
         & + .link {
-            margin-left: 2rem;
+            @include tablet {
+                margin-left: 2rem;
+            }
         }
 
         a {
-            display: block;
+            display: inline-block;
             color: $black;
             font-weight: bold;
             font-size: clamp(0.8125rem, 0.9vw, 1rem);
-            padding-bottom: 0.75rem;
+            padding-bottom: 0.25rem;
             border-bottom: 4px solid transparent;
+
+            @include tablet {
+                padding-bottom: 0.75rem;
+            }
 
             &:hover,
             &.active {
@@ -24,7 +43,10 @@
 }
 
 .tab-content {
-    padding-top: 3rem;
+    padding-top: 1rem;
+    @include tablet {
+        padding-top: 3rem;
+    }
 
     .tab {
         display: none;
@@ -52,7 +74,7 @@
         }
 
         .info {
-            padding-bottom: 2rem;
+            padding-bottom: 1rem;
 
             .headline {
                 padding-bottom: 2rem;

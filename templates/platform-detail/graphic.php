@@ -1,13 +1,14 @@
 <?php
 
     if( get_row_layout() == 'graphic' ):
-
+        
+    $anchor = get_sub_field('anchor');
     $caption = get_sub_field('caption');
     $image = get_sub_field('image');
 
 ?>
     
-    <section class="graphic platform-section grid">
+    <section class="graphic platform-section grid"<?php if($anchor): ?> id="<?php echo $anchor; ?>"<?php endif; ?>>
 
         <?php if($caption): ?>
             <div class="caption copy-2">

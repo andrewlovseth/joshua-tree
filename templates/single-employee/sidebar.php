@@ -3,14 +3,17 @@
     $info = get_field('info');
     $position = $info['position'];
     
-    $terms = get_the_terms($post->ID, 'region');
-    if($terms) {
-        $region = '';
-        foreach($terms as $term) {
-            $region .= $term->name . ', ';
+    $regions_array = get_the_terms($post->ID, 'region');
+    $regions_names = array();
+        
+    if($regions_array) {
+        foreach($regions_array as $region) {
+            $regions_names[] = $region->name;
         }
-        $region = rtrim($region, ', ');
     }
+
+    $regions = implode(", ", $regions_names);
+
 
     $date_string = $info['start_date'];
     $date = DateTime::createFromFormat('Ymd', $date_string);
@@ -32,10 +35,10 @@
             </div>
         <?php endif; ?>       
 
-        <?php if($region): ?>
+        <?php if($regions): ?>
             <div class="vital region">
                 <h4>Region</h4>
-                <p><?php echo $region; ?></p>
+                <p><?php echo $regions; ?></p>
             </div>
         <?php endif; ?>      
 

@@ -2,10 +2,11 @@
 
     if( get_row_layout() == 'gallery' ):
 
+    $anchor = get_sub_field('anchor');
     $headline = get_sub_field('section_title');
 ?>
     
-    <section class="gallery platform-section grid">
+    <section class="gallery platform-section grid"<?php if($anchor): ?> id="<?php echo $anchor; ?>"<?php endif; ?>>
         
         <?php if($headline): ?>
             <div class="section-header">

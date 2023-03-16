@@ -1,12 +1,13 @@
 <?php
 
     if( get_row_layout() == 'three_column' ):
-
+        
+    $anchor = get_sub_field('anchor');
     $headline = get_sub_field('headline');
 
 ?>
 
-    <section class="three-column platform-section grid">
+    <section class="three-column platform-section grid"<?php if($anchor): ?> id="<?php echo $anchor; ?>"<?php endif; ?>>
         <div class="section-header">
             <h2 class="section-headline small"><?php echo $headline; ?></h2>
         </div>

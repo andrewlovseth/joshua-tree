@@ -1,18 +1,30 @@
-body {
-	background: $white;
-	overflow-x: hidden
+html {
+    scroll-behavior: smooth;
+}
 
+body {
+    background: $white;
+    overflow-x: hidden;
 }
 
 .site-header,
 .site-content,
 .site-footer {
-	transition: all 0.2s ease;
+    transition: all 0.2s ease;
 }
 
+@include desktop-small {
+    .site-content > * {
+        scroll-margin-top: 133px;
+    }
+}
 
-@import "grid";
+img[src$='.svg'] {
+    width: 100%;
+}
 
-@import "sub-grid";
+@import 'grid';
 
-@import "three-col-grid";
+@import 'sub-grid';
+
+@import 'three-col-grid';

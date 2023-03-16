@@ -2,11 +2,12 @@
 
     if( get_row_layout() == 'quote' ):
 
+    $anchor = get_sub_field('anchor');
     $text = get_sub_field('quote_text');
     $source = get_sub_field('source');
 ?>
     
-    <section class="quote platform-section grid">
+    <section class="quote platform-section grid"<?php if($anchor): ?> id="<?php echo $anchor; ?>"<?php endif; ?>>
         <div class="quote__icon">
             <div class="quote__icon-wrapper">
                 <?php get_template_part('svg/quote-bubble'); ?>

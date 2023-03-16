@@ -139,6 +139,26 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_6413915ea1576",
+                            "label": "Anchor",
+                            "name": "anchor",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
                             "key": "field_63e695b6869ab",
                             "label": "Headline",
                             "name": "headline",
@@ -213,6 +233,26 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_64139169a1577",
+                            "label": "Anchor",
+                            "name": "anchor",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
                             "key": "field_63e69679dc5da",
                             "label": "Caption",
                             "name": "caption",
@@ -268,6 +308,26 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_64139175a1578",
+                            "label": "Anchor",
+                            "name": "anchor",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
                             "key": "field_63e696a870916",
                             "label": "Headline",
                             "name": "headline",
@@ -317,6 +377,26 @@
                     "label": "Tabbed Features",
                     "display": "block",
                     "sub_fields": [
+                        {
+                            "key": "field_6413918da1579",
+                            "label": "Anchor",
+                            "name": "anchor",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
                         {
                             "key": "field_63e696cf46e1a",
                             "label": "Section Header",
@@ -503,6 +583,26 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_641391a5a157b",
+                            "label": "Anchor",
+                            "name": "anchor",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
                             "key": "field_63e6973c40e78",
                             "label": "Quote Text",
                             "name": "quote_text",
@@ -552,6 +652,26 @@
                     "label": "Gallery",
                     "display": "block",
                     "sub_fields": [
+                        {
+                            "key": "field_641391aea157c",
+                            "label": "Anchor",
+                            "name": "anchor",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
                         {
                             "key": "field_63e698dcad886",
                             "label": "Section Title",
@@ -653,6 +773,26 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_641391baa157d",
+                            "label": "Anchor",
+                            "name": "anchor",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
                             "key": "field_63e697c5c8ea0",
                             "label": "Section Header",
                             "name": "section_header",
@@ -745,5 +885,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676068396
+    "modified": 1679004803
 }
