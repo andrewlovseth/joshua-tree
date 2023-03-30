@@ -1,157 +1,152 @@
 (function ($, window, document, undefined) {
+    $(document).ready(function ($) {
+        // rel="external"
+        $('a[rel="external"]').click(function () {
+            window.open($(this).attr('href'));
+            return false;
+        });
 
-	$(document).ready(function($) {
+        // Nav Trigger
+        $('.js-nav-trigger').click(function () {
+            $('body').toggleClass('nav-overlay-open');
+            return false;
+        });
 
-		// rel="external"
-		$('a[rel="external"]').click( function() {
-			window.open( $(this).attr('href') );
-			return false;
-		});
+        // Search Trigger
+        $('.js-search-trigger').click(function () {
+            $('body').toggleClass('search-overlay-open');
+            return false;
+        });
 
-		// Nav Trigger
-		$('.js-nav-trigger').click(function(){
-			$('body').toggleClass('nav-overlay-open');
-			return false;
-		});
+        // Smooth Scroll Links
+        $('.smooth').smoothScroll();
 
-		// Search Trigger
-		$('.js-search-trigger').click(function(){
-			$('body').toggleClass('search-overlay-open');
-			return false;
-		});
-		
-		// Smooth Scroll Links
-		$('.smooth').smoothScroll();
+        // Mobile Nav Dropdown Toggle
+        $('.mobile-nav .dropdown .section-header').on('click', function () {
+            let subnav = $(this).attr('href');
+            let dropdown = $(this).closest('.dropdown');
 
+            $(subnav).slideToggle(400).toggleClass('active');
+            $(dropdown).toggleClass('active');
 
-		// Mobile Nav Dropdown Toggle
-		$('.mobile-nav .dropdown .section-header').on('click', function() {
+            return false;
+        });
 
-			let subnav = $(this).attr('href');
-			let dropdown = $(this).closest('.dropdown');
+        // Tab Links
+        $('.tab-links a').on('click', function () {
+            $('.tab-links a').removeClass('active');
+            $(this).addClass('active');
 
-			$(subnav).slideToggle(400).toggleClass('active');;
-			$(dropdown).toggleClass('active');
+            var tab_target = $(this).attr('href');
+            $('.tab').removeClass('active');
+            $(tab_target).addClass('active');
 
-			return false;
-		});
+            return false;
+        });
 
+        // Our Work Nav
+        $('.link-our-work').on('click', function () {
+            $('.work-nav').toggleClass('active');
 
+            return false;
+        });
 
-		// Tab Links
-		$('.tab-links a').on('click', function() {
-			$('.tab-links a').removeClass('active');
-			$(this).addClass('active');
+        // Homepage / Featured Projects Slider
+        $('.js-featured-projects-slider').slick({
+            dots: true,
+            arrows: true,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 10000,
+            adaptiveHeight: false,
+        });
 
-			var tab_target = $(this).attr('href');
-			$('.tab').removeClass('active');
-			$(tab_target).addClass('active');
-			
-			return false;
-		});
+        if ($('.js-featured-projects-slider').length > 0) {
+            const arrows = $('.slick-arrow'),
+                slide = $('.js-featured-projects-slider .project:first-of-type .photo');
 
+            let slideHeight = slide.height();
 
-		// Our Work Nav
-		$('.link-our-work').on('click', function() {
+            $(arrows).css('height', slideHeight);
+        }
 
-			$('.work-nav').toggleClass('active');
-			
-			return false;
-		});
+        // Markets / Featured Projects Slider
+        $('.projects-slider').slick({
+            dots: true,
+            arrows: false,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 6000,
+        });
 
+        $('.news-slider').slick({
+            dots: true,
+            arrows: false,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 6000,
+        });
 
-		// Homepage / Featured Projects Slider
-		$('.js-featured-projects-slider').slick({
-			dots: true,
-			arrows: true,
-			infinite: true,
-			autoplay: true,
-			autoplaySpeed: 10000,
-			adaptiveHeight: false
-		});
+        // Markets / More Projects Slider
+        $('.more-projects-slider').slick({
+            dots: false,
+            arrows: true,
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            adaptiveHeight: false,
+            mobileFirst: true,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                    },
+                },
+            ],
+        });
 
-		if($('.js-featured-projects-slider').length > 0) {
-			const arrows = $('.slick-arrow'),
-				  slide = $('.js-featured-projects-slider .project:first-of-type .photo');
-			
-			let slideHeight = slide.height();
+        // Leadership Slider
+        $('.js-leadership-gallery').slick({
+            dots: false,
+            arrows: true,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 6000,
+        });
 
-			$(arrows).css('height', slideHeight);		
-		}
+        //Clients: Tabs
+        $('.client-tabs a').on('click', function () {
+            let section = $(this).attr('href');
+            console.log(section);
 
-		// Markets / Featured Projects Slider
-		$('.projects-slider').slick({
-			dots: true,
-			arrows: false,
-			infinite: true,
-			autoplay: true,
-			autoplaySpeed: 6000,
-		});
+            $('.client-type').removeClass('active');
+            $(section).addClass('active');
 
+            $('.client-tabs a').removeClass('active');
+            $(this).addClass('active');
 
-		$('.news-slider').slick({
-			dots: true,
-			arrows: false,
-			infinite: true,
-			autoplay: true,
-			autoplaySpeed: 6000,
-		});
+            return false;
+        });
 
+        // Clients: Projects Toggle
+        $('.client.has-projects .name').on('click', function () {
+            let projects = $(this).siblings('.projects');
+            $(projects).toggle();
 
-		// Markets / More Projects Slider
-		$('.more-projects-slider').slick({
-			dots: false,
-			arrows: true,
-			infinite: true,
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			adaptiveHeight: false,
-			mobileFirst: true,
-			responsive: [
-				{
-				  breakpoint: 768,
-				  settings: {
-					slidesToShow: 2,
-					slidesToScroll: 1,
-				  }
-				}
-			]
-		});
+            $(this).toggleClass('active');
+        });
 
+        let clearBtn = document.getElementById('alm-filters-reset-button');
+        $(clearBtn).on('click', function (e) {
+            almfilters.reset();
+            $('.alm-filter--select select option').prop('selected', function () {
+                return this.defaultSelected;
+            });
+        });
 
-		//Clients: Tabs
-		$('.client-tabs a').on('click', function(){
-			let section = $(this).attr('href');
-			console.log(section);
-
-			$('.client-type').removeClass('active');
-			$(section).addClass('active');
-
-			$('.client-tabs a').removeClass('active');
-			$(this).addClass('active');
-
-			return false;
-		});
-
-		// Clients: Projects Toggle
-		$('.client.has-projects .name').on('click', function(){
-			let projects = $(this).siblings('.projects');
-			$(projects).toggle();
-
-			$(this).toggleClass('active');
-
-		});
-
-		let clearBtn = document.getElementById('alm-filters-reset-button');
-		$(clearBtn).on('click', function(e){
-		   almfilters.reset();
-		   $('.alm-filter--select select option').prop('selected', function() {
-			   return this.defaultSelected;
-			});
-		});
-
-
-		// JEDI timeline
+        // JEDI timeline
         $('.js-progress-timeline').slick({
             dots: true,
             arrows: false,
@@ -162,54 +157,45 @@
             slidesToShow: 1,
             slidesToScroll: 1,
         });
+    });
 
-	});
+    $(window).scroll(function () {
+        var scroll = $(window).scrollTop();
+        if (scroll >= 0.4 * $(window).height()) {
+            $('body').addClass('show-top-btn');
+        } else {
+            $('body').removeClass('show-top-btn');
+        }
+    });
 
+    $(document).mouseup(function (e) {
+        var menu = $('.mobile-nav, .js-nav-trigger, .search-nav');
 
-	$(window).scroll(function() {    
-		var scroll = $(window).scrollTop();    
-		if (scroll >= 0.4 * $(window).height()) {
-			$('body').addClass('show-top-btn');
-		} else {
-			$('body').removeClass('show-top-btn');
-		}
-	});
+        if (!menu.is(e.target) && menu.has(e.target).length === 0) {
+            $('body').removeClass('nav-overlay-open search-overlay-open');
+        }
 
+        var work_nav = $('.work-nav, .link-our-work');
+        if (!work_nav.is(e.target) && work_nav.has(e.target).length === 0) {
+            $('.work-nav').removeClass('active');
+        }
+    });
 
-	$(document).mouseup(function(e) {
-		var menu = $('.mobile-nav, .js-nav-trigger, .search-nav');
-	
-		if (!menu.is(e.target) && menu.has(e.target).length === 0) {
-			$('body').removeClass('nav-overlay-open search-overlay-open');
-		}
+    $(document).keyup(function (e) {
+        if (e.keyCode == 27) {
+            $('body').removeClass('nav-overlay-open search-overlay-open');
+            $('.work-nav').removeClass('active');
+        }
+    });
 
+    $(window).resize(function () {
+        if ($('.js-featured-projects-slider').length > 0) {
+            const arrows = $('.slick-arrow'),
+                slide = $('.js-featured-projects-slider .project:first-of-type .photo');
 
-		var work_nav = $('.work-nav, .link-our-work');
-		if (!work_nav.is(e.target) && work_nav.has(e.target).length === 0) {
-			$('.work-nav').removeClass('active');
-		}
+            let slideHeight = slide.height();
 
-	});
-
-
-	$(document).keyup(function(e) {		
-		if (e.keyCode == 27) {
-			$('body').removeClass('nav-overlay-open search-overlay-open');
-			$('.work-nav').removeClass('active');
-		}
-	});
-
-	$(window).resize(function() {
-		if($('.js-featured-projects-slider').length > 0) {
-			const arrows = $('.slick-arrow'),
-				  slide = $('.js-featured-projects-slider .project:first-of-type .photo');
-			
-			let slideHeight = slide.height();
-
-			$(arrows).css('height', slideHeight);		
-		}
-
-	});
-
-
+            $(arrows).css('height', slideHeight);
+        }
+    });
 })(jQuery, window, document);

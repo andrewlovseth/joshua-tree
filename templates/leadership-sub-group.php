@@ -2,7 +2,7 @@
 
 /*
 
-    Template Name: Leadership
+    Template Name: Leadership Sub Group
 
 */
 
@@ -17,10 +17,10 @@ get_header(); ?>
     <?php get_template_part('templates/leadership/sub-nav'); ?>
 
     <?php
-        $args = ['executives' => true ];
+        $args = ['executives' => false ];
         get_template_part('templates/leadership/leaders', null, $args);    
     ?>
-
+    
     <?php get_template_part('templates/leadership/gallery'); ?>
 
     <?php
