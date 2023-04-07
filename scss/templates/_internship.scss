@@ -1,0 +1,91 @@
+.page-template-internship {
+    .page-header {
+        .headline {
+            @include desktop-small {
+                grid-column: 2 / span 10;
+            }
+        }
+    }
+
+    .what-to-expect {
+        padding: 0 0 6rem 0;
+    }
+
+    .testimonial {
+        max-width: 92rem;
+        margin: 0 auto;
+        display: grid;
+        background: $light-green;
+        color: $white;
+
+        @include tablet {
+            grid-template-columns: repeat(2, minmax(auto,  1fr));
+        }
+
+        &__photo {
+            aspect-ratio: 1 / 1;
+            @include cover-fill-image;
+        }
+
+        &__quote {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+
+            @include desktop-small {
+                padding: 4rem;
+            }
+        }
+
+        &__text {
+            font-size: $type-size-600;
+            font-weight: bold;
+            line-height: 1.375em;
+        }
+
+        &__source {
+            padding-top: 1rem;
+            font-size: $type-size-200;
+            text-transform: uppercase;
+            font-weight: bold;
+            line-height: 1.5em;
+            letter-spacing: 0.05em;
+        }
+    }
+
+    .how-to-apply {
+        padding: 6rem 0;
+
+        .info {
+
+            @include desktop-small {
+                grid-column: 2 / span 8;
+            }
+
+        }
+
+        .study-areas {
+            background: $medium-blue;
+            color: $white;
+            padding: 2rem;
+            margin-top: 2rem;
+            max-width: 32rem;
+
+            @include desktop-small {
+                grid-column: 10 / span 4;
+                margin-top: 0;
+            }
+
+            .headline {
+                padding-bottom: 1rem;
+
+                h3 {
+                    font-size: $type-size-400;
+                    font-weight: bold;
+                    line-height: 1.25em;
+                }
+            }
+        }
+    }
+}

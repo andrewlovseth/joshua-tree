@@ -4734,6 +4734,89 @@ body.page-template-job-openings section.listings iframe {
   height: 1200px;
 }
 
+@media screen and (min-width: 992px) {
+  .page-template-internship .page-header .headline {
+    grid-column: 2/span 10;
+  }
+}
+.page-template-internship .what-to-expect {
+  padding: 0 0 6rem 0;
+}
+.page-template-internship .testimonial {
+  max-width: 92rem;
+  margin: 0 auto;
+  display: grid;
+  background: #A0CF67;
+  color: #fff;
+}
+@media screen and (min-width: 768px) {
+  .page-template-internship .testimonial {
+    grid-template-columns: repeat(2, minmax(auto, 1fr));
+  }
+}
+.page-template-internship .testimonial__photo {
+  aspect-ratio: 1/1;
+}
+.page-template-internship .testimonial__photo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.page-template-internship .testimonial__quote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+@media screen and (min-width: 992px) {
+  .page-template-internship .testimonial__quote {
+    padding: 4rem;
+  }
+}
+.page-template-internship .testimonial__text {
+  font-size: clamp(1.5rem, 1.29rem + 1.07vw, 1.95rem);
+  font-weight: bold;
+  line-height: 1.375em;
+}
+.page-template-internship .testimonial__source {
+  padding-top: 1rem;
+  font-size: clamp(0.72rem, 0.62rem + 0.52vw, 0.94rem);
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 1.5em;
+  letter-spacing: 0.05em;
+}
+.page-template-internship .how-to-apply {
+  padding: 6rem 0;
+}
+@media screen and (min-width: 992px) {
+  .page-template-internship .how-to-apply .info {
+    grid-column: 2/span 8;
+  }
+}
+.page-template-internship .how-to-apply .study-areas {
+  background: #00728F;
+  color: #fff;
+  padding: 2rem;
+  margin-top: 2rem;
+  max-width: 32rem;
+}
+@media screen and (min-width: 992px) {
+  .page-template-internship .how-to-apply .study-areas {
+    grid-column: 10/span 4;
+    margin-top: 0;
+  }
+}
+.page-template-internship .how-to-apply .study-areas .headline {
+  padding-bottom: 1rem;
+}
+.page-template-internship .how-to-apply .study-areas .headline h3 {
+  font-size: clamp(1.04rem, 0.89rem + 0.74vw, 1.35rem);
+  font-weight: bold;
+  line-height: 1.25em;
+}
+
 body.blog .page-header h4.sub-head,
 body.category .page-header h4.sub-head {
   display: inline-block;
