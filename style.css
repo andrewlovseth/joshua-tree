@@ -4739,18 +4739,61 @@ body.page-template-job-openings section.listings iframe {
     grid-column: 2/span 10;
   }
 }
+@media screen and (min-width: 992px) {
+  .page-template-internship .page-header .copy-1 {
+    padding-bottom: 0;
+  }
+}
+.page-template-internship .page-header .cta {
+  padding-top: 0;
+}
+@media screen and (min-width: 992px) {
+  .page-template-internship .page-header .cta {
+    align-self: end;
+  }
+}
 .page-template-internship .what-to-expect {
-  padding: 0 0 6rem 0;
+  background: #00A69C;
+  color: #fff;
+  padding: 3rem 0;
+}
+@media screen and (min-width: 992px) {
+  .page-template-internship .what-to-expect {
+    padding: 6rem 0;
+  }
+}
+.page-template-internship .what-to-expect .photo {
+  padding-bottom: 2rem;
+}
+@media screen and (min-width: 992px) {
+  .page-template-internship .what-to-expect .photo {
+    padding-bottom: 0;
+    grid-row: 2;
+    grid-column: 9/span 5;
+  }
+}
+@media screen and (min-width: 992px) {
+  .page-template-internship .what-to-expect .copy-2 {
+    grid-row: 2;
+    grid-column: 2/span 6;
+  }
 }
 .page-template-internship .testimonial {
-  max-width: 92rem;
-  margin: 0 auto;
+  padding: 3rem 0;
+}
+@media screen and (min-width: 992px) {
+  .page-template-internship .testimonial {
+    grid-column: 2/span 12;
+  }
+}
+.page-template-internship .testimonial__slide-wrapper {
+  width: 100%;
   display: grid;
   background: #A0CF67;
   color: #fff;
 }
 @media screen and (min-width: 768px) {
-  .page-template-internship .testimonial {
+  .page-template-internship .testimonial__slide-wrapper {
     grid-template-columns: repeat(2, minmax(auto, 1fr));
   }
 }
@@ -4794,6 +4837,16 @@ body.page-template-job-openings section.listings iframe {
   .page-template-internship .how-to-apply .info {
     grid-column: 2/span 8;
   }
+}
+.page-template-internship .how-to-apply .photo {
+  aspect-ratio: 16/9;
+  margin-bottom: 2rem;
+}
+.page-template-internship .how-to-apply .photo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .page-template-internship .how-to-apply .study-areas {
   background: #00728F;

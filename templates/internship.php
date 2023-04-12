@@ -13,11 +13,9 @@ get_header(); ?>
         get_template_part('templates/join-us/sub-nav', null, $args);
     ?>
 
-    <?php get_template_part('templates/about/page-header'); ?>
+    <?php get_template_part('templates/internship/page-header'); ?>
 
     <?php get_template_part('templates/internship/what-to-expect'); ?>
-
-    <?php get_template_part('templates/internship/testimonial'); ?>
     
     <?php get_template_part('templates/internship/how-to-apply'); ?>
 

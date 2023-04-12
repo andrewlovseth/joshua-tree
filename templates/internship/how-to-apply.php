@@ -1,6 +1,7 @@
 <?php
 
-$how_to_apply = get_field('how_to_apply');
+    $how_to_apply = get_field('how_to_apply');
+    $photo = $how_to_apply['photo'];
     $headline = $how_to_apply['headline'];
     $copy = $how_to_apply['copy'];
     $link = $how_to_apply['link'];
@@ -20,6 +21,12 @@ $how_to_apply = get_field('how_to_apply');
     <?php endif; ?>
 
     <div class="info">
+        <?php if($photo): ?>
+            <div class="photo">
+                <?php echo wp_get_attachment_image($photo['ID'], 'full'); ?>
+            </div>
+        <?php endif; ?>
+        
         <?php if($copy): ?>
             <div class="copy-2 extended">
                 <?php echo $copy; ?>
