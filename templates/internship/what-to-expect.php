@@ -23,10 +23,8 @@
 
     <?php if($copy): ?>
         <div class="copy-2 extended">
-            <?php echo $copy; ?>
+                <?php echo $copy; ?>
         </div>
     <?php endif; ?>
-    
-    
 
 </section>
