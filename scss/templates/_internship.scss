@@ -21,35 +21,6 @@
         }
     }
 
-    .what-to-expect {
-        background: $dark-teal;
-        color: $white;
-        padding: 3rem 0;
-
-        @include desktop-small {
-            padding: 6rem 0;
-        }
-
-        .photo {
-            padding-bottom: 2rem;
-            
-            @include desktop-small {
-                padding-bottom: 0;
-                grid-row: 2;
-                grid-column: 9 / span 5;
-            }            
-        }
-
-        .copy-2 {
-            @include desktop-small {
-                grid-row: 2;
-                grid-column: 2 / span 6;
-            }            
-        }
-    }
-
-
-
     .testimonial {
         padding: 3rem 0;
 
@@ -59,17 +30,19 @@
         &__slide {
             &-wrapper {
                 width: 100%;
-
                 display: grid;
-                background: $light-green;
+                background: $charcoal;
                 color: $white;
 
                 @include tablet {
-                    grid-template-columns: repeat(2, minmax(auto,  1fr));
+                    grid-template-columns: repeat(2, minmax(auto, 1fr));
+                }
+
+                @include desktop-small {
+                    grid-template-columns: 2fr 1fr;
                 }
             }
         }
-
 
         &__photo {
             aspect-ratio: 1 / 1;
@@ -88,7 +61,7 @@
         }
 
         &__text {
-            font-size: $type-size-600;
+            font-size: $type-size-400;
             font-weight: bold;
             line-height: 1.375em;
         }
@@ -103,15 +76,39 @@
         }
     }
 
+    .what-to-expect {
+        background: $off-white;
+        padding: 3rem 0;
+
+        @include desktop-small {
+            padding: 6rem 0;
+        }
+
+        .photo {
+            padding-bottom: 2rem;
+
+            @include desktop-small {
+                padding-bottom: 0;
+                grid-row: 2;
+                grid-column: 8 / span 6;
+            }
+        }
+
+        .copy-2 {
+            @include desktop-small {
+                grid-row: 2;
+                grid-column: 2 / span 6;
+            }
+        }
+    }
+
     .how-to-apply {
         padding: 6rem 0;
 
         .info {
-
             @include desktop-small {
                 grid-column: 2 / span 8;
             }
-
         }
 
         .photo {
