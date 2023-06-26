@@ -1,5 +1,5 @@
-body.page-template-jedi {
-    @import 'jedi/page-header';
+body.page-template-jedi-legacy {
+    @import "jedi-legacy/page-header";
 
     .left-flow {
         .photo {
@@ -8,14 +8,13 @@ body.page-template-jedi {
                 grid-column: 2 / span 3;
                 padding-right: 1rem;
             }
-    
+
             @include desktop-small {
                 grid-column: 2 / span 5;
                 padding-right: 2rem;
             }
-    
         }
-    
+
         .copy {
             padding-top: 2rem;
             @include tablet {
@@ -23,20 +22,20 @@ body.page-template-jedi {
                 grid-row: 2;
                 grid-column: 5 / span 5;
             }
-            
+
             @include desktop-small {
                 grid-column: 7 / span 7;
             }
         }
     }
 
-    @import 'jedi/ongoing-education';
+    @import "jedi-legacy/ongoing-education";
 
-    @import 'jedi/outreach-and-internship';
+    @import "jedi-legacy/outreach-and-internship";
 
-    @import 'jedi/scholarship';
+    @import "jedi-legacy/scholarship";
 
-    @import 'jedi/statement';
+    @import "jedi-legacy/statement";
 
     section.news {
         padding-top: 0;
@@ -46,5 +45,5 @@ body.page-template-jedi {
         }
     }
 
-    //@import 'jedi/timeline';
+    //@import 'jedi-legacy/timeline';
 }
