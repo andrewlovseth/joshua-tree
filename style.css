@@ -3169,6 +3169,26 @@ body.page-template-history section.timeline .event .description {
   flex: 1;
 }
 
+body.page-template-jedi section.page-header {
+  padding: 4.5rem 0;
+}
+@media screen and (min-width: 992px) {
+  body.page-template-jedi section.page-header {
+    padding: 9rem 0;
+  }
+}
+@media screen and (min-width: 992px) {
+  body.page-template-jedi section.page-header .copy {
+    grid-column: 2/span 9;
+  }
+}
+body.page-template-jedi section.page-header .copy p:first-of-type {
+  font-size: 1.125em;
+}
+body.page-template-jedi section.page-header .photo {
+  padding-top: 0;
+}
+
 body.page-template-jedi-legacy section.page-header {
   padding: 4.5rem 0;
 }
