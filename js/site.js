@@ -2,57 +2,57 @@
     $(document).ready(function ($) {
         // rel="external"
         $('a[rel="external"]').click(function () {
-            window.open($(this).attr('href'));
+            window.open($(this).attr("href"));
             return false;
         });
 
         // Nav Trigger
-        $('.js-nav-trigger').click(function () {
-            $('body').toggleClass('nav-overlay-open');
+        $(".js-nav-trigger").click(function () {
+            $("body").toggleClass("nav-overlay-open");
             return false;
         });
 
         // Search Trigger
-        $('.js-search-trigger').click(function () {
-            $('body').toggleClass('search-overlay-open');
+        $(".js-search-trigger").click(function () {
+            $("body").toggleClass("search-overlay-open");
             return false;
         });
 
         // Smooth Scroll Links
-        $('.smooth').smoothScroll();
+        $(".smooth").smoothScroll();
 
         // Mobile Nav Dropdown Toggle
-        $('.mobile-nav .dropdown .section-header').on('click', function () {
-            let subnav = $(this).attr('href');
-            let dropdown = $(this).closest('.dropdown');
+        $(".mobile-nav .dropdown .section-header").on("click", function () {
+            let subnav = $(this).attr("href");
+            let dropdown = $(this).closest(".dropdown");
 
-            $(subnav).slideToggle(400).toggleClass('active');
-            $(dropdown).toggleClass('active');
+            $(subnav).slideToggle(400).toggleClass("active");
+            $(dropdown).toggleClass("active");
 
             return false;
         });
 
         // Tab Links
-        $('.tab-links a').on('click', function () {
-            $('.tab-links a').removeClass('active');
-            $(this).addClass('active');
+        $(".tab-links a").on("click", function () {
+            $(".tab-links a").removeClass("active");
+            $(this).addClass("active");
 
-            var tab_target = $(this).attr('href');
-            $('.tab').removeClass('active');
-            $(tab_target).addClass('active');
+            var tab_target = $(this).attr("href");
+            $(".tab").removeClass("active");
+            $(tab_target).addClass("active");
 
             return false;
         });
 
         // Our Work Nav
-        $('.link-our-work').on('click', function () {
-            $('.work-nav').toggleClass('active');
+        $(".link-our-work").on("click", function () {
+            $(".work-nav").toggleClass("active");
 
             return false;
         });
 
         // Homepage / Featured Projects Slider
-        $('.js-featured-projects-slider').slick({
+        $(".js-featured-projects-slider").slick({
             dots: true,
             arrows: true,
             infinite: true,
@@ -61,17 +61,17 @@
             adaptiveHeight: false,
         });
 
-        if ($('.js-featured-projects-slider').length > 0) {
-            const arrows = $('.slick-arrow'),
-                slide = $('.js-featured-projects-slider .project:first-of-type .photo');
+        if ($(".js-featured-projects-slider").length > 0) {
+            const arrows = $(".slick-arrow"),
+                slide = $(".js-featured-projects-slider .project:first-of-type .photo");
 
             let slideHeight = slide.height();
 
-            $(arrows).css('height', slideHeight);
+            $(arrows).css("height", slideHeight);
         }
 
         // Markets / Featured Projects Slider
-        $('.projects-slider').slick({
+        $(".projects-slider").slick({
             dots: true,
             arrows: false,
             infinite: true,
@@ -79,7 +79,7 @@
             autoplaySpeed: 6000,
         });
 
-        $('.news-slider').slick({
+        $(".news-slider").slick({
             dots: true,
             arrows: false,
             infinite: true,
@@ -87,7 +87,7 @@
             autoplaySpeed: 6000,
         });
 
-        $('.testimonial__slider').slick({
+        $(".testimonial__slider").slick({
             dots: true,
             arrows: false,
             infinite: true,
@@ -96,7 +96,7 @@
         });
 
         // Markets / More Projects Slider
-        $('.more-projects-slider').slick({
+        $(".more-projects-slider").slick({
             dots: false,
             arrows: true,
             infinite: true,
@@ -116,7 +116,7 @@
         });
 
         // Leadership Slider
-        $('.js-leadership-gallery').slick({
+        $(".js-leadership-gallery").slick({
             dots: false,
             arrows: true,
             infinite: true,
@@ -124,38 +124,61 @@
             autoplaySpeed: 6000,
         });
 
+        // JEDI Slider
+        $(".js-jedi-gallery").slick({
+            dots: false,
+            arrows: true,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 6000,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+        });
+
+        //JEDI: Tabs
+        $(".jedi-tabs__link").on("click", function () {
+            let section = $(this).attr("href");
+
+            $(".jedi-tab-sections__item").removeClass("active");
+            $(section).addClass("active");
+
+            $(".jedi-tabs__link").removeClass("active");
+            $(this).addClass("active");
+
+            return false;
+        });
+
         //Clients: Tabs
-        $('.client-tabs a').on('click', function () {
-            let section = $(this).attr('href');
-            console.log(section);
+        $(".client-tabs a").on("click", function () {
+            let section = $(this).attr("href");
 
-            $('.client-type').removeClass('active');
-            $(section).addClass('active');
+            $(".client-type").removeClass("active");
+            $(section).addClass("active");
 
-            $('.client-tabs a').removeClass('active');
-            $(this).addClass('active');
+            $(".client-tabs a").removeClass("active");
+            $(this).addClass("active");
 
             return false;
         });
 
         // Clients: Projects Toggle
-        $('.client.has-projects .name').on('click', function () {
-            let projects = $(this).siblings('.projects');
+        $(".client.has-projects .name").on("click", function () {
+            let projects = $(this).siblings(".projects");
             $(projects).toggle();
 
-            $(this).toggleClass('active');
+            $(this).toggleClass("active");
         });
 
-        let clearBtn = document.getElementById('alm-filters-reset-button');
-        $(clearBtn).on('click', function (e) {
+        let clearBtn = document.getElementById("alm-filters-reset-button");
+        $(clearBtn).on("click", function (e) {
             almfilters.reset();
-            $('.alm-filter--select select option').prop('selected', function () {
+            $(".alm-filter--select select option").prop("selected", function () {
                 return this.defaultSelected;
             });
         });
 
         // JEDI timeline
-        $('.js-progress-timeline').slick({
+        $(".js-progress-timeline").slick({
             dots: true,
             arrows: false,
             infinite: false,
@@ -170,40 +193,40 @@
     $(window).scroll(function () {
         var scroll = $(window).scrollTop();
         if (scroll >= 0.4 * $(window).height()) {
-            $('body').addClass('show-top-btn');
+            $("body").addClass("show-top-btn");
         } else {
-            $('body').removeClass('show-top-btn');
+            $("body").removeClass("show-top-btn");
         }
     });
 
     $(document).mouseup(function (e) {
-        var menu = $('.mobile-nav, .js-nav-trigger, .search-nav');
+        var menu = $(".mobile-nav, .js-nav-trigger, .search-nav");
 
         if (!menu.is(e.target) && menu.has(e.target).length === 0) {
-            $('body').removeClass('nav-overlay-open search-overlay-open');
+            $("body").removeClass("nav-overlay-open search-overlay-open");
         }
 
-        var work_nav = $('.work-nav, .link-our-work');
+        var work_nav = $(".work-nav, .link-our-work");
         if (!work_nav.is(e.target) && work_nav.has(e.target).length === 0) {
-            $('.work-nav').removeClass('active');
+            $(".work-nav").removeClass("active");
         }
     });
 
     $(document).keyup(function (e) {
         if (e.keyCode == 27) {
-            $('body').removeClass('nav-overlay-open search-overlay-open');
-            $('.work-nav').removeClass('active');
+            $("body").removeClass("nav-overlay-open search-overlay-open");
+            $(".work-nav").removeClass("active");
         }
     });
 
     $(window).resize(function () {
-        if ($('.js-featured-projects-slider').length > 0) {
-            const arrows = $('.slick-arrow'),
-                slide = $('.js-featured-projects-slider .project:first-of-type .photo');
+        if ($(".js-featured-projects-slider").length > 0) {
+            const arrows = $(".slick-arrow"),
+                slide = $(".js-featured-projects-slider .project:first-of-type .photo");
 
             let slideHeight = slide.height();
 
-            $(arrows).css('height', slideHeight);
+            $(arrows).css("height", slideHeight);
         }
     });
 })(jQuery, window, document);

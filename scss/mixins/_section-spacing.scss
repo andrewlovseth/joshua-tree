@@ -5,3 +5,27 @@
         padding: 9rem 0;
     }
 }
+
+@mixin section-spacing-top {
+    padding-top: 4.5rem;
+
+    @include desktop-small {
+        padding-top: 9rem;
+    }
+}
+
+@mixin section-spacing-bottom {
+    padding-bottom: 4.5rem;
+
+    @include desktop-small {
+        padding-bottom: 9rem;
+    }
+}
+
+@mixin section-spacing-small {
+    padding: 2.5rem 0;
+
+    @include desktop-small {
+        padding: 4.5rem 0;
+    }
+}

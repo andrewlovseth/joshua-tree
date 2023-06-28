@@ -1,7 +1,5 @@
 body.post-type-archive-client {
-
     .client-tabs {
-
         nav.clients-nav {
             display: flex;
             align-items: center;
@@ -24,9 +22,7 @@ body.post-type-archive-client {
 
                     @include tablet {
                         font-size: clamp(1.25rem, 2vw, 1.5rem);
-
                     }
-
 
                     &:hover,
                     &.active {
@@ -49,7 +45,7 @@ body.post-type-archive-client {
         &.active {
             display: grid;
         }
-                
+
         .client-list {
             display: grid;
             align-content: start;
@@ -66,7 +62,7 @@ body.post-type-archive-client {
             @include desktop-small {
                 grid-template-columns: repeat(4, 1fr);
             }
-            
+
             .client {
                 @include desktop-small {
                     padding-right: 4rem;
@@ -85,7 +81,7 @@ body.post-type-archive-client {
                             position: absolute;
                             bottom: 0.275rem;
                             right: -1.25rem;
-                            content: '';
+                            content: "";
                             display: inline-block;
                             width: 0.875rem;
                             height: 0.375rem;
@@ -99,13 +95,12 @@ body.post-type-archive-client {
                             cursor: pointer;
                             &:after {
                                 opacity: 1;
-
                             }
                         }
 
                         &.active {
                             border: none;
-                            
+
                             &:after {
                                 opacity: 1;
                                 transform: rotate(180deg) translateY(1px);
@@ -114,7 +109,6 @@ body.post-type-archive-client {
                     }
                 }
             }
-
 
             .projects {
                 padding-top: 0.5rem;
@@ -143,16 +137,12 @@ body.post-type-archive-client {
                     display: inline-block;
                     line-height: 1.125em;
                     font-size: clamp(0.75rem, 1vw, 0.875rem);
-                    
+
                     &:hover {
                         text-decoration: underline;
                     }
                 }
             }
-
-
-    
         }
     }
-    
 }

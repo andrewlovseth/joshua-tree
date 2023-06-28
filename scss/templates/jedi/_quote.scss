@@ -1,0 +1,41 @@
+.quote {
+    background: #005863;
+    color: $white;
+    align-items: center;
+    @include section-spacing-small;
+    gap: 2rem;
+
+    .photo {
+        aspect-ratio: 1 / 1;
+        max-width: 16rem;
+
+        @include desktop-small {
+            grid-column: 2 / span 4;
+            max-width: unset;
+        }
+
+        a {
+            display: block;
+        }
+
+        @include cover-fill-image;
+    }
+
+    .info {
+        @include desktop-small {
+            grid-column: 7 / span 7;
+        }
+    }
+
+    .source {
+        &__name {
+            font-weight: bold;
+            font-size: $type-size-300;
+            padding-bottom: 0.5rem;
+        }
+
+        &__title {
+            font-size: $type-size-300;
+        }
+    }
+}

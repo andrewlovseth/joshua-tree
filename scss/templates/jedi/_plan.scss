@@ -1,0 +1,37 @@
+.plan {
+    &__content {
+        background: #007aa5;
+        color: $white;
+        align-items: center;
+    }
+
+    .photo {
+        @include desktop-small {
+            grid-column: 2 / span 4;
+        }
+
+        img {
+            max-width: 16rem;
+            transform: translateY(-2rem);
+
+            @include desktop-small {
+                max-width: unset;
+                transform: scale(1.2);
+                transform-origin: right center;
+            }
+        }
+    }
+
+    .info {
+        padding-bottom: 2rem;
+
+        @include desktop-small {
+            padding-bottom: 0;
+            grid-column: 7 / span 7;
+        }
+    }
+
+    .headline {
+        padding-bottom: 1rem;
+    }
+}

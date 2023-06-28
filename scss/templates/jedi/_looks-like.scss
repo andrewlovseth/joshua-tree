@@ -1,0 +1,48 @@
+.looks-like {
+    @include section-spacing-bottom;
+
+    .jedi-tabs {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: flex-end;
+        gap: 0 2rem;
+        padding-bottom: 3rem;
+
+        &__link {
+            display: block;
+            color: $black;
+            padding-bottom: 1rem;
+            border-bottom: 6px solid $light-gray;
+            font-weight: bold;
+            font-size: $type-size-300;
+
+            &.active {
+                border-color: $orange;
+            }
+        }
+    }
+
+    .jedi-tab-sections__item {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+
+    .has-photo.active {
+        display: grid;
+        align-items: center;
+        gap: 2rem 4rem;
+
+        @include tablet {
+            grid-template-columns: 24rem minmax(0, 1fr);
+        }
+    }
+
+    .photo {
+        aspect-ratio: 1 / 1;
+
+        @include cover-fill-image;
+    }
+}

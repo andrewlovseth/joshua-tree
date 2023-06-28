@@ -1,0 +1,12 @@
+.gallery {
+    @include section-spacing;
+    .slick-slide {
+        margin: 0 0.5rem !important;
+    }
+
+    &__photo {
+        aspect-ratio: 1 / 1;
+
+        @include cover-fill-image;
+    }
+}
