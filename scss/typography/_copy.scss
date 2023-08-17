@@ -113,5 +113,13 @@
                 }
             }
         }
+
+        .wp-caption-text {
+            font-size: $type-size-150;
+            line-height: 1.375em;
+            color: $dark-gray;
+            font-style: italic;
+            padding: 0.75rem 0 2rem;
+        }
     }
 }

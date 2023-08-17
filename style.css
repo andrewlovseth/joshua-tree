@@ -494,6 +494,13 @@ a {
 .copy-3.extended ol li p + p {
   padding-top: 1rem;
 }
+.copy-1 .wp-caption-text, .copy-2 .wp-caption-text, .copy-3 .wp-caption-text {
+  font-size: clamp(0.66rem, 0.58rem + 0.48vw, 0.88rem);
+  line-height: 1.375em;
+  color: #6D6E71;
+  font-style: italic;
+  padding: 0.75rem 0 2rem;
+}
 
 html {
   scroll-behavior: smooth;
@@ -4041,6 +4048,9 @@ body.single-projects section.about .content-section + .content-section {
 body.single-projects section.about .content-section .headline {
   padding-bottom: 1rem;
 }
+body.single-projects section.about figure {
+  width: unset !important;
+}
 body.single-projects section.experts {
   padding-top: 2rem;
 }
@@ -5396,6 +5406,13 @@ body.single-post .article-body .wp-block-group.sidebar {
 }
 body.single-post .article-body .wp-block-group__inner-container > * {
   margin-bottom: 1rem;
+}
+body.single-post .article-body .wp-element-caption {
+  font-size: clamp(0.66rem, 0.58rem + 0.48vw, 0.88rem);
+  line-height: 1.375em;
+  color: #6D6E71;
+  font-style: italic;
+  padding-bottom: 1rem;
 }
 body.single-post .article-footer {
   padding-bottom: 3rem;

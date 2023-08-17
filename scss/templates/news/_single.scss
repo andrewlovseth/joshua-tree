@@ -248,6 +248,14 @@ body.single-post {
                 }
             }
         }
+
+        .wp-element-caption {
+            font-size: $type-size-150;
+            line-height: 1.375em;
+            color: $dark-gray;
+            font-style: italic;
+            padding-bottom: 1rem;
+        }
     }
 
     .article-footer {
