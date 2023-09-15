@@ -12,7 +12,11 @@
             grid-column: 3 / span 10;
         }
     }
-
+    .section-header__grid {
+        @include desktop-small {
+            grid-column: 2 / span 12;
+        }
+    }
     .project {
         width: calc(50% - 1rem);
         margin: 0 1rem;
