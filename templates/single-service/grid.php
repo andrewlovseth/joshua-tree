@@ -35,7 +35,7 @@
                         <?php endif; ?>
 
                         <div class="headline">
-                            <h3 class="title-headline small"><?php echo get_the_title(); ?></h3>
+                            <h3 class="title-headline small"><?php echo get_the_title($project->ID); ?></h3>
                         </div>
 
                         <?php if($location): ?>
