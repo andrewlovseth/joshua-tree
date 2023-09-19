@@ -11,13 +11,13 @@
             <h3 class="section-headline small">Featured Projects</h3>
         </div>
 
-        <?php if($featured_projects_display === 'slider'): ?>
-
-            <?php get_template_part('templates/single-service/slider'); ?>
-
-        <?php elseif($featured_projects_display === 'grid'): ?>
+        <?php if($featured_projects_display === 'grid'): ?>
 
             <?php get_template_part('templates/single-service/grid'); ?>
+
+        <?php else: ?>
+            
+            <?php get_template_part('templates/single-service/slider'); ?>
 
         <?php endif; ?>
 
