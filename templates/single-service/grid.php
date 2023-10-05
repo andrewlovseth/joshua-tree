@@ -18,7 +18,7 @@
         ?>
 
         <div class="project">
-            <a href="<?php echo get_permalink(); ?>">
+            <a href="<?php echo get_permalink($project->ID); ?>">
                 <?php if( $image ): ?>
                     <div class="photo">
                         <?php echo wp_get_attachment_image($image['ID'], 'medium'); ?>
