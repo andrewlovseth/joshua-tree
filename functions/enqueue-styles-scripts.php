@@ -32,16 +32,3 @@ function gutenberg_styles() {
     wp_enqueue_style( 'gutenberg-styles', get_theme_file_uri('gutenberg.css'), false );
 }
 add_action( 'enqueue_block_editor_assets', 'gutenberg_styles' );
-
-
-// Remove plugin styles from pages
-function esa_remove_plugin_styles() {
-    if ( 'post' != get_post_type() ) {
-        wp_dequeue_style('bafg_twentytwenty');
-        wp_deregister_style('bafg_twentytwenty');
-
-        wp_dequeue_style('bafg-style');
-        wp_deregister_style('bafg-style');
-    }
-}
-add_action( 'wp_enqueue_scripts', 'esa_remove_plugin_styles', 1000);
