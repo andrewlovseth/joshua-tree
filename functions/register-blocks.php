@@ -27,5 +27,20 @@ function my_register_blocks() {
             ),
         ));
 
+
+        acf_register_block_type(array(
+            'name'              => 'esa-contacts',
+            'title'             => __('ESA Contacts'),
+            'description'       => __('Customizable grid of ESA contacts.'),
+            'render_template'   => 'blocks/esa-contacts/esa-contacts.php',
+            'category'          => 'layout',
+            'icon'              => 'dashicons-grid-view',
+            'align'             => 'full',
+            'mode'			    => 'preview',
+            'supports'          => array(
+                'jsx' => true
+            ),
+        ));
+
     }
 }

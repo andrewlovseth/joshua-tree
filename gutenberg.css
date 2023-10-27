@@ -1,7 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url(fonts/HelveticaNeue-UltraLight.woff2) format("woff2"), url(fonts/HelveticaNeue-UltraLight.woff) format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url(fonts/HelveticaNeue-UltraLightItalic.woff2) format("woff2"), url(fonts/HelveticaNeue-UltraLightItalic.woff) format("woff");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url(fonts/HelveticaNeue-Light.woff2) format("woff2"), url(fonts/HelveticaNeue-Light.woff) format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url(fonts/HelveticaNeue-LightItalic.woff2) format("woff2"), url(fonts/HelveticaNeue-LightItalic.woff) format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url(fonts/HelveticaNeue.woff2) format("woff2"), url(fonts/HelveticaNeue.woff) format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url(fonts/HelveticaNeue-Italic.woff2) format("woff2"), url(fonts/HelveticaNeue-Italic.woff) format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url(fonts/HelveticaNeue-Medium.woff2) format("woff2"), url(fonts/HelveticaNeue-Medium.woff) format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url(fonts/HelveticaNeue-Bold.woff2) format("woff2"), url(fonts/HelveticaNeue-Bold.woff) format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url(fonts/HelveticaNeue-BoldItalic.woff2) format("woff2"), url(fonts/HelveticaNeue-BoldItalic.woff) format("woff");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
 .esa-sidebar {
   width: 100%;
   padding: 2rem 2rem 1rem 2rem;
-  background-color: #D5EDEF;
+  background-color: #d5edef;
   max-width: 26rem;
 }
 .esa-sidebar h4 {
@@ -14,9 +78,44 @@
   font-size: clamp(1rem, 1.2vw, 1.125rem) !important;
   margin-bottom: 1rem;
 }
-.esa-sidebar .block-editor-block-list__layout ol, .esa-sidebar .block-editor-block-list__layout ul {
+.esa-sidebar .block-editor-block-list__layout ol,
+.esa-sidebar .block-editor-block-list__layout ul {
   padding-left: 1.25rem;
 }
 .esa-sidebar .block-editor-block-list__layout li + li {
   margin-top: 0.5rem;
+}
+
+.esa-contacts {
+  padding-bottom: 2rem;
+}
+.esa-contacts__header {
+  border-bottom: 2px solid #00A69C;
+  margin-bottom: 1.5rem;
+}
+.esa-contacts__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+  gap: 2rem;
+}
+.esa-contacts__card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.esa-contacts__card-header .linkedin {
+  width: 1rem;
+}
+.esa-contacts__card-meta .region {
+  font-style: italic;
+  color: #6D6E71;
+  font-size: clamp(0.66rem, 0.58rem + 0.48vw, 0.88rem);
+  line-height: 1.25em;
+}
+.esa-contacts__card-meta .email a {
+  color: #F9A134;
+  font-weight: 600;
+  font-size: clamp(0.6rem, 0.52rem + 0.43vw, 0.78rem);
+  text-decoration: underline;
 }
