@@ -68,6 +68,11 @@
     <?php if( $photo ): ?>
         <div class="photo">
             <?php echo wp_get_attachment_image($photo['ID'], 'full'); ?>
+            <?php if($photo['caption']): ?>
+                <div class="caption">
+                    <p><?php echo $photo['caption']; ?></p>
+                </div>
+            <?php endif; ?>
         </div>
     <?php endif; ?>
 

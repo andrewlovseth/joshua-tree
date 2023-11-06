@@ -15,7 +15,6 @@ section.details {
         }
 
         .vital {
-
             & + .vital {
                 padding-top: 2rem;
             }
@@ -33,6 +32,15 @@ section.details {
         @include desktop-small {
             grid-column: 8 / span 6;
         }
+        .caption {
+            padding-top: 0.5rem;
 
+            p {
+                font-size: $type-size-150;
+                line-height: 1.375em;
+                color: $dark-gray;
+                font-style: italic;
+            }
+        }
     }
 }

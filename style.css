@@ -542,15 +542,20 @@ img.aligncenter {
   margin-right: auto;
 }
 
-.alignright {
+div.alignright,
+figure.alignright {
   float: right;
+  margin: 0 0 1em 1em !important;
 }
 
-.alignleft {
+div.alignleft,
+figure.alignleft {
   float: left;
+  margin: 0 1em 1em 0 !important;
 }
 
-.aligncenter {
+div.aligncenter,
+figure.aligncenter {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -4082,7 +4087,7 @@ body.single-projects section.about .content-section .headline {
   padding-bottom: 1rem;
 }
 body.single-projects section.about figure {
-  width: unset !important;
+  max-width: 100% !important;
 }
 body.single-projects section.experts {
   padding-top: 2rem;
@@ -4187,6 +4192,15 @@ body.single-projects section.details .info .vital strong {
   body.single-projects section.details .photo {
     grid-column: 8/span 6;
   }
+}
+body.single-projects section.details .photo .caption {
+  padding-top: 0.5rem;
+}
+body.single-projects section.details .photo .caption p {
+  font-size: clamp(0.66rem, 0.58rem + 0.48vw, 0.88rem);
+  line-height: 1.375em;
+  color: #6D6E71;
+  font-style: italic;
 }
 
 body.single-market .site-content {
