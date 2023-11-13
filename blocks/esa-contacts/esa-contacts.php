@@ -27,7 +27,9 @@ if(have_rows('contacts')): ?>
 
     <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
 
-        <h4 class="esa-contacts__header"><?php echo $header; ?></h4>
+        <?php if($header): ?>
+            <h4 class="esa-contacts__header"><?php echo $header; ?></h4>
+        <?php endif; ?>
 
         <div class="esa-contacts__grid">
             <?php while(have_rows('contacts')) : the_row(); ?>
