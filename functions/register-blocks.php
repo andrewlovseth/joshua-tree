@@ -42,5 +42,35 @@ function my_register_blocks() {
             ),
         ));
 
+        acf_register_block_type(array(
+            'name'              => 'esa-hero',
+            'title'             => __('ESA Hero'),
+            'description'       => __('Customizable ESA hero.'),
+            'render_template'   => 'blocks/esa-hero/esa-hero.php',
+            'category'          => 'layout',
+            'icon'              => 'dashicons-grid-view',
+            'align'             => 'full',
+            'mode'			    => 'preview',
+            'supports'          => array(
+                'align' => array('full' ),
+
+                'jsx' => true
+            ),
+        ));
+
+        acf_register_block_type(array(
+            'name'              => 'esa-featured-projects',
+            'title'             => __('ESA Featured Projects'),
+            'description'       => __('ESA Featured Projects block.'),
+            'render_template'   => 'blocks/esa-featured-projects/esa-featured-projects.php',
+            'category'          => 'layout',
+            'icon'              => 'dashicons-grid-view',
+            'align'             => 'full',
+            'mode'			    => 'preview',
+            'supports'          => array(
+                'align' => array('full' ),
+                'jsx' => true
+            ),
+        ));
     }
 }

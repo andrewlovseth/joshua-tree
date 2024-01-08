@@ -1,0 +1,48 @@
+.esa-hero {
+    grid-column: 1 / -1;
+
+    .featured-image {
+        grid-column: 1 / -1;
+        aspect-ratio: 16 / 12;
+        @include cover-fill-image;
+        grid-row: 1;
+        max-height: 95vh;
+
+        @include desktop-small {
+            aspect-ratio: 16 / 7;
+        }
+
+        @include desktop-medium {
+            aspect-ratio: unset;
+            max-height: 90vh;
+            width: 100%;
+        }
+    }
+
+    .info {
+        grid-row: 1;
+        z-index: 10;
+        align-self: center;
+
+        @include tablet {
+            align-self: end;
+            transform: translateY(calc(-5vh - 2rem));
+        }
+
+        @include desktop-small {
+            grid-column: 2 / span 10;
+        }
+    }
+
+    .post-title {
+        color: $white;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.66);
+        font-weight: 700 !important;
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.125em;
+
+        @include tablet {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+        }
+    }
+}

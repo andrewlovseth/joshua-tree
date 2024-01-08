@@ -9,7 +9,24 @@
 function bearsmith_disable_editor( $id = false ) {
 
 	$excluded_templates = array(
-		// 'template-name.php',
+		'templates/new-home.php',
+		'templates/about.php',
+		'templates/leadership.php',
+		'templates/leadership-sub-group.php',
+		'templates/esop.php',
+		'templates/culture.php',
+		'templates/jedi.php',
+		'templates/history.php',
+		'templates/join-us.php',
+		'templates/benefits.php',
+		'templates/job-openings.php',
+		'templates/internship.php',
+		'templates/contact.php',
+		'templates/newsletter.php',
+		'templates/jedi-legacy.php',
+		'templates/employee-owner-spotlight.php',
+		'templates/new-home.php',
+		'templates/professional-development.php',
 	);
 
 	$excluded_ids = array(
@@ -62,7 +79,7 @@ add_action( 'admin_head', 'bearsmith_disable_classic_editor' );
 function bearsmith_disable_gutenberg_cpt( $current_status, $post_type ) {
 
     // Disabled post types
-    $disabled_post_types = array( 'page', 'projects', 'project_category', 'service', 'client', 'employee', 'leadership', 'office' );
+    $disabled_post_types = array('projects', 'project_category', 'service', 'client', 'employee', 'leadership', 'office' );
 
     // Change $can_edit to false for any post types in the disabled post types array
     if ( in_array( $post_type, $disabled_post_types, true ) ) {

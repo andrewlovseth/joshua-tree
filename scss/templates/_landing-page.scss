@@ -1,0 +1,7 @@
+body.page-template-landing-page .page-wrapper {
+    & > *:not(.esa-hero, .esa-featured-projects) {
+        @include desktop-small {
+            grid-column: 2 / span 8;
+        }
+    }
+}
