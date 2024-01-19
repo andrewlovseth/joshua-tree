@@ -3641,19 +3641,19 @@ body.post-type-archive-projects section.filters .alm-filters-container .alm-filt
 body.post-type-archive-projects section.filters .alm-filters-container .alm-filters--reset:hover .alm-filters--reset-button {
   color: #6D6E71;
 }
-body.post-type-archive-projects .alm-reveal {
+body.post-type-archive-projects .projects-grid {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 @media screen and (min-width: 768px) {
-  body.post-type-archive-projects .alm-reveal {
-    grid-template-columns: repeat(2, 1fr);
+  body.post-type-archive-projects .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 @media screen and (min-width: 992px) {
-  body.post-type-archive-projects .alm-reveal {
-    grid-template-columns: repeat(3, 1fr);
+  body.post-type-archive-projects .projects-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 body.post-type-archive-projects section.projects {
