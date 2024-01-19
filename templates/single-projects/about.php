@@ -8,11 +8,11 @@
 
                 <div class="content-section">
                     <div class="headline">
-                        <h3 class="section-headline small"><?php the_sub_field('headline'); ?></h3>
+                        <h3 class="section-headline small"><?php echo get_sub_field('headline'); ?></h3>
                     </div>
 
                     <div class="copy copy-2 extended">
-                        <?php the_sub_field('copy'); ?>
+                        <?php echo get_sub_field('copy'); ?>
                     </div>                    
                 </div>
 

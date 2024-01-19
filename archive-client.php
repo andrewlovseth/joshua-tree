@@ -11,7 +11,7 @@
                 <?php $tab_count = 1; while(have_rows('client_sections', 'options')) : the_row(); ?>
 
                     <div class="link">
-                        <a <?php if($tab_count == 1): ?>class="active"<?php endif; ?> href="#<?php echo sanitize_title_with_dashes(get_sub_field('label')); ?>" class="smooth"><?php the_sub_field('label'); ?></a>
+                        <a <?php if($tab_count == 1): ?>class="active"<?php endif; ?> href="#<?php echo sanitize_title_with_dashes(get_sub_field('label')); ?>" class="smooth"><?php echo get_sub_field('label'); ?></a>
                     </div>
 
                 <?php $tab_count++; endwhile; ?>

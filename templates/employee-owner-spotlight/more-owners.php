@@ -1,6 +1,6 @@
 <section class="more-owners grid">
     <div class="section-header">
-        <h2><?php the_field('more_owners_headline'); ?></h2>
+        <h2><?php echo get_field('more_owners_headline'); ?></h2>
     </div>
 
     <?php $owners = get_field('more_owners'); if( $owners ): ?>
@@ -32,12 +32,12 @@
                         </div>
 
                         <div class="sub-title position">
-                            <h4><?php the_field('info_position', $owner->ID); ?></h4>
+                            <h4><?php echo get_field('info_position', $owner->ID); ?></h4>
                         </div>
 
                         <?php if(get_field('biography_fun_facts', $owner->ID)): ?>
                             <div class="copy-2">
-                                <?php the_field('biography_fun_facts', $owner->ID); ?>
+                                <?php echo get_field('biography_fun_facts', $owner->ID); ?>
                             </div>
                         <?php endif; ?>
 

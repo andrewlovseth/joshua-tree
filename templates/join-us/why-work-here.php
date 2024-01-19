@@ -22,11 +22,11 @@ if(have_rows('why_we_work_here')): while(have_rows('why_we_work_here')): the_row
                         <?php endif; ?>
 
                         <div class="headline copy copy-2">
-                            <h4><?php the_sub_field('headline'); ?></h4>
+                            <h4><?php echo get_sub_field('headline'); ?></h4>
                         </div>
 
                         <div class="copy copy-2">
-                            <?php the_sub_field('copy'); ?>
+                            <?php echo get_sub_field('copy'); ?>
                         </div>
                     </div>
 

@@ -28,7 +28,7 @@
                 <div class="info">
                     <?php if(get_field('biography_short_bio', $owner->ID)): ?>
                         <div class="copy-2">
-                            <?php the_field('biography_short_bio', $owner->ID); ?>
+                            <?php echo get_field('biography_short_bio', $owner->ID); ?>
                         </div>
                     <?php endif; ?>
 

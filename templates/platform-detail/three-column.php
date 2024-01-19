@@ -18,7 +18,7 @@
                 <?php while(have_rows('columns')): the_row(); ?>
     
                     <div class="column copy-2">
-                        <p><?php the_sub_field('copy'); ?></p>
+                        <p><?php echo get_sub_field('copy'); ?></p>
                     </div>
 
                 <?php endwhile; ?>

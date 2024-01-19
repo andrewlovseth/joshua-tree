@@ -7,11 +7,11 @@
 
                 <div class="event">
                     <div class="date copy-1 ">
-                        <h5><?php the_sub_field('date'); ?></h5>
+                        <h5><?php echo get_sub_field('date'); ?></h5>
                     </div>
 
                     <div class="copy-2 description">
-                        <?php the_sub_field('description'); ?>
+                        <?php echo get_sub_field('description'); ?>
                     </div>
                 </div>
             <?php endif; ?>

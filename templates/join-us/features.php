@@ -6,7 +6,7 @@
         
                 <div class="feature">
                     <div class="headline">
-                        <h3 class="section-headline small"><?php the_sub_field('headline'); ?></h3>
+                        <h3 class="section-headline small"><?php echo get_sub_field('headline'); ?></h3>
                     </div>
 
                     <?php $image = get_sub_field('photo'); if( $image ): ?>
@@ -16,7 +16,7 @@
                     <?php endif; ?>
 
                     <div class="copy copy-2">
-                        <?php the_sub_field('copy'); ?>
+                        <?php echo get_sub_field('copy'); ?>
                     </div>
 
                     <?php

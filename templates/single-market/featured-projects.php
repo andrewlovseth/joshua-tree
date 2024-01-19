@@ -27,13 +27,13 @@
 
                                     <?php if(get_field('details_about', $project->ID)): ?>
                                         <div class="copy-3">
-                                            <?php the_field('details_about', $project->ID); ?>
+                                            <?php echo get_field('details_about', $project->ID); ?>
                                         </div>
                                     <?php endif; ?>
 
                                     <?php if(get_field('details_location', $project->ID)): ?>
                                         <div class="location">
-                                            <h4><?php the_field('details_location', $project->ID); ?></h4>
+                                            <h4><?php echo get_field('details_location', $project->ID); ?></h4>
                                         </div>
                                     <?php endif; ?>
 

@@ -31,11 +31,11 @@ if(have_rows('timeline')): while(have_rows('timeline')): the_row(); ?>
 
                             <div class="info">
                                 <div class="year">
-                                    <h4><?php the_sub_field('year'); ?></h4>
+                                    <h4><?php echo get_sub_field('year'); ?></h4>
                                 </div>
 
                                 <div class="details copy copy-3 extended">
-                                    <?php the_sub_field('copy'); ?>
+                                    <?php echo get_sub_field('copy'); ?>
                                 </div>  
                             </div>
 

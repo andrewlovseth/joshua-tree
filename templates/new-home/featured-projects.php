@@ -34,12 +34,12 @@
 
                                 <?php if(get_field('details_location', $p->ID)): ?>
                                     <div class="location">
-                                        <h4><?php the_field('details_location', $p->ID); ?></h4>
+                                        <h4><?php echo get_field('details_location', $p->ID); ?></h4>
                                     </div>
                                 <?php endif; ?>
 
                                 <div class="copy copy-2">
-                                    <?php the_field('details_about', $p->ID); ?>
+                                    <?php echo get_field('details_about', $p->ID); ?>
                                 </div>
 
                             </div>

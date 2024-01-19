@@ -34,7 +34,7 @@
                                 <h4 class="title-headline x-small"><?php echo esc_html($link_title); ?></h4>
 
                                 <div class="copy copy-3">
-                                    <p><?php the_sub_field('copy'); ?></p>
+                                    <p><?php echo get_sub_field('copy'); ?></p>
                                 </div>
 
                                 <span class="more">Learn More</span>

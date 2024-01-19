@@ -6,7 +6,7 @@
             <?php while(have_rows('details')): the_row(); ?>
 
                 <div class="col copy copy-2">
-                    <?php the_sub_field('copy'); ?>
+                    <?php echo get_sub_field('copy'); ?>
                 </div>
 
             <?php endwhile; ?>

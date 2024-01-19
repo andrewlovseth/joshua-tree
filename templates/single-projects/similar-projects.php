@@ -35,7 +35,7 @@
                                     </div>
 
                                     <div class="location">
-                                        <h4><?php the_field('details_location', $project->ID); ?></h4>
+                                        <h4><?php echo get_field('details_location', $project->ID); ?></h4>
                                     </div>
                                 </div>
                             </div>                    

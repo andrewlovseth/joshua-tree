@@ -1,6 +1,6 @@
 <div class="biography">
     <div class="copy-2 extended">
-        <?php the_field('biography'); ?>
+        <?php echo get_field('biography'); ?>
     </div>
 
     <div class="back">

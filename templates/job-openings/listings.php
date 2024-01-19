@@ -1,3 +1,3 @@
 <section class="listings">
-    <?php the_field('iframe'); ?>
+    <?php echo get_field('iframe'); ?>
 </section>

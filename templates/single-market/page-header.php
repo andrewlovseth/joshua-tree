@@ -18,6 +18,6 @@
     <h1 class="page-title"><?php the_title(); ?></h1>
 
     <div class="copy-1">
-        <?php the_field('intro'); ?>
+        <?php echo get_field('intro'); ?>
     </div>
 </section>
