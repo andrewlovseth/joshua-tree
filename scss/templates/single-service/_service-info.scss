@@ -1,7 +1,5 @@
 .service-info {
-
     .about {
-
         @include tablet {
             grid-column: 2 / span 6;
         }
@@ -12,12 +10,18 @@
 
         .copy-2 {
             background: $white;
-            margin-top: -3rem;
             z-index: 10;
             padding: 1rem 1rem 0 1rem;
 
             @include tablet {
                 padding: 2rem 2rem 1rem 2rem;
+            }
+        }
+
+        &__main {
+            margin-top: -3rem;
+
+            @include tablet {
                 margin-top: -6rem;
             }
         }
@@ -43,6 +47,27 @@
                     padding-bottom: 0.5rem;
                 }
             }
-        }        
+        }
+    }
+
+    &__gallery {
+        padding: 0 1rem 0 1rem;
+
+        @include tablet {
+            padding: 0 2rem 1rem 2rem;
+        }
+
+        &-caption {
+            padding: 1rem 0 0 0.5rem;
+
+            p {
+                font-size: 0.875rem;
+                line-height: 1.25em;
+                font-style: italic;
+            }
+        }
+    }
+
+    .related {
     }
 }

@@ -1738,11 +1738,13 @@ body.nav-overlay-open .mobile-nav {
   width: 1.5rem;
 }
 .work-nav .services .link a svg g,
-.work-nav .services .link a svg path {
+.work-nav .services .link a svg path,
+.work-nav .services .link a svg rect {
   transition: all 0.2s ease;
 }
 .work-nav .services .link a:hover svg g,
-.work-nav .services .link a:hover svg path {
+.work-nav .services .link a:hover svg path,
+.work-nav .services .link a:hover svg rect {
   fill: #00A69C;
 }
 @media screen and (min-width: 992px) {
@@ -4510,13 +4512,19 @@ body.single-service .service-hero .page-header h1 {
 }
 body.single-service .service-info .about .copy-2 {
   background: #fff;
-  margin-top: -3rem;
   z-index: 10;
   padding: 1rem 1rem 0 1rem;
 }
 @media screen and (min-width: 768px) {
   body.single-service .service-info .about .copy-2 {
     padding: 2rem 2rem 1rem 2rem;
+  }
+}
+body.single-service .service-info .about__main {
+  margin-top: -3rem;
+}
+@media screen and (min-width: 768px) {
+  body.single-service .service-info .about__main {
     margin-top: -6rem;
   }
 }
@@ -4539,6 +4547,22 @@ body.single-service .service-info .about .sub-services ul {
 }
 body.single-service .service-info .about .sub-services ul li {
   padding-bottom: 0.5rem;
+}
+body.single-service .service-info__gallery {
+  padding: 0 1rem 0 1rem;
+}
+@media screen and (min-width: 768px) {
+  body.single-service .service-info__gallery {
+    padding: 0 2rem 1rem 2rem;
+  }
+}
+body.single-service .service-info__gallery-caption {
+  padding: 1rem 0 0 0.5rem;
+}
+body.single-service .service-info__gallery-caption p {
+  font-size: 0.875rem;
+  line-height: 1.25em;
+  font-style: italic;
 }
 body.single-service .experts {
   padding: 3rem 0;

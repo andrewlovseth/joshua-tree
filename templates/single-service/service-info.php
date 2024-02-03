@@ -2,6 +2,10 @@
 
     $about = get_field('about');
     $copy = $about['copy'];
+    $gallery = $about['gallery'];
+    $related = $about['related'];
+
+ 
     $experts = get_field('experts');
 
 ?>
@@ -9,9 +13,35 @@
 <section class="service-info grid">
 
     <div class="about">
-        <div class="copy-2 extended">
-            <?php echo $copy; ?>
-        </div>
+        <?php if($copy): ?>
+            <div class="copy-2 extended about__main">
+                <?php echo $copy; ?>
+            </div>
+        <?php endif; ?>
+
+        <?php if( $gallery ): ?>
+            <div class="service-info__gallery">
+                <div class="services-gallery-slider">
+                    <?php foreach( $gallery as $photo ): ?>
+                        <div class="service-info__gallery-photo">
+                            <?php echo wp_get_attachment_image($photo['ID'], 'full'); ?>
+
+                            <?php if(wp_get_attachment_caption($photo['ID'])): ?>
+                                <div class="service-info__gallery-caption">
+                                    <p><?php echo wp_get_attachment_caption($photo['ID']); ?></p>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php if($related): ?>
+            <div class="copy-2 extended about__related">
+                <?php echo $related; ?>
+            </div>
+        <?php endif; ?>
     </div>
 
     <?php if($experts): ?>

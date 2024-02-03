@@ -135,18 +135,29 @@
             slidesToScroll: 1,
         });
 
-        //JEDI: Tabs
-        $(".jedi-tabs__link").on("click", function () {
-            let section = $(this).attr("href");
-
-            $(".jedi-tab-sections__item").removeClass("active");
-            $(section).addClass("active");
-
-            $(".jedi-tabs__link").removeClass("active");
-            $(this).addClass("active");
-
-            return false;
+        // Markets / More Projects Slider
+        $(".services-gallery-slider").slick({
+            dots: false,
+            arrows: true,
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            adaptiveHeight: false,
         });
+        +(
+            //JEDI: Tabs
+            $(".jedi-tabs__link").on("click", function () {
+                let section = $(this).attr("href");
+
+                $(".jedi-tab-sections__item").removeClass("active");
+                $(section).addClass("active");
+
+                $(".jedi-tabs__link").removeClass("active");
+                $(this).addClass("active");
+
+                return false;
+            })
+        );
 
         //Clients: Tabs
         $(".client-tabs a").on("click", function () {
