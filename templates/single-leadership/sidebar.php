@@ -6,13 +6,6 @@
     $date = DateTime::createFromFormat('Ymd', $date_string);
 
     $terms = get_the_terms($post->ID, 'region');
-    if($terms) {
-        $region = '';
-        foreach($terms as $term) {
-            $region .= $term->name . ', ';
-        }
-        $region = rtrim($region, ', ');
-    }
 
 
     $contact = get_field('contact');
@@ -31,7 +24,17 @@
         </div>
     <?php endif; ?>
 
-    <?php if($region): ?>
+    <?php if($terms): ?>
+        <?php
+            if($terms) {
+                $region = '';
+                foreach($terms as $term) {
+                    $region .= $term->name . ', ';
+                }
+                $region = rtrim($region, ', ');
+            }
+        ?>
+
         <div class="vital region">
             <h4>Region</h4>
             <p><?php echo $region; ?></p>

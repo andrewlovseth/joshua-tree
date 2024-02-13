@@ -1,6 +1,13 @@
+<?php
+
+    $bio = get_field('biography');
+    $copy = $bio['copy'];
+
+?>
+
 <div class="biography">
     <div class="copy-2 extended">
-        <?php echo get_field('biography'); ?>
+        <?php echo $copy; ?>
     </div>
 
     <div class="back">
