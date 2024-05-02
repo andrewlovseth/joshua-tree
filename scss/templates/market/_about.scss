@@ -1,0 +1,18 @@
+.market-about {
+    padding: 2rem 0;
+
+    & > * {
+        @include desktop-small {
+            grid-column: 2 / span 10;
+        }
+    }
+
+    &__title {
+        padding-bottom: 2rem;
+        line-height: 1.5em;
+    }
+}
+
+.market-info {
+    padding: 0 0 3rem 0;
+}

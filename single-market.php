@@ -1,4 +1,14 @@
-<?php get_header(); ?>
+<?php
+
+/*
+
+    Template Name: Market (Legacy)
+    Template Post Type: market
+
+*/
+
+
+get_header(); ?>
 
     <?php get_template_part('templates/single-market/page-header'); ?>
 

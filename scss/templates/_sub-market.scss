@@ -1,0 +1,50 @@
+.sub-market-about {
+    & > * {
+        @include desktop-small {
+            grid-column: 2 / span 10;
+        }
+    }
+
+    &__breadcrumbs {
+        padding-top: 3rem;
+        display: flex;
+        gap: 0 1rem;
+
+        a,
+        span {
+            font-weight: bold;
+            font-size: $type-size-400;
+            display: inline-block;
+        }
+
+        span {
+            color: $charcoal;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__title {
+        padding: 1.5rem 0 0.5rem 0;
+    }
+
+    &__sub-title {
+        color: $charcoal;
+    }
+
+    &__photo {
+        padding: 1.5rem 0;
+
+        @include desktop-small {
+            padding: 3rem 0;
+        }
+    }
+}
+
+.market-template-sub-market {
+    .market-info {
+        padding: 0 0 3rem 0;
+    }
+}

@@ -1,0 +1,35 @@
+.market-sub-nav {
+    padding: 2rem 0;
+    border-bottom: 1px solid #e5e5e5;
+
+    @include tablet {
+        padding: 3rem 0 1.5rem 0;
+    }
+
+    ul {
+        display: grid;
+        gap: 1rem;
+
+        @include tablet {
+            gap: 2rem 4rem;
+            display: flex;
+        }
+    }
+
+    a {
+        display: inline-block;
+        color: $charcoal;
+        font-weight: bold;
+        font-size: $type-size-400;
+
+        &:hover {
+            color: $dark-teal;
+        }
+
+        &:after {
+            display: inline-block;
+            content: " »";
+            padding-left: 0.25rem;
+        }
+    }
+}

@@ -1,6 +1,6 @@
 {
     "key": "group_6054d35f8d96a",
-    "title": "Post Type: Market",
+    "title": "Template: Market (Default)",
     "fields": [
         {
             "key": "field_60e76e4e99d76",
@@ -80,7 +80,8 @@
             "elements": "",
             "min": "",
             "max": "",
-            "return_format": "object"
+            "return_format": "object",
+            "bidirectional_target": []
         },
         {
             "key": "field_6054d3ac85c27",
@@ -159,7 +160,8 @@
                     "elements": "",
                     "min": "",
                     "max": "",
-                    "return_format": "object"
+                    "return_format": "object",
+                    "bidirectional_target": []
                 },
                 {
                     "key": "field_6054d39f1215a",
@@ -185,7 +187,8 @@
                     "elements": "",
                     "min": "",
                     "max": "",
-                    "return_format": "object"
+                    "return_format": "object",
+                    "bidirectional_target": []
                 }
             ]
         },
@@ -205,30 +208,6 @@
             },
             "placement": "top",
             "endpoint": 0
-        },
-        {
-            "key": "field_6054d3b885c29",
-            "label": "Lead",
-            "name": "lead",
-            "aria-label": "",
-            "type": "post_object",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "employee",
-                "leadership"
-            ],
-            "taxonomy": "",
-            "allow_null": 0,
-            "multiple": 0,
-            "return_format": "object",
-            "ui": 1
         },
         {
             "key": "field_6391296324212",
@@ -255,7 +234,8 @@
             "return_format": "object",
             "min": "",
             "max": "",
-            "elements": ""
+            "elements": "",
+            "bidirectional_target": []
         },
         {
             "key": "field_6054d3cab2bb7",
@@ -298,7 +278,8 @@
             "elements": "",
             "min": "",
             "max": "",
-            "return_format": "object"
+            "return_format": "object",
+            "bidirectional_target": []
         },
         {
             "key": "field_61325268b6fa3",
@@ -338,7 +319,8 @@
             "save_terms": 0,
             "load_terms": 0,
             "return_format": "id",
-            "multiple": 0
+            "multiple": 0,
+            "bidirectional_target": []
         },
         {
             "key": "field_6054d5ccdbf6c",
@@ -482,7 +464,8 @@
                     "allow_null": 0,
                     "multiple": 0,
                     "return_format": "object",
-                    "ui": 1
+                    "ui": 1,
+                    "bidirectional_target": []
                 }
             ]
         }
@@ -493,6 +476,11 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "market"
+            },
+            {
+                "param": "post_template",
+                "operator": "==",
+                "value": "single-market.php"
             }
         ]
     ],
@@ -518,5 +506,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1670629643
+    "modified": 1714618266
 }

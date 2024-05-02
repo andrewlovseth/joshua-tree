@@ -1,0 +1,31 @@
+.market-hero {
+    &__info {
+        grid-row: 1;
+        z-index: 2;
+        align-self: end;
+        padding-bottom: 2rem;
+    }
+
+    &__title {
+        color: $white;
+        font-size: $type-size-900;
+        text-shadow: 2px 2px 8px rgba($black, 0.5);
+
+        @include desktop-medium {
+            font-size: $type-size-1000;
+        }
+    }
+
+    &__photo {
+        grid-row: 1;
+        z-index: 1;
+        grid-column: 1 / -1;
+        aspect-ratio: 4 / 3;
+        @include cover-fill-image;
+
+        @include tablet {
+            aspect-ratio: unset;
+            max-height: 700px;
+        }
+    }
+}

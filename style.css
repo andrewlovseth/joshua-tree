@@ -4205,38 +4205,35 @@ body.single-projects section.details .photo .caption p {
   font-style: italic;
 }
 
-body.single-market .site-content {
-  padding: 3rem 0 0 0;
-}
-body.single-market .page-header .parent-market {
+.single-market .page-header .parent-market {
   padding-bottom: 1rem;
 }
-body.single-market .featured-projects .project a {
+.single-market .featured-projects .project a {
   display: grid;
   color: #000;
 }
-body.single-market .featured-projects .project .photo {
+.single-market .featured-projects .project .photo {
   grid-row: 1;
   grid-column: 1/-1;
   aspect-ratio: 1/1;
 }
-body.single-market .featured-projects .project .photo img {
+.single-market .featured-projects .project .photo img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 @media screen and (min-width: 480px) {
-  body.single-market .featured-projects .project .photo {
+  .single-market .featured-projects .project .photo {
     aspect-ratio: 4/3;
   }
 }
 @media screen and (min-width: 768px) {
-  body.single-market .featured-projects .project .photo {
+  .single-market .featured-projects .project .photo {
     aspect-ratio: 16/9;
   }
 }
-body.single-market .featured-projects .project .info {
+.single-market .featured-projects .project .info {
   grid-row: 1;
   grid-column: 1/-1;
   display: flex;
@@ -4245,21 +4242,21 @@ body.single-market .featured-projects .project .info {
   padding: 1rem;
 }
 @media screen and (min-width: 992px) {
-  body.single-market .featured-projects .project .info {
+  .single-market .featured-projects .project .info {
     padding: 2rem;
   }
 }
-body.single-market .featured-projects .project .info__wrapper {
+.single-market .featured-projects .project .info__wrapper {
   background: rgba(255, 255, 255, 0.95);
   padding: 2rem;
 }
 @media screen and (min-width: 480px) {
-  body.single-market .featured-projects .project .info__wrapper {
+  .single-market .featured-projects .project .info__wrapper {
     width: 100%;
     max-width: 30rem;
   }
 }
-body.single-market .featured-projects .project .info__wrapper:before {
+.single-market .featured-projects .project .info__wrapper:before {
   content: "";
   display: block;
   width: 0.25rem;
@@ -4270,90 +4267,90 @@ body.single-market .featured-projects .project .info__wrapper:before {
   top: 0;
 }
 @media screen and (min-width: 768px) {
-  body.single-market .featured-projects .project .info__wrapper:before {
+  .single-market .featured-projects .project .info__wrapper:before {
     left: -1rem;
     width: 0.5rem;
   }
 }
-body.single-market .featured-projects .project .info .headline h3 {
+.single-market .featured-projects .project .info .headline h3 {
   font-weight: bold;
   font-size: clamp(1.25rem, 1.5vw, 1.5rem);
   line-height: 1.25em;
 }
-body.single-market .featured-projects .project .info .copy-3 {
+.single-market .featured-projects .project .info .copy-3 {
   display: none;
   padding: 1rem 0 0 0;
 }
 @media screen and (min-width: 768px) {
-  body.single-market .featured-projects .project .info .copy-3 {
+  .single-market .featured-projects .project .info .copy-3 {
     display: block;
   }
 }
-body.single-market .featured-projects .project .info .copy-3 strong {
+.single-market .featured-projects .project .info .copy-3 strong {
   font-weight: normal;
 }
-body.single-market .featured-projects .project .info .location {
+.single-market .featured-projects .project .info .location {
   padding: 1rem 0;
 }
-body.single-market .featured-projects .project .info .location h4 {
+.single-market .featured-projects .project .info .location h4 {
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 0.05em;
   font-size: clamp(0.875rem, 1vw, 1rem);
   line-height: 1.5em;
 }
-body.single-market .featured-projects .project .info .client {
+.single-market .featured-projects .project .info .client {
   max-width: 16rem;
 }
-body.single-market .featured-projects .project .info .client h5 {
+.single-market .featured-projects .project .info .client h5 {
   font-size: clamp(0.875rem, 1vw, 1rem);
   line-height: 1.25em;
 }
-body.single-market .featured-projects .project .info .client h5 strong {
+.single-market .featured-projects .project .info .client h5 strong {
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 0.05em;
 }
-body.single-market .market-info {
+.single-market .market-info {
   padding: 6rem 0;
 }
 @media screen and (min-width: 768px) {
-  body.single-market .market-info .about {
+  .single-market .market-info .about {
     grid-column: 3/span 6;
   }
 }
 @media screen and (min-width: 992px) {
-  body.single-market .market-info .about {
+  .single-market .market-info .about {
     grid-column: 2/span 8;
   }
 }
-body.single-market .market-info .about .sub-markets h4,
-body.single-market .market-info .about .services h4 {
+.single-market .market-info .about .sub-markets h4,
+.single-market .market-info .about .services h4 {
   font-weight: bold;
   margin: 0;
   padding-bottom: 0.5rem;
 }
-body.single-market .market-info .about .sub-markets ul,
-body.single-market .market-info .about .services ul {
+.single-market .market-info .about .sub-markets ul,
+.single-market .market-info .about .services ul {
   list-style-type: none;
   padding: 0;
 }
-body.single-market .market-info .about .sub-markets ul li,
-body.single-market .market-info .about .services ul li {
+.single-market .market-info .about .sub-markets ul li,
+.single-market .market-info .about .services ul li {
   padding-top: 0;
   padding-bottom: 0;
 }
 @media screen and (min-width: 992px) {
-  body.single-market .market-info .about .services {
+  .single-market .market-info .about .services {
     padding-top: 1.5rem;
   }
 }
 @media screen and (min-width: 992px) {
-  body.single-market .market-info .market-leaders {
+  .single-market .market-info .market-leaders {
     padding-top: 3rem;
   }
 }
-body.single-market .market-info .leader-grid {
+.single-market .market-info .leader-grid {
   display: grid;
   gap: 2rem;
   /*      .leader:first-of-type {
@@ -4375,37 +4372,37 @@ body.single-market .market-info .leader-grid {
   */
 }
 @media screen and (min-width: 480px) {
-  body.single-market .market-info .leader-grid {
+  .single-market .market-info .leader-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media screen and (min-width: 768px) {
-  body.single-market .market-info .leader-grid {
+  .single-market .market-info .leader-grid {
     grid-template-columns: repeat(3, 1fr);
     padding-bottom: 6rem;
   }
 }
 @media screen and (min-width: 992px) {
-  body.single-market .market-info .leader-grid {
+  .single-market .market-info .leader-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-body.single-market .more-projects {
+.single-market .more-projects {
   background: #EDEDED;
   padding: 4rem 0 3rem 0;
 }
 @media screen and (min-width: 768px) {
-  body.single-market .more-projects {
+  .single-market .more-projects {
     padding: 6rem 0;
   }
 }
 @media screen and (min-width: 992px) {
-  body.single-market .more-projects .section-header,
-  body.single-market .more-projects .more-projects-slider-wrapper {
+  .single-market .more-projects .section-header,
+  .single-market .more-projects .more-projects-slider-wrapper {
     grid-column: 3/span 10;
   }
 }
-body.single-market .more-projects .project {
+.single-market .more-projects .project {
   width: calc(50% - 1rem);
   margin: 0 1rem;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
@@ -4413,59 +4410,183 @@ body.single-market .more-projects .project {
   border-radius: 3px;
   transition: all 0.2s ease;
 }
-body.single-market .more-projects .project a {
+.single-market .more-projects .project a {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
-body.single-market .more-projects .project .photo {
+.single-market .more-projects .project .photo {
   aspect-ratio: 1/1;
 }
-body.single-market .more-projects .project .photo img {
+.single-market .more-projects .project .photo img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 @media screen and (min-width: 480px) {
-  body.single-market .more-projects .project .photo {
+  .single-market .more-projects .project .photo {
     aspect-ratio: 4/3;
   }
 }
-body.single-market .more-projects .project .photo img {
+.single-market .more-projects .project .photo img {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
-body.single-market .more-projects .project .info {
+.single-market .more-projects .project .info {
   color: #fff;
   padding: 2rem;
 }
-body.single-market .more-projects .project .info a {
+.single-market .more-projects .project .info a {
   color: #fff;
 }
-body.single-market .more-projects .project .info a:hover {
+.single-market .more-projects .project .info a:hover {
   color: #fff;
 }
-body.single-market .more-projects .project .info .market {
+.single-market .more-projects .project .info .market {
   padding-bottom: 0.5rem;
 }
-body.single-market .more-projects .project .info .market h4 {
+.single-market .more-projects .project .info .market h4 {
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 0.05em;
   font-size: clamp(0.75rem, 0.9vw, 0.875rem);
 }
-body.single-market .more-projects .project .info .location {
+.single-market .more-projects .project .info .location {
   padding-top: 1rem;
 }
-body.single-market .more-projects .project .info .location h4 {
+.single-market .more-projects .project .info .location h4 {
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 0.1em;
   font-size: clamp(0.6125rem, 0.8vw, 0.75rem);
 }
-body.single-market .more-projects .project:hover {
+.single-market .more-projects .project:hover {
   background: #F9A134;
+}
+
+.market-template-market .market-hero__info {
+  grid-row: 1;
+  z-index: 2;
+  align-self: end;
+  padding-bottom: 2rem;
+}
+.market-template-market .market-hero__title {
+  color: #fff;
+  font-size: clamp(2.59rem, 2.22rem + 1.85vw, 3.37rem);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+@media screen and (min-width: 1280px) {
+  .market-template-market .market-hero__title {
+    font-size: clamp(3.11rem, 2.67rem + 2.22vw, 4.04rem);
+  }
+}
+.market-template-market .market-hero__photo {
+  grid-row: 1;
+  z-index: 1;
+  grid-column: 1/-1;
+  aspect-ratio: 4/3;
+}
+.market-template-market .market-hero__photo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .market-template-market .market-hero__photo {
+    aspect-ratio: unset;
+    max-height: 700px;
+  }
+}
+.market-template-market .market-sub-nav {
+  padding: 2rem 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+@media screen and (min-width: 768px) {
+  .market-template-market .market-sub-nav {
+    padding: 3rem 0 1.5rem 0;
+  }
+}
+.market-template-market .market-sub-nav ul {
+  display: grid;
+  gap: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .market-template-market .market-sub-nav ul {
+    gap: 2rem 4rem;
+    display: flex;
+  }
+}
+.market-template-market .market-sub-nav a {
+  display: inline-block;
+  color: #414141;
+  font-weight: bold;
+  font-size: clamp(1.04rem, 0.89rem + 0.74vw, 1.35rem);
+}
+.market-template-market .market-sub-nav a:hover {
+  color: #00A69C;
+}
+.market-template-market .market-sub-nav a:after {
+  display: inline-block;
+  content: " »";
+  padding-left: 0.25rem;
+}
+.market-template-market .market-about {
+  padding: 2rem 0;
+}
+@media screen and (min-width: 992px) {
+  .market-template-market .market-about > * {
+    grid-column: 2/span 10;
+  }
+}
+.market-template-market .market-about__title {
+  padding-bottom: 2rem;
+  line-height: 1.5em;
+}
+.market-template-market .market-info {
+  padding: 0 0 3rem 0;
+}
+
+@media screen and (min-width: 992px) {
+  .sub-market-about > * {
+    grid-column: 2/span 10;
+  }
+}
+.sub-market-about__breadcrumbs {
+  padding-top: 3rem;
+  display: flex;
+  gap: 0 1rem;
+}
+.sub-market-about__breadcrumbs a,
+.sub-market-about__breadcrumbs span {
+  font-weight: bold;
+  font-size: clamp(1.04rem, 0.89rem + 0.74vw, 1.35rem);
+  display: inline-block;
+}
+.sub-market-about__breadcrumbs span {
+  color: #414141;
+}
+.sub-market-about__breadcrumbs a:hover {
+  text-decoration: underline;
+}
+.sub-market-about__title {
+  padding: 1.5rem 0 0.5rem 0;
+}
+.sub-market-about__sub-title {
+  color: #414141;
+}
+.sub-market-about__photo {
+  padding: 1.5rem 0;
+}
+@media screen and (min-width: 992px) {
+  .sub-market-about__photo {
+    padding: 3rem 0;
+  }
+}
+
+.market-template-sub-market .market-info {
+  padding: 0 0 3rem 0;
 }
 
 body.single-service .service-hero .photo {

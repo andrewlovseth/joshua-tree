@@ -1,69 +1,9 @@
 {
-    "key": "group_6054d4e963ae1",
-    "title": "Post Type: Services",
+    "key": "group_66330bde68116",
+    "title": "Template: Sub Market",
     "fields": [
         {
-            "key": "field_6054d521cb932",
-            "label": "Hero",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_6054d527cb933",
-            "label": "Hero",
-            "name": "hero",
-            "aria-label": "",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_6054d52acb934",
-                    "label": "Photo",
-                    "name": "photo",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
-                }
-            ]
-        },
-        {
-            "key": "field_6054d5325908c",
+            "key": "field_66330bde9e1c0",
             "label": "About",
             "name": "",
             "aria-label": "",
@@ -80,7 +20,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_6054d5395908d",
+            "key": "field_66330bde9e1c4",
             "label": "About",
             "name": "about",
             "aria-label": "",
@@ -96,7 +36,72 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_6054d53c5908e",
+                    "key": "field_66330c186f7cc",
+                    "label": "Title",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_66330bdeac351",
+                    "label": "Sub Title",
+                    "name": "sub_title",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": 4,
+                    "placeholder": "",
+                    "new_lines": "br"
+                },
+                {
+                    "key": "field_66330bf96f7cb",
+                    "label": "Photo",
+                    "name": "photo",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium"
+                },
+                {
+                    "key": "field_66330bdeac35a",
                     "label": "Copy",
                     "name": "copy",
                     "aria-label": "",
@@ -114,104 +119,11 @@
                     "toolbar": "full",
                     "media_upload": 0,
                     "delay": 0
-                },
-                {
-                    "key": "field_65aace902a9f9",
-                    "label": "Gallery",
-                    "name": "gallery",
-                    "aria-label": "",
-                    "type": "gallery",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "library": "all",
-                    "min": "",
-                    "max": "",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "",
-                    "insert": "append",
-                    "preview_size": "medium"
-                },
-                {
-                    "key": "field_65aace9b2a9fa",
-                    "label": "Related",
-                    "name": "related",
-                    "aria-label": "",
-                    "type": "wysiwyg",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 0,
-                    "delay": 0
                 }
             ]
         },
         {
-            "key": "field_6054d546e2feb",
-            "label": "Experts",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_6054d54be2fec",
-            "label": "Experts",
-            "name": "experts",
-            "aria-label": "",
-            "type": "relationship",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "employee",
-                "leadership"
-            ],
-            "taxonomy": "",
-            "filters": [
-                "search"
-            ],
-            "elements": "",
-            "min": "",
-            "max": "",
-            "return_format": "object",
-            "bidirectional_target": []
-        },
-        {
-            "key": "field_6054d55fe53b4",
+            "key": "field_66330bde9e1c8",
             "label": "Featured Projects",
             "name": "",
             "aria-label": "",
@@ -228,7 +140,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_6504e4e044d2c",
+            "key": "field_66330bde9e1cb",
             "label": "Featured Projects Display",
             "name": "featured_projects_display",
             "aria-label": "",
@@ -251,7 +163,7 @@
             "layout": "horizontal"
         },
         {
-            "key": "field_6054d565e53b5",
+            "key": "field_66330bde9e1cf",
             "label": "Featured Projects",
             "name": "featured_projects",
             "aria-label": "",
@@ -278,8 +190,8 @@
             "bidirectional_target": []
         },
         {
-            "key": "field_6054d5738ffb3",
-            "label": "News",
+            "key": "field_66330bde9e1d3",
+            "label": "Leaders",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -295,11 +207,11 @@
             "endpoint": 0
         },
         {
-            "key": "field_613254c5a0206",
-            "label": "News Category",
-            "name": "news_category",
+            "key": "field_66330bde9e1db",
+            "label": "Leaders",
+            "name": "leaders",
             "aria-label": "",
-            "type": "taxonomy",
+            "type": "relationship",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -308,18 +220,22 @@
                 "class": "",
                 "id": ""
             },
-            "taxonomy": "category",
-            "field_type": "multi_select",
-            "allow_null": 0,
-            "add_term": 1,
-            "save_terms": 0,
-            "load_terms": 0,
-            "return_format": "id",
-            "multiple": 0,
+            "post_type": [
+                "employee",
+                "leadership"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": "",
+            "elements": "",
             "bidirectional_target": []
         },
         {
-            "key": "field_6111a605a9b94",
+            "key": "field_66330bde9e1df",
             "label": "Meta",
             "name": "",
             "aria-label": "",
@@ -336,7 +252,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_6111a60aa9b95",
+            "key": "field_66330bde9e1e2",
             "label": "Meta",
             "name": "meta",
             "aria-label": "",
@@ -352,9 +268,9 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_6111a60ea9b96",
-                    "label": "Icon",
-                    "name": "icon",
+                    "key": "field_66330bdebb892",
+                    "label": "Photo",
+                    "name": "photo",
                     "aria-label": "",
                     "type": "image",
                     "instructions": "",
@@ -384,17 +300,12 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "service"
+                "value": "market"
             },
             {
                 "param": "post_template",
-                "operator": "!=",
-                "value": "templates\/platforms.php"
-            },
-            {
-                "param": "post_template",
-                "operator": "!=",
-                "value": "templates\/platform-detail.php"
+                "operator": "==",
+                "value": "templates\/sub-market.php"
             }
         ]
     ],
@@ -420,5 +331,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1714619004
+    "modified": 1714621481
 }
