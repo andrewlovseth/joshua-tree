@@ -22,7 +22,7 @@
         <?php echo wp_get_attachment_image($photo['ID'], 'full'); ?>
     </div>
 
-    <div class="sub-market-about__copy | copy copy-1 extended">
+    <div class="sub-market-about__copy | copy copy-2 extended">
         <?php echo $copy; ?>
     </div>
 </section>
