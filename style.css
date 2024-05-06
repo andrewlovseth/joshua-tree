@@ -1273,6 +1273,26 @@ body.show-top-btn .top-btn {
   background: #F9A134;
 }
 
+.projects-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+@media screen and (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media screen and (min-width: 992px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.projects-grid .project {
+  width: unset;
+  margin: unset;
+}
+
 section.news {
   padding: 4rem 0;
 }
@@ -4387,22 +4407,22 @@ body.single-projects section.details .photo .caption p {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-.single-market .more-projects {
+.single-market .more-projects.legacy {
   background: #EDEDED;
   padding: 4rem 0 3rem 0;
 }
 @media screen and (min-width: 768px) {
-  .single-market .more-projects {
+  .single-market .more-projects.legacy {
     padding: 6rem 0;
   }
 }
 @media screen and (min-width: 992px) {
-  .single-market .more-projects .section-header,
-  .single-market .more-projects .more-projects-slider-wrapper {
+  .single-market .more-projects.legacy .section-header,
+  .single-market .more-projects.legacy .more-projects-slider-wrapper {
     grid-column: 3/span 10;
   }
 }
-.single-market .more-projects .project {
+.single-market .more-projects.legacy .project {
   width: calc(50% - 1rem);
   margin: 0 1rem;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
@@ -4410,58 +4430,58 @@ body.single-projects section.details .photo .caption p {
   border-radius: 3px;
   transition: all 0.2s ease;
 }
-.single-market .more-projects .project a {
+.single-market .more-projects.legacy .project a {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
-.single-market .more-projects .project .photo {
+.single-market .more-projects.legacy .project .photo {
   aspect-ratio: 1/1;
 }
-.single-market .more-projects .project .photo img {
+.single-market .more-projects.legacy .project .photo img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 @media screen and (min-width: 480px) {
-  .single-market .more-projects .project .photo {
+  .single-market .more-projects.legacy .project .photo {
     aspect-ratio: 4/3;
   }
 }
-.single-market .more-projects .project .photo img {
+.single-market .more-projects.legacy .project .photo img {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
-.single-market .more-projects .project .info {
+.single-market .more-projects.legacy .project .info {
   color: #fff;
   padding: 2rem;
 }
-.single-market .more-projects .project .info a {
+.single-market .more-projects.legacy .project .info a {
   color: #fff;
 }
-.single-market .more-projects .project .info a:hover {
+.single-market .more-projects.legacy .project .info a:hover {
   color: #fff;
 }
-.single-market .more-projects .project .info .market {
+.single-market .more-projects.legacy .project .info .market {
   padding-bottom: 0.5rem;
 }
-.single-market .more-projects .project .info .market h4 {
+.single-market .more-projects.legacy .project .info .market h4 {
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 0.05em;
   font-size: clamp(0.75rem, 0.9vw, 0.875rem);
 }
-.single-market .more-projects .project .info .location {
+.single-market .more-projects.legacy .project .info .location {
   padding-top: 1rem;
 }
-.single-market .more-projects .project .info .location h4 {
+.single-market .more-projects.legacy .project .info .location h4 {
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 0.1em;
   font-size: clamp(0.6125rem, 0.8vw, 0.75rem);
 }
-.single-market .more-projects .project:hover {
+.single-market .more-projects.legacy .project:hover {
   background: #F9A134;
 }
 
@@ -6149,23 +6169,4 @@ body.error404 .page-header .copy {
 }
 .esa-featured-projects a:hover {
   text-decoration: none;
-}
-.esa-featured-projects .projects-grid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-@media screen and (min-width: 768px) {
-  .esa-featured-projects .projects-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-@media screen and (min-width: 992px) {
-  .esa-featured-projects .projects-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-.esa-featured-projects .projects-grid .project {
-  width: unset;
-  margin: unset;
 }
