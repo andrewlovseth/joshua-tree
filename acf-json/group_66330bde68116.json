@@ -235,6 +235,48 @@
             "bidirectional_target": []
         },
         {
+            "key": "field_6639458c999fe",
+            "label": "News",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6639456178dbf",
+            "label": "News Category",
+            "name": "news_category",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "multi_select",
+            "allow_null": 0,
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": []
+        },
+        {
             "key": "field_66330bde9e1df",
             "label": "Meta",
             "name": "",
@@ -331,5 +373,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1714621481
+    "modified": 1715029405
 }

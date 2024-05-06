@@ -15,5 +15,7 @@ get_header(); ?>
 
     <?php get_template_part('templates/market/projects'); ?>
 
+    <?php get_template_part('template-parts/global/news-grid'); ?>
+
 <?php get_footer(); ?>
 
