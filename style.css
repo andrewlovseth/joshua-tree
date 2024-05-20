@@ -4516,7 +4516,7 @@ body.single-projects section.details .photo .caption p {
 @media screen and (min-width: 768px) {
   .market-template-market .market-hero__photo {
     aspect-ratio: unset;
-    max-height: 700px;
+    max-height: 540px;
   }
 }
 .market-template-market .market-sub-nav {
