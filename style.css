@@ -2272,14 +2272,14 @@ body.page-template-new-home section.esa .esa-grid {
 }
 @media screen and (min-width: 768px) {
   body.page-template-new-home section.esa .esa-grid {
-    grid-template-rows: repeat(6, 12.5vh);
+    grid-template-rows: repeat(6, minmax(10rem, 16rem));
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas: "people-1 people-1 message message" "people-1 people-1 message message" "cta-1 cta-1 message message" "photo-1 photo-1 message message" "photo-1 photo-1 cta-2 people-2" "photo-1 photo-1 cta-2 people-2";
   }
 }
 @media screen and (min-width: 1280px) {
   body.page-template-new-home section.esa .esa-grid {
-    grid-template-rows: repeat(3, 25vh);
+    grid-template-rows: repeat(3, minmax(16rem, 20rem));
     grid-template-columns: repeat(5, 1fr);
     grid-template-areas: "people-1 photo-1 photo-1 message message" "cta-1 photo-1 photo-1 message message" "people-2 people-2 cta-2 message message";
   }

@@ -13,46 +13,45 @@ section.esa {
         gap: 0.5rem;
         grid-template-columns: repeat(1, 1fr);
         grid-template-areas:
-        "message"
-        "people-1"
-        "cta-1"
-        "people-2"
-        "cta-2"
-        "photo-1";
+            "message"
+            "people-1"
+            "cta-1"
+            "people-2"
+            "cta-2"
+            "photo-1";
 
         @include tablet {
-            grid-template-rows: repeat(6, 12.5vh);
+            grid-template-rows: repeat(6, minmax(10rem, 16rem));
             grid-template-columns: repeat(4, 1fr);
             grid-template-areas:
-            "people-1 people-1 message message"
-            "people-1 people-1 message message"
-            "cta-1 cta-1 message message"
-            "photo-1 photo-1 message message"
-            "photo-1 photo-1 cta-2 people-2"
-            "photo-1 photo-1 cta-2 people-2"
+                "people-1 people-1 message message"
+                "people-1 people-1 message message"
+                "cta-1 cta-1 message message"
+                "photo-1 photo-1 message message"
+                "photo-1 photo-1 cta-2 people-2"
+                "photo-1 photo-1 cta-2 people-2";
         }
-        
+
         @include desktop-medium {
-            grid-template-rows: repeat(3, 25vh);
+            grid-template-rows: repeat(3, minmax(16rem, 20rem));
             grid-template-columns: repeat(5, 1fr);
             grid-template-areas:
-            "people-1 photo-1 photo-1 message message"
-            "cta-1 photo-1 photo-1 message message"
-            "people-2 people-2 cta-2 message message"
+                "people-1 photo-1 photo-1 message message"
+                "cta-1 photo-1 photo-1 message message"
+                "people-2 people-2 cta-2 message message";
         }
 
         .cta {
             background: rgba(0, 114, 143, 0.25);
-    
+
             a {
                 color: $black;
             }
-    
+
             &-2 {
                 background: rgba(0, 166, 156, 0.25);
-    
             }
-    
+
             a {
                 width: 100%;
                 height: 100%;
@@ -60,11 +59,11 @@ section.esa {
                 align-items: center;
                 padding: 2rem;
             }
-    
+
             .copy {
                 padding-top: 0.5rem;
             }
-    
+
             .more {
                 display: inline-block;
                 font-weight: bold;
@@ -105,8 +104,6 @@ section.esa {
             line-height: 1.5em;
         }
     }
-
-
 
     .photo {
         img {
