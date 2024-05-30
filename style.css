@@ -4506,6 +4506,7 @@ body.single-projects section.details .photo .caption p {
   z-index: 1;
   grid-column: 1/-1;
   aspect-ratio: 4/3;
+  transition: all 300ms ease;
 }
 .market-template-market .market-hero__photo img {
   width: 100%;
@@ -4517,6 +4518,12 @@ body.single-projects section.details .photo .caption p {
   .market-template-market .market-hero__photo {
     aspect-ratio: unset;
     max-height: 540px;
+  }
+}
+@media (height <= 768px) {
+  .market-template-market .market-hero__photo {
+    aspect-ratio: unset;
+    max-height: 50vh;
   }
 }
 .market-template-market .market-sub-nav {

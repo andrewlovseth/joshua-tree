@@ -22,10 +22,16 @@
         grid-column: 1 / -1;
         aspect-ratio: 4 / 3;
         @include cover-fill-image;
+        transition: all 300ms ease;
 
         @include tablet {
             aspect-ratio: unset;
             max-height: 540px;
+        }
+
+        @media (height <= 768px) {
+            aspect-ratio: unset;
+            max-height: 50vh;
         }
     }
 }
