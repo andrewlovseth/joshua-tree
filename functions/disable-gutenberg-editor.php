@@ -20,6 +20,7 @@ function bearsmith_disable_editor( $id = false ) {
 		'templates/join-us.php',
 		'templates/benefits.php',
 		'templates/job-openings.php',
+		'templates/job-openings-greenhouse.php',
 		'templates/internship.php',
 		'templates/contact.php',
 		'templates/newsletter.php',

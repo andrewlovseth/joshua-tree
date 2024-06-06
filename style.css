@@ -5196,6 +5196,126 @@ body.page-template-job-openings section.listings iframe {
   height: 1200px;
 }
 
+body.page-template-job-openings-greenhouse .info {
+  gap: 1rem 2rem;
+}
+@media screen and (min-width: 992px) {
+  body.page-template-job-openings-greenhouse .info {
+    gap: 1rem;
+    grid-template-columns: minmax(0, auto) repeat(12, minmax(0, 5.5rem)) minmax(0, auto);
+  }
+}
+body.page-template-job-openings-greenhouse .mission {
+  background: #00A69C;
+}
+@media screen and (min-width: 992px) {
+  body.page-template-job-openings-greenhouse .mission {
+    grid-column: 2/span 6;
+  }
+}
+body.page-template-job-openings-greenhouse .mission__link {
+  padding: 3rem;
+  display: block;
+}
+body.page-template-job-openings-greenhouse .mission__logo {
+  width: 8rem;
+  height: 8rem;
+}
+body.page-template-job-openings-greenhouse .mission__logo svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+body.page-template-job-openings-greenhouse .mission__copy {
+  padding-top: 1rem;
+  color: #fff;
+}
+body.page-template-job-openings-greenhouse .spotlight {
+  display: grid;
+  gap: 1rem;
+}
+@media screen and (min-width: 768px) {
+  body.page-template-job-openings-greenhouse .spotlight {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media screen and (min-width: 992px) {
+  body.page-template-job-openings-greenhouse .spotlight {
+    grid-column: 8/span 6;
+  }
+}
+body.page-template-job-openings-greenhouse .spotlight__link {
+  display: grid;
+  height: 100%;
+}
+body.page-template-job-openings-greenhouse .spotlight__link:hover .spotlight__caption {
+  background: rgba(249, 161, 52, 0.8);
+}
+body.page-template-job-openings-greenhouse .spotlight__photo {
+  grid-column: 1;
+  grid-row: 1;
+  z-index: 1;
+}
+body.page-template-job-openings-greenhouse .spotlight__photo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+body.page-template-job-openings-greenhouse .spotlight__caption {
+  grid-column: 1;
+  grid-row: 1;
+  z-index: 2;
+  align-self: end;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 0.75rem;
+  transition: all 200ms ease;
+}
+body.page-template-job-openings-greenhouse .rich-links {
+  margin-top: 1rem;
+  gap: 1rem 2rem;
+}
+@media screen and (min-width: 992px) {
+  body.page-template-job-openings-greenhouse .rich-links {
+    gap: 1rem;
+    grid-template-columns: minmax(0, auto) repeat(12, minmax(0, 5.5rem)) minmax(0, auto);
+  }
+}
+body.page-template-job-openings-greenhouse .rich-links__grid {
+  display: grid;
+  gap: 1rem;
+}
+@media screen and (min-width: 768px) {
+  body.page-template-job-openings-greenhouse .rich-links__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media screen and (min-width: 992px) {
+  body.page-template-job-openings-greenhouse .rich-links__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+body.page-template-job-openings-greenhouse .rich-links__link {
+  display: grid;
+  align-items: center;
+  height: 100%;
+  padding: 2rem;
+  background: #d4eff4;
+  color: #000;
+  gap: 1rem;
+}
+body.page-template-job-openings-greenhouse .rich-links__title {
+  font-weight: bold;
+  font-size: clamp(0.87rem, 0.74rem + 0.62vw, 1.13rem);
+}
+body.page-template-job-openings-greenhouse .rich-links__cta {
+  font-size: clamp(0.6rem, 0.52rem + 0.43vw, 0.78rem);
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 @media screen and (min-width: 992px) {
   .page-template-internship .page-header .headline {
     grid-column: 2/span 10;

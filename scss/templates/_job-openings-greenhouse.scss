@@ -1,0 +1,17 @@
+body.page-template-job-openings-greenhouse {
+    .info {
+        gap: 1rem 2rem;
+
+        @include desktop-small {
+            gap: 1rem;
+            grid-template-columns: minmax(0, auto) repeat(12, minmax(0, 5.5rem)) minmax(0, auto);
+        }
+    }
+    @import "job-openings-greenhouse/mission";
+
+    @import "job-openings-greenhouse/spotlight";
+
+    @import "job-openings-greenhouse/rich-links";
+
+    @import "job-openings-greenhouse/greenhouse";
+}
