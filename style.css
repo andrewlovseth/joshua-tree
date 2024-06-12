@@ -5315,6 +5315,74 @@ body.page-template-job-openings-greenhouse .rich-links__cta {
   font-weight: bold;
   text-decoration: underline;
 }
+body.page-template-job-openings-greenhouse .job-listings {
+  padding: 3rem 0;
+}
+body.page-template-job-openings-greenhouse .job-listings__header {
+  padding-bottom: 1.5rem;
+}
+body.page-template-job-openings-greenhouse .job-listings__header h3 {
+  font-weight: bold;
+  font-size: clamp(1.25rem, 1.07rem + 0.89vw, 1.63rem);
+}
+body.page-template-job-openings-greenhouse .job-listings__filters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+@media screen and (min-width: 992px) {
+  body.page-template-job-openings-greenhouse .job-listings__filters {
+    grid-column: 2/span 8;
+  }
+}
+body.page-template-job-openings-greenhouse .job-listings__filter {
+  height: 2rem;
+}
+body.page-template-job-openings-greenhouse .job-listings__clear-link {
+  color: #6D6E71;
+  transition: all 200ms ease;
+}
+body.page-template-job-openings-greenhouse .job-listings__clear-link:hover {
+  color: #F9A134;
+  text-decoration: underline;
+}
+body.page-template-job-openings-greenhouse .job-listings__list {
+  padding-top: 1.5rem;
+  min-height: 25vh;
+}
+@media screen and (min-width: 992px) {
+  body.page-template-job-openings-greenhouse .job-listings__list {
+    grid-column: 2/span 8;
+  }
+}
+body.page-template-job-openings-greenhouse .job-listings .no-results {
+  padding: 2rem;
+  border: 2px dashed #DCDDDE;
+  border-radius: 0.25rem;
+}
+body.page-template-job-openings-greenhouse .practice-header {
+  padding-bottom: 1rem;
+}
+body.page-template-job-openings-greenhouse .practice-header h3 {
+  font-weight: bold;
+  font-size: clamp(1.25rem, 1.07rem + 0.89vw, 1.63rem);
+}
+body.page-template-job-openings-greenhouse .job-listing__title {
+  font-weight: bold;
+  padding-bottom: 0.5rem;
+  font-size: clamp(1.04rem, 0.89rem + 0.74vw, 1.35rem);
+}
+body.page-template-job-openings-greenhouse .job-listing__title a:hover {
+  text-decoration: underline;
+}
+body.page-template-job-openings-greenhouse .job-listing__meta {
+  font-size: clamp(0.66rem, 0.58rem + 0.48vw, 0.88rem);
+  color: #6D6E71;
+}
+body.page-template-job-openings-greenhouse .job-listing .divider {
+  color: #00A69C;
+  padding: 0 0.25rem;
+}
 
 @media screen and (min-width: 992px) {
   .page-template-internship .page-header .headline {
