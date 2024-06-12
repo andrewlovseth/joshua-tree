@@ -1,3 +1,4 @@
+
 <section class="job-listings | grid">
     <div class="job-listings__header">
         <h3>Click on the drop-downs below to refine your search</h3>
@@ -9,6 +10,15 @@
     
         <select class="job-listings__filter job-listings__filter--location" id="locationFilter">
             <option value="">All Locations</option>
+            <?php if(have_rows('locations')): while(have_rows('locations')): the_row(); ?>
+                <?php 
+                    $label = get_sub_field('label');
+                    $value = get_sub_field('greenhouse');
+                ?>
+
+                <option value="<?php echo $value; ?>"><?php echo $label; ?></option>
+
+            <?php endwhile; endif; ?>
         </select>
 
         <div class="job-listings__clear">
@@ -27,20 +37,42 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const JOBS_API_URL = 'https://api.greenhouse.io/v1/boards/environmentalscienceassociates/jobs?content=true';
     const PRACTICES_API_URL = 'https://api.greenhouse.io/v1/boards/environmentalscienceassociates/departments?render_as=tree';
-    const OFFICES_API_URL = 'https://api.greenhouse.io/v1/boards/environmentalscienceassociates/offices?render_as=tree';
 
     let allJobs = [];
     let parentDepartmentsMap = {};
 
+    // Dictionary to map office values to labels
+    const officeLabels = {};
+    <?php if(have_rows('locations')): while(have_rows('locations')): the_row(); ?>
+        officeLabels['<?php echo get_sub_field('greenhouse'); ?>'] = '<?php echo get_sub_field('label'); ?>';
+    <?php endwhile; endif; ?>
+
     async function fetchJobs() {
         const response = await fetch(JOBS_API_URL);
         const data = await response.json();
+        sessionStorage.setItem('jobsData', JSON.stringify(data)); // Save jobs JSON to sessionStorage
+        buildAllJobs(data);
+    }
+
+    function buildAllJobs(data) {
+        if (!parentDepartmentsMap || Object.keys(parentDepartmentsMap).length === 0) {
+            const practicesData = JSON.parse(sessionStorage.getItem('practicesData'));
+            if (practicesData) {
+                buildParentDepartmentsMap(practicesData);
+            } else {
+                console.warn("Practices data is not available in sessionStorage.");
+            }
+        }
+
         allJobs = data.jobs.map((job) => {
+            const department_parent_id = job.departments[0] ? String(job.departments[0].parent_id) : 'Unknown ID';
+            const practice = parentDepartmentsMap[department_parent_id] || 'Unknown Practice';
             return {
                 title: job.title,
                 url: job.absolute_url,
-                location: job.location.name,
-                department_parent_id: job.departments[0] ? job.departments[0].parent_id : 'Unknown ID'
+                location: job.offices[0] ? job.offices[0].name : 'Unknown Location',
+                department_parent_id: department_parent_id,
+                practice: practice // Set the practice here
             };
         });
 
@@ -50,47 +82,24 @@ document.addEventListener('DOMContentLoaded', function() {
     async function fetchPractices() {
         const response = await fetch(PRACTICES_API_URL);
         const data = await response.json();
-        const topLevelDepartments = data.departments.map((department) => {
-            parentDepartmentsMap[department.id] = department.name;
-            return {
-                id: department.id,
-                name: department.name,
-            };
-        });
-
-        populatePractices(topLevelDepartments);
+        sessionStorage.setItem('practicesData', JSON.stringify(data)); // Save practices JSON to sessionStorage
+        buildParentDepartmentsMap(data);
+        populatePractices(data.departments);
     }
 
-    async function fetchOffices() {
-        const response = await fetch(OFFICES_API_URL);
-        const data = await response.json();
-        populateOffices(data.offices);
+    function buildParentDepartmentsMap(data) {
+        data.departments.forEach(department => {
+            parentDepartmentsMap[String(department.id)] = department.name; // Convert to string
+        });
     }
 
     function populatePractices(departments) {
+        practiceFilter.innerHTML = '<option value="">All Practices</option>'; // Reset options
         departments.forEach(department => {
             const option = document.createElement('option');
-            option.value = department.name;
+            option.value = String(department.id); // Convert to string
             option.textContent = department.name;
             practiceFilter.appendChild(option);
-        });
-    }
-
-    function populateOffices(offices) {
-        offices.forEach(office => {
-            // Add first-level office
-            let option = document.createElement('option');
-            option.value = office.name;
-            option.textContent = office.name;
-            locationFilter.appendChild(option);
-
-            // Add second-level offices (children)
-            office.children.forEach(childOffice => {
-                let childOption = document.createElement('option');
-                childOption.value = childOffice.name;
-                childOption.textContent = `- ${childOffice.name}`;
-                locationFilter.appendChild(childOption);
-            });
         });
     }
 
@@ -107,16 +116,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         jobs.forEach(job => {
-            const jobTitle = job.title;
-            const jobLocation = job.location ? job.location : 'Unknown Location';
-            const jobPractice = parentDepartmentsMap[job.department_parent_id] ? parentDepartmentsMap[job.department_parent_id] : 'Unknown Practice';
-            const jobURL = job.url;
+            let jobLocation = '';
+            if(job.location.includes("Remote")) {
+                jobLocation += "Remote";
+            } else {
+                jobLocation += officeLabels[job.location] || job.location;
+            }
+
             const jobListingHTML = `
                 <div class="job-listing">
-                    <h3 class="job-listing__title"><a href="${jobURL}" target="window">${jobTitle}</a></h3>
-                    <p class="job-listing__meta">${jobPractice} <span class="divider">|</span> ${jobLocation}</p>
+                    <h3 class="job-listing__title"><a href="${job.url}" target="window">${job.title}</a></h3>
+                    <p class="job-listing__meta">${job.practice} <span class="divider">|</span> ${jobLocation}</p>
                 </div>
-                <div class="hr">
             `;
             jobList.innerHTML += jobListingHTML;
         });
@@ -129,11 +140,15 @@ document.addEventListener('DOMContentLoaded', function() {
         let filteredJobs = allJobs;
 
         if (location) {
-            filteredJobs = filteredJobs.filter(job => job.location === location);
+            if (location === "Remote") {
+                filteredJobs = filteredJobs.filter(job => job.location.includes("Remote"));
+            } else {
+                filteredJobs = filteredJobs.filter(job => job.location === location);
+            }
         }
 
         if (practice) {
-            filteredJobs = filteredJobs.filter(job => parentDepartmentsMap[job.department_parent_id] === practice);
+            filteredJobs = filteredJobs.filter(job => job.department_parent_id === practice);
         }
 
         displayJobs(filteredJobs);
@@ -154,10 +169,21 @@ document.addEventListener('DOMContentLoaded', function() {
         resetFilters();
     });
 
-    fetchJobs();
-    fetchPractices();
-    fetchOffices();
+    // Check if jobs JSON is already stored in sessionStorage
+    if (sessionStorage.getItem('jobsData')) {
+        const jobsData = JSON.parse(sessionStorage.getItem('jobsData'));
+        buildAllJobs(jobsData);
+    } else {
+        fetchJobs();
+    }
+
+    // Check if practices JSON is already stored in sessionStorage
+    if (sessionStorage.getItem('practicesData')) {
+        const practicesData = JSON.parse(sessionStorage.getItem('practicesData'));
+        buildParentDepartmentsMap(practicesData);
+        populatePractices(practicesData.departments);
+    } else {
+        fetchPractices();
+    }
 });
-
-
 </script>

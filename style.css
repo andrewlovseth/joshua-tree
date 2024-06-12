@@ -5361,6 +5361,7 @@ body.page-template-job-openings-greenhouse .job-listings .no-results {
   padding: 2rem;
   border: 2px dashed #DCDDDE;
   border-radius: 0.25rem;
+  align-self: start;
 }
 body.page-template-job-openings-greenhouse .practice-header {
   padding-bottom: 1rem;
