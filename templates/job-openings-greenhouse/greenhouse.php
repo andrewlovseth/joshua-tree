@@ -116,6 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <h3 class="job-listing__title"><a href="${jobURL}" target="window">${jobTitle}</a></h3>
                     <p class="job-listing__meta">${jobPractice} <span class="divider">|</span> ${jobLocation}</p>
                 </div>
+                <div class="hr">
             `;
             jobList.innerHTML += jobListingHTML;
         });

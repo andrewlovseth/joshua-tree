@@ -5316,7 +5316,7 @@ body.page-template-job-openings-greenhouse .rich-links__cta {
   text-decoration: underline;
 }
 body.page-template-job-openings-greenhouse .job-listings {
-  padding: 3rem 0;
+  padding: 3rem 0 6rem 0;
 }
 body.page-template-job-openings-greenhouse .job-listings__header {
   padding-bottom: 1.5rem;
@@ -5347,8 +5347,10 @@ body.page-template-job-openings-greenhouse .job-listings__clear-link:hover {
   text-decoration: underline;
 }
 body.page-template-job-openings-greenhouse .job-listings__list {
-  padding-top: 1.5rem;
+  padding-top: 3rem;
   min-height: 25vh;
+  display: grid;
+  gap: 2rem;
 }
 @media screen and (min-width: 992px) {
   body.page-template-job-openings-greenhouse .job-listings__list {
@@ -5366,6 +5368,14 @@ body.page-template-job-openings-greenhouse .practice-header {
 body.page-template-job-openings-greenhouse .practice-header h3 {
   font-weight: bold;
   font-size: clamp(1.25rem, 1.07rem + 0.89vw, 1.63rem);
+}
+body.page-template-job-openings-greenhouse .hr {
+  height: 1px;
+  width: 100%;
+  background: #eee;
+}
+body.page-template-job-openings-greenhouse .hr:last-of-type {
+  display: none;
 }
 body.page-template-job-openings-greenhouse .job-listing__title {
   font-weight: bold;
