@@ -54,6 +54,15 @@ document.addEventListener('DOMContentLoaded', function() {
         buildAllJobs(data);
     }
 
+    async function fetchPractices() {
+        const response = await fetch(PRACTICES_API_URL);
+        let data = await response.json();
+        data = data.departments = removeDepartmentById(data, 4010536008); // Remove internal practice ID
+        sessionStorage.setItem('practicesData', JSON.stringify(data)); // Save practices JSON to sessionStorage
+        buildParentDepartmentsMap();
+        populatePractices();
+    }
+
     function buildAllJobs(data) {
         if (!parentDepartmentsMap || Object.keys(parentDepartmentsMap).length === 0) {
             const practicesData = JSON.parse(sessionStorage.getItem('practicesData'));
@@ -79,21 +88,21 @@ document.addEventListener('DOMContentLoaded', function() {
         displayJobs(allJobs);
     }
 
-    async function fetchPractices() {
-        const response = await fetch(PRACTICES_API_URL);
-        const data = await response.json();
-        sessionStorage.setItem('practicesData', JSON.stringify(data)); // Save practices JSON to sessionStorage
-        buildParentDepartmentsMap(data);
-        populatePractices(data.departments);
-    }
+    function buildParentDepartmentsMap() {
+        const data = JSON.parse(sessionStorage.getItem('practicesData'));
 
-    function buildParentDepartmentsMap(data) {
-        data.departments.forEach(department => {
+        data.forEach(department => {
             parentDepartmentsMap[String(department.id)] = department.name; // Convert to string
         });
     }
 
-    function populatePractices(departments) {
+    function removeDepartmentById(data, id) {
+        return data.departments.filter(department => department.id !== id);
+    }
+
+    function populatePractices() {
+        const departments = JSON.parse(sessionStorage.getItem('practicesData'));
+
         practiceFilter.innerHTML = '<option value="">All Practices</option>'; // Reset options
         departments.forEach(department => {
             const option = document.createElement('option');
@@ -181,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (sessionStorage.getItem('practicesData')) {
         const practicesData = JSON.parse(sessionStorage.getItem('practicesData'));
         buildParentDepartmentsMap(practicesData);
-        populatePractices(practicesData.departments);
+        populatePractices(practicesData);
     } else {
         fetchPractices();
     }
