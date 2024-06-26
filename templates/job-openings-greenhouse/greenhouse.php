@@ -153,7 +153,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         jobs.forEach(job => {
-            console.log(job.locations);
             let jobLocation = job.locations.map(location => {
                 return officeLabels[location] || location;
             }).join('; ');
