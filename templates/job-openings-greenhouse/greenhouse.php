@@ -55,12 +55,25 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     async function fetchPractices() {
-        const response = await fetch(PRACTICES_API_URL);
-        let data = await response.json();
-        data = data.departments = removeDepartmentById(data, 4010536008); // Remove internal practice ID
-        sessionStorage.setItem('practicesData', JSON.stringify(data)); // Save practices JSON to sessionStorage
-        buildParentDepartmentsMap();
-        populatePractices();
+        try {
+            const response = await fetch(PRACTICES_API_URL);
+            let data = await response.json();
+            data.departments = removeDepartmentById(data, 4010536008); // Remove internal practice ID
+
+            await new Promise((resolve, reject) => {
+                try {
+                    sessionStorage.setItem('practicesData', JSON.stringify(data)); // Save practices JSON to sessionStorage
+                    resolve();
+                } catch (error) {
+                    reject(error);
+                }
+            });
+
+            buildParentDepartmentsMap();
+            populatePractices();
+        } catch (error) {
+            console.error('Error fetching practices:', error);
+        }
     }
 
     function buildAllJobs(data) {
@@ -76,12 +89,14 @@ document.addEventListener('DOMContentLoaded', function() {
         allJobs = data.jobs.map((job) => {
             const department_parent_id = job.departments[0] ? String(job.departments[0].parent_id) : 'Unknown ID';
             const practice = parentDepartmentsMap[department_parent_id] || 'Unknown Practice';
+            const locations = job.offices && job.offices.length > 0 ? job.offices.map(office => office.name) : ['Unknown Location'];
+            
             return {
                 title: job.title,
                 url: job.absolute_url,
-                location: job.offices[0] ? job.offices[0].name : 'Unknown Location',
+                locations: locations, // Changed from location to locations (array of all locations)
                 department_parent_id: department_parent_id,
-                practice: practice // Set the practice here
+                practice: practice
             };
         });
 
@@ -125,12 +140,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         jobs.forEach(job => {
-            let jobLocation = '';
-            if(job.location.includes("Remote")) {
-                jobLocation += "Remote";
-            } else {
-                jobLocation += officeLabels[job.location] || job.location;
-            }
+            let jobLocation = job.locations.map(location => {
+                if (location.includes("Remote")) {
+                    return "Remote";
+                } else {
+                    return officeLabels[location] || location;
+                }
+            }).join('; ');
 
             const jobListingHTML = `
                 <div class="job-listing">
@@ -150,9 +166,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (location) {
             if (location === "Remote") {
-                filteredJobs = filteredJobs.filter(job => job.location.includes("Remote"));
+                filteredJobs = filteredJobs.filter(job => job.locations.includes("Remote"));
             } else {
-                filteredJobs = filteredJobs.filter(job => job.location === location);
+                filteredJobs = filteredJobs.filter(job => job.locations.includes(location));
             }
         }
 
