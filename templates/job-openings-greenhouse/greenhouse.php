@@ -153,12 +153,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         jobs.forEach(job => {
+            console.log(job.locations);
             let jobLocation = job.locations.map(location => {
-                if (location.includes("Remote")) {
-                    return "Remote";
-                } else {
-                    return officeLabels[location] || location;
-                }
+                return officeLabels[location] || location;
             }).join('; ');
 
             const jobListingHTML = `
@@ -179,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (location) {
             if (location === "Remote") {
-                filteredJobs = filteredJobs.filter(job => job.locations.includes("Remote"));
+                filteredJobs = filteredJobs.filter(job => job.locations.some(loc => loc.toLowerCase().includes("remote")));
             } else {
                 filteredJobs = filteredJobs.filter(job => job.locations.includes(location));
             }
