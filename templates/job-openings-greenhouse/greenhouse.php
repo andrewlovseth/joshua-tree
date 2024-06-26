@@ -29,6 +29,7 @@
 </section>
 
 <script>
+
 document.addEventListener('DOMContentLoaded', function() {
     const locationFilter = document.getElementById('locationFilter');
     const practiceFilter = document.getElementById('practiceFilter');
@@ -48,17 +49,30 @@ document.addEventListener('DOMContentLoaded', function() {
     <?php endwhile; endif; ?>
 
     async function fetchJobs() {
-        const response = await fetch(JOBS_API_URL);
-        const data = await response.json();
-        sessionStorage.setItem('jobsData', JSON.stringify(data)); // Save jobs JSON to sessionStorage
-        buildAllJobs(data);
+        try {
+            const response = await fetch(JOBS_API_URL);
+            const data = await response.json();
+            
+            await new Promise((resolve, reject) => {
+                try {
+                    sessionStorage.setItem('jobsData', JSON.stringify(data)); // Save jobs JSON to sessionStorage
+                    resolve();
+                } catch (error) {
+                    reject(error);
+                }
+            });
+
+            buildAllJobs(data);
+        } catch (error) {
+            console.error('Error fetching jobs:', error);
+        }
     }
 
     async function fetchPractices() {
         try {
             const response = await fetch(PRACTICES_API_URL);
             let data = await response.json();
-            data.departments = removeDepartmentById(data, 4010536008); // Remove internal practice ID
+            data = removeDepartmentById(data, 4010536008); // Remove internal practice ID
 
             await new Promise((resolve, reject) => {
                 try {
@@ -103,23 +117,22 @@ document.addEventListener('DOMContentLoaded', function() {
         displayJobs(allJobs);
     }
 
-    function buildParentDepartmentsMap() {
-        const data = JSON.parse(sessionStorage.getItem('practicesData'));
-
-        data.forEach(department => {
+    function buildParentDepartmentsMap(practicesData) {
+        practicesData.departments.forEach(department => {
             parentDepartmentsMap[String(department.id)] = department.name; // Convert to string
         });
     }
 
     function removeDepartmentById(data, id) {
-        return data.departments.filter(department => department.id !== id);
+        data.departments = data.departments.filter(department => department.id !== id);
+        return data;
     }
 
     function populatePractices() {
-        const departments = JSON.parse(sessionStorage.getItem('practicesData'));
+        const practicesData = JSON.parse(sessionStorage.getItem('practicesData'));
 
         practiceFilter.innerHTML = '<option value="">All Practices</option>'; // Reset options
-        departments.forEach(department => {
+        practicesData.departments.forEach(department => {
             const option = document.createElement('option');
             option.value = String(department.id); // Convert to string
             option.textContent = department.name;
@@ -211,4 +224,5 @@ document.addEventListener('DOMContentLoaded', function() {
         fetchPractices();
     }
 });
+
 </script>
