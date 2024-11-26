@@ -8,6 +8,8 @@
         <?php get_template_part('templates/single-projects/about'); ?>
 
         <?php get_template_part('templates/single-projects/experts'); ?>
+
+        <?php get_template_part('templates/single-projects/gallery'); ?>
     </section>
 
     <?php get_template_part('templates/single-projects/testimonial'); ?>
@@ -19,3 +21,4 @@
     <?php get_template_part('template-parts/global/news-grid'); ?>
 
 <?php get_footer(); ?>
+

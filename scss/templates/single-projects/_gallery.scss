@@ -1,0 +1,29 @@
+.gallery {
+    padding: 3rem 0;
+
+    .section-header {
+        padding-bottom: 0.5rem;
+    }
+
+    .copy {
+        padding-bottom: 1rem;
+    }
+
+    .service-info__gallery {
+        padding: 0 1rem;
+
+        @include tablet {
+            padding: 0 2rem 1rem;
+        }
+
+        &-caption {
+            padding: 1rem 0.5rem 0 0.5rem;
+
+            p {
+                font-size: 0.875rem;
+                line-height: 1.25em;
+                font-style: italic;
+            }
+        }
+    }
+}

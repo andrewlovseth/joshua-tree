@@ -1,15 +1,17 @@
 body.single-projects {
-    @import 'single-projects/hero';
+    @import "single-projects/hero";
 
-    @import 'single-projects/overview';
+    @import "single-projects/overview";
 
-    @import 'single-projects/about';
+    @import "single-projects/about";
 
-    @import 'single-projects/experts';
+    @import "single-projects/gallery";
 
-    @import 'single-projects/testimonial';
+    @import "single-projects/experts";
 
-    @import 'single-projects/details';
+    @import "single-projects/testimonial";
 
-    @import 'single-projects/similar-projects';
+    @import "single-projects/details";
+
+    @import "single-projects/similar-projects";
 }
