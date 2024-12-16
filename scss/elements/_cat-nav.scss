@@ -23,6 +23,22 @@
         &-header {
             font-weight: 700;
         }
+
+        &.inactive {
+            .cat-nav {
+
+                &__more {
+                    text-align: left;
+                    width: unset;
+                }
+
+                &__dropdown {
+                    left: 0;
+                    right: unset;
+                }
+
+            }
+        }
     }
 
     &__link {
@@ -60,14 +76,11 @@
         }
 
         &-target {
-            color: $dark-blue;
 
             &-icon svg {
                 transform: translateY(-1px);
 
-                path {
-                    fill: $dark-blue;
-                }
+
             }
         }
 
@@ -83,8 +96,8 @@
 
             &:first-child {
                 a {
-                    border-top-left-radius: 0.25rem;
-                    border-top-right-radius: 0.25rem;
+                    border-top-left-radius: 0.125rem;
+                    border-top-right-radius: 0.125rem;
                 }
             }
         }

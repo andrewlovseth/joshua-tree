@@ -6,15 +6,18 @@
 
 if( $cat_nav_featured || $cat_nav_additional ): ?>
 
-    <nav class="cat-nav">
-        <ul class="cat-nav__featured">
-            <?php foreach( $cat_nav_featured as $cat ): ?>
-                <li class="cat-nav__item">
-                    <a class="cat-nav__link" href="<?php echo get_term_link($cat); ?>">
-                        <?php echo get_term( $cat )->name; ?>
-                    </a>
-                </li>
-            <?php endforeach; ?>
+    <nav class="cat-nav">   
+        <ul class="cat-nav__featured<?php if(!$cat_nav_featured): ?> inactive<?php endif; ?>">
+            <?php if($cat_nav_featured): ?>            
+                <?php foreach( $cat_nav_featured as $cat ): ?>
+                    <li class="cat-nav__item">
+                        <a class="cat-nav__link" href="<?php echo get_term_link($cat); ?>">
+                            <?php echo get_term( $cat )->name; ?>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            <?php endif; ?>
+
             <?php if($cat_nav_additional): ?>
                 <li class="cat-nav__more">
                     <a class="cat-nav__dropdown-target" href="#">
@@ -34,7 +37,6 @@ if( $cat_nav_featured || $cat_nav_additional ): ?>
                 </li>
             <?php endif; ?>
         </ul>
-
     </nav>
 
 <?php endif; ?>
