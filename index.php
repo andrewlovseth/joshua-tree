@@ -3,6 +3,8 @@
     <section class="page-header grid">
         <h1 class="page-title">News & Ideas</h1>
 
+        <?php get_template_part('templates/news/cat-nav'); ?>
+
         <?php if(is_paged()): ?>
             <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; ?>
             <div class="page-count">

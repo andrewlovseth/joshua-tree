@@ -1,0 +1,105 @@
+.cat-nav {
+    margin-top: 1rem;
+    border-top: 1px solid #eaeaea;
+    padding-top: 1.5rem;
+
+    @include desktop-small {
+        grid-column: 2 / span 12;
+    }
+
+    &__featured {
+        display: flex;
+        gap: 1rem 1.5rem;
+        flex-wrap: wrap;
+
+        @include desktop-medium {
+            gap: 1rem 2rem;
+        }
+
+        &-item {
+            white-space: nowrap;
+        }
+
+        &-header {
+            font-weight: 700;
+        }
+    }
+
+    &__link {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__more {
+        position: relative;
+        width: 100%;
+        text-align: right;
+
+        @include desktop-medium {
+            width: auto;
+        }
+    }
+
+    &__dropdown {
+        position: absolute;
+        top: 32px;
+        right: 0;
+        width: 14rem;
+        height: 12rem;
+        z-index: 1000;
+        background-color: #414141;
+        border: 1px solid #3a3a3a;
+        border-radius: 0.125rem;
+        box-shadow: 54px 117px 36px 0px rgba(0, 0, 0, 0.00), 35px 75px 33px 0px rgba(0, 0, 0, 0.01), 20px 42px 28px 0px rgba(0, 0, 0, 0.05), 9px 19px 21px 0px rgba(0, 0, 0, 0.09), 2px 5px 11px 0px rgba(0, 0, 0, 0.10);
+        overflow-y: auto;
+        display: none;
+
+        &.active {
+            display: block;
+        }
+
+        &-target {
+            color: $dark-blue;
+
+            &-icon svg {
+                transform: translateY(-1px);
+
+                path {
+                    fill: $dark-blue;
+                }
+            }
+        }
+
+        &-item {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: left;
+
+            & + & {
+                border-top: 1px solid rgba($white, 0.1);
+            }
+
+            &:first-child {
+                a {
+                    border-top-left-radius: 0.25rem;
+                    border-top-right-radius: 0.25rem;
+                }
+            }
+        }
+
+        &-link {
+            display: block;
+            padding: 0.75rem 0.75rem;
+            font-size: 0.75rem;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            color: #fff;
+            &:hover {
+                background: $dark-teal;
+                color: $white;
+            }
+        }
+    }
+}

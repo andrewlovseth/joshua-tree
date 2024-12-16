@@ -8,8 +8,10 @@
     <?php endif; ?>
 
     <section class="page-header grid">
-        <h4 class="sub-head">News & Ideas</h4>
+        <h4 class="sub-head"><a href="<?php echo get_permalink(get_option('page_for_posts')); ?>">News & Ideas</a></h4>
         <h1 class="page-title"><?php single_cat_title(); ?></h1>
+
+        <?php get_template_part('templates/news/cat-nav'); ?>
     </section>
 
     <?php get_template_part('templates/news/posts'); ?>

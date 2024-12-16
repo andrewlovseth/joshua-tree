@@ -199,6 +199,13 @@
             slidesToShow: 1,
             slidesToScroll: 1,
         });
+
+        // Cat Nav
+        $(".cat-nav__dropdown-target").on("click", function () {
+            $(".cat-nav__dropdown").toggleClass("active");
+
+            return false;
+        });
     });
 
     $(window).scroll(function () {
@@ -221,12 +228,18 @@
         if (!work_nav.is(e.target) && work_nav.has(e.target).length === 0) {
             $(".work-nav").removeClass("active");
         }
+
+        var cat_nav = $(".cat-nav__dropdown, .cat-nav__dropdown-target");
+        if (!cat_nav.is(e.target) && cat_nav.has(e.target).length === 0) {
+            $(".cat-nav__dropdown").removeClass("active");
+        }
     });
 
     $(document).keyup(function (e) {
         if (e.keyCode == 27) {
             $("body").removeClass("nav-overlay-open search-overlay-open");
             $(".work-nav").removeClass("active");
+            $(".cat-nav__dropdown").removeClass("active");
         }
     });
 

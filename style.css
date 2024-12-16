@@ -1418,6 +1418,97 @@ section.news {
      object-fit: contain;
 }
 
+.cat-nav {
+  margin-top: 1rem;
+  border-top: 1px solid #eaeaea;
+  padding-top: 1.5rem;
+}
+@media screen and (min-width: 992px) {
+  .cat-nav {
+    grid-column: 2/span 12;
+  }
+}
+.cat-nav__featured {
+  display: flex;
+  gap: 1rem 1.5rem;
+  flex-wrap: wrap;
+}
+@media screen and (min-width: 1280px) {
+  .cat-nav__featured {
+    gap: 1rem 2rem;
+  }
+}
+.cat-nav__featured-item {
+  white-space: nowrap;
+}
+.cat-nav__featured-header {
+  font-weight: 700;
+}
+.cat-nav__link:hover {
+  text-decoration: underline;
+}
+.cat-nav__more {
+  position: relative;
+  width: 100%;
+  text-align: right;
+}
+@media screen and (min-width: 1280px) {
+  .cat-nav__more {
+    width: auto;
+  }
+}
+.cat-nav__dropdown {
+  position: absolute;
+  top: 32px;
+  right: 0;
+  width: 14rem;
+  height: 12rem;
+  z-index: 1000;
+  background-color: #414141;
+  border: 1px solid #3a3a3a;
+  border-radius: 0.125rem;
+  box-shadow: 54px 117px 36px 0px rgba(0, 0, 0, 0), 35px 75px 33px 0px rgba(0, 0, 0, 0.01), 20px 42px 28px 0px rgba(0, 0, 0, 0.05), 9px 19px 21px 0px rgba(0, 0, 0, 0.09), 2px 5px 11px 0px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  display: none;
+}
+.cat-nav__dropdown.active {
+  display: block;
+}
+.cat-nav__dropdown-target {
+  color: #004261;
+}
+.cat-nav__dropdown-target-icon svg {
+  transform: translateY(-1px);
+}
+.cat-nav__dropdown-target-icon svg path {
+  fill: #004261;
+}
+.cat-nav__dropdown-item {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+.cat-nav__dropdown-item + .cat-nav__dropdown-item {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.cat-nav__dropdown-item:first-child a {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+.cat-nav__dropdown-link {
+  display: block;
+  padding: 0.75rem 0.75rem;
+  font-size: 0.75rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: #fff;
+}
+.cat-nav__dropdown-link:hover {
+  background: #00A69C;
+  color: #fff;
+}
+
 .site-header {
   padding: 2rem 0;
   transition: all 0.3s ease-in;
@@ -5563,6 +5654,12 @@ body.page-template-job-openings-greenhouse .job-listing .divider {
   line-height: 1.25em;
 }
 
+@media screen and (min-width: 992px) {
+  body.blog .page-header > *,
+  body.category .page-header > * {
+    grid-column: 2/span 12;
+  }
+}
 body.blog .page-header h4.sub-head,
 body.category .page-header h4.sub-head {
   display: inline-block;
@@ -5570,6 +5667,14 @@ body.category .page-header h4.sub-head {
   font-weight: bold;
   font-size: clamp(1.125rem, 1.4vw, 1.25rem);
   padding-bottom: 0.5rem;
+}
+body.blog .page-header h4.sub-head a,
+body.category .page-header h4.sub-head a {
+  color: #ADAFB2;
+}
+body.blog .page-header h4.sub-head a:hover,
+body.category .page-header h4.sub-head a:hover {
+  text-decoration: underline;
 }
 body.blog section.featured-posts,
 body.category section.featured-posts {

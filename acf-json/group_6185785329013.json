@@ -6,6 +6,7 @@
             "key": "field_618578635777e",
             "label": "Featured Posts",
             "name": "featured_posts",
+            "aria-label": "",
             "type": "relationship",
             "instructions": "",
             "required": 0,
@@ -23,7 +24,60 @@
             "elements": "",
             "min": "",
             "max": 3,
-            "return_format": "object"
+            "return_format": "object",
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_6751ecc5a2a2b",
+            "label": "Category Nav Featured",
+            "name": "category_nav_featured",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "multi_select",
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_6751ecf045090",
+            "label": "Category Nav Additional",
+            "name": "category_nav_additional",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "multi_select",
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -56,5 +110,6 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1636137068
+    "show_in_rest": 0,
+    "modified": 1733422330
 }

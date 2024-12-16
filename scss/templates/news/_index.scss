@@ -1,16 +1,30 @@
 body.blog,
 body.category {
     .page-header {
+        @include desktop-small {
+            & > * {
+                grid-column: 2 / span 12;
+            }
+        }
+
         h4.sub-head {
             display: inline-block;
             color: $medium-gray;
             font-weight: bold;
             font-size: clamp(1.125rem, 1.4vw, 1.25rem);
-            padding-bottom: 0.5rem;          
+            padding-bottom: 0.5rem;
+
+            a {
+                color: $medium-gray;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
         }
     }
-    @import 'featured-posts';
-    
+    @import "featured-posts";
+
     .post-list {
         padding-bottom: 3rem;
 
