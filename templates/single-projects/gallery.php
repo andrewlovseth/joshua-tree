@@ -1,9 +1,9 @@
 <?php
 
     $gallery = get_field('gallery');
-    $headline = $gallery['headline'];
-    $copy = $gallery['copy'];
-    $photos = $gallery['photos'];
+    $headline = !empty($gallery) ? $gallery['headline'] : null;
+    $copy = !empty($gallery) ? $gallery['copy'] : null;
+    $photos = !empty($gallery) ? $gallery['photos'] : null;
 
     if($photos || $headline || $copy):
 ?>

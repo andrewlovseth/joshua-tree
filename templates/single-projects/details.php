@@ -2,7 +2,7 @@
 
     $details = get_field('details');
     $photo = $details['photo'];
-    $client = $details['client'];
+    $clients = $details['client'];
     $location = $details['location'];
     $market = $details['market'];
     $services = $details['services'];
@@ -16,11 +16,14 @@
             <h3 class="section-headline small">Details</h3>
         </div>
 
-        <?php if($client): ?>
+        <?php if($clients): ?>
             <div class="vital client copy copy-2">
                 <p>
                     <strong>Client</strong>
-                    <?php echo get_the_title($client->ID); ?>
+
+                    <?php foreach($clients as $client): ?>
+                        <a href="<?php echo get_permalink($client->ID); ?>"><?php echo get_the_title($client->ID); ?></a><?php if(!$client === end($clients)): ?>, <?php endif; ?>
+                    <?php endforeach; ?>
                 </p>
             </div>
         <?php endif; ?>
