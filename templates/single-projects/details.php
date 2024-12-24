@@ -19,10 +19,10 @@
         <?php if($clients): ?>
             <div class="vital client copy copy-2">
                 <p>
-                    <strong>Client</strong>
+                    <strong>Client<?php if(count($clients) > 1): ?>s<?php endif; ?></strong>
 
                     <?php foreach($clients as $client): ?>
-                        <a href="<?php echo get_permalink($client->ID); ?>"><?php echo get_the_title($client->ID); ?></a><?php if(!$client === end($clients)): ?>, <?php endif; ?>
+                        <a href="<?php echo get_permalink($client->ID); ?>"><?php echo get_the_title($client->ID); ?></a><?php if($client !== end($clients)): ?><br/><?php endif; ?>
                     <?php endforeach; ?>
                 </p>
             </div>
