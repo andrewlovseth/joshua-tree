@@ -38,10 +38,15 @@
                                     <?php endif; ?>
 
                                     <?php
-                                        $client = get_field('details_client', $project->ID);
-                                        if($client): ?>
+                                        $clients = get_field('details_client', $project->ID);
+                                        if($clients): ?>
                                         <div class="client">
-                                            <h5><strong>Client:</strong> <?php echo get_the_title( $client->ID ); ?></h5>
+                                            <h5>
+                                                <strong>Client<?php if(count($clients) > 1): ?>s<?php endif; ?>:</strong>
+                                                <?php foreach($clients as $client): ?>
+                                                    <?php echo get_the_title($client->ID); ?><?php if($client !== end($clients)): ?>, <?php endif; ?>    
+                                                <?php endforeach; ?>
+                                            </h5>
                                         </div>
                                     <?php endif; ?>
                                 </div>

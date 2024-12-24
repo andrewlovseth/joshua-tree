@@ -2,7 +2,6 @@
 
     $services = get_field('details_services');
     $market = get_field('details_market'); 
-    $client_type = get_field('details_client_type'); 
     $location = get_field('details_location');
     $image = get_field('hero_photo'); 
 

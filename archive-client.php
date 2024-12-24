@@ -64,9 +64,7 @@
                                     <?php foreach($projects as $project): ?>
                                         <li class="project">
                                             <a href="<?php echo get_permalink($project->ID); ?>"><?php echo get_the_title($project->ID); ?></a>                                        
-
                                         </li>
-
                                     <?php endforeach; ?>
                                 </ul>
                             </div>

@@ -11,7 +11,6 @@
         <?php 
             $services = get_field('details_services', $project->ID);
             $market = get_field('details_market', $project->ID); 
-            $client_type = get_field('details_client_type', $project->ID); 
             $location = get_field('details_location', $project->ID);
             $image = get_field('hero_photo', $project->ID); 
 
