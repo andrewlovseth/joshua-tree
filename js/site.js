@@ -230,6 +230,8 @@
         var work_nav = $(".work-nav, .link-our-work");
         if (!work_nav.is(e.target) && work_nav.has(e.target).length === 0) {
             $(".work-nav").removeClass("active");
+            $(".work-nav").css("min-height", "auto");
+            $("body").removeClass("overflow-hidden");
         }
 
         var cat_nav = $(".cat-nav__dropdown, .cat-nav__dropdown-target");
