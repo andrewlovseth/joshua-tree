@@ -513,6 +513,9 @@ body {
   background: #fff;
   overflow-x: hidden;
 }
+body.overflow-hidden {
+  overflow: hidden;
+}
 
 .site-header,
 .site-content,

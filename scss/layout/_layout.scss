@@ -5,6 +5,10 @@ html {
 body {
     background: $white;
     overflow-x: hidden;
+
+    &.overflow-hidden {
+        overflow: hidden;
+    }
 }
 
 .site-header,

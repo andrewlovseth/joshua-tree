@@ -46,7 +46,10 @@
 
         // Our Work Nav
         $(".link-our-work").on("click", function () {
+            const headerHeight = $(".site-header").outerHeight();
+            $(".work-nav").css("min-height", `calc(100vh - ${headerHeight}px)`);
             $(".work-nav").toggleClass("active");
+            $("body").toggleClass("overflow-hidden");
 
             return false;
         });
@@ -237,8 +240,9 @@
 
     $(document).keyup(function (e) {
         if (e.keyCode == 27) {
-            $("body").removeClass("nav-overlay-open search-overlay-open");
+            $("body").removeClass("nav-overlay-open search-overlay-open overflow-hidden");
             $(".work-nav").removeClass("active");
+            $(".work-nav").css("min-height", "auto");
             $(".cat-nav__dropdown").removeClass("active");
         }
     });
