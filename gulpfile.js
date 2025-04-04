@@ -1,39 +1,54 @@
-const gulp = require('gulp');
-const sass = require('gulp-sass')(require('sass'));
-const sourcemaps = require('gulp-sourcemaps');
-const autoprefixer = require('gulp-autoprefixer');
-const browserSync = require('browser-sync').create();
+import gulp from "gulp";
+import gulpSass from "gulp-sass";
+import * as sass from "sass";
+import sourcemaps from "gulp-sourcemaps";
+import autoprefixer from "gulp-autoprefixer";
+import browserSyncPackage from "browser-sync";
+
+const browserSync = browserSyncPackage.create();
+const dartSass = gulpSass(sass);
 
 function errorlog(err) {
     console.error(err.message);
-    this.emit('end');
+    this.emit("end");
 }
 
 function style() {
-    return gulp.src('scss/style.scss').pipe(sass().on('error', errorlog)).pipe(autoprefixer()).pipe(sourcemaps.write()).pipe(gulp.dest('./')).pipe(browserSync.stream());
+    return gulp
+        .src("scss/style.scss")
+        .pipe(sourcemaps.init())
+        .pipe(dartSass().on("error", errorlog))
+        .pipe(autoprefixer())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest("./"))
+        .pipe(browserSync.stream());
 }
 
 function gutenberg() {
-    // Main Stylesheet
-    return gulp.src('scss/gutenberg.scss').pipe(sass().on('error', errorlog)).pipe(autoprefixer()).pipe(sourcemaps.write()).pipe(gulp.dest('./')).pipe(browserSync.stream());
+    return gulp
+        .src("scss/gutenberg.scss")
+        .pipe(sourcemaps.init())
+        .pipe(dartSass().on("error", errorlog))
+        .pipe(autoprefixer())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest("./"))
+        .pipe(browserSync.stream());
 }
 
 function watch() {
     browserSync.init({
-        proxy: 'https://esassoc.local',
+        proxy: "https://esassoc.local/",
     });
 
-    gulp.watch('./scss/**/*.scss', style);
-    gulp.watch('./scss/**/*.scss', gutenberg);
+    gulp.watch("./scss/**/*.scss", style);
+    gulp.watch("./scss/**/*.scss", gutenberg);
 
-    gulp.watch('./*.php').on('change', browserSync.reload);
-    gulp.watch('./template-parts/**/*.php').on('change', browserSync.reload);
-    gulp.watch('./templates/**/*.php').on('change', browserSync.reload);
-    gulp.watch('./blocks/**/*.php').on('change', browserSync.reload);
+    gulp.watch("./*.php").on("change", browserSync.reload);
+    gulp.watch("./template-parts/**/*.php").on("change", browserSync.reload);
+    gulp.watch("./templates/**/*.php").on("change", browserSync.reload);
+    gulp.watch("./blocks/**/*.php").on("change", browserSync.reload);
 
-    gulp.watch('./js/**/*.js').on('change', browserSync.reload);
+    gulp.watch("./js/**/*.js").on("change", browserSync.reload);
 }
 
-exports.style = style;
-exports.gutenberg = gutenberg;
-exports.watch = watch;
+export { style, watch, gutenberg };
