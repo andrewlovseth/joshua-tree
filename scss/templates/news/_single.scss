@@ -256,6 +256,22 @@ body.single-post {
             font-style: italic;
             padding-bottom: 1rem;
         }
+
+        .wp-block-details {
+            summary {
+                display: list-item;
+                background: rgba($teal, 0.1);
+                padding: 0.5rem 0.75rem;
+                border-radius: 0.125rem;
+                border: 1px solid rgba($teal, 0.5);
+                cursor: pointer;
+
+                &::marker {
+                    display: inline-block;
+                    margin-right: 0.5rem;
+                }
+            }
+        }
     }
 
     .article-footer {
