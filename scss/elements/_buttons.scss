@@ -14,13 +14,11 @@
         box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
 
         img {
-            
             width: 1rem;
             height: 1rem;
             object-fit: contain;
         }
     }
-
 }
 
 body.show-top-btn {
@@ -48,13 +46,18 @@ body.show-top-btn {
             padding: 1.5rem 2rem 1.375rem;
         }
 
+        &-sm {
+            padding: 1.25rem 1.5rem;
+            font-size: $type-size-100;
+        }
+
         &:after {
-            content: '>>';
+            content: ">>";
             display: inline-block;
             font-size: clamp(0.875rem, 0.9vw, 1rem);
             padding-left: 0.5rem;
         }
-    
+
         &-green {
             background: $light-green;
             color: $white;
@@ -77,14 +80,22 @@ body.show-top-btn {
             padding: 0;
             color: $light-green;
         }
+
+        &-white-outline {
+            border: 2px solid $white;
+            color: $white;
+
+            &:hover {
+                background: $white;
+                color: $orange;
+            }
+        }
     }
 
     .underline {
         border-bottom: 3px solid;
         display: inline-block;
     }
-
-    
 }
 
 .back {
@@ -95,7 +106,7 @@ body.show-top-btn {
             }
 
             &:before {
-                content: '«';
+                content: "«";
                 display: inline-block;
                 font-size: clamp(0.875rem, 0.9vw, 1rem);
                 padding-right: 0.5rem;

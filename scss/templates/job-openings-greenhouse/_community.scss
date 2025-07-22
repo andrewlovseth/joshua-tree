@@ -1,0 +1,40 @@
+.community {
+    margin-top: 1rem;
+    @include desktop-small {
+        gap: 1rem;
+        grid-template-columns: minmax(0, auto) repeat(12, minmax(0, 5.5rem)) minmax(0, auto);
+    }
+
+    &__content {
+        background: $orange;
+        color: $white;
+        padding: 2rem;
+        display: grid;
+        gap: 1rem;
+
+        @include tablet {
+            grid-template-columns: 3rem 1fr auto;
+        }
+    }
+
+    &__icon {
+        svg {
+            width: 3rem;
+            height: 28px;
+            path {
+                stroke: $white;
+                stroke-width: 1px;
+            }
+        }
+    }
+
+    &__title {
+        font-size: $type-size-300;
+        font-weight: 700;
+        padding-bottom: 0.5rem;
+    }
+
+    &__cta {
+        align-self: center;
+    }
+}
