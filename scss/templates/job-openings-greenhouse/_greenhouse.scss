@@ -40,6 +40,7 @@
         min-height: 25vh;
         display: grid;
         gap: 2rem;
+        align-content: start;
 
         @include desktop-small {
             grid-column: 2 / span 8;
@@ -50,7 +51,7 @@
         padding: 2rem;
         border: 2px dashed $light-gray;
         border-radius: 0.25rem;
-        align-self: start;
+        align-content: start;
     }
 }
 
