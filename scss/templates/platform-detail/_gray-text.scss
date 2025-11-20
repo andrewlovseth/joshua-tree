@@ -1,9 +1,26 @@
 .gray-text {
     background: $off-white;
+    row-gap: 2rem;
+    align-items: start;
+
+    &__info {
+        @include desktop-small {
+            grid-column: 2 / span 6;
+        }
+    }
+    &__video {
+        @include desktop-small {
+            grid-column: 8 / span 6;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 16 / 9;
+        }
+    }
 
     .copy-2.extended {
         padding-bottom: 0 !important;
-        max-width: 48rem;
 
         *:last-of-type {
             margin-bottom: 0;

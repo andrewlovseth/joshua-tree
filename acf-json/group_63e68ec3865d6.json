@@ -17,7 +17,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_63e68ec3b29cc",
@@ -115,7 +116,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_63e68fd58d2de",
@@ -366,6 +368,27 @@
                             "toolbar": "full",
                             "media_upload": 0,
                             "delay": 0
+                        },
+                        {
+                            "key": "field_691e777a53ff6",
+                            "label": "Video ID",
+                            "name": "video_id",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "YouTube ID",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
                         }
                     ],
                     "min": "",
@@ -837,7 +860,8 @@
                             "return_format": "object",
                             "min": "",
                             "max": "",
-                            "elements": ""
+                            "elements": "",
+                            "bidirectional_target": []
                         }
                     ],
                     "min": "",
@@ -885,5 +909,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1679004803
+    "display_title": "",
+    "modified": 1763604380
 }
