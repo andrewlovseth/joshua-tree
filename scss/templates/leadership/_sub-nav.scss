@@ -1,11 +1,20 @@
 .leadership-sub-nav {
-    padding-top: 3rem;
-    padding-bottom: 6rem;
+    padding-bottom: 3rem;
+
+    @include tablet {
+        padding-top: 3rem;
+        padding-bottom: 6rem;
+    }
 
     ul {
         display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
+        flex-direction: column;
+        gap: 1.5rem;
+        @include tablet {
+            flex-direction: row;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
 
         @include desktop-small {
             grid-column: 2 / span 8;
@@ -15,10 +24,14 @@
     a {
         color: $black;
         font-weight: bold;
-        display: block;
-        padding-bottom: 1rem;
+        display: inline-block;
+        padding-bottom: 0.5rem;
         line-height: 1.375em;
         border-bottom: 0.25rem solid transparent;
+
+        @include tablet {
+            padding-bottom: 1rem;
+        }
 
         &:hover,
         &.active {

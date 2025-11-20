@@ -1,33 +1,21 @@
 .leaders-grid {
     display: grid;
-    gap: 2rem 4rem;
-    grid-template-columns: repeat(1, 1fr);
-    padding-bottom: 6rem;
-
-    @include tablet-small {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    @include tablet {
-        grid-template-columns: repeat(12, 1fr);
-        gap: 3rem 6rem;
-    }
-
+    grid-template-columns: subgrid;
+    row-gap: 2rem;
     &.executives {
         .executive {
-            @include tablet {
-                grid-column: span 4;
+            @include desktop-small {
+                grid-column: span 3;
             }
         }
     }
 
     .leader {
-        @include tablet {
-            grid-column: span 3;
-        }
+        grid-column: span 2;
 
         a {
             display: block;
+            width: 100%;
         }
 
         .photo {
@@ -37,7 +25,7 @@
         }
 
         .info {
-            padding-top: 1rem;
+            padding-top: 0.5rem;
             text-align: center;
 
             .name {
@@ -45,17 +33,18 @@
                     font-weight: bold;
                     color: $dark-teal;
                     font-size: clamp(1rem, 1vw, 1.125rem);
+                    line-height: 1.125em;
+                    text-wrap: pretty;
                 }
             }
 
             .position {
-                padding-top: 0.5rem;
+                padding-top: 0.25rem;
 
                 p {
-                    color: $black;
-                    font-size: clamp(0.75em, 1vw, 0.875rem);
+                    color: $dark-gray;
+                    font-size: 0.75rem;
                     line-height: 1.25em;
-                    font-style: italic;
                 }
             }
         }
