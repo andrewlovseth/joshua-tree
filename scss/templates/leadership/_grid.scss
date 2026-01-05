@@ -2,16 +2,14 @@
     display: grid;
     grid-template-columns: subgrid;
     row-gap: 2rem;
-    &.executives {
-        .executive {
-            @include desktop-small {
-                grid-column: span 3;
-            }
-        }
-    }
 
     .leader {
         grid-column: span 2;
+
+        // First non-executive after executives starts a new row
+        &.executive + .leader:not(.executive) {
+            grid-column: 1 / span 2;
+        }
 
         a {
             display: block;
