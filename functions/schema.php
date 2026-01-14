@@ -92,3 +92,33 @@ function esa_schema_output($schema) {
     echo json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
     echo '</script>' . "\n";
 }
+
+/**
+ * Get Organization schema.
+ *
+ * @return array Organization schema data.
+ */
+function esa_schema_organization() {
+    $data = [
+        '@context' => 'https://schema.org',
+        '@type' => 'Organization',
+        'name' => 'Environmental Science Associates',
+        'url' => home_url('/'),
+    ];
+
+    return apply_filters('esa_organization_schema_data', $data);
+}
+
+/**
+ * Get WebSite schema.
+ *
+ * @return array WebSite schema data.
+ */
+function esa_schema_website() {
+    return [
+        '@context' => 'https://schema.org',
+        '@type' => 'WebSite',
+        'name' => get_bloginfo('name'),
+        'url' => home_url('/'),
+    ];
+}
