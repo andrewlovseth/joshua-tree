@@ -342,3 +342,47 @@ function esa_schema_person($post_id, $type) {
 
     return $schema;
 }
+
+/**
+ * Get Service schema for service pages.
+ *
+ * @param int $post_id Post ID.
+ * @return array Service schema data.
+ */
+function esa_schema_service($post_id) {
+    $post = get_post($post_id);
+    if (!$post) {
+        return null;
+    }
+
+    $schema = [
+        '@context' => 'https://schema.org',
+        '@type' => 'Service',
+        'name' => get_the_title($post_id),
+        'url' => get_permalink($post_id),
+    ];
+
+    // Add description from about.copy
+    $about = get_field('about', $post_id);
+    if ($about && !empty($about['copy'])) {
+        $schema['description'] = esa_schema_clean_text($about['copy']);
+    }
+
+    // Add image from hero.photo
+    $hero = get_field('hero', $post_id);
+    if ($hero && !empty($hero['photo'])) {
+        $image_object = esa_schema_image_object($hero['photo']);
+        if ($image_object) {
+            $schema['image'] = $image_object;
+        }
+    }
+
+    // Add provider as Organization
+    $schema['provider'] = [
+        '@type' => 'Organization',
+        'name' => 'Environmental Science Associates',
+        'url' => home_url('/'),
+    ];
+
+    return $schema;
+}
