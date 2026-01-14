@@ -122,3 +122,103 @@ function esa_schema_website() {
         'url' => home_url('/'),
     ];
 }
+
+/**
+ * Get BreadcrumbList schema based on post type.
+ *
+ * @return array|null BreadcrumbList schema or null on front page.
+ */
+function esa_schema_breadcrumb() {
+    // No breadcrumb on front page
+    if (is_front_page()) {
+        return null;
+    }
+
+    $items = [];
+    $position = 1;
+
+    // Home is always first
+    $items[] = [
+        '@type' => 'ListItem',
+        'position' => $position++,
+        'name' => 'Home',
+        'item' => home_url('/'),
+    ];
+
+    // Build path based on post type
+    $post_type = get_post_type();
+
+    switch ($post_type) {
+        case 'post':
+            $items[] = [
+                '@type' => 'ListItem',
+                'position' => $position++,
+                'name' => 'News',
+                'item' => home_url('/news/'),
+            ];
+            break;
+
+        case 'employee':
+            $items[] = [
+                '@type' => 'ListItem',
+                'position' => $position++,
+                'name' => 'About',
+                'item' => home_url('/about/'),
+            ];
+            $items[] = [
+                '@type' => 'ListItem',
+                'position' => $position++,
+                'name' => 'Our Team',
+                'item' => home_url('/about/our-team/'),
+            ];
+            break;
+
+        case 'leadership':
+            $items[] = [
+                '@type' => 'ListItem',
+                'position' => $position++,
+                'name' => 'About',
+                'item' => home_url('/about/'),
+            ];
+            $items[] = [
+                '@type' => 'ListItem',
+                'position' => $position++,
+                'name' => 'Leadership',
+                'item' => home_url('/about/leadership/'),
+            ];
+            break;
+
+        case 'service':
+            $items[] = [
+                '@type' => 'ListItem',
+                'position' => $position++,
+                'name' => 'Services',
+                'item' => home_url('/services/'),
+            ];
+            break;
+
+        case 'projects':
+            $items[] = [
+                '@type' => 'ListItem',
+                'position' => $position++,
+                'name' => 'Projects',
+                'item' => home_url('/projects/'),
+            ];
+            break;
+    }
+
+    // Add current page as last item (no 'item' property per schema.org spec)
+    if (is_singular()) {
+        $items[] = [
+            '@type' => 'ListItem',
+            'position' => $position,
+            'name' => get_the_title(),
+        ];
+    }
+
+    return [
+        '@context' => 'https://schema.org',
+        '@type' => 'BreadcrumbList',
+        'itemListElement' => $items,
+    ];
+}
