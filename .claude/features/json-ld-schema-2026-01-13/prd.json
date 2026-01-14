@@ -1,0 +1,112 @@
+{
+  "name": "JSON-LD Schema",
+  "description": "Add structured data (JSON-LD schema) to the ESA WordPress theme for SEO and rich search results",
+  "stories": [
+    {
+      "id": "B1",
+      "title": "Create schema.php with helper functions",
+      "description": "Create /functions/schema.php with three helper functions: esa_schema_image_object() to build ImageObject from attachment ID or ACF image array, esa_schema_clean_text() to strip HTML and truncate descriptions, and esa_schema_output() to output the JSON-LD script tag. Add require_once to functions.php after the svg.php line.",
+      "acceptance": [
+        "File /functions/schema.php exists with proper PHP opening tag",
+        "esa_schema_image_object($image) function accepts int (attachment ID) or array (ACF image), returns array with @type, url, width, height or null",
+        "esa_schema_clean_text($text, $max_length = 300) function strips HTML tags and truncates to max length",
+        "esa_schema_output($schema) function outputs <script type=\"application/ld+json\"> with JSON_UNESCAPED_SLASHES",
+        "functions.php includes require_once for schema.php"
+      ],
+      "passes": true
+    },
+    {
+      "id": "B2",
+      "title": "Add Organization and WebSite schemas",
+      "description": "Add esa_schema_organization() returning Organization schema with name 'Environmental Science Associates' and home_url(). Add esa_schema_website() returning WebSite schema with site name and URL. Use apply_filters hook on organization data for future extensibility.",
+      "acceptance": [
+        "esa_schema_organization() returns array with @context, @type Organization, name, url",
+        "Organization data passed through apply_filters('esa_organization_schema_data', $data) for extensibility",
+        "esa_schema_website() returns array with @context, @type WebSite, name from get_bloginfo('name'), url from home_url()"
+      ],
+      "passes": true
+    },
+    {
+      "id": "C1",
+      "title": "Add BreadcrumbList schema",
+      "description": "Add esa_schema_breadcrumb() that builds breadcrumb paths based on post type. Home is always first. Paths: post → Home > News > Title, employee → Home > About > Our Team > Name, leadership → Home > About > Leadership > Name, service → Home > Services > Name, projects → Home > Projects > Name. Last item omits 'item' property per schema.org spec.",
+      "acceptance": [
+        "esa_schema_breadcrumb() returns BreadcrumbList with itemListElement array",
+        "Each ListItem has position (1-indexed), name, and item (URL) except last item",
+        "Handles post, employee, leadership, service, projects post types",
+        "Returns null or empty on front_page"
+      ],
+      "passes": true
+    },
+    {
+      "id": "C2",
+      "title": "Add NewsArticle schema",
+      "description": "Add esa_schema_news_article($post_id) for blog posts. Include headline, url, datePublished (ISO 8601 'c' format), dateModified. Get image from post thumbnail. Get authors from ACF 'authors' relationship field - if empty, fall back to Organization as author. Add publisher as Organization.",
+      "acceptance": [
+        "esa_schema_news_article($post_id) returns NewsArticle schema",
+        "Includes headline, mainEntityOfPage with WebPage @id, datePublished, dateModified in ISO 8601",
+        "Includes image via esa_schema_image_object() if post has thumbnail",
+        "Includes author array from get_field('authors') with Person type, name, url - falls back to Organization if empty",
+        "Includes publisher as Organization with name"
+      ],
+      "passes": true
+    },
+    {
+      "id": "C3",
+      "title": "Add Person schema for employees and leadership",
+      "description": "Add esa_schema_person($post_id, $type) handling both 'employee' and 'leadership' types. Get name from title, image from ACF info_hero_photo, jobTitle from info.position, email from contact.email, linkedin from social.linkedin. Add worksFor as Organization reference.",
+      "acceptance": [
+        "esa_schema_person($post_id, $type) returns Person schema",
+        "Includes name from get_the_title(), url from get_permalink()",
+        "Includes image via esa_schema_image_object() from info_hero_photo field",
+        "Includes jobTitle from get_field('info')['position'] if available",
+        "Includes email as mailto: link from contact.email if available",
+        "Includes sameAs array with linkedin URL from social.linkedin if available",
+        "Includes worksFor with Organization type referencing ESA"
+      ],
+      "passes": true
+    },
+    {
+      "id": "C4",
+      "title": "Add Service schema",
+      "description": "Add esa_schema_service($post_id) for service pages. Get name from title, url from permalink, image from ACF hero.photo, description from about.copy (cleaned/truncated). Add provider as Organization reference.",
+      "acceptance": [
+        "esa_schema_service($post_id) returns Service schema",
+        "Includes name, url, description (cleaned via esa_schema_clean_text from about.copy)",
+        "Includes image from hero.photo if available",
+        "Includes provider as Organization with name and url"
+      ],
+      "passes": true
+    },
+    {
+      "id": "C5",
+      "title": "Add CreativeWork schema for projects",
+      "description": "Add esa_schema_creative_work($post_id) for projects. Get name from title, url from permalink, image from hero.photo, description from details.about. Include locationCreated from details.location if available. Include testimonial as Review with reviewBody, author Person with name and jobTitle if testimonial data exists.",
+      "acceptance": [
+        "esa_schema_creative_work($post_id) returns CreativeWork schema",
+        "Includes name, url, description from details.about (cleaned)",
+        "Includes image from hero.photo if available",
+        "Includes creator as Organization",
+        "Includes locationCreated Place with name from details.location if available",
+        "Includes review with Review type if testimonial.quote exists - includes reviewBody, author Person with name and jobTitle"
+      ],
+      "passes": true
+    },
+    {
+      "id": "D1",
+      "title": "Add main router and wp_head hook",
+      "description": "Add esa_output_schema() function that: 1) Always outputs Organization and WebSite schemas, 2) Conditionally outputs content-specific schema based on is_singular() checks for post/employee/leadership/service/projects, 3) Outputs BreadcrumbList on all pages except front_page. Hook to wp_head with priority 5. Each schema only output if not null.",
+      "acceptance": [
+        "esa_output_schema() function exists and is hooked to wp_head action with priority 5",
+        "Organization and WebSite schemas output on every page",
+        "NewsArticle schema output only on is_singular('post')",
+        "Person schema output on is_singular('employee') or is_singular('leadership') with correct type parameter",
+        "Service schema output on is_singular('service')",
+        "CreativeWork schema output on is_singular('projects')",
+        "BreadcrumbList output on all pages except is_front_page()",
+        "Null schemas are not output"
+      ],
+      "passes": true
+    }
+  ]
+}

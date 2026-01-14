@@ -1,0 +1,103 @@
+# Progress Log - JSON-LD Schema
+
+---
+
+## Story B1: Create schema.php with helper functions
+**Completed**: 2026-01-13
+**Files modified**:
+- functions/schema.php (created)
+- functions.php
+
+**Learnings**:
+- Use `JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE` flags for clean JSON-LD output
+- ACF image arrays contain url, width, height directly; attachment IDs need wp_get_attachment_url and wp_get_attachment_metadata
+- wp_strip_all_tags is the WordPress-native way to strip HTML
+- Null-coalescing (??) handles missing array keys gracefully
+
+---
+
+## Story B2: Add Organization and WebSite schemas
+**Completed**: 2026-01-13
+**Files modified**:
+- functions/schema.php
+
+**Learnings**:
+- apply_filters() allows future extensibility without modifying core code
+- home_url('/') includes trailing slash for canonical URLs
+- Organization and WebSite are foundational schemas - appear on every page
+
+---
+
+## Story C1: Add BreadcrumbList schema
+**Completed**: 2026-01-13
+**Files modified**:
+- functions/schema.php
+
+**Learnings**:
+- Per schema.org spec, last breadcrumb item omits 'item' property (current page doesn't link to itself)
+- $position++ increments after using the value, perfect for sequential numbering
+- Switch/case is cleaner than if/else chains for post type branching
+
+---
+
+## Story C2: Add NewsArticle schema
+**Completed**: 2026-01-13
+**Files modified**:
+- functions/schema.php
+
+**Learnings**:
+- WordPress 'c' date format outputs ISO 8601 (e.g., 2026-01-13T10:30:00+00:00)
+- ACF relationship fields return array of post objects with ->ID property
+- mainEntityOfPage uses @id to reference the canonical page URL
+
+---
+
+## Story C3: Add Person schema for employees and leadership
+**Completed**: 2026-01-13
+**Files modified**:
+- functions/schema.php
+
+**Learnings**:
+- sameAs is an array in schema.org, even for single values (future-proofs for multiple social links)
+- email should use mailto: prefix for proper schema.org format
+- Both employee and leadership use the same field structure (info_hero_photo, info.position, contact.email, social.linkedin)
+
+---
+
+## Story C4: Add Service schema
+**Completed**: 2026-01-13
+**Files modified**:
+- functions/schema.php
+
+**Learnings**:
+- Service uses hero.photo (group.field) not hero_photo (single field)
+- ACF image array can be passed directly to esa_schema_image_object() which handles both formats
+- esa_schema_clean_text() handles HTML stripping and truncation in one call
+
+---
+
+## Story C5: Add CreativeWork schema for projects
+**Completed**: 2026-01-13
+**Files modified**:
+- functions/schema.php
+
+**Learnings**:
+- CreativeWork is a flexible schema type good for "projects" that aren't strictly articles
+- locationCreated uses Place type, location is just the name string
+- Review schema nests author Person which can have jobTitle
+- Testimonial group structure: quote, name, position, group
+
+---
+
+## Story D1: Add main router and wp_head hook
+**Completed**: 2026-01-13
+**Files modified**:
+- functions/schema.php
+
+**Learnings**:
+- wp_head priority 5 outputs schemas early in head, before most scripts
+- is_singular() with post type is the cleanest way to check specific single pages
+- Null check before esa_schema_output() prevents empty script tags
+- Router pattern: foundational schemas first, then content-specific, then breadcrumbs
+
+---
