@@ -510,3 +510,21 @@ function esa_output_schema() {
 }
 
 add_action('wp_head', 'esa_output_schema', 5);
+
+/**
+ * Disable Yoast's Article schema for posts.
+ * We output our own NewsArticle schema with proper ACF author handling.
+ *
+ * @param array $pieces Schema graph pieces.
+ * @param string $context Schema context.
+ * @return array Modified pieces.
+ */
+function esa_disable_yoast_article_schema($pieces, $context) {
+    if (is_singular('post')) {
+        return array_filter($pieces, function($piece) {
+            return !$piece instanceof \Yoast\WP\SEO\Generators\Schema\Article;
+        });
+    }
+    return $pieces;
+}
+add_filter('wpseo_schema_graph_pieces', 'esa_disable_yoast_article_schema', 10, 2);
