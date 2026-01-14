@@ -285,3 +285,60 @@ function esa_schema_news_article($post_id) {
 
     return $schema;
 }
+
+/**
+ * Get Person schema for employees and leadership.
+ *
+ * @param int $post_id Post ID.
+ * @param string $type Post type ('employee' or 'leadership').
+ * @return array Person schema data.
+ */
+function esa_schema_person($post_id, $type) {
+    $post = get_post($post_id);
+    if (!$post) {
+        return null;
+    }
+
+    $schema = [
+        '@context' => 'https://schema.org',
+        '@type' => 'Person',
+        'name' => get_the_title($post_id),
+        'url' => get_permalink($post_id),
+    ];
+
+    // Add image from info_hero_photo
+    $image = get_field('info_hero_photo', $post_id);
+    if ($image) {
+        $image_object = esa_schema_image_object($image);
+        if ($image_object) {
+            $schema['image'] = $image_object;
+        }
+    }
+
+    // Add jobTitle from info.position
+    $info = get_field('info', $post_id);
+    if ($info && !empty($info['position'])) {
+        $schema['jobTitle'] = $info['position'];
+    }
+
+    // Add email from contact.email
+    $contact = get_field('contact', $post_id);
+    if ($contact && !empty($contact['email'])) {
+        $schema['email'] = 'mailto:' . $contact['email'];
+    }
+
+    // Add linkedin from social.linkedin as sameAs
+    $social = get_field('social', $post_id);
+    if ($social && !empty($social['linkedin'])) {
+        $schema['sameAs'] = [$social['linkedin']];
+    }
+
+    // Add worksFor as Organization
+    $schema['worksFor'] = [
+        '@type' => 'Organization',
+        'name' => 'Environmental Science Associates',
+        'url' => home_url('/'),
+    ];
+
+    return $schema;
+}
