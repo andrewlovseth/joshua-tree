@@ -461,3 +461,52 @@ function esa_schema_creative_work($post_id) {
 
     return $schema;
 }
+
+/**
+ * Output all applicable schemas to wp_head.
+ *
+ * @return void
+ */
+function esa_output_schema() {
+    // Always output Organization and WebSite schemas
+    esa_schema_output(esa_schema_organization());
+    esa_schema_output(esa_schema_website());
+
+    // Output content-specific schema based on post type
+    if (is_singular('post')) {
+        $schema = esa_schema_news_article(get_the_ID());
+        if ($schema) {
+            esa_schema_output($schema);
+        }
+    } elseif (is_singular('employee')) {
+        $schema = esa_schema_person(get_the_ID(), 'employee');
+        if ($schema) {
+            esa_schema_output($schema);
+        }
+    } elseif (is_singular('leadership')) {
+        $schema = esa_schema_person(get_the_ID(), 'leadership');
+        if ($schema) {
+            esa_schema_output($schema);
+        }
+    } elseif (is_singular('service')) {
+        $schema = esa_schema_service(get_the_ID());
+        if ($schema) {
+            esa_schema_output($schema);
+        }
+    } elseif (is_singular('projects')) {
+        $schema = esa_schema_creative_work(get_the_ID());
+        if ($schema) {
+            esa_schema_output($schema);
+        }
+    }
+
+    // Output BreadcrumbList on all pages except front page
+    if (!is_front_page()) {
+        $breadcrumb = esa_schema_breadcrumb();
+        if ($breadcrumb) {
+            esa_schema_output($breadcrumb);
+        }
+    }
+}
+
+add_action('wp_head', 'esa_output_schema', 5);
