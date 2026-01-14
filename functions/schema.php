@@ -386,3 +386,78 @@ function esa_schema_service($post_id) {
 
     return $schema;
 }
+
+/**
+ * Get CreativeWork schema for projects.
+ *
+ * @param int $post_id Post ID.
+ * @return array CreativeWork schema data.
+ */
+function esa_schema_creative_work($post_id) {
+    $post = get_post($post_id);
+    if (!$post) {
+        return null;
+    }
+
+    $schema = [
+        '@context' => 'https://schema.org',
+        '@type' => 'CreativeWork',
+        'name' => get_the_title($post_id),
+        'url' => get_permalink($post_id),
+    ];
+
+    // Add description from details.about
+    $details = get_field('details', $post_id);
+    if ($details && !empty($details['about'])) {
+        $schema['description'] = esa_schema_clean_text($details['about']);
+    }
+
+    // Add image from hero.photo
+    $hero = get_field('hero', $post_id);
+    if ($hero && !empty($hero['photo'])) {
+        $image_object = esa_schema_image_object($hero['photo']);
+        if ($image_object) {
+            $schema['image'] = $image_object;
+        }
+    }
+
+    // Add creator as Organization
+    $schema['creator'] = [
+        '@type' => 'Organization',
+        'name' => 'Environmental Science Associates',
+        'url' => home_url('/'),
+    ];
+
+    // Add locationCreated if location exists
+    if ($details && !empty($details['location'])) {
+        $schema['locationCreated'] = [
+            '@type' => 'Place',
+            'name' => $details['location'],
+        ];
+    }
+
+    // Add review if testimonial exists
+    $testimonial = get_field('testimonial', $post_id);
+    if ($testimonial && !empty($testimonial['quote'])) {
+        $review = [
+            '@type' => 'Review',
+            'reviewBody' => esa_schema_clean_text($testimonial['quote']),
+        ];
+
+        // Add author with name and jobTitle if available
+        if (!empty($testimonial['name'])) {
+            $author = [
+                '@type' => 'Person',
+                'name' => $testimonial['name'],
+            ];
+            if (!empty($testimonial['position'])) {
+                $author['jobTitle'] = $testimonial['position'];
+            }
+            $review['author'] = $author;
+        }
+
+        $schema['review'] = $review;
+    }
+
+    return $schema;
+}
