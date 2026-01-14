@@ -1,6 +1,4 @@
-
 .service {
-    
     & + .service {
         .header {
             margin-top: 4rem;
@@ -49,7 +47,6 @@
                 object-fit: contain;
                 height: 100%;
 
-                
                 * {
                     fill: $dark-teal;
                 }
@@ -105,6 +102,94 @@
                     color: $dark-teal;
                 }
             }
+        }
+    }
+}
+
+// Alphabetical services list with search filter
+.services-list-alphabetical {
+    margin-bottom: 12rem;
+
+    .services-search {
+        margin-bottom: 2rem;
+
+        @include tablet {
+            margin-bottom: 3rem;
+        }
+
+        input {
+            width: 100%;
+            max-width: 400px;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            border: 2px solid $teal;
+            border-radius: 4px;
+            transition: border-color 0.2s ease;
+
+            &:focus {
+                outline: none;
+                border-color: $dark-teal;
+            }
+
+            &::placeholder {
+                color: rgba($black, 0.5);
+            }
+        }
+    }
+
+    .services-columns {
+        min-height: 50vh;
+    }
+
+    .services-list-items {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        columns: 1;
+
+        @include tablet {
+            columns: 2;
+            column-gap: 2rem;
+        }
+
+        @include desktop-small {
+            columns: 3;
+        }
+    }
+
+    .service-item {
+        break-inside: avoid;
+        margin-bottom: 1rem;
+        line-height: 1.25em;
+
+        @include desktop-small {
+            padding-right: 4rem;
+        }
+
+        a {
+            color: $black;
+
+            &:hover {
+                text-decoration: none;
+                color: $dark-teal;
+            }
+        }
+
+        // Hidden state for filtered items
+        &[hidden] {
+            display: none;
+        }
+    }
+
+    .no-results {
+        background: rgba($black, 0.05);
+        text-align: center;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border-radius: 4px;
+
+        &[hidden] {
+            display: none;
         }
     }
 }

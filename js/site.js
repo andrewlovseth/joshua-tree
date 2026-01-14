@@ -209,6 +209,33 @@
 
             return false;
         });
+
+        // Services List Live Search Filter
+        $("#services-filter").on("input", function () {
+            const searchTerm = $(this).val().toLowerCase().trim();
+            const $items = $(".service-item");
+            const $noResults = $("#services-no-results");
+            let visibleCount = 0;
+
+            $items.each(function () {
+                const title = $(this).data("title");
+                const matches = title.includes(searchTerm);
+
+                if (matches) {
+                    $(this).removeAttr("hidden");
+                    visibleCount++;
+                } else {
+                    $(this).attr("hidden", "");
+                }
+            });
+
+            // Show/hide no results message
+            if (visibleCount === 0 && searchTerm !== "") {
+                $noResults.removeAttr("hidden");
+            } else {
+                $noResults.attr("hidden", "");
+            }
+        });
     });
 
     $(window).scroll(function () {
