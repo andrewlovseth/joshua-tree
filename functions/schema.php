@@ -222,3 +222,66 @@ function esa_schema_breadcrumb() {
         'itemListElement' => $items,
     ];
 }
+
+/**
+ * Get NewsArticle schema for blog posts.
+ *
+ * @param int $post_id Post ID.
+ * @return array NewsArticle schema data.
+ */
+function esa_schema_news_article($post_id) {
+    $post = get_post($post_id);
+    if (!$post) {
+        return null;
+    }
+
+    $schema = [
+        '@context' => 'https://schema.org',
+        '@type' => 'NewsArticle',
+        'headline' => get_the_title($post_id),
+        'mainEntityOfPage' => [
+            '@type' => 'WebPage',
+            '@id' => get_permalink($post_id),
+        ],
+        'url' => get_permalink($post_id),
+        'datePublished' => get_the_date('c', $post_id),
+        'dateModified' => get_the_modified_date('c', $post_id),
+    ];
+
+    // Add image if post has thumbnail
+    if (has_post_thumbnail($post_id)) {
+        $thumbnail_id = get_post_thumbnail_id($post_id);
+        $image = esa_schema_image_object($thumbnail_id);
+        if ($image) {
+            $schema['image'] = $image;
+        }
+    }
+
+    // Get authors from ACF relationship field
+    $authors = get_field('authors', $post_id);
+    if ($authors && is_array($authors)) {
+        $author_schemas = [];
+        foreach ($authors as $author) {
+            $author_schemas[] = [
+                '@type' => 'Person',
+                'name' => get_the_title($author->ID),
+                'url' => get_permalink($author->ID),
+            ];
+        }
+        $schema['author'] = $author_schemas;
+    } else {
+        // Fall back to Organization as author
+        $schema['author'] = [
+            '@type' => 'Organization',
+            'name' => 'Environmental Science Associates',
+        ];
+    }
+
+    // Publisher is always the Organization
+    $schema['publisher'] = [
+        '@type' => 'Organization',
+        'name' => 'Environmental Science Associates',
+    ];
+
+    return $schema;
+}
