@@ -19,17 +19,19 @@
 
         <?php foreach($authors as $author): ?>
 
-            <?php 
+            <?php
                 $type = $author->post_type;
                 $link = get_permalink($author->ID);
                 $name = get_the_title($author->ID);
+                $info = get_field('info', $author->ID);
+                $position = $info['position'] ?? '';
 
                 if($type === "leadership") {
                     $photo = get_field('info_headshot', $author->ID);
                 } else {
                     $photo = get_field('info_photo', $author->ID);
                 }
-                 
+
             ?>
             
             <div class="author">
@@ -44,7 +46,10 @@
                     </div>
 
                 <div class="info">
-                    <p><a href="<?php echo $link; ?>"><?php echo $name; ?></a></p>
+                    <p class="name"><a href="<?php echo $link; ?>"><?php echo $name; ?></a></p>
+                    <?php if($position): ?>
+                        <p class="position"><?php echo $position; ?></p>
+                    <?php endif; ?>
                 </div>
             </div>
         <?php endforeach; ?>

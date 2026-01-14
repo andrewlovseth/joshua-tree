@@ -4,11 +4,11 @@
     </div>
     
     <div class="sidebar">
+        <?php get_template_part('templates/single-post/authors'); ?>
+
         <?php get_template_part('templates/single-post/date'); ?>
 
         <?php get_template_part('templates/single-post/categories'); ?>
-
-        <?php get_template_part('templates/single-post/authors'); ?>
 
         <?php get_template_part('templates/single-post/share'); ?>
     </div>
