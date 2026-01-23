@@ -1,7 +1,89 @@
 body.page-template-landing-page .page-wrapper {
-    & > *:not(.esa-hero, .esa-featured-projects) {
+    & > *:not(.esa-hero, .esa-featured-projects, .alignfull, .landing-article-columns) {
         @include desktop-small {
             grid-column: 2 / span 8;
+        }
+    }
+
+    & > .alignfull {
+        grid-column: 1 / -1;
+    }
+
+    // Hero needs extra bottom padding to clear the content overlap
+    & > .esa-hero-pattern {
+        .wp-block-cover__inner-container {
+            padding-bottom: 10vh;
+        }
+    }
+
+    & > .landing-article-columns {
+        @include desktop-small {
+            grid-column: 2 / span 10;
+        }
+
+        align-items: flex-start;
+
+        // Left column: white card pulling up into hero
+        & > .wp-block-column:first-child {
+            background: $white;
+            padding: 2rem;
+            margin-top: -5vh;
+            z-index: 10;
+
+            @include desktop-small {
+                margin-top: -10vh;
+            }
+
+            // Match .copy-2.extended typography for nested blocks
+            & > * {
+                margin-bottom: 2rem;
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                line-height: 1.375em;
+            }
+
+            h3 {
+                font-weight: 700;
+                font-size: clamp(1.5rem, 2.4vw, 2.25rem);
+            }
+
+            h4 {
+                font-weight: normal;
+                font-size: clamp(1.25rem, 1.75vw, 1.625rem);
+            }
+
+            h5 {
+                font-size: clamp(1.375rem, 1.6vw, 1.75rem);
+                font-weight: 700;
+                margin-bottom: 0.75rem;
+                padding-top: 1rem;
+            }
+
+            ul {
+                list-style-type: disc;
+            }
+
+            ol {
+                list-style-type: decimal;
+            }
+
+            ul, ol {
+                padding-left: 1.5rem;
+
+                li + li {
+                    padding-top: 0.5rem;
+                }
+            }
+        }
+
+        // Sidebar h4s — override .copy-2.extended h4 specificity
+        .landing-sidebar h4 {
+            font-weight: bold;
+            font-size: clamp(1rem, 1.5vw, 1.125rem);
+            line-height: 1.5em;
+            margin-bottom: 0.5rem;
+            margin-top: 0;
         }
     }
 }

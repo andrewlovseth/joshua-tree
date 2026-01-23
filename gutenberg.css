@@ -71,6 +71,51 @@
   font-display: swap;
 }
 
+.editor-styles-wrapper {
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  line-height: 1.5em;
+}
+
+.editor-styles-wrapper p, .editor-styles-wrapper .wp-block-paragraph {
+  line-height: 1.5em;
+  font-size: clamp(1rem, 1.2vw, 1.125rem) !important;
+}
+
+.editor-styles-wrapper h1, .editor-styles-wrapper h2, .editor-styles-wrapper h3, .editor-styles-wrapper h4, .editor-styles-wrapper h5, .editor-styles-wrapper h6 {
+  line-height: 1.375em;
+}
+
+.editor-styles-wrapper h3 {
+  font-size: clamp(1.5rem, 2.4vw, 2.25rem);
+  font-weight: 700;
+}
+
+.editor-styles-wrapper h4 {
+  font-size: clamp(1.25rem, 1.75vw, 1.625rem);
+  font-weight: normal;
+}
+
+.editor-styles-wrapper h5 {
+  font-size: clamp(1.375rem, 1.6vw, 1.75rem);
+  font-weight: 700;
+}
+
+.editor-styles-wrapper ul {
+  list-style-type: disc;
+}
+
+.editor-styles-wrapper ol {
+  list-style-type: decimal;
+}
+
+.editor-styles-wrapper ul, .editor-styles-wrapper ol {
+  padding-left: 1.5rem;
+}
+
+.editor-styles-wrapper ul li + li, .editor-styles-wrapper ol li + li {
+  padding-top: .5rem;
+}
+
 .esa-sidebar {
   background-color: #d5edef;
   width: 100%;
@@ -136,4 +181,121 @@
   font-size: clamp(.6rem, .52rem + .43vw, .78rem);
   font-weight: 600;
   text-decoration: underline;
+}
+
+.editor-styles-wrapper .landing-article-columns > .wp-block-column:first-child .block-editor-block-list__layout > * {
+  margin-bottom: 1.5rem;
+}
+
+.editor-styles-wrapper .landing-article-columns .landing-sidebar h4 {
+  margin-bottom: .5rem;
+  font-weight: bold;
+  line-height: 1.5em;
+  font-size: clamp(1rem, 1.5vw, 1.125rem) !important;
+}
+
+.landing-sidebar {
+  font-size: .875rem;
+}
+
+.landing-sidebar h4 {
+  margin-top: 0;
+  margin-bottom: .5rem;
+  font-weight: bold;
+}
+
+.landing-sidebar .module + .module {
+  padding-top: 2rem;
+}
+
+.landing-sidebar .contacts .contact {
+  align-items: center;
+  display: flex;
+}
+
+.landing-sidebar .contacts .contact + .contact {
+  padding-top: .75rem;
+}
+
+.landing-sidebar .contacts .contact .photo {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.landing-sidebar .contacts .contact .photo img {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.landing-sidebar .contacts .contact .photo .placeholder {
+  background: #72ccd2;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: block;
+}
+
+.landing-sidebar .contacts .contact .info {
+  padding-left: .5rem;
+}
+
+.landing-sidebar .contacts .contact .info .name {
+  font-size: .875rem;
+  font-weight: bold;
+}
+
+.landing-sidebar .contacts .contact .info .position {
+  color: #6d6e71;
+  font-size: .75rem;
+  font-style: italic;
+}
+
+.landing-sidebar .social-share .links {
+  gap: 1rem;
+  padding-top: .5rem;
+  display: flex;
+}
+
+.landing-sidebar .social-share .links a {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+}
+
+.landing-sidebar .social-share .links svg {
+  width: 100%;
+  height: 100%;
+}
+
+.editor-styles-wrapper .wp-block-cover.esa-hero-pattern {
+  aspect-ratio: 16 / 9;
+  min-height: 50vh;
+}
+
+.editor-styles-wrapper .wp-block-cover.esa-hero-pattern.alignfull {
+  width: auto;
+  max-width: none;
+  margin-left: calc(-1 * var(--wp--custom--spacing--outer, 0px)) !important;
+  margin-right: calc(-1 * var(--wp--custom--spacing--outer, 0px)) !important;
+}
+
+.editor-styles-wrapper .wp-block-cover.esa-hero-pattern .wp-block-cover__inner-container {
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  min-height: 40vh;
+  padding: 2rem;
+  display: flex !important;
+}
+
+.editor-styles-wrapper .wp-block-cover.esa-hero-pattern h1, .editor-styles-wrapper .wp-block-cover.esa-hero-pattern h2 {
+  text-shadow: 2px 2px 5px #000000a8;
+  text-align: left;
+  font-family: Raleway, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.125em;
 }

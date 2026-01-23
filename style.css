@@ -7386,9 +7386,89 @@ body.page-template-default .default-page .copy h6 {
 }
 
 @media screen and (width >= 992px) {
-  body.page-template-landing-page .page-wrapper > :not(.esa-hero, .esa-featured-projects) {
+  body.page-template-landing-page .page-wrapper > :not(.esa-hero, .esa-featured-projects, .alignfull, .landing-article-columns) {
     grid-column: 2 / span 8;
   }
+}
+
+body.page-template-landing-page .page-wrapper > .alignfull {
+  grid-column: 1 / -1;
+}
+
+body.page-template-landing-page .page-wrapper > .esa-hero-pattern .wp-block-cover__inner-container {
+  padding-bottom: 10vh;
+}
+
+body.page-template-landing-page .page-wrapper > .landing-article-columns {
+  align-items: flex-start;
+}
+
+@media screen and (width >= 992px) {
+  body.page-template-landing-page .page-wrapper > .landing-article-columns {
+    grid-column: 2 / span 10;
+  }
+}
+
+body.page-template-landing-page .page-wrapper > .landing-article-columns > .wp-block-column:first-child {
+  z-index: 10;
+  background: #fff;
+  margin-top: -5vh;
+  padding: 2rem;
+}
+
+@media screen and (width >= 992px) {
+  body.page-template-landing-page .page-wrapper > .landing-article-columns > .wp-block-column:first-child {
+    margin-top: -10vh;
+  }
+}
+
+body.page-template-landing-page .page-wrapper > .landing-article-columns > .wp-block-column:first-child > * {
+  margin-bottom: 2rem;
+}
+
+body.page-template-landing-page .page-wrapper > .landing-article-columns > .wp-block-column:first-child h1, body.page-template-landing-page .page-wrapper > .landing-article-columns > .wp-block-column:first-child h2, body.page-template-landing-page .page-wrapper > .landing-article-columns > .wp-block-column:first-child h3, body.page-template-landing-page .page-wrapper > .landing-article-columns > .wp-block-column:first-child h4, body.page-template-landing-page .page-wrapper > .landing-article-columns > .wp-block-column:first-child h5, body.page-template-landing-page .page-wrapper > .landing-article-columns > .wp-block-column:first-child h6 {
+  line-height: 1.375em;
+}
+
+body.page-template-landing-page .page-wrapper > .landing-article-columns > .wp-block-column:first-child h3 {
+  font-size: clamp(1.5rem, 2.4vw, 2.25rem);
+  font-weight: 700;
+}
+
+body.page-template-landing-page .page-wrapper > .landing-article-columns > .wp-block-column:first-child h4 {
+  font-size: clamp(1.25rem, 1.75vw, 1.625rem);
+  font-weight: normal;
+}
+
+body.page-template-landing-page .page-wrapper > .landing-article-columns > .wp-block-column:first-child h5 {
+  margin-bottom: .75rem;
+  padding-top: 1rem;
+  font-size: clamp(1.375rem, 1.6vw, 1.75rem);
+  font-weight: 700;
+}
+
+body.page-template-landing-page .page-wrapper > .landing-article-columns > .wp-block-column:first-child ul {
+  list-style-type: disc;
+}
+
+body.page-template-landing-page .page-wrapper > .landing-article-columns > .wp-block-column:first-child ol {
+  list-style-type: decimal;
+}
+
+body.page-template-landing-page .page-wrapper > .landing-article-columns > .wp-block-column:first-child ul, body.page-template-landing-page .page-wrapper > .landing-article-columns > .wp-block-column:first-child ol {
+  padding-left: 1.5rem;
+}
+
+body.page-template-landing-page .page-wrapper > .landing-article-columns > .wp-block-column:first-child ul li + li, body.page-template-landing-page .page-wrapper > .landing-article-columns > .wp-block-column:first-child ol li + li {
+  padding-top: .5rem;
+}
+
+body.page-template-landing-page .page-wrapper > .landing-article-columns .landing-sidebar h4 {
+  margin-top: 0;
+  margin-bottom: .5rem;
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  font-weight: bold;
+  line-height: 1.5em;
 }
 
 @media screen and (width >= 768px) {
@@ -7571,4 +7651,177 @@ body.error404 .page-header .copy {
 
 .esa-featured-projects a:hover {
   text-decoration: none;
+}
+
+.esa-hero-pattern {
+  aspect-ratio: 16 / 12;
+  grid-column: 1 / -1;
+  max-height: 95vh;
+}
+
+@media screen and (width >= 992px) {
+  .esa-hero-pattern {
+    aspect-ratio: 16 / 7;
+    max-height: 90vh;
+  }
+}
+
+.esa-hero-pattern .wp-block-cover__inner-container {
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+}
+
+@media screen and (width >= 992px) {
+  .esa-hero-pattern .wp-block-cover__inner-container {
+    padding: 3rem 4rem;
+  }
+}
+
+.esa-hero-pattern h1, .esa-hero-pattern h2 {
+  color: #fff;
+  text-shadow: 2px 2px 5px #000000a8;
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.125em;
+}
+
+@media screen and (width >= 768px) {
+  .esa-hero-pattern h1, .esa-hero-pattern h2 {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+  }
+}
+
+.landing-sidebar {
+  border-bottom: 4px double #72ccd2;
+  padding-bottom: 3rem;
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.5em;
+}
+
+.landing-sidebar h4 {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  font-weight: bold;
+  line-height: 1.5em;
+}
+
+.landing-sidebar p {
+  font-size: clamp(.75rem, 1vw, .875rem);
+}
+
+.landing-sidebar a {
+  font-weight: normal;
+}
+
+.landing-sidebar a:hover {
+  text-decoration: underline;
+}
+
+.landing-sidebar .module + .module {
+  padding-top: 3rem;
+}
+
+.landing-sidebar .contacts h4 {
+  padding-bottom: .5rem;
+}
+
+.landing-sidebar .contacts .contact {
+  align-items: center;
+  display: flex;
+}
+
+.landing-sidebar .contacts .contact + .contact {
+  padding-top: 1rem;
+}
+
+.landing-sidebar .contacts .contact .photo {
+  aspect-ratio: 1;
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.landing-sidebar .contacts .contact .photo img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.landing-sidebar .contacts .contact .photo a {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.landing-sidebar .contacts .contact .photo img {
+  border-radius: 50%;
+}
+
+.landing-sidebar .contacts .contact .photo .placeholder {
+  background: #72ccd2;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: block;
+}
+
+.landing-sidebar .contacts .contact .info {
+  flex-direction: column;
+  justify-content: center;
+  gap: .25rem;
+  padding-left: .5rem;
+  display: flex;
+}
+
+.landing-sidebar .contacts .contact .info .name {
+  font-size: .875rem;
+  font-weight: bold;
+  line-height: 1.125em;
+}
+
+.landing-sidebar .contacts .contact .info .name a:hover {
+  text-decoration: underline;
+}
+
+.landing-sidebar .contacts .contact .info .position {
+  color: #6d6e71;
+  font-size: .75rem;
+  font-style: italic;
+  line-height: 1;
+}
+
+.landing-sidebar .social-share .links {
+  align-items: center;
+  padding-top: .5rem;
+  display: flex;
+}
+
+.landing-sidebar .social-share .links .link + .link {
+  margin-left: 1.5rem;
+}
+
+.landing-sidebar .social-share .links a {
+  align-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+}
+
+.landing-sidebar .social-share svg {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.landing-sidebar .social-share svg g, .landing-sidebar .social-share svg path {
+  fill: #dcddde;
+  transition: all .2s;
+}
+
+.landing-sidebar .social-share svg:hover g, .landing-sidebar .social-share svg:hover path {
+  fill: #00a69c;
 }

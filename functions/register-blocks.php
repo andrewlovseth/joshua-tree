@@ -72,5 +72,18 @@ function my_register_blocks() {
                 'jsx' => true
             ),
         ));
+
+        acf_register_block_type(array(
+            'name'              => 'landing-sidebar',
+            'title'             => __('Landing Sidebar'),
+            'description'       => __('Sidebar with contacts, date, and share links for landing pages.'),
+            'render_template'   => 'blocks/landing-sidebar/landing-sidebar.php',
+            'category'          => 'layout',
+            'icon'              => 'sidebar',
+            'mode'              => 'preview',
+            'supports'          => array(
+                'jsx' => false,
+            ),
+        ));
     }
 }

@@ -1,0 +1,36 @@
+.esa-hero-pattern {
+    grid-column: 1 / -1;
+    aspect-ratio: 16 / 12;
+    max-height: 95vh;
+
+    @include desktop-small {
+        aspect-ratio: 16 / 7;
+        max-height: 90vh;
+    }
+
+    .wp-block-cover__inner-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        height: 100%;
+        padding: 2rem;
+
+        @include desktop-small {
+            padding: 3rem 4rem;
+        }
+    }
+
+    h1, h2 {
+        color: $white;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.66);
+        font-weight: 700;
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.125em;
+        margin: 0;
+
+        @include tablet {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+        }
+    }
+}

@@ -1,6 +1,52 @@
 @import "mixins/mixins";
 @import "variables/variables";
 
+// Base editor typography (match .copy-2.extended front-end)
+.editor-styles-wrapper {
+    font-size: clamp(1rem, 1.2vw, 1.125rem);
+    line-height: 1.5em;
+
+    p, .wp-block-paragraph {
+        font-size: clamp(1rem, 1.2vw, 1.125rem) !important;
+        line-height: 1.5em;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        line-height: 1.375em;
+    }
+
+    h3 {
+        font-weight: 700;
+        font-size: clamp(1.5rem, 2.4vw, 2.25rem);
+    }
+
+    h4 {
+        font-weight: normal;
+        font-size: clamp(1.25rem, 1.75vw, 1.625rem);
+    }
+
+    h5 {
+        font-size: clamp(1.375rem, 1.6vw, 1.75rem);
+        font-weight: 700;
+    }
+
+    ul {
+        list-style-type: disc;
+    }
+
+    ol {
+        list-style-type: decimal;
+    }
+
+    ul, ol {
+        padding-left: 1.5rem;
+
+        li + li {
+            padding-top: 0.5rem;
+        }
+    }
+}
+
 .esa-sidebar {
     width: 100%;
     padding: 2rem 2rem 1rem 2rem;
@@ -72,5 +118,132 @@
                 }
             }
         }
+    }
+}
+
+// Landing Article columns — editor preview
+.editor-styles-wrapper .landing-article-columns {
+    // Left column spacing
+    & > .wp-block-column:first-child {
+        .block-editor-block-list__layout > * {
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    // Sidebar h4s in editor
+    .landing-sidebar h4 {
+        font-weight: bold;
+        font-size: clamp(1rem, 1.5vw, 1.125rem) !important;
+        line-height: 1.5em;
+        margin-bottom: 0.5rem;
+    }
+}
+
+// Landing Sidebar block — editor preview
+.landing-sidebar {
+    font-size: 0.875rem;
+
+    h4 {
+        font-weight: bold;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .module + .module {
+        padding-top: 2rem;
+    }
+
+    .contacts .contact {
+        display: flex;
+        align-items: center;
+
+        & + .contact {
+            padding-top: 0.75rem;
+        }
+
+        .photo {
+            width: 2.5rem;
+            height: 2.5rem;
+            flex-shrink: 0;
+
+            img {
+                border-radius: 50%;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .placeholder {
+                display: block;
+                background: $teal;
+                width: 2.5rem;
+                height: 2.5rem;
+                border-radius: 50%;
+            }
+        }
+
+        .info {
+            padding-left: 0.5rem;
+
+            .name {
+                font-weight: bold;
+                font-size: 0.875rem;
+            }
+
+            .position {
+                font-style: italic;
+                color: $dark-gray;
+                font-size: 0.75rem;
+            }
+        }
+    }
+
+    .social-share .links {
+        display: flex;
+        gap: 1rem;
+        padding-top: 0.5rem;
+
+        a {
+            width: 1.5rem;
+            height: 1.5rem;
+            display: flex;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+// Cover block hero pattern — editor preview
+.editor-styles-wrapper .wp-block-cover.esa-hero-pattern {
+    aspect-ratio: 16 / 9;
+    min-height: 50vh;
+
+    // Full-width in editor canvas
+    &.alignfull {
+        margin-left: calc(-1 * var(--wp--custom--spacing--outer, 0px)) !important;
+        margin-right: calc(-1 * var(--wp--custom--spacing--outer, 0px)) !important;
+        max-width: none;
+        width: auto;
+    }
+
+    .wp-block-cover__inner-container {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        min-height: 40vh;
+        padding: 2rem;
+    }
+
+    h1, h2 {
+        font-family: $raleway;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.66);
+        font-weight: 700;
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.125em;
+        text-align: left;
     }
 }

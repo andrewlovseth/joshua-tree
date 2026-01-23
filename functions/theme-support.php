@@ -33,6 +33,10 @@ add_theme_support('html5', array(
 add_theme_support( 'automatic-feed-links' );
 
 
+// Enable wide/full alignment for blocks (Cover, etc.)
+add_theme_support( 'align-wide' );
+
+
 // Add support for core custom logo.
 add_theme_support('custom-logo', array(
     'height'      => 250,
