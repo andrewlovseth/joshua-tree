@@ -21,8 +21,8 @@ function bearsmith_enqueue_styles_and_scripts() {
     wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/style.css', '', $style_last_updated_at );
 
     // Add plugins.js & site.js (with jQuery dependency)
-    wp_enqueue_script( 'custom-plugins', get_stylesheet_directory_uri() . '/js/plugins.js', array(), $script_last_updated_at, true );
-    wp_enqueue_script( 'custom-site', get_stylesheet_directory_uri() . '/js/site.js', array(), $script_last_updated_at, true );
+    wp_enqueue_script( 'custom-plugins', get_stylesheet_directory_uri() . '/js/plugins.js', array( 'jquery' ), $script_last_updated_at, true );
+    wp_enqueue_script( 'custom-site', get_stylesheet_directory_uri() . '/js/site.js', array( 'jquery' ), $script_last_updated_at, true );
 }
 add_action( 'wp_enqueue_scripts', 'bearsmith_enqueue_styles_and_scripts' );
 

@@ -6,13 +6,13 @@
 
 
 // Add options pages
-if(function_exists('acf_add_options_page')) {
+function bearsmith_acf_options_pages() {
     acf_add_options_page();
     acf_add_options_sub_page('Header');
     acf_add_options_sub_page('Footer');
     acf_add_options_sub_page('Clients');
-
 }
+add_action('acf/init', 'bearsmith_acf_options_pages');
 
 
 // Order Relationship fields
