@@ -17,13 +17,14 @@ body.page-template-landing-page .page-wrapper {
     }
 
     & > .landing-article-columns {
-        margin-bottom: 0 !important;
         
         @include desktop-small {
             grid-column: 2 / span 10;
         }
 
         align-items: flex-start;
+        margin-bottom: 0 !important;
+
 
         // Left column: white card pulling up into hero
         & > .wp-block-column:first-child {
