@@ -74,6 +74,20 @@ function my_register_blocks() {
         ));
 
         acf_register_block_type(array(
+            'name'              => 'esa-experts',
+            'title'             => __('ESA Experts'),
+            'description'       => __('Grid of team members with circular photos.'),
+            'render_template'   => 'blocks/esa-experts/esa-experts.php',
+            'category'          => 'layout',
+            'icon'              => 'groups',
+            'mode'              => 'preview',
+            'supports'          => array(
+                'align' => false,
+                'jsx' => false
+            ),
+        ));
+
+        acf_register_block_type(array(
             'name'              => 'landing-sidebar',
             'title'             => __('Landing Sidebar'),
             'description'       => __('Sidebar with contacts, date, and share links for landing pages.'),

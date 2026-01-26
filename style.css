@@ -7581,6 +7581,37 @@ body.error404 .page-header .copy {
   text-decoration: underline;
 }
 
+.esa-experts {
+  padding: 3rem 0;
+}
+
+.esa-experts .section-header {
+  padding-bottom: 1.5rem;
+}
+
+.esa-experts__grid {
+  gap: 2rem;
+  display: grid;
+}
+
+@media screen and (width >= 480px) {
+  .esa-experts__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (width >= 768px) {
+  .esa-experts__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (width >= 992px) {
+  .esa-experts__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 .esa-hero {
   grid-column: 1 / -1;
 }

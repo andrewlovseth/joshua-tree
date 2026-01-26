@@ -1,0 +1,76 @@
+{
+    "key": "group_6797a1b2c3d4e",
+    "title": "Block: ESA Experts",
+    "fields": [
+        {
+            "key": "field_6797a1b2c3d50",
+            "label": "Header",
+            "name": "header",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Section heading displayed above the grid.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Connect with our team",
+            "maxlength": "",
+            "placeholder": "Connect with our team",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6797a1b2c3d51",
+            "label": "Experts",
+            "name": "experts",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "Select employees or leaders to display.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "employee",
+                "leadership"
+            ],
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": "",
+            "elements": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/esa-experts"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1737907634
+}
