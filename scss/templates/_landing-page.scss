@@ -38,8 +38,8 @@ body.page-template-landing-page .page-wrapper {
             }
 
             // Match .copy-2.extended typography for nested blocks
-            & > * {
-                margin-bottom: 2rem;
+            & > * + * {
+                margin-top: 2rem;
             }
 
             h1, h2, h3, h4, h5, h6 {
