@@ -18,7 +18,7 @@
 			"custom": false
 		},
 		"typography": {
-			"customFontSize": false,
+			"customFontSize": true,
 			"fontFamilies": [
 				{
 					"fontFamily": "'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -26,7 +26,12 @@
 					"name": "Raleway"
 				}
 			],
-			"fontSizes": []
+			"fontSizes": [
+				{ "slug": "small", "size": "0.875rem", "name": "Small" },
+				{ "slug": "medium", "size": "1rem", "name": "Medium" },
+				{ "slug": "large", "size": "1.25rem", "name": "Large" },
+				{ "slug": "x-large", "size": "1.5rem", "name": "Extra Large" }
+			]
 		},
 		"spacing": {
 			"padding": false,
