@@ -7,8 +7,22 @@
     line-height: 1.5em;
 
     p, .wp-block-paragraph {
-        font-size: clamp(1rem, 1.2vw, 1.125rem) !important;
+        font-size: clamp(1rem, 1.2vw, 1.125rem);
         line-height: 1.5em;
+    }
+
+    // Font size presets from theme.json
+    .has-small-font-size {
+        font-size: 0.875rem !important;
+    }
+    .has-medium-font-size {
+        font-size: 1rem !important;
+    }
+    .has-large-font-size {
+        font-size: 1.25rem !important;
+    }
+    .has-x-large-font-size {
+        font-size: 1.5rem !important;
     }
 
     h1, h2, h3, h4, h5, h6 {

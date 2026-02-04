@@ -71,14 +71,25 @@
   font-display: swap;
 }
 
-.editor-styles-wrapper {
+.editor-styles-wrapper, .editor-styles-wrapper p, .editor-styles-wrapper .wp-block-paragraph {
   font-size: clamp(1rem, 1.2vw, 1.125rem);
   line-height: 1.5em;
 }
 
-.editor-styles-wrapper p, .editor-styles-wrapper .wp-block-paragraph {
-  line-height: 1.5em;
-  font-size: clamp(1rem, 1.2vw, 1.125rem) !important;
+.editor-styles-wrapper .has-small-font-size {
+  font-size: .875rem !important;
+}
+
+.editor-styles-wrapper .has-medium-font-size {
+  font-size: 1rem !important;
+}
+
+.editor-styles-wrapper .has-large-font-size {
+  font-size: 1.25rem !important;
+}
+
+.editor-styles-wrapper .has-x-large-font-size {
+  font-size: 1.5rem !important;
 }
 
 .editor-styles-wrapper h1, .editor-styles-wrapper h2, .editor-styles-wrapper h3, .editor-styles-wrapper h4, .editor-styles-wrapper h5, .editor-styles-wrapper h6 {
