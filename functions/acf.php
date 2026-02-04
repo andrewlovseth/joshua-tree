@@ -11,6 +11,7 @@ function bearsmith_acf_options_pages() {
     acf_add_options_sub_page('Header');
     acf_add_options_sub_page('Footer');
     acf_add_options_sub_page('Clients');
+    acf_add_options_sub_page('API Keys');
 }
 add_action('acf/init', 'bearsmith_acf_options_pages');
 
@@ -38,8 +39,11 @@ function bearsmith_acf_styles() {
 }
 add_action('acf/input/admin_head', 'bearsmith_acf_styles');
 
-function my_acf_init() {
-	acf_update_setting('google_api_key', 'GOOGLE_MAPS_API_KEY_REMOVED');
+// Set Google Maps API key from ACF option (stored in Options > API Keys)
+function esa_acf_google_maps_api_key() {
+    $api_key = get_field('google_maps_api_key', 'option');
+    if ($api_key) {
+        acf_update_setting('google_api_key', $api_key);
+    }
 }
-
-add_action('acf/init', 'my_acf_init');
+add_action('acf/init', 'esa_acf_google_maps_api_key');
