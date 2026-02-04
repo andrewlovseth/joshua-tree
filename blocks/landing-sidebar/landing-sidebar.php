@@ -59,21 +59,15 @@ $contacts = get_field('contacts');
         <h4>Share</h4>
 
         <div class="links">
-            <div class="link facebook">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode( get_permalink() ); ?>" rel="external" target="_blank">
-                    <?php echo esa_svg( get_bloginfo('template_directory') . '/images/share-facebook.svg' ); ?>
-                </a>
-            </div>
-
-            <div class="link twitter">
-                <a href="https://twitter.com/intent/tweet/?text=<?php echo urlencode( get_the_title() . ' ' . get_permalink() ); ?>" rel="external" target="_blank">
-                    <?php echo esa_svg( get_bloginfo('template_directory') . '/images/share-twitter.svg' ); ?>
-                </a>
-            </div>
-
             <div class="link linkedin">
                 <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode( get_permalink() ); ?>&title=<?php echo urlencode( get_the_title() ); ?>" rel="external" target="_blank">
                     <?php echo esa_svg( get_bloginfo('template_directory') . '/images/share-linkedin.svg' ); ?>
+                </a>
+            </div>
+            
+            <div class="link facebook">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode( get_permalink() ); ?>" rel="external" target="_blank">
+                    <?php echo esa_svg( get_bloginfo('template_directory') . '/images/share-facebook.svg' ); ?>
                 </a>
             </div>
         </div>
