@@ -1,0 +1,39 @@
+body.service-template-emerging-technology {
+    .eyebrow {
+        font-size: $type-size-150;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: $dark-teal;
+        margin: 0 0 1rem;
+    }
+
+    .section-header {
+        margin-bottom: 0;
+        padding-bottom: 0;
+
+        @include desktop-small {
+            grid-column: 2 / span 9;
+        }
+
+        .section-headline {
+            font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin: 0 0 1rem;
+        }
+
+        .section-copy {
+            color: $dark-gray;
+        }
+    }
+
+    @import "emerging-technology/hero";
+    @import "emerging-technology/overview";
+    @import "emerging-technology/approach";
+    @import "emerging-technology/photo-band";
+    @import "emerging-technology/solutions";
+    @import "emerging-technology/case-studies";
+    @import "emerging-technology/cta";
+    @import "emerging-technology/team";
+}

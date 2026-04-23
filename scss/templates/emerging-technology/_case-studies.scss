@@ -1,0 +1,361 @@
+.et-case-studies {
+    @include section-spacing-small;
+
+    .et-case-studies-header {
+        background: $dark-blue url("images/et-case-study-header.jpg") center / cover no-repeat;
+        color: $white;
+        padding: 1.5rem 2rem;
+        margin-bottom: 0.5rem;
+
+        @include tablet {
+            padding: 2rem 3rem;
+        }
+
+        &.single-slide .et-case-studies-header-nav {
+            visibility: hidden;
+        }
+    }
+
+    .et-case-studies-header-inner {
+        display: grid;
+        gap: 1rem;
+        align-items: center;
+        grid-template-columns: 1fr;
+
+        @include tablet {
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+        }
+    }
+
+    .et-case-studies-header-title {
+        min-width: 0;
+    }
+
+    .et-case-studies-slide-title {
+        font-size: clamp(1.25rem, 1.8vw, 1.75rem);
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 0;
+        color: $white;
+        max-width: 30ch;
+        text-wrap: balance;
+    }
+
+    .et-case-studies-header-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 1rem;
+
+        .slick-dots {
+            position: static;
+            display: flex !important;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            li {
+                width: auto;
+                height: auto;
+                margin: 0;
+
+                button {
+                    width: 10px;
+                    height: 10px;
+                    padding: 0;
+                    border: 0;
+                    border-radius: 50%;
+                    background: $white;
+                    text-indent: -9999px;
+                    cursor: pointer;
+                    transition: background 0.2s ease;
+
+                    &:before {
+                        display: none;
+                    }
+                }
+
+                &.slick-active button {
+                    background: #54b999;
+                }
+            }
+        }
+    }
+
+    .et-case-studies-header-counter {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        gap: 1rem;
+        font-weight: 700;
+        padding-bottom: 1rem;
+
+        .counter-eyebrow {
+            font-size: $type-size-200;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 0.2em;
+            line-height: 1.5;
+            color: #54b999;
+        }
+
+        .counter-number {
+            color: #54b999;
+            font-size: 3.5rem;
+            width: 2.5rem;
+            text-align: center;
+            line-height: 1;
+            font-weight: 400;
+            letter-spacing: 0;
+        }
+    }
+
+    .case-study-slider {
+        position: relative;
+
+        &.single-slide .slick-arrow,
+        &.single-slide .slick-dots {
+            display: none !important;
+        }
+
+        // Chunky CSS-drawn chevrons — thicker than the theme's default slick arrows.
+        // Rotated border technique: a square with border-top + border-left, rotated 45deg,
+        // reads as a chevron. Thickness = border-width.
+        .slick-prev,
+        .slick-next {
+            position: absolute;
+            top: 4rem;
+            z-index: 10;
+            width: 44px;
+            height: 60px;
+            padding: 0;
+            background: transparent;
+            border: 0;
+            cursor: pointer;
+            font-size: 0;
+
+            @include desktop-medium {
+                top: 50%;
+
+                transform: translateY(calc(-50% - 2rem));
+            }
+
+            &:before {
+                content: "";
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                border-top: 7px solid $white;
+                border-left: 7px solid $white;
+                transition: border-color 0.2s ease;
+            }
+
+            &:hover:before,
+            &:focus:before {
+                border-color: $white;
+            }
+        }
+
+        .slick-prev {
+            left: 0.5rem;
+
+            &:before {
+                transform: rotate(-45deg);
+                margin-left: 4px;
+                background: none;
+            }
+        }
+
+        .slick-next {
+            right: 0.5rem;
+
+            &:before {
+                transform: rotate(135deg);
+                margin-right: 4px;
+                background: none;
+            }
+        }
+    }
+
+    // Grid "pile" technique: bg image and content share a single grid cell.
+    // The bg has align-self: start so it holds its aspect-ratio height at the top of the cell,
+    // while the content (default align-self: stretch) grows the cell taller — the gap between
+    // bg's bottom and content's bottom is transparent, so the page bg shows through as a white
+    // band. Keeps everything inside the slide, which is needed because slick enforces overflow
+    // hidden on each .slick-slide.
+    .case-study-slide {
+        background: transparent;
+    }
+
+    .case-study-slide-outer {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    // At tablet+, the BG is a standardized wide cinematic band so image-source
+    // aspect ratio no longer drives slide height. Card height now typically
+    // exceeds BG height, producing the "card extends below BG" overlap.
+    .case-study-slide-bg {
+        grid-column: 1;
+        grid-row: 1;
+        align-self: start;
+
+        @include tablet {
+            aspect-ratio: 7/3;
+            overflow: hidden;
+        }
+
+        &__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        &__spacer {
+            height: 2rem;
+            width: 100%;
+            display: block;
+
+            @include tablet {
+                display: none;
+            }
+        }
+    }
+
+    .case-study-slide-inner {
+        grid-column: 1;
+        grid-row: 1;
+        z-index: 1;
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: 1fr;
+        padding: 3.5rem 3rem;
+
+        @include tablet {
+            grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+            align-items: start;
+            gap: 2.5rem;
+        }
+    }
+
+    .case-study-card {
+        background: $white;
+        padding: 2rem;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        @include tablet {
+            padding: 2.5rem;
+        }
+    }
+
+    .case-study-block {
+        .eyebrow {
+            color: $dark-teal;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-study-copy {
+            color: $charcoal;
+            font-size: $type-size-150;
+            line-height: 1.55;
+
+            p:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    // KPI layout: stacked with top-borders on mobile, row with left-borders on tablet+.
+    // Wrapper always keeps top + bottom border; dividers between cells flip axis at breakpoint.
+    .case-study-kpis {
+        display: grid;
+        grid-template-columns: 1fr;
+        border-top: 1px solid $medium-gray;
+        border-bottom: 1px solid $medium-gray;
+        gap: 0;
+
+        @include tablet {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            padding: 1.25rem 0;
+        }
+    }
+
+    .kpi {
+        padding: 1rem 0;
+        border-top: 1px solid $medium-gray;
+
+        &:first-child {
+            border-top: 0;
+        }
+
+        @include tablet {
+            padding: 0 1.25rem;
+            border-top: 0;
+            border-left: 1px solid $medium-gray;
+
+            &:first-child {
+                padding-left: 0;
+                border-left: 0;
+            }
+        }
+    }
+
+    // Stat size scales down as string length grows so long stats like "Multi-sensor
+    // platforms" wrap to 2 lines at readable size instead of overflowing the cell.
+    // Size class is set in PHP based on mb_strlen of the stat string.
+    .kpi-stat {
+        display: block;
+        font-weight: 700;
+        color: $dark-teal;
+        line-height: 1.1;
+        margin-bottom: 0.35rem;
+        text-wrap: balance;
+
+        &--lg {
+            font-size: $type-size-500;
+        }
+
+        &--md {
+            font-size: $type-size-400;
+        }
+
+        &--sm {
+            font-size: $type-size-300;
+            line-height: 1.2;
+        }
+    }
+
+    .kpi-label {
+        display: block;
+        font-size: $type-size-150;
+        color: $dark-gray;
+        line-height: 1.4;
+    }
+
+    .case-study-gallery {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    // filter: drop-shadow follows alpha channel, so transparent PNG infographics
+    // cast a shadow around their visible content rather than a rectangular box.
+    // Rectangular JPEGs render identically to a box-shadow.
+    .case-study-gallery-image {
+        margin: 0;
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.22));
+        }
+    }
+}

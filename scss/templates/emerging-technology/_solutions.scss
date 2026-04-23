@@ -1,0 +1,58 @@
+.et-solutions {
+    // Shared-border grid: 1px gap + container bg = single hairline between cells.
+    // Wrapper 1px border closes the outer frame.
+    .solutions-grid {
+        gap: 1px;
+        background: $light-gray;
+        border: 1px solid $light-gray;
+    }
+
+    .solution-item {
+        background: $white;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .solution-header {
+        padding: 2rem 0 0 0;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    // Self-contained SVG: pennant shape + icon in one file.
+    // Colors baked in via internal <defs><style>, so no fill overrides here.
+    .solution-icon {
+        display: inline-flex;
+
+        svg {
+            width: 96px;
+            height: auto;
+            display: block;
+        }
+    }
+
+    .solution-body {
+        padding: 2rem 2rem 3rem 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .solution-title {
+        font-size: $type-size-500;
+        font-weight: 700;
+        line-height: 1.25;
+        margin: 0;
+        color: $black;
+    }
+
+    .solution-desc {
+        font-size: $type-size-200;
+        line-height: 1.55;
+        margin: 0;
+
+        strong {
+            font-weight: 700;
+        }
+    }
+}

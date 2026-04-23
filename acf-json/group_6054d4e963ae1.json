@@ -395,6 +395,11 @@
                 "param": "post_template",
                 "operator": "!=",
                 "value": "templates\/platform-detail.php"
+            },
+            {
+                "param": "post_template",
+                "operator": "!=",
+                "value": "templates\/emerging-technology.php"
             }
         ]
     ],
@@ -420,5 +425,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1714619004
+    "modified": 1777200001
 }

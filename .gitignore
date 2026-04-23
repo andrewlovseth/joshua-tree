@@ -74,3 +74,10 @@ gulpfile.babel.js
 .eslintignore
 .eslintrc.js
 package-lock.json
+
+# Editor & Claude local settings
+.vscode/
+.claude/settings.local.json
+
+# Local dev workspace (populator scripts, staged assets for prod upload)
+/dev/

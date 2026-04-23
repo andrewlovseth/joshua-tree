@@ -1,0 +1,46 @@
+.et-cta {
+    background: $charcoal url('images/et-ai-cta-bg.jpg') center / cover no-repeat;
+    color: $white;
+    @include section-spacing-small;
+
+    .eyebrow {
+        color: $dark-teal;
+        margin-bottom: 0;
+    }
+
+    &__container {
+        display: grid;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .et-cta-headline {
+        font-size: clamp(1.75rem, 3vw, 3rem);
+        font-weight: 700;
+        line-height: 1.15;
+        margin: 0;
+
+        .headline-lead {
+            color: $white;
+            margin-right: 0.35em;
+        }
+
+        .headline-accent {
+            color: $dark-teal;
+        }
+    }
+
+    .et-cta-copy {
+        color: rgba(255, 255, 255, 0.85);
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .et-cta-actions {
+        .btn {
+            border: none;
+        }
+    }
+}

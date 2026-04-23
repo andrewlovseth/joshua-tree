@@ -1,0 +1,25 @@
+.et-photo-band {
+    @include section-spacing-small;
+
+    &__container {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1rem;
+
+        @include tablet {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    .et-photo-band-item {
+        aspect-ratio: 3 / 2;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    }
+}

@@ -147,6 +147,43 @@
             slidesToScroll: 1,
             adaptiveHeight: false,
         });
+
+        // Emerging Tech / Case Studies Slider
+        (function () {
+            const $slider = $(".case-study-slider");
+            if (!$slider.length) return;
+
+            const $title = $(".et-case-studies-slide-title");
+            const $counter = $(".et-case-studies-header-counter .counter-number");
+            const $dotsHost = $(".et-case-studies-header-nav");
+
+            const syncHeader = function (idx) {
+                const $slide = $slider.find('.case-study-slide[data-slick-index="' + idx + '"]');
+                if ($slide.length) {
+                    $title.text($slide.attr("data-title") || "");
+                }
+                $counter.text(idx + 1);
+            };
+
+            $slider.on("init", function (e, slick) {
+                syncHeader(slick.currentSlide);
+            });
+
+            $slider.on("afterChange", function (e, slick, currentSlide) {
+                syncHeader(currentSlide);
+            });
+
+            $slider.slick({
+                dots: true,
+                arrows: true,
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                adaptiveHeight: true,
+                fade: false,
+                appendDots: $dotsHost,
+            });
+        })();
         +(
             //JEDI: Tabs
             $(".jedi-tabs__link").on("click", function () {

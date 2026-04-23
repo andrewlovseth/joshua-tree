@@ -5,6 +5,7 @@
         img {
             width: 100%;
             max-width: 6.5rem;
+            transition: max-width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
         }
     }
 }

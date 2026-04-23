@@ -27,7 +27,10 @@
                 text-transform: uppercase;
                 letter-spacing: 0.1em;
                 font-size: 0.875rem;
-                transition: all 0.2s ease-in;
+                transition:
+                    color 0.2s ease-in,
+                    border-color 0.2s ease-in,
+                    padding 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 
                 @include desktop-small {
                     padding: 3.25rem 0;

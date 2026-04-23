@@ -27,7 +27,7 @@ Bun-native TypeScript scripts (no Gulp):
 |------|---------|
 | `theme-support.php` | WP features, SVG upload, "Posts" → "News" relabeling, featured post exclusion |
 | `enqueue-styles-scripts.php` | Asset loading with cache-busting |
-| `acf.php` | Options pages (Header, Footer, Clients), relationship field ordering |
+| `acf.php` | Options pages (Header, Footer, Clients, API Keys), Google Maps API key from option, relationship field ordering |
 | `register-blocks.php` | ACF blocks: sidebar, esa-contacts, esa-hero, esa-featured-projects |
 | `disable-gutenberg-editor.php` | Gutenberg disabled for 18 page templates and 7 CPTs |
 | `svg.php` | `esa_svg($url)` helper for inline SVG |
@@ -89,4 +89,4 @@ CPT registration is handled by plugins, not the theme.
 
 ## Deployment
 
-Bitbucket → WP Pusher to production (esassoc.com)
+GitHub (`andrewlovseth/joshua-tree`) → WP Pusher to production (esassoc.com)

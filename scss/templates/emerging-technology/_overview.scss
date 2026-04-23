@@ -1,0 +1,93 @@
+.et-overview {
+    @include section-spacing-small;
+
+    & > * {
+        @include desktop-small {
+            grid-column: 3 / span 10;
+        }
+    }
+
+    &__container {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: minmax(0, 1fr);
+
+        @include tablet {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 2.25fr);
+        }
+    }
+
+    .et-overview-graphic {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include desktop-small {
+            justify-content: flex-start;
+        }
+
+        img {
+            max-width: 220px;
+            height: auto;
+            display: block;
+            margin-right: auto;
+        }
+    }
+
+    .et-overview-body {
+        display: flex;
+        flex-direction: column;
+        gap: 1.75rem;
+    }
+
+    .et-overview-lede {
+        font-size: clamp(1.05rem, 1.2vw, 1.2rem);
+        line-height: 1.55;
+        color: $charcoal;
+
+        strong {
+            font-weight: 700;
+            color: $dark-teal;
+        }
+    }
+
+    .et-overview-actions-row {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: flex-start;
+
+        @include tablet {
+            flex-direction: row;
+            align-items: center;
+            gap: 3rem;
+        }
+    }
+
+    // Approved design exception: teal-left-border pullquote.
+    // Not a status indicator — typographic callout treatment per locked design.
+    .et-overview-callout {
+        margin: 0;
+        padding: 0.25rem 0 0.25rem 1.25rem;
+        border-left: 4px solid $dark-teal;
+        font-size: $type-size-200;
+        font-style: italic;
+        font-weight: 400;
+        line-height: 1.5;
+        color: $charcoal;
+        flex: 1 1 auto;
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .et-overview-actions {
+        flex: 0 0 auto;
+
+        .btn-sm {
+            letter-spacing: 0.2em;
+            font-size: $type-size-150;
+        }
+    }
+}
