@@ -275,14 +275,43 @@
         });
     });
 
-    $(window).scroll(function () {
-        var scroll = $(window).scrollTop();
-        if (scroll >= 0.4 * $(window).height()) {
-            $("body").addClass("show-top-btn");
-        } else {
-            $("body").removeClass("show-top-btn");
+    // Sticky-header compact-state toggle.
+    // Hysteresis (add at 40% vh, remove at 25% vh) prevents flip-flop at the
+    // threshold because the compact header is shorter, which shifts document
+    // flow and can re-cross a single threshold mid-transition.
+    (function () {
+        var $body = $("body");
+        var ADD_RATIO = 0.4;
+        var REMOVE_RATIO = 0.25;
+        var viewportHeight = $(window).height();
+        var isCompact = false;
+        var ticking = false;
+
+        function update() {
+            ticking = false;
+            var scroll = window.pageYOffset;
+            if (!isCompact && scroll >= ADD_RATIO * viewportHeight) {
+                $body.addClass("show-top-btn");
+                isCompact = true;
+            } else if (isCompact && scroll < REMOVE_RATIO * viewportHeight) {
+                $body.removeClass("show-top-btn");
+                isCompact = false;
+            }
         }
-    });
+
+        function onScroll() {
+            if (!ticking) {
+                window.requestAnimationFrame(update);
+                ticking = true;
+            }
+        }
+
+        $(window).on("scroll", onScroll);
+        $(window).on("resize", function () {
+            viewportHeight = $(window).height();
+        });
+        update();
+    })();
 
     $(document).mouseup(function (e) {
         var menu = $(".mobile-nav, .js-nav-trigger, .search-nav");
