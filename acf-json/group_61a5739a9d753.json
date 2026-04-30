@@ -146,10 +146,10 @@
                     "new_lines": "br"
                 },
                 {
-                    "key": "field_61a57faae496f",
-                    "label": "People",
-                    "name": "people",
-                    "type": "relationship",
+                    "key": "field_268794d8eabe6",
+                    "label": "Spotlights",
+                    "name": "esa_spotlights",
+                    "type": "repeater",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -158,19 +158,61 @@
                         "class": "",
                         "id": ""
                     },
-                    "post_type": [
-                        "post"
-                    ],
-                    "taxonomy": [
-                        "category:employee-owner-spotlight"
-                    ],
-                    "filters": [
-                        "search"
-                    ],
-                    "elements": "",
-                    "min": "",
-                    "max": "",
-                    "return_format": "object"
+                    "collapsed": "",
+                    "min": 2,
+                    "max": 2,
+                    "layout": "block",
+                    "button_label": "Add Spotlight",
+                    "sub_fields": [
+                        {
+                            "key": "field_96f0389d0a157",
+                            "label": "Spotlight",
+                            "name": "spotlight",
+                            "type": "post_object",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "post"
+                            ],
+                            "taxonomy": [
+                                "category:employee-owner-spotlight"
+                            ],
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "return_format": "id",
+                            "ui": 1
+                        },
+                        {
+                            "key": "field_2ba0a8bfaf282",
+                            "label": "Alternate Image",
+                            "name": "alternate_image",
+                            "type": "image",
+                            "instructions": "Optional. If set, this image replaces the Spotlight's featured image in the homepage grid tile. Use a portrait (≈3:4) framed for hard cropping.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        }
+                    ]
                 },
                 {
                     "key": "field_61a57fbbe4970",
@@ -398,5 +440,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1638301820
+    "modified": 1777573519
 }

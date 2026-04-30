@@ -1,9 +1,8 @@
 <?php
     $esa = get_field('esa');
     $copy = $esa['copy'];
-    $people = $esa['people'];
     $photos = $esa['photos'];
-    
+
     if(have_rows('esa')): while(have_rows('esa')): the_row();
 ?>
 
@@ -46,24 +45,37 @@
             <?php $count++; endwhile; endif; ?>
 
 
-            <?php if( $people ): ?>
-                <?php $count = 1; foreach( $people as $p ): ?>
-                    <div class="people people-<?php echo $count; ?>">
-                        <a href="<?php echo get_permalink( $p->ID ); ?>">
-                            <div class="photo">
-                                <?php echo get_the_post_thumbnail($p->ID); ?>
-                            </div>
+            <?php if( have_rows('esa_spotlights') ): $count = 1; while( have_rows('esa_spotlights') ): the_row();
+                $spotlight_id = get_sub_field('spotlight');
+                $alt          = get_sub_field('alternate_image');
+                if( ! $spotlight_id ) { $count++; continue; }
+            ?>
+                <div class="people people-<?php echo esc_attr($count); ?>">
+                    <a href="<?php echo esc_url( get_permalink( $spotlight_id ) ); ?>">
+                        <div class="photo">
+                            <?php
+                                if( $alt && ! empty( $alt['ID'] ) ) {
+                                    $attachment_alt = trim( (string) get_post_meta( $alt['ID'], '_wp_attachment_image_alt', true ) );
+                                    $img_attr = array();
+                                    if( $attachment_alt === '' ) {
+                                        $img_attr['alt'] = get_the_title( $spotlight_id );
+                                    }
+                                    echo wp_get_attachment_image( $alt['ID'], 'post-thumbnail', false, $img_attr );
+                                } else {
+                                    echo get_the_post_thumbnail( $spotlight_id );
+                                }
+                            ?>
+                        </div>
 
-                            <div class="info">
-                                <div class="headline">
-                                    <h4><?php echo get_the_title( $p->ID ); ?></h4>
-                                </div>
+                        <div class="info">
+                            <div class="headline">
+                                <h4><?php echo esc_html( get_the_title( $spotlight_id ) ); ?></h4>
                             </div>
-                        
-                        </a>
-                    </div>
-                <?php $count++; endforeach; ?>
-            <?php endif; ?>
+                        </div>
+
+                    </a>
+                </div>
+            <?php $count++; endwhile; endif; ?>
 
             <?php if( $photos ): ?>
                 <?php $count = 1; foreach( $photos as $photo ): ?>
