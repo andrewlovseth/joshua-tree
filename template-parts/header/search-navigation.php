@@ -1,3 +1,11 @@
+<?php
+/*
+    Inline search form — rendered by 404.php only. The header search overlay
+    this part used to power is retired; site-wide search is the omnibox
+    (template-parts/header/omnibox.php). Styles: scss/header/_search-nav.scss
+    plus the 404 overrides in scss/templates/_404.scss.
+*/
+?>
 <nav class="search-nav grid">
     <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
         <label>

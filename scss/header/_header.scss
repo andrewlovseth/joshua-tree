@@ -36,9 +36,11 @@
 
 @import 'work-nav';
 
+// 404-only search form (the header overlay it once powered is retired —
+// site search is now the omnibox below; see 404.php)
 @import 'search-nav';
 
-@import 'search-overlay-open';
+@import 'search';
 
 body.show-top-btn {
     @include desktop-small {

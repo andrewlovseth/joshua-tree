@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Search Results · ESA</title>
+<!--
+    ESA site-wide search — /?s= results page specimen.
+    Layout forked from the approved Ultimate Hall of Fame results page,
+    Option B "Sidebar filters": persistent left rail with scope filters +
+    derived counts, grouped results column right. Skin, tokens, icons, and content are shared with omnibox.html —
+    one visual voice for the whole search feature.
+    Demo state: query "water". Counts derive from the data at render time;
+    the input is live — type to re-query.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════════════════════════════════
+   Tokens — brand values from scss/variables/_colors.scss; tints are the
+   brand hue mixed onto white at the noted strength. (Shared with the
+   omnibox specimen.)
+   ════════════════════════════════════════════════════════════════════ */
+:root {
+    --spec-teal: #72CCD2;
+    --spec-dark-teal: #00A69C;
+    --spec-medium-blue: #00728F;
+    --spec-charcoal: #414141;
+    --spec-dark-gray: #6D6E71;
+    --spec-medium-gray: #ADAFB2;
+    --spec-light-gray: #DCDDDE;
+    --spec-off-white: #EDEDED;
+    --spec-white: #fff;
+
+    --spec-hover: #F4FBFB;         /* teal 8% — row + pill hover */
+    --spec-focus-ring: #DDF2F4;    /* teal 22% — search input focus ring */
+    --spec-mark: #FFF176;          /* highlighter yellow — query highlight */
+    --spec-teal-deep: #00877E;     /* dark-teal darkened — active chip border */
+
+    --spec-tint-lead: #E0F4F3;     /* dark-teal 12% — all lead tiles + circles */
+
+    --font-sans: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* ════ Base ════ */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--spec-charcoal);
+    background: var(--spec-white);
+}
+img { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; cursor: pointer; }
+button:focus-visible, a:focus-visible, input:focus-visible {
+    outline: 2px solid var(--spec-dark-teal);
+    outline-offset: 2px;
+}
+mark { background: var(--spec-mark); color: inherit; border-radius: 2px; padding: 0 1px; }
+svg { display: inline-block; vertical-align: middle; }
+
+/* ════ Specimen note bar (scaffolding, clearly not product chrome) ════ */
+.spec-note { background: var(--spec-charcoal); color: var(--spec-white); }
+.spec-note__inner {
+    max-width: 1180px; margin: 0 auto; padding: 0.85rem 2rem;
+    display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; align-items: baseline;
+    font-size: 1rem; line-height: 1.4;
+}
+.spec-note strong { font-weight: 700; letter-spacing: 0.08em; }
+.spec-note__tag { margin-left: auto; color: var(--spec-teal); }
+
+/* ════ Site header — white, logo left, uppercase nav (scss/header/) ════ */
+.stub {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 1.25rem 3rem;
+    background: var(--spec-white);
+    border-bottom: 1px solid var(--spec-light-gray);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+.stub__logo { height: 48px; width: auto; }
+.stub__nav { display: flex; gap: 2.5rem; margin-left: auto; }
+.stub__nav span {
+    color: var(--spec-dark-gray);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.stub__search { display: inline-flex; color: var(--spec-charcoal); }
+.stub__search svg { width: 1.25rem; height: 1.25rem; }
+
+/* ════ Page ════ */
+.page { padding: 1.25rem 3rem 5rem; }
+.container { max-width: 72rem; margin-inline: auto; }
+
+.phead { padding: 1.75rem 0 0.25rem; }
+.phead__title {
+    margin: 0;
+    font-size: clamp(1.75rem, 3vw, 2.375rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--spec-charcoal);
+}
+.phead__title em { font-style: normal; color: var(--spec-medium-blue); }
+.phead__sub { margin: 0.5rem 0 0; font-size: 1.0625rem; color: var(--spec-dark-gray); }
+
+.rform { margin: 1.375rem 0 0; }
+.rform__wrap { position: relative; }
+.rform__icon {
+    position: absolute; left: 1rem; top: 50%; transform: translateY(-50%);
+    display: flex; color: var(--spec-medium-gray); pointer-events: none;
+}
+.rform__icon svg { width: 1.25rem; height: 1.25rem; }
+.rform__input {
+    width: 100%;
+    padding: 0.875rem 1.25rem 0.875rem 2.875rem;
+    font-family: var(--font-sans);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--spec-charcoal);
+    background: var(--spec-white);
+    border: 1px solid var(--spec-medium-gray);
+    border-radius: 6px;
+    outline: none;
+    appearance: none;
+}
+.rform__input:focus { border-color: var(--spec-dark-teal); box-shadow: 0 0 0 3px var(--spec-focus-ring); }
+.rform__input::placeholder { color: var(--spec-medium-gray); }
+
+/* Scope chips — mobile stand-in for the rail; active = dark-teal fill,
+   white text */
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.chip {
+    display: inline-flex; align-items: center; gap: 0.3125rem;
+    padding: 0.25rem 0.625rem;
+    border: 1px solid var(--spec-light-gray); border-radius: 999px;
+    background: var(--spec-white); color: var(--spec-charcoal);
+    font-size: 0.8125rem; font-weight: 600;
+    transition: background 100ms ease, border-color 100ms ease, color 100ms ease;
+}
+.chip:hover { background: var(--spec-hover); border-color: var(--spec-teal); }
+.chip.is-active { background: var(--spec-dark-teal); border-color: var(--spec-teal-deep); color: var(--spec-white); }
+.chip.is-disabled { opacity: 0.45; cursor: default; pointer-events: none; }
+.chip__count { font-weight: 500; opacity: 0.75; }
+
+/* ════ Sidebar rail — active state is a background tint, never a
+   colored left border ════ */
+.b-layout { display: grid; grid-template-columns: 15rem minmax(0, 1fr); gap: 3rem; margin-top: 1.75rem; }
+.b-rail__title { margin: 0 0 0.75rem; font-size: 1rem; font-weight: 700; color: var(--spec-charcoal); }
+.rail-list { display: flex; flex-direction: column; gap: 2px; }
+.rail-item {
+    display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+    width: 100%; padding: 0.375rem 0.75rem;
+    border: 0; border-radius: 6px;
+    background: none; color: var(--spec-charcoal);
+    font-size: 0.875rem; font-weight: 600; text-align: left;
+    transition: background 100ms ease;
+}
+.rail-item:hover { background: var(--spec-hover); }
+.rail-item.is-active { background: var(--spec-dark-teal); color: var(--spec-white); font-weight: 700; }
+.rail-item.is-disabled { opacity: 0.45; cursor: default; pointer-events: none; }
+.rail-item__label { display: flex; align-items: center; gap: 0.5625rem; min-width: 0; }
+.rail-item__icon { display: flex; flex: none; color: var(--spec-dark-gray); }
+.rail-item__icon svg { width: 1.0625rem; height: 1.0625rem; }
+.rail-item.is-active .rail-item__icon { color: var(--spec-white); }
+.rail-count { font-size: 0.875rem; font-weight: 500; color: var(--spec-dark-gray); }
+.rail-item.is-active .rail-count { color: var(--spec-white); font-weight: 600; opacity: 0.9; }
+
+.b-results .rform { margin-top: 0; }
+.b-chips { display: none; }
+
+/* ════ Result groups ════ */
+.groups { display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem; }
+.ghead {
+    display: flex; align-items: center; gap: 0.625rem;
+    margin-bottom: 0.5rem; padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--spec-light-gray);
+}
+.ghead__icon { display: flex; flex: none; color: var(--spec-dark-teal); }
+.ghead__icon svg { width: 1.25rem; height: 1.25rem; }
+.ghead h2 { margin: 0; font-size: 1.25rem; font-weight: 700; color: var(--spec-charcoal); }
+.gcount { font-size: 0.875rem; color: var(--spec-dark-gray); }
+
+/* Result rows — hover is a background tint, never a left border */
+.rrow {
+    display: flex; align-items: center; gap: 0.875rem;
+    padding: 0.5rem 0.75rem; border-radius: 6px;
+    color: var(--spec-charcoal); text-decoration: none;
+}
+.rrow:hover { background: var(--spec-hover); }
+.rrow__body { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.rrow__title { font-size: 1rem; font-weight: 600; color: var(--spec-charcoal); }
+.rrow__sub { margin-top: 2px; font-size: 0.8125rem; color: var(--spec-dark-gray); }
+
+/* 40px lead visuals — icon tile per group; initials circle for people */
+.lead {
+    width: 2.5rem; height: 2.5rem; flex: none;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 8px;
+    background: var(--spec-tint-lead); color: var(--spec-dark-teal);
+}
+.lead svg { width: 1.125rem; height: 1.125rem; }
+.lead--people {
+    border-radius: 999px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.more {
+    display: inline-flex; align-items: center; gap: 0.375rem;
+    margin-top: 0.75rem; padding: 0.25rem 0.75rem;
+    border: 0; background: none;
+    color: var(--spec-dark-teal);
+    font-size: 0.9375rem; font-weight: 700;
+}
+.more:hover { text-decoration: underline; }
+.more svg { width: 1rem; height: 1rem; }
+
+.rempty { margin: 3rem 0 0; text-align: center; font-size: 1.125rem; line-height: 1.5; color: var(--spec-dark-gray); }
+
+/* ════ Responsive: rail collapses to chips ════ */
+@media (max-width: 900px) {
+    .stub { padding: 1rem 1.25rem; gap: 1.25rem; }
+    .stub__logo { height: 40px; }
+    .stub__nav { display: none; }
+    .stub__search { margin-left: auto; }
+    .page { padding: 0.75rem 1.25rem 3.5rem; }
+    .b-layout { display: block; margin-top: 1rem; }
+    .b-rail { display: none; }
+    .b-results .rform { margin-top: 1.375rem; }
+    .b-chips { display: flex; }
+}
+</style>
+</head>
+<body>
+
+<div class="spec-note">
+    <div class="spec-note__inner">
+        <strong>Specimen</strong>
+        <span>Site search &mdash; results page (/?s=)</span>
+        <span class="spec-note__tag">Demo query &ldquo;water&rdquo;</span>
+    </div>
+</div>
+
+<header class="stub" aria-hidden="true">
+    <img class="stub__logo" src="https://esassoc.com/wp-content/uploads/2021/04/esa-logo.svg" alt="">
+    <nav class="stub__nav">
+        <span>About</span><span>Our Work</span><span>Join Us</span><span>News &amp; Ideas</span><span>Contact</span>
+    </nav>
+    <span class="stub__search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    </span>
+</header>
+
+<div class="page">
+    <div class="container" id="page-root"></div>
+</div>
+
+<script>
+(function () {
+'use strict';
+
+/* ════ Icons — Lucide paths inlined, stroke 1.5 (no CDN dependency) ════ */
+var ICON_PATHS = {
+    'search': '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+    'leaf': '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>',
+    'building-2': '<path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>',
+    'map-pin': '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
+    'user-round': '<circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/>',
+    'wrench': '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>',
+    'newspaper': '<path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/>',
+    'file-text': '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>',
+    'chevron-right': '<path d="m9 18 6-6-6-6"/>'
+};
+function icon(name, cls) {
+    return '<svg' + (cls ? ' class="' + cls + '"' : '') +
+        ' viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"' +
+        ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
+        ICON_PATHS[name] + '</svg>';
+}
+
+/* ════ Content — real site data (shared with the omnibox specimen) ════ */
+var DATA = {
+    services: [
+        { title: 'AI & Emerging Technologies', parent: 'Technology', kw: 'ai artificial intelligence machine learning drones emerging' },
+        { title: 'Aquatic Invasive Species', parent: 'Fish and Aquatic Sciences', kw: 'water quality lakes mussels monitoring' },
+        { title: 'Offshore Wind', parent: '', kw: 'energy marine renewable' },
+        { title: 'Coastal Engineering, Management & Nature-Based Adaptation', parent: '', kw: 'water shoreline resilience sea level rise' },
+        { title: 'Marine Infrastructure', parent: '', kw: 'waterfront ports piers' },
+        { title: 'Stormwater Tools™', parent: 'ESA Software Platforms', kw: 'water software compliance' },
+        { title: 'TerraTrak™', parent: 'ESA Software Platforms', kw: 'software field data compliance tracking' }
+    ],
+    markets: [
+        { title: 'Water', kw: 'utilities supply' },
+        { title: 'Groundwater', kw: 'water basins sgma' },
+        { title: 'Hydropower', kw: 'water energy dams ferc' },
+        { title: 'Energy', kw: 'transmission renewables' },
+        { title: 'Airports / Aviation', kw: 'faa runways' },
+        { title: 'Surface Transportation & Ports', kw: 'transit highways freight' }
+    ],
+    projects: [
+        { title: 'Harvest Water Recycled Water Program', location: 'Sacramento, CA', kw: 'recycled wastewater' },
+        { title: 'Groundwater Dependent Ecosystem Assessment for Santa Clarita Valley GSA', location: 'Santa Clarita, CA', kw: 'water sgma' },
+        { title: 'Skagit Hydroelectric FERC Relicensing', location: 'Skagit County, WA', kw: 'water hydropower dams' },
+        { title: 'Aquatic Invasive Species Monitoring for the Boundary Hydroelectric Project', location: 'Pend Oreille County, WA', kw: 'water hydropower mussels' }
+    ],
+    people: [
+        { name: 'Karen Compton', position: 'Vice President, Water', kw: '' },
+        { name: 'Linden Cheek, PhD', position: 'Senior Groundwater Scientist', kw: '' },
+        { name: 'Jason Wiener, PhD', position: 'Senior Aquatic Ecologist', kw: 'water fisheries' },
+        { name: 'Carlos Rivera, PE', position: 'Senior Engineer, Water Resources', kw: '' },
+        { name: 'Lisa Kay', position: 'Senior Managing Associate', kw: '' },
+        { name: 'Meredith Parkin, JD, PMP', position: 'Vice President, Environmental Planning', kw: '' },
+        { name: 'Eric Beightel', position: 'Director, NEPA & Federal Permitting', kw: '' }
+    ],
+    tools: [
+        { title: 'Permitting Policy Tracker', category: 'Federal · NEPA', status: '', kw: 'ai policy federal environmental review' },
+        { title: 'Potential-to-Occur Database', category: 'Biological Resources', status: '', kw: 'ai species screening lookup' },
+        { title: 'Species Survey Calendar', category: 'Biological Resources', status: 'In development', kw: 'seasonal survey windows protected species' }
+    ],
+    news: [
+        { title: 'How Drones and Emerging Technologies are Enhancing Data-Driven Environmental Management', date: 'May 26, 2026', kw: 'ai drones lidar monitoring' },
+        { title: 'New Law Sets the Stage for Nature-Based Coastal Resiliency in Florida', date: 'May 14, 2026', kw: 'water coastal living shorelines' },
+        { title: 'How to Prepare for California’s Proposition 4 Funding Opportunities', date: 'May 1, 2026', kw: 'water bond climate funding grants' }
+    ],
+    pages: [
+        { title: 'NEPA Assignment Navigator', blurb: 'See how NEPA assignment applies to your state or project.', kw: 'ai interactive map federal' },
+        { title: 'CE Virtual Assistant', blurb: 'AI assistant for scoping categorical exclusions under NEPA.', kw: 'categorical exclusions federal' }
+    ]
+};
+
+function entry(group, title, sub, kw, initials) {
+    return { group: group, title: title, sub: sub || '', kw: kw || '', initials: initials || '' };
+}
+function initialsOf(name) {
+    var words = name.split(',')[0].split(/\s+/).filter(Boolean);
+    if (!words.length) return '?';
+    var first = words[0].charAt(0);
+    var last = words.length > 1 ? words[words.length - 1].charAt(0) : '';
+    return (first + last).toUpperCase();
+}
+var ENTRIES = {
+    services: DATA.services.map(function (s) { return entry('services', s.title, s.parent, s.kw); }),
+    markets: DATA.markets.map(function (m) { return entry('markets', m.title, '', m.kw); }),
+    projects: DATA.projects.map(function (p) { return entry('projects', p.title, p.location, p.kw); }),
+    people: DATA.people.map(function (p) { return entry('people', p.name, p.position, p.kw, initialsOf(p.name)); }),
+    tools: DATA.tools.map(function (t) {
+        return entry('tools', t.title, t.category + (t.status ? ' · ' + t.status : ''), t.kw);
+    }),
+    news: DATA.news.map(function (n) { return entry('news', n.title, n.date, n.kw); }),
+    pages: DATA.pages.map(function (p) { return entry('pages', p.title, p.blurb, p.kw); })
+};
+
+var GROUPS = [
+    { key: 'pages', label: 'Pages', icon: 'file-text' },
+    { key: 'news', label: 'News & Ideas', icon: 'newspaper' },
+    { key: 'markets', label: 'Markets', icon: 'building-2' },
+    { key: 'services', label: 'Services', icon: 'leaf' },
+    { key: 'projects', label: 'Projects', icon: 'map-pin' },
+    { key: 'people', label: 'People', icon: 'user-round' },
+    { key: 'tools', label: 'Tools', icon: 'wrench' }
+];
+
+/* ════ Utilities ════ */
+function esc(s) {
+    return String(s == null ? '' : s)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+/* Highlight every occurrence of q (case-insensitive) with <mark>. */
+function hi(text, q) {
+    if (!q) return esc(text);
+    var lower = String(text).toLowerCase();
+    var lq = q.toLowerCase();
+    var out = '';
+    var i = 0;
+    for (;;) {
+        var idx = lower.indexOf(lq, i);
+        if (idx === -1) { out += esc(text.slice(i)); break; }
+        out += esc(text.slice(i, idx)) + '<mark>' + esc(text.slice(idx, idx + q.length)) + '</mark>';
+        i = idx + q.length;
+    }
+    return out;
+}
+
+/* ════ Filtering — counts always derived, never hardcoded ════
+   Mirrors the production matcher (functions/search-api.php): tokens are
+   AND'd; 1-2 char alphanumeric tokens ("ai") must match on word
+   boundaries, so "Airports" and "Sustainability" can't hit as substrings. */
+function matchesQuery(haystack, q) {
+    var hay = haystack.toLowerCase();
+    return q.trim().toLowerCase().split(/\s+/).slice(0, 10).every(function (tok) {
+        if (!tok) return true;
+        if (tok.length <= 2 && /^[a-z0-9]+$/.test(tok)) {
+            return new RegExp('(^|[^a-z0-9])' + tok + '([^a-z0-9]|$)').test(hay);
+        }
+        return hay.indexOf(tok) !== -1;
+    });
+}
+function filterData(q) {
+    var lq = q.trim().toLowerCase();
+    var groups = {};
+    var counts = {};
+    var total = 0;
+    GROUPS.forEach(function (def) {
+        var items = lq.length >= 2
+            ? ENTRIES[def.key].filter(function (it) {
+                return matchesQuery(it.title + ' ' + it.sub + ' ' + it.kw, q);
+            })
+            : [];
+        groups[def.key] = items;
+        counts[def.key] = items.length;
+        total += items.length;
+    });
+    return { groups: groups, counts: counts, total: total };
+}
+
+/* ════ Page fragments ════ */
+function pageHead(q, total) {
+    if (!q) {
+        return '<header class="phead"><h1 class="phead__title">Search</h1></header>';
+    }
+    return '<header class="phead">' +
+        '<h1 class="phead__title">Search results for &ldquo;<em>' + esc(q) + '</em>&rdquo;</h1>' +
+        '<p class="phead__sub">' + total + ' ' + (total === 1 ? 'result' : 'results') + '</p>' +
+        '</header>';
+}
+
+function formHtml(q) {
+    return '<form class="rform" data-role="form" role="search"><div class="rform__wrap">' +
+        '<span class="rform__icon" aria-hidden="true">' + icon('search') + '</span>' +
+        '<input type="search" class="rform__input" data-role="q" value="' + esc(q) + '" ' +
+        'placeholder="Search services, projects, people, tools&hellip;" aria-label="Search ESA">' +
+        '</div></form>';
+}
+
+function chipsHtml(g, extraClass) {
+    var html = '<nav class="chips' + (extraClass ? ' ' + extraClass : '') + '">';
+    html += chipBtn('all', 'All', g.total);
+    GROUPS.forEach(function (def) {
+        html += chipBtn(def.key, def.label, g.counts[def.key]);
+    });
+    return html + '</nav>';
+}
+function chipBtn(key, label, count) {
+    var active = state.filter === key;
+    var disabled = count === 0 && key !== 'all';
+    return '<button type="button" class="chip' + (active ? ' is-active' : '') + (disabled ? ' is-disabled' : '') + '"' +
+        ' data-filter="' + key + '"' + (disabled ? ' disabled' : '') + '>' +
+        esc(label) + ' <span class="chip__count">' + count + '</span></button>';
+}
+
+function gheadHtml(def, count) {
+    return '<header class="ghead">' +
+        '<span class="ghead__icon" aria-hidden="true">' + icon(def.icon) + '</span>' +
+        '<h2>' + esc(def.label) + '</h2><span class="gcount">' + count + '</span></header>';
+}
+
+function leadHtml(item) {
+    if (item.group === 'people') {
+        return '<span class="lead lead--people" aria-hidden="true">' + esc(item.initials) + '</span>';
+    }
+    var def = GROUPS.find(function (x) { return x.key === item.group; });
+    return '<span class="lead" aria-hidden="true">' + icon(def.icon) + '</span>';
+}
+
+function rowHtml(item, q) {
+    var sub = item.sub
+        ? '<span class="rrow__sub">' + hi(item.sub, q) + '</span>'
+        : '';
+    return '<a class="rrow" href="#">' + leadHtml(item) +
+        '<span class="rrow__body"><span class="rrow__title">' + hi(item.title, q) + '</span>' + sub + '</span>' +
+        '</a>';
+}
+
+/* Grouped section. Caps rows only in the "all" view; "Show all N" mirrors
+   the omnibox's view-all affordance. */
+function sectionHtml(def, items, q, cap) {
+    if (!items.length) return '';
+    var limit = (state.filter === 'all' && cap) ? cap : items.length;
+    var rows = items.slice(0, limit).map(function (it) { return rowHtml(it, q); }).join('');
+    var more = '';
+    if (items.length > limit) {
+        more = '<button type="button" class="more" data-filter="' + def.key + '">Show all ' +
+            items.length + ' ' + def.label.toLowerCase() + ' ' + icon('chevron-right') + '</button>';
+    }
+    return '<section class="group">' + gheadHtml(def, items.length) +
+        '<div class="grows">' + rows + '</div>' + more + '</section>';
+}
+
+function railBtn(key, label, count, iconName) {
+    var active = state.filter === key;
+    var disabled = count === 0 && key !== 'all';
+    return '<button type="button" class="rail-item' + (active ? ' is-active' : '') + (disabled ? ' is-disabled' : '') + '"' +
+        ' data-filter="' + key + '"' + (disabled ? ' disabled' : '') + '>' +
+        '<span class="rail-item__label"><span class="rail-item__icon" aria-hidden="true">' + icon(iconName) + '</span>' +
+        '<span>' + esc(label) + '</span></span>' +
+        '<span class="rail-count">' + count + '</span></button>';
+}
+function visibleGroupDefs() {
+    if (state.filter === 'all') return GROUPS;
+    return GROUPS.filter(function (def) { return def.key === state.filter; });
+}
+
+/* "No query yet" / "no matches" states */
+function baseStates(g, q) {
+    if (q.trim().length < 2) {
+        return pageHead('', 0) + formHtml(q) +
+            '<p class="rempty">Start typing to search services, markets, projects, people, tools, and ideas.</p>';
+    }
+    if (g.total === 0) {
+        return pageHead(q, 0) + formHtml(q) +
+            '<p class="rempty">No matches for &ldquo;' + esc(q) + '&rdquo;. Try a different keyword.</p>';
+    }
+    return null;
+}
+
+/* ════ Page renderer — sidebar rail + grouped results column ════ */
+function renderPage(g, q) {
+    var pre = baseStates(g, q);
+    if (pre) return pre;
+
+    var railItems = railBtn('all', 'All', g.total, 'search');
+    GROUPS.forEach(function (def) {
+        railItems += railBtn(def.key, def.label, g.counts[def.key], def.icon);
+    });
+    var rail = '<aside class="b-rail"><h2 class="b-rail__title">Filter results</h2>' +
+        '<div class="rail-list">' + railItems + '</div></aside>';
+
+    var sections = visibleGroupDefs().map(function (def) {
+        return sectionHtml(def, g.groups[def.key], q, 5);
+    }).join('');
+
+    return pageHead(q, g.total) +
+        '<div class="b-layout">' + rail +
+        '<main class="b-results">' + formHtml(q) + chipsHtml(g, 'b-chips') +
+        '<div class="groups">' + sections + '</div></main></div>';
+}
+
+/* ════ State & render orchestration ════ */
+var state = { q: 'water', filter: 'all' };
+var pageRoot = document.getElementById('page-root');
+var refocusInput = false;
+
+function render() {
+    var g = filterData(state.q);
+    /* Group emptied by typing → fall back to All */
+    if (state.filter !== 'all' && g.counts[state.filter] === 0) state.filter = 'all';
+
+    pageRoot.innerHTML = renderPage(g, state.q.trim());
+
+    if (refocusInput) {
+        refocusInput = false;
+        var input = pageRoot.querySelector('[data-role="q"]');
+        if (input) {
+            input.focus();
+            var len = input.value.length;
+            try { input.setSelectionRange(len, len); } catch (e) { /* some engines */ }
+        }
+    }
+}
+
+/* ════ Events ════ */
+pageRoot.addEventListener('click', function (e) {
+    var f = e.target.closest('[data-filter]');
+    if (f && !f.disabled) {
+        state.filter = f.getAttribute('data-filter');
+        render();
+        return;
+    }
+    var a = e.target.closest('a[href="#"]');
+    if (a) e.preventDefault(); // specimen rows do not navigate
+});
+
+pageRoot.addEventListener('submit', function (e) { e.preventDefault(); });
+
+var typeTimer = null;
+pageRoot.addEventListener('input', function (e) {
+    var input = e.target.closest('[data-role="q"]');
+    if (!input) return;
+    var value = input.value;
+    clearTimeout(typeTimer);
+    typeTimer = setTimeout(function () {
+        state.q = value;
+        state.filter = 'all';
+        refocusInput = true;
+        render();
+    }, 140);
+});
+
+render();
+})();
+</script>
+</body>
+</html>

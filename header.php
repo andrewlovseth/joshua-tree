@@ -27,7 +27,7 @@
 
 	<?php get_template_part('template-parts/header/mobile-navigation'); ?>
 
-	<?php get_template_part('template-parts/header/search-navigation'); ?>
+	<?php get_template_part('template-parts/header/omnibox'); ?>
 
 
 	<main class="site-content">

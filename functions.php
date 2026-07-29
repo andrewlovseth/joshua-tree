@@ -19,3 +19,5 @@ require_once( plugin_dir_path( __FILE__ ) . '/functions/ajax-load-more.php');
 require_once( plugin_dir_path( __FILE__ ) . '/functions/block-patterns.php');
 
 require_once( plugin_dir_path( __FILE__ ) . '/functions/tools.php');
+
+require_once( plugin_dir_path( __FILE__ ) . '/functions/search-api.php');

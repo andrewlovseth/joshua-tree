@@ -1,0 +1,925 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Site Search — Omnibox · ESA</title>
+<!--
+    ESA site-wide search — omnibox overlay specimen.
+    Layout + interaction contract forked from the approved Ultimate Hall of
+    Fame omnibox (720px centered panel, ghost completion with Tab-accept,
+    scope pills, grouped results, 40px lead visuals, keyboard hints).
+    Skin is ESA: Raleway, theme palette from scss/variables/_colors.scss,
+    header chrome mirrored from scss/header/. Lucide icons inlined, stroke 1.5.
+    Demo state: query "ai" — the AI & Emerging Technologies service must be
+    the top result. Sibling specimen: search-results.html (same voice).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════════════════════════════════
+   Tokens — brand values from scss/variables/_colors.scss; tints are the
+   brand hue mixed onto white at the noted strength.
+   ════════════════════════════════════════════════════════════════════ */
+:root {
+    --spec-orange: #F9A134;    /* site chrome only — never on search surfaces */
+    --spec-teal: #72CCD2;
+    --spec-dark-teal: #00A69C;
+    --spec-dark-blue: #004261;
+    --spec-charcoal: #414141;
+    --spec-dark-gray: #6D6E71;
+    --spec-medium-gray: #ADAFB2;
+    --spec-light-gray: #DCDDDE;
+    --spec-off-white: #EDEDED;
+    --spec-white: #fff;
+
+    --spec-hover: #F4FBFB;         /* teal 8% — row + pill hover */
+    --spec-active: #EBF7F8;        /* teal 14% — keyboard-active row */
+    --spec-selected: #DDF2F4;      /* teal 22% — selection pulse start */
+    --spec-mark: #FFF176;          /* highlighter yellow — query highlight */
+    --spec-teal-deep: #00877E;     /* dark-teal darkened — active pill border */
+    --spec-surface: #F7F8F8;       /* neutral — panel footer */
+
+    --spec-tint-lead: #E0F4F3;     /* dark-teal 12% — all lead tiles + circles */
+
+    --font-sans: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --shadow-panel: 0 24px 64px rgba(0, 40, 58, 0.35);
+}
+
+/* ════ Base ════ */
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--spec-charcoal);
+    background: var(--spec-off-white);
+}
+img { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; cursor: pointer; }
+button:focus-visible, a:focus-visible, input:focus-visible {
+    outline: 2px solid var(--spec-dark-teal);
+    outline-offset: 2px;
+}
+
+/* ════ Specimen note bar (scaffolding, clearly not product chrome) ════ */
+.spec-note { background: var(--spec-charcoal); color: var(--spec-white); }
+.spec-note__inner {
+    max-width: 1180px; margin: 0 auto; padding: 0.85rem 2rem;
+    display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; align-items: baseline;
+    font-size: 1rem; line-height: 1.4;
+}
+.spec-note strong { font-weight: 700; letter-spacing: 0.08em; }
+.spec-note__tag { margin-left: auto; color: var(--spec-teal); }
+
+/* ════ Stage & faux ESA page backdrop ════ */
+.stage {
+    position: relative;
+    height: max(720px, calc(100vh - 56px));
+    overflow: hidden;
+    background: var(--spec-off-white);
+}
+.faux { position: absolute; inset: 0; display: flex; flex-direction: column; }
+
+/* Site header — white, logo left, uppercase nav, search icon (scss/header/) */
+.faux__header {
+    flex: none;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 1.5rem 3rem;
+    background: var(--spec-white);
+    border-bottom: 1px solid var(--spec-light-gray);
+}
+.faux__logo { height: 52px; width: auto; }
+.faux__nav { display: flex; gap: 2.5rem; margin-left: auto; }
+.faux__nav span {
+    color: var(--spec-dark-gray);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.faux__nav span.is-current { color: #000; box-shadow: 0 6px 0 -3px var(--spec-orange); }
+.faux__search { display: inline-flex; color: var(--spec-charcoal); }
+.faux__search svg { width: 1.25rem; height: 1.25rem; }
+
+.faux__hero {
+    flex: none;
+    padding: 4rem 3rem;
+    background: var(--spec-dark-blue);
+}
+.faux__hero h2 {
+    margin: 0;
+    max-width: 44rem;
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--spec-white);
+}
+.faux__hero h2 em { font-style: normal; color: var(--spec-teal); }
+.faux__band { flex: 1 1 auto; background: var(--spec-white); padding: 2.5rem 3rem; }
+.faux__band h3 { margin: 0; font-size: 1.5rem; font-weight: 700; }
+.faux-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    max-width: 58rem;
+    margin-top: 1.5rem;
+}
+.faux-card__photo { aspect-ratio: 16 / 10; border-radius: 4px; background: var(--spec-off-white); }
+.faux-card strong { display: block; margin-top: 0.75rem; font-size: 1rem; font-weight: 700; }
+.faux-card span { font-size: 0.875rem; color: var(--spec-dark-gray); }
+.scrim {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 40, 58, 0.55);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+/* ════ Omnibox panel ════ */
+.ob {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 64px;
+    width: 760px;
+    max-width: 94%;
+    height: min(600px, calc(100% - 112px));
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--spec-white);
+    border-radius: 8px;
+    box-shadow: var(--shadow-panel);
+}
+.ob__searchrow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: none;
+    padding: 0.875rem 1.25rem;
+    border-bottom: 1px solid var(--spec-light-gray);
+}
+.ob__searchicon { width: 1.25rem; height: 1.25rem; color: var(--spec-dark-gray); flex: none; }
+.ob__inputwrap { position: relative; flex: 1; min-width: 0; }
+.ob__input {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--spec-charcoal);
+}
+.ob__input::placeholder { color: var(--spec-medium-gray); }
+/* Ghost completion twin: repeats the typed text invisibly beneath the
+   transparent input, then paints the completion remainder in muted gray.
+   Must mirror the input's font metrics glyph-for-glyph. */
+.ob__ghost {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: pre;
+    pointer-events: none;
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: transparent;
+}
+.ob__ghost-rest { color: var(--spec-medium-gray); }
+.ob__clear {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    flex: none;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--spec-dark-gray);
+}
+.ob__clear:hover { background: var(--spec-off-white); color: var(--spec-charcoal); }
+.ob__clear svg { width: 1.125rem; height: 1.125rem; }
+.ob__clear[hidden] { display: none; }
+.ob__scopes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    flex: none;
+    padding: 0.625rem 1.25rem;
+    border-bottom: 1px solid var(--spec-light-gray);
+}
+.ob__results { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 0.25rem 0; }
+.ob__empty { padding: 2.5rem 1.5rem; text-align: center; }
+.ob__empty-title { margin: 0; font-size: 1.0625rem; font-weight: 700; color: var(--spec-charcoal); }
+.ob__empty-note { margin: 0.375rem 0 0; font-size: 0.9375rem; color: var(--spec-dark-gray); }
+.ob__hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 1.75rem 2rem 2.25rem;
+    text-align: center;
+}
+.ob__hero-title { margin: 0; font-size: 1.25rem; font-weight: 700; color: var(--spec-charcoal); }
+.ob__hero-note { margin: 0; max-width: 28rem; font-size: 0.875rem; line-height: 1.55; color: var(--spec-dark-gray); }
+.ob__hero-tries { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 0.375rem; }
+.try-chip {
+    padding: 0.25rem 0.75rem;
+    border: 1px solid var(--spec-light-gray);
+    border-radius: 999px;
+    background: var(--spec-white);
+    color: var(--spec-charcoal);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+.try-chip:hover { background: var(--spec-hover); border-color: var(--spec-teal); }
+.ob__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex: none;
+    padding: 0.625rem 1.25rem;
+    border-top: 1px solid var(--spec-light-gray);
+    background: var(--spec-surface);
+}
+.ob__viewall {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: var(--spec-dark-teal);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+.ob__viewall svg { width: 1rem; height: 1rem; }
+.ob__viewall:hover { text-decoration: underline; }
+.ob__viewall[hidden] { display: none; }
+.ob__hints { display: flex; gap: 1rem; }
+.ob__hints span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3125rem;
+    font-size: 0.875rem;
+    color: var(--spec-dark-gray);
+}
+.ob kbd {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.25rem;
+    height: 1.25rem;
+    padding: 0 0.3125rem;
+    font-family: var(--font-sans);
+    font-size: 0.75rem; /* 12px reserved for kbd glyphs only */
+    font-weight: 600;
+    line-height: 1;
+    color: var(--spec-dark-gray);
+    background: var(--spec-white);
+    border: 1px solid var(--spec-light-gray);
+    border-bottom-width: 2px;
+    border-radius: 4px;
+}
+
+/* Scope pills — active mirrors the site's orange accent */
+.ob-scope {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3125rem;
+    padding: 0.1875rem 0.5625rem;
+    border: 1px solid var(--spec-light-gray);
+    border-radius: 999px;
+    background: var(--spec-white);
+    color: var(--spec-charcoal);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    transition: background 100ms ease, border-color 100ms ease, color 100ms ease;
+}
+.ob-scope:hover { background: var(--spec-hover); border-color: var(--spec-teal); }
+.ob-scope.is-active { background: var(--spec-dark-teal); border-color: var(--spec-teal-deep); color: var(--spec-white); }
+.ob-scope__count { font-weight: 500; opacity: 0.75; }
+
+/* Result groups */
+.ob-group { padding-block: 0.25rem; }
+.ob-group + .ob-group { border-top: 1px solid var(--spec-off-white); }
+.ob-group__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1.25rem 0.25rem;
+}
+.ob-group__title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4375rem;
+    font-size: 1rem; /* readable words, never a micro-label */
+    font-weight: 700;
+    color: var(--spec-charcoal);
+}
+.ob-group__title svg { width: 1rem; height: 1rem; color: var(--spec-dark-gray); }
+.ob-group__count { font-size: 0.875rem; color: var(--spec-dark-gray); }
+
+/* Result rows — active state is a background tint, never a left border */
+.ob-row {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 0.375rem 1.25rem;
+    color: var(--spec-charcoal);
+    text-decoration: none;
+    cursor: pointer;
+}
+.ob-row:hover, .ob-row.is-active { background: var(--spec-active); }
+.ob-row:hover .ob-row__chevron, .ob-row.is-active .ob-row__chevron { opacity: 1; }
+.ob-row__lead {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex: none;
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--spec-tint-lead);
+    color: var(--spec-dark-teal);
+}
+.ob-row__lead svg { width: 1.125rem; height: 1.125rem; }
+/* People: 40px initials circle (no photos served locally) */
+.ob-row__lead--people {
+    border-radius: 999px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+.ob-row__body { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.ob-row__title {
+    font-size: 1rem;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.ob-row__title mark { background: var(--spec-mark); color: inherit; border-radius: 2px; padding: 0 1px; }
+.ob-row__sub {
+    margin-top: 1px;
+    font-size: 0.8125rem; /* genuine meta beneath a 16px title */
+    color: var(--spec-dark-gray);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.ob-row__chevron { width: 1.125rem; height: 1.125rem; flex: none; color: var(--spec-dark-teal); opacity: 0; transition: opacity 100ms ease; }
+.ob-row.is-selected { animation: rowPulse 350ms ease; }
+@keyframes rowPulse {
+    0% { background: var(--spec-selected); }
+    100% { background: var(--spec-hover); }
+}
+
+@media (max-width: 900px) {
+    .faux__nav { display: none; }
+    .faux__header { padding: 1.25rem 1.5rem; }
+    .faux__hero, .faux__band { padding-inline: 1.5rem; }
+    .ob__hints span:nth-child(n+2) { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .ob-row.is-selected { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="spec-note">
+    <div class="spec-note__inner">
+        <strong>Specimen</strong>
+        <span>Site search &mdash; omnibox overlay</span>
+        <span class="spec-note__tag">Demo query &ldquo;ai&rdquo;</span>
+    </div>
+</div>
+
+<main>
+    <div class="stage">
+        <div class="faux" aria-hidden="true">
+            <div class="faux__header">
+                <img class="faux__logo" src="https://esassoc.com/wp-content/uploads/2021/04/esa-logo.svg" alt="">
+                <nav class="faux__nav">
+                    <span>About</span><span class="is-current">Our Work</span><span>Join Us</span><span>News &amp; Ideas</span><span>Contact</span>
+                </nav>
+                <span class="faux__search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                </span>
+            </div>
+            <div class="faux__hero">
+                <h2>ESA partners with clients and communities to drive sustainable, resilient, and equitable solutions that <em>shape a better world</em>.</h2>
+            </div>
+            <div class="faux__band">
+                <h3>Featured Projects</h3>
+                <div class="faux-cards">
+                    <div class="faux-card">
+                        <div class="faux-card__photo"></div>
+                        <strong>Harvest Water Recycled Water Program</strong>
+                        <span>Sacramento, CA</span>
+                    </div>
+                    <div class="faux-card">
+                        <div class="faux-card__photo"></div>
+                        <strong>Skagit Hydroelectric FERC Relicensing</strong>
+                        <span>Skagit County, WA</span>
+                    </div>
+                    <div class="faux-card">
+                        <div class="faux-card__photo"></div>
+                        <strong>Aquatic Invasive Species Monitoring</strong>
+                        <span>Pend Oreille County, WA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scrim"></div>
+        <div class="ob" id="ob" role="dialog" aria-label="Search ESA"></div>
+    </div>
+</main>
+
+<script>
+(function () {
+'use strict';
+
+/* ════ Icons — Lucide paths inlined, stroke 1.5 (no CDN dependency) ════ */
+var ICON_PATHS = {
+    'search': '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+    'leaf': '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>',
+    'building-2': '<path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>',
+    'map-pin': '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
+    'user-round': '<circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/>',
+    'wrench': '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>',
+    'newspaper': '<path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/>',
+    'file-text': '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>',
+    'history': '<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/>',
+    'x': '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
+    'chevron-right': '<path d="m9 18 6-6-6-6"/>',
+    'arrow-right': '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>'
+};
+function icon(name, cls) {
+    return '<svg' + (cls ? ' class="' + cls + '"' : '') +
+        ' viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"' +
+        ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
+        ICON_PATHS[name] + '</svg>';
+}
+
+/* ════ Content — real site data ════
+   Services/markets/projects/news titles from esassoc.com; tools from the
+   inventory in templates/single-service/tools.php; people positions follow
+   the employee ACF shape (info.position). `kw` stands in for the indexed
+   page content the production engine would match against. */
+var DATA = {
+    services: [
+        { title: 'AI & Emerging Technologies', parent: 'Technology', kw: 'ai artificial intelligence machine learning drones emerging' },
+        { title: 'Aquatic Invasive Species', parent: 'Fish and Aquatic Sciences', kw: 'water quality lakes mussels monitoring' },
+        { title: 'Offshore Wind', parent: '', kw: 'energy marine renewable' },
+        { title: 'Coastal Engineering, Management & Nature-Based Adaptation', parent: '', kw: 'water shoreline resilience sea level rise' },
+        { title: 'Marine Infrastructure', parent: '', kw: 'waterfront ports piers' },
+        { title: 'Stormwater Tools™', parent: 'ESA Software Platforms', kw: 'water software compliance' },
+        { title: 'TerraTrak™', parent: 'ESA Software Platforms', kw: 'software field data compliance tracking' }
+    ],
+    markets: [
+        { title: 'Water', kw: 'utilities supply' },
+        { title: 'Groundwater', kw: 'water basins sgma' },
+        { title: 'Hydropower', kw: 'water energy dams ferc' },
+        { title: 'Energy', kw: 'transmission renewables' },
+        { title: 'Airports / Aviation', kw: 'faa runways' },
+        { title: 'Surface Transportation & Ports', kw: 'transit highways freight' }
+    ],
+    projects: [
+        { title: 'Harvest Water Recycled Water Program', location: 'Sacramento, CA', kw: 'recycled wastewater' },
+        { title: 'Groundwater Dependent Ecosystem Assessment for Santa Clarita Valley GSA', location: 'Santa Clarita, CA', kw: 'water sgma' },
+        { title: 'Skagit Hydroelectric FERC Relicensing', location: 'Skagit County, WA', kw: 'water hydropower dams' },
+        { title: 'Aquatic Invasive Species Monitoring for the Boundary Hydroelectric Project', location: 'Pend Oreille County, WA', kw: 'water hydropower mussels' }
+    ],
+    people: [
+        { name: 'Karen Compton', position: 'Vice President, Water', kw: '' },
+        { name: 'Linden Cheek, PhD', position: 'Senior Groundwater Scientist', kw: '' },
+        { name: 'Jason Wiener, PhD', position: 'Senior Aquatic Ecologist', kw: 'water fisheries' },
+        { name: 'Carlos Rivera, PE', position: 'Senior Engineer, Water Resources', kw: '' },
+        { name: 'Lisa Kay', position: 'Senior Managing Associate', kw: '' },
+        { name: 'Meredith Parkin, JD, PMP', position: 'Vice President, Environmental Planning', kw: '' },
+        { name: 'Eric Beightel', position: 'Director, NEPA & Federal Permitting', kw: '' }
+    ],
+    tools: [
+        { title: 'Permitting Policy Tracker', category: 'Federal · NEPA', status: '', kw: 'ai policy federal environmental review' },
+        { title: 'Potential-to-Occur Database', category: 'Biological Resources', status: '', kw: 'ai species screening lookup' },
+        { title: 'Species Survey Calendar', category: 'Biological Resources', status: 'In development', kw: 'seasonal survey windows protected species' }
+    ],
+    news: [
+        { title: 'How Drones and Emerging Technologies are Enhancing Data-Driven Environmental Management', date: 'May 26, 2026', kw: 'ai drones lidar monitoring' },
+        { title: 'New Law Sets the Stage for Nature-Based Coastal Resiliency in Florida', date: 'May 14, 2026', kw: 'water coastal living shorelines' },
+        { title: 'How to Prepare for California’s Proposition 4 Funding Opportunities', date: 'May 1, 2026', kw: 'water bond climate funding grants' }
+    ],
+    pages: [
+        { title: 'NEPA Assignment Navigator', blurb: 'See how NEPA assignment applies to your state or project.', kw: 'ai interactive map federal' },
+        { title: 'CE Virtual Assistant', blurb: 'AI assistant for scoping categorical exclusions under NEPA.', kw: 'categorical exclusions federal' }
+    ]
+};
+
+/* Flat, searchable entries derived once from DATA */
+function entry(group, title, sub, kw, initials) {
+    return { group: group, title: title, sub: sub || '', kw: kw || '', initials: initials || '' };
+}
+function initialsOf(name) {
+    var words = name.split(',')[0].split(/\s+/).filter(Boolean);
+    if (!words.length) return '?';
+    var first = words[0].charAt(0);
+    var last = words.length > 1 ? words[words.length - 1].charAt(0) : '';
+    return (first + last).toUpperCase();
+}
+var ENTRIES = {
+    services: DATA.services.map(function (s) { return entry('services', s.title, s.parent, s.kw); }),
+    markets: DATA.markets.map(function (m) { return entry('markets', m.title, '', m.kw); }),
+    projects: DATA.projects.map(function (p) { return entry('projects', p.title, p.location, p.kw); }),
+    people: DATA.people.map(function (p) { return entry('people', p.name, p.position, p.kw, initialsOf(p.name)); }),
+    tools: DATA.tools.map(function (t) {
+        return entry('tools', t.title, t.category + (t.status ? ' · ' + t.status : ''), t.kw);
+    }),
+    news: DATA.news.map(function (n) { return entry('news', n.title, n.date, n.kw); }),
+    pages: DATA.pages.map(function (p) { return entry('pages', p.title, p.blurb, p.kw); })
+};
+
+var GROUPS = [
+    { key: 'pages', label: 'Pages', icon: 'file-text' },
+    { key: 'news', label: 'News & Ideas', icon: 'newspaper' },
+    { key: 'markets', label: 'Markets', icon: 'building-2' },
+    { key: 'services', label: 'Services', icon: 'leaf' },
+    { key: 'projects', label: 'Projects', icon: 'map-pin' },
+    { key: 'people', label: 'People', icon: 'user-round' },
+    { key: 'tools', label: 'Tools', icon: 'wrench' }
+];
+var SCOPES = [{ key: 'all', label: 'All' }].concat(GROUPS);
+
+/* Ghost-completion candidate pool, in group order */
+var GHOST_POOL = [];
+GROUPS.forEach(function (g) {
+    ENTRIES[g.key].forEach(function (e) { GHOST_POOL.push(e.title); });
+});
+
+/* ════ State (recents persist locally) ════ */
+var LS_KEY = 'esa-omnibox-specimen';
+function loadApp() {
+    try {
+        var parsed = JSON.parse(localStorage.getItem(LS_KEY) || '{}');
+        return (parsed && typeof parsed === 'object') ? parsed : {};
+    } catch (e) { return {}; }
+}
+var app = Object.assign({
+    recents: ['Offshore Wind', 'Eric Beightel', 'Harvest Water Recycled Water Program']
+}, loadApp());
+if (!Array.isArray(app.recents)) app.recents = [];
+app.recents = app.recents.filter(function (t) { return typeof t === 'string'; }).slice(0, 5);
+function saveApp() {
+    try { localStorage.setItem(LS_KEY, JSON.stringify(app)); } catch (e) { /* private mode */ }
+}
+
+/* Demo opens on the hero query */
+var pal = { query: 'ai', scope: 'all', active: 0, rows: [], ghostRest: '' };
+
+var obEl = document.getElementById('ob');
+var input, ghostTypedEl, ghostRestEl, clearEl, scopesEl, resultsEl, viewAllEl, tabHintEl;
+
+/* ════ Escaping / highlight ════ */
+function esc(value) {
+    return String(value == null ? '' : value).replace(/[&<>"']/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[c];
+    });
+}
+function highlight(text, q) {
+    text = String(text == null ? '' : text);
+    if (!q) return esc(text);
+    var i = text.toLowerCase().indexOf(q.toLowerCase());
+    if (i === -1) return esc(text);
+    return esc(text.slice(0, i)) +
+        '<mark>' + esc(text.slice(i, i + q.length)) + '</mark>' +
+        esc(text.slice(i + q.length));
+}
+
+/* ════ Search — title + sub + indexed keywords ════
+   Mirrors the production matcher (functions/search-api.php): tokens are
+   AND'd; 1-2 char alphanumeric tokens ("ai") must match on word
+   boundaries, so "Airports" and "Sustainability" can't hit as substrings. */
+function matchesQuery(haystack, q) {
+    var hay = haystack.toLowerCase();
+    return q.trim().toLowerCase().split(/\s+/).slice(0, 10).every(function (tok) {
+        if (!tok) return true;
+        if (tok.length <= 2 && /^[a-z0-9]+$/.test(tok)) {
+            return new RegExp('(^|[^a-z0-9])' + tok + '([^a-z0-9]|$)').test(hay);
+        }
+        return hay.indexOf(tok) !== -1;
+    });
+}
+function searchGroups(q) {
+    return GROUPS.map(function (g) {
+        var items = ENTRIES[g.key].filter(function (it) {
+            return matchesQuery(it.title + ' ' + it.sub + ' ' + it.kw, q);
+        });
+        return { key: g.key, label: g.label, icon: g.icon, count: items.length, items: items };
+    });
+}
+
+/* ════ Recents ════ */
+function findEntryByTitle(title) {
+    for (var i = 0; i < GROUPS.length; i++) {
+        var hit = ENTRIES[GROUPS[i].key].find(function (e) { return e.title === title; });
+        if (hit) return hit;
+    }
+    return null;
+}
+function getRecentEntries() {
+    return app.recents.map(findEntryByTitle).filter(Boolean).slice(0, 5);
+}
+function addRecent(item) {
+    app.recents = [item.title].concat(app.recents.filter(function (t) { return t !== item.title; })).slice(0, 5);
+    saveApp();
+}
+
+/* ════ Row lead — icon tile per group; initials circle for people ════ */
+function leadHTML(item) {
+    if (item.group === 'people') {
+        return '<span class="ob-row__lead ob-row__lead--people">' + esc(item.initials) + '</span>';
+    }
+    var g = GROUPS.find(function (x) { return x.key === item.group; });
+    return '<span class="ob-row__lead">' + icon(g.icon) + '</span>';
+}
+
+function makeRow(item, q) {
+    var row = document.createElement('a');
+    row.className = 'ob-row';
+    row.href = '#';
+    row.innerHTML = leadHTML(item) +
+        '<span class="ob-row__body">' +
+        '<span class="ob-row__title">' + highlight(item.title, q) + '</span>' +
+        (item.sub ? '<span class="ob-row__sub">' + esc(item.sub) + '</span>' : '') +
+        '</span>' +
+        icon('chevron-right', 'ob-row__chevron');
+    row._item = item;
+    row.addEventListener('mousemove', function () {
+        var i = pal.rows.indexOf(row);
+        if (i !== -1 && i !== pal.active) setActive(i);
+    });
+    row.addEventListener('click', function (e) {
+        e.preventDefault(); // specimen: selection pulses instead of navigating
+        var i = pal.rows.indexOf(row);
+        if (i !== -1) setActive(i);
+        addRecent(item);
+        row.classList.remove('is-selected');
+        void row.offsetWidth;
+        row.classList.add('is-selected');
+    });
+    pal.rows.push(row);
+    return row;
+}
+
+function setActive(idx) {
+    pal.active = idx;
+    pal.rows.forEach(function (row, i) { row.classList.toggle('is-active', i === idx); });
+    var row = pal.rows[idx];
+    if (row) row.scrollIntoView({ block: 'nearest' });
+}
+
+/* ════ Ghost completion ════ */
+function updateGhost() {
+    var raw = input.value;
+    var rest = '';
+    if (raw.length) {
+        var low = raw.toLowerCase();
+        for (var i = 0; i < GHOST_POOL.length; i++) {
+            var candLow = GHOST_POOL[i].toLowerCase();
+            if (candLow.indexOf(low) === 0 && candLow.length > low.length) {
+                rest = GHOST_POOL[i].slice(raw.length);
+                break;
+            }
+        }
+    }
+    pal.ghostRest = rest;
+    ghostTypedEl.textContent = rest ? raw : '';
+    ghostRestEl.textContent = rest;
+    if (tabHintEl) tabHintEl.textContent = rest ? 'Complete' : 'Scope';
+}
+
+function acceptGhost() {
+    if (!pal.ghostRest) return false;
+    input.value = input.value + pal.ghostRest;
+    var end = input.value.length;
+    input.setSelectionRange(end, end);
+    onInput();
+    return true;
+}
+
+/* ════ Scopes / results / home ════ */
+function renderScopes(groups, q) {
+    scopesEl.innerHTML = '';
+    var counts = null;
+    if (q) {
+        counts = { all: 0 };
+        groups.forEach(function (g) { counts[g.key] = g.count; counts.all += g.count; });
+    }
+    SCOPES.forEach(function (s) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'ob-scope' + (s.key === pal.scope ? ' is-active' : '');
+        btn.setAttribute('aria-pressed', s.key === pal.scope ? 'true' : 'false');
+        btn.innerHTML = esc(s.label) +
+            (counts ? ' <span class="ob-scope__count">' + counts[s.key] + '</span>' : '');
+        btn.addEventListener('click', function () { setScope(s.key); });
+        scopesEl.appendChild(btn);
+    });
+}
+
+/* Empty-query home: Recent group (keyboard-navigable) + try chips */
+function renderHome() {
+    var rec = getRecentEntries();
+    if (rec.length) {
+        var section = document.createElement('section');
+        section.className = 'ob-group';
+        section.innerHTML = '<header class="ob-group__head">' +
+            '<span class="ob-group__title">' + icon('history') + 'Recent</span></header>';
+        rec.forEach(function (item) { section.appendChild(makeRow(item, '')); });
+        resultsEl.appendChild(section);
+    }
+    var wrap = document.createElement('div');
+    wrap.className = 'ob__hero';
+    wrap.innerHTML =
+        '<p class="ob__hero-title">Search ESA</p>' +
+        '<p class="ob__hero-note">Find services, markets, projects, people, tools, and ideas. Start typing &mdash; completions appear as ghost text, <kbd>Tab</kbd> accepts them.</p>' +
+        '<span class="ob__hero-tries"></span>';
+    var tries = wrap.querySelector('.ob__hero-tries');
+    ['ai', 'water', 'NEPA', 'offshore wind'].forEach(function (t) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'try-chip';
+        b.textContent = t;
+        b.addEventListener('click', function () {
+            input.value = t;
+            onInput();
+            input.focus();
+        });
+        tries.appendChild(b);
+    });
+    resultsEl.appendChild(wrap);
+    if (pal.rows.length) setActive(0);
+}
+
+var PER_GROUP_ALL = 5;
+function renderResults() {
+    var q = pal.query.trim();
+    pal.rows = [];
+    pal.active = 0;
+    var groups = searchGroups(q);
+    renderScopes(groups, q);
+    if (viewAllEl) viewAllEl.hidden = q.length < 2;
+    if (clearEl) clearEl.hidden = !input.value.length;
+
+    resultsEl.innerHTML = '';
+    resultsEl.scrollTop = 0;
+
+    if (!q) {
+        renderHome();
+        return;
+    }
+
+    var visible = groups.filter(function (g) {
+        if (pal.scope !== 'all' && g.key !== pal.scope) return false;
+        return g.items.length > 0;
+    });
+
+    if (!visible.length) {
+        resultsEl.innerHTML = '<div class="ob__empty">' +
+            '<p class="ob__empty-title">No matches for &ldquo;' + esc(q) + '&rdquo;</p>' +
+            '<p class="ob__empty-note">Try a different keyword or scope.</p></div>';
+        return;
+    }
+
+    visible.forEach(function (g) {
+        var limit = pal.scope === 'all' ? PER_GROUP_ALL : g.items.length;
+        var section = document.createElement('section');
+        section.className = 'ob-group';
+        section.innerHTML = '<header class="ob-group__head">' +
+            '<span class="ob-group__title">' + icon(g.icon) + esc(g.label) + '</span>' +
+            '<span class="ob-group__count">' + g.count + '</span></header>';
+        g.items.slice(0, limit).forEach(function (item) {
+            section.appendChild(makeRow(item, q));
+        });
+        resultsEl.appendChild(section);
+    });
+    setActive(0);
+}
+
+function onInput() {
+    pal.query = input.value;
+    renderResults();
+    updateGhost();
+}
+
+function setScope(key) {
+    pal.scope = key;
+    renderResults();
+    input.focus();
+}
+
+/* ════ Keyboard: ghost visible → Tab accepts; else Tab cycles scope ════ */
+function onKeydown(e) {
+    if (e.key === 'Tab') {
+        e.preventDefault();
+        if (!e.shiftKey && pal.ghostRest && acceptGhost()) return;
+        var i = SCOPES.findIndex(function (s) { return s.key === pal.scope; });
+        var next = (i + (e.shiftKey ? SCOPES.length - 1 : 1)) % SCOPES.length;
+        setScope(SCOPES[next].key);
+        return;
+    }
+    if (e.key === 'ArrowRight' && e.target === input && pal.ghostRest &&
+        input.selectionStart === input.value.length &&
+        input.selectionEnd === input.value.length) {
+        e.preventDefault();
+        acceptGhost();
+        return;
+    }
+    if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (pal.rows.length) setActive(Math.min(pal.active + 1, pal.rows.length - 1));
+        return;
+    }
+    if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (pal.rows.length) setActive(Math.max(pal.active - 1, 0));
+        return;
+    }
+    if (e.key === 'Enter' && e.target === input) {
+        e.preventDefault();
+        var row = pal.rows[pal.active];
+        if (row) {
+            addRecent(row._item);
+            row.classList.remove('is-selected');
+            void row.offsetWidth;
+            row.classList.add('is-selected');
+        }
+    }
+}
+
+/* ════ Panel shell ════ */
+function buildPalette() {
+    obEl.innerHTML =
+        '<div class="ob__searchrow">' + icon('search', 'ob__searchicon') +
+        '<div class="ob__inputwrap">' +
+        '<div class="ob__ghost" aria-hidden="true"><span class="ob__ghost-typed"></span><span class="ob__ghost-rest"></span></div>' +
+        '<input class="ob__input" type="text" placeholder="Search ESA&hellip;"' +
+        ' autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"' +
+        ' aria-label="Search ESA">' +
+        '</div>' +
+        '<button type="button" class="ob__clear" aria-label="Clear search" hidden>' + icon('x') + '</button>' +
+        '</div>' +
+        '<div class="ob__scopes"></div>' +
+        '<div class="ob__results"></div>' +
+        '<div class="ob__footer">' +
+        '<a class="ob__viewall" href="#" hidden>View all results ' + icon('arrow-right') + '</a>' +
+        '<div class="ob__hints">' +
+        '<span><kbd>&uarr;</kbd><kbd>&darr;</kbd> Navigate</span>' +
+        '<span><kbd>&crarr;</kbd> Select</span>' +
+        '<span><kbd>Tab</kbd> <span class="ob__tabhint">Scope</span></span>' +
+        '<span><kbd>Esc</kbd> Close</span>' +
+        '</div></div>';
+
+    input = obEl.querySelector('.ob__input');
+    ghostTypedEl = obEl.querySelector('.ob__ghost-typed');
+    ghostRestEl = obEl.querySelector('.ob__ghost-rest');
+    clearEl = obEl.querySelector('.ob__clear');
+    scopesEl = obEl.querySelector('.ob__scopes');
+    resultsEl = obEl.querySelector('.ob__results');
+    viewAllEl = obEl.querySelector('.ob__viewall');
+    tabHintEl = obEl.querySelector('.ob__tabhint');
+
+    viewAllEl.addEventListener('click', function (e) { e.preventDefault(); });
+    clearEl.addEventListener('click', function () {
+        input.value = '';
+        onInput();
+        input.focus();
+    });
+    input.value = pal.query;
+    renderResults();
+    updateGhost();
+}
+
+obEl.addEventListener('keydown', onKeydown);
+obEl.addEventListener('input', function (e) { if (e.target === input) onInput(); });
+
+buildPalette();
+})();
+</script>
+</body>
+</html>
