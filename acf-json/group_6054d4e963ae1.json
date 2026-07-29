@@ -278,6 +278,50 @@
             "bidirectional_target": []
         },
         {
+            "key": "field_service_tools_tab",
+            "label": "Tools",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_service_tools",
+            "label": "Tools",
+            "name": "tools",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "Tools & Resources shown on this service page, as a peer to Featured Projects.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "tools"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object",
+            "bidirectional_target": []
+        },
+        {
             "key": "field_6054d5738ffb3",
             "label": "News",
             "name": "",
@@ -425,5 +469,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1777200001
+    "modified": 1784073600
 }

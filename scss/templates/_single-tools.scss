@@ -1,0 +1,181 @@
+// Tool detail page (single-tools.php) — Part A of the tools specimen.
+// Hero, intro and section frames are inherited via the `single-service` body
+// class added in functions/tools.php. These rules add the tool-specific
+// sections: the tool-type line, the interactive render slot, the CTA and the
+// "Appears on these service pages" cross-links.
+
+body.single-tools {
+
+    // Tool-type line — a readable sentence-case line, not an ornamental label.
+    .tool-type-line {
+        color: $dark-teal;
+        font-weight: 700;
+        font-size: 1.0625rem;
+        margin-bottom: 1rem;
+    }
+
+    // ── Interactive render slot — the custom component mounts here ──────────
+    .tool-render {
+        padding: 1rem 0 4rem;
+
+        @include desktop-small {
+            padding: 1rem 0 6rem;
+        }
+    }
+
+    .tool-render-slot {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        text-align: center;
+        padding: 3rem 1.5rem;
+        background: $off-white;
+        border: 2px dashed $medium-gray;
+        border-radius: 6px;
+
+        @include tablet {
+            grid-column: 2 / span 8;
+            flex-direction: row;
+            text-align: left;
+            padding: 3.5rem 3rem;
+            gap: 3rem;
+        }
+
+        @include desktop-small {
+            grid-column: 3 / span 10;
+        }
+
+        // Decorative radial hint at the wheel that will mount here.
+        &__ring {
+            flex: 0 0 auto;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            position: relative;
+            background:
+                repeating-conic-gradient($teal 0deg 6deg, transparent 6deg 30deg),
+                radial-gradient(circle, $white 38%, transparent 39%);
+            border: 3px solid $dark-teal;
+            display: grid;
+            place-items: center;
+        }
+
+        &__hub {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: $white;
+            border: 2px solid $dark-teal;
+        }
+
+        &__meta {
+            max-width: 32rem;
+
+            h3 {
+                margin-bottom: 0.75rem;
+                color: $charcoal;
+            }
+
+            .copy-2 {
+                color: $dark-gray;
+            }
+
+            code {
+                background: $light-gray;
+                padding: 0.1rem 0.4rem;
+                border-radius: 3px;
+                font-size: 0.95em;
+                color: $charcoal;
+            }
+        }
+
+        &__status {
+            display: inline-block;
+            margin-top: 1.25rem;
+            color: $dark-teal;
+            font-weight: 700;
+            font-size: 1rem;
+
+            &::before {
+                content: "";
+                display: inline-block;
+                width: 0.6rem;
+                height: 0.6rem;
+                margin-right: 0.5rem;
+                border-radius: 50%;
+                background: $orange;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    // ── CTA — reuses the .cta / .btn idiom; this wrapper lays it out ────────
+    .tool-cta {
+        background: $off-white;
+        @include section-spacing-small;
+
+        &__inner {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: flex-start;
+
+            @include tablet {
+                grid-column: 2 / span 8;
+            }
+
+            @include desktop-small {
+                grid-column: 3 / span 8;
+            }
+        }
+
+        &__copy .section-headline {
+            margin-bottom: 0.75rem;
+        }
+
+        &__copy .copy-1 {
+            color: $dark-gray;
+        }
+
+        &__note {
+            color: $dark-gray;
+            font-size: 1rem;
+            font-style: italic;
+        }
+    }
+
+    // ── Related — "Appears on these service pages" vital-link list ──────────
+    .related-services {
+
+        &__list {
+
+            @include tablet {
+                grid-column: 2 / span 8;
+            }
+
+            @include desktop-small {
+                grid-column: 3 / span 10;
+            }
+
+            ul {
+                list-style: none;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem 2rem;
+            }
+
+            li a {
+                color: $dark-teal;
+                font-weight: 700;
+                border-bottom: 2px solid transparent;
+                transition: border-color 0.2s ease;
+
+                &:hover {
+                    border-bottom-color: $dark-teal;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

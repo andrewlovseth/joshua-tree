@@ -1,0 +1,370 @@
+{
+    "key": "group_tools",
+    "title": "Post Type: Tools",
+    "fields": [
+        {
+            "key": "field_tool_type",
+            "label": "Tool Type",
+            "name": "tool_type",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Master switch. Determines which fields appear below and how the tool routes: link out from the card, or open a detail page.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "link": "Link out",
+                "interactive": "Interactive",
+                "gated-database": "Gated database"
+            },
+            "default_value": "link",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_tool_status",
+            "label": "Status",
+            "name": "status",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Live tools open normally; in-development tools show an \"In development\" call-to-action instead of an active link.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "live": "Live",
+                "in-development": "In development"
+            },
+            "default_value": "live",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_tool_summary",
+            "label": "Summary",
+            "name": "summary",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Short blurb shown on the tool card.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_tool_category",
+            "label": "Category",
+            "name": "category",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Service-category eyebrow shown above the title on the card and detail page. Readable sentence case, e.g. \"Biological Resources\" or \"Federal · NEPA\".",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_tool_meta",
+            "label": "Meta",
+            "name": "meta",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_tool_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Line-style SVG icon for the card's gradient tile. Falls back to a default icon if empty.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "svg,png"
+                }
+            ]
+        },
+        {
+            "key": "field_tool_external_url",
+            "label": "Destination URL",
+            "name": "external_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Where the tool opens. Link-out tools route straight here from the card; gated-database tools link here after the email gate.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_tool_type",
+                        "operator": "==",
+                        "value": "link"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_tool_type",
+                        "operator": "==",
+                        "value": "gated-database"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_tool_hero",
+            "label": "Hero",
+            "name": "hero",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "Detail-page hero photo (interactive and gated-database tools get a detail page).",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_tool_type",
+                        "operator": "==",
+                        "value": "interactive"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_tool_type",
+                        "operator": "==",
+                        "value": "gated-database"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_tool_hero_photo",
+                    "label": "Photo",
+                    "name": "photo",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Full-bleed hero background photo.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                }
+            ]
+        },
+        {
+            "key": "field_tool_interactive_slug",
+            "label": "Interactive Slug",
+            "name": "interactive_slug",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Identifier for the custom interactive component that mounts into the render slot (e.g. species-calendar).",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_tool_type",
+                        "operator": "==",
+                        "value": "interactive"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_tool_cta",
+            "label": "CTA",
+            "name": "cta",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "Detail-page call-to-action. For in-development tools this becomes the \"get notified\" button; for gated tools it fronts the email gate. Leave blank to use sensible defaults.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_tool_type",
+                        "operator": "==",
+                        "value": "interactive"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_tool_type",
+                        "operator": "==",
+                        "value": "gated-database"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_tool_cta_label",
+                    "label": "Label",
+                    "name": "label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_tool_cta_url",
+                    "label": "URL",
+                    "name": "url",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                }
+            ]
+        },
+        {
+            "key": "field_tool_related_services",
+            "label": "Related Services",
+            "name": "related_services",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "Service pages this tool appears on. Shown as \"Appears on these service pages\" cross-links on the detail page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "service"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": "",
+            "elements": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "tools"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1784073600
+}

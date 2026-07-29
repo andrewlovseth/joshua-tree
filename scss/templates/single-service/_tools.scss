@@ -1,0 +1,90 @@
+// Tools & Resources module — service-page peer to Featured Projects.
+// Reuses .more-projects + .projects-grid + .project card chrome. Tools carry
+// no photo, so the .photo slot becomes a gradient icon panel. Status reads as
+// a call-to-action state (teal / orange), never a badge stripe or left border.
+
+.tools-module {
+
+    .tool-card {
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+
+            &__wrapper {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+            }
+        }
+
+        // Icon panel — inherits the .photo aspect-ratio + top radius from
+        // .more-projects; adds the gradient fill and centers the line icon.
+        &__icon {
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, $dark-teal, $teal);
+            color: $white;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+
+            svg {
+                width: 38%;
+                height: 38%;
+                max-width: 96px;
+            }
+        }
+
+        &--link &__icon {
+            background: linear-gradient(135deg, $medium-blue, $teal);
+        }
+
+        &--interactive &__icon {
+            background: linear-gradient(135deg, $dark-teal, $orange);
+        }
+
+        // Blurb sits in the card body under the headline, readable copy size.
+        &__blurb {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-top: 0.75rem;
+        }
+
+        // Text CTA in the card footer.
+        &__cta {
+            margin-top: auto;
+            padding-top: 1.25rem;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.04em;
+            color: $teal;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+
+            &--ext::after {
+                content: "\2197"; // outbound arrow
+                font-size: 1.05em;
+            }
+
+            &--dev {
+                color: $orange;
+
+                &::before {
+                    content: "";
+                    width: 0.55rem;
+                    height: 0.55rem;
+                    border-radius: 50%;
+                    background: $orange;
+                }
+            }
+        }
+
+        // In-development cards stay quiet — no orange hover takeover.
+        &.is-in-development:hover {
+            background: $charcoal;
+        }
+    }
+}

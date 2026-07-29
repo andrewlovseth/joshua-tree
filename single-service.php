@@ -6,6 +6,8 @@
 
     <?php get_template_part('templates/single-service/featured-projects'); ?>
 
+    <?php get_template_part('templates/single-service/tools'); ?>
+
     <?php get_template_part('template-parts/global/news-grid'); ?>
 
 <?php get_footer(); ?>
