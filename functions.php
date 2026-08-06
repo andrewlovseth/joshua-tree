@@ -20,4 +20,6 @@ require_once( plugin_dir_path( __FILE__ ) . '/functions/block-patterns.php');
 
 require_once( plugin_dir_path( __FILE__ ) . '/functions/tools.php');
 
+require_once( plugin_dir_path( __FILE__ ) . '/functions/featured-work.php');
+
 require_once( plugin_dir_path( __FILE__ ) . '/functions/search-api.php');

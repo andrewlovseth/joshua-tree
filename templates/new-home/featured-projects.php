@@ -2,7 +2,7 @@
 
     $posts = get_field('featured_projects');
     if( $posts ):
-    
+
 ?>
 
     <section class="featured-projects grid">
@@ -10,44 +10,52 @@
         <div class="slider-wrapper">
             <div class="js-featured-projects-slider">
 
-                <?php foreach( $posts as $p ): ?>
-                    <div class="project">
+                <?php foreach( $posts as $p ):
+                    $card = esa_featured_work_card( $p->ID );
+                ?>
+                    <div class="project<?php echo $p->post_type === 'service' ? ' project--service' : ''; ?>">
                         <div class="photo">
-                            <?php $image = get_field('hero_photo', $p->ID); if( $image ): ?>
-                                <a href="<?php echo get_permalink( $p->ID ); ?>" aria-label="<?php echo get_the_title( $p->ID ); ?>" title="<?php echo get_the_title( $p->ID ); ?>"><?php echo wp_get_attachment_image($image['ID'], 'full'); ?></a>
+                            <?php if( $card['image_id'] ): ?>
+                                <a href="<?php echo $card['permalink']; ?>" aria-label="<?php echo $card['title']; ?>" title="<?php echo $card['title']; ?>"><?php echo wp_get_attachment_image($card['image_id'], 'full'); ?></a>
                             <?php endif; ?>
                         </div>
 
                         <div class="info">
                             <div class="info-wrapper">
 
-                                <?php $market = get_field('details_market', $p->ID); if($market): ?>
+                                <?php if( $card['eyebrow'] ):
+                                    $label = $card['eyebrow']['url']
+                                        ? '<a href="' . esc_url( $card['eyebrow']['url'] ) . '">' . $card['eyebrow']['text'] . '</a>'
+                                        : $card['eyebrow']['text'];
+                                ?>
                                     <div class="market">
-                                        <span class="label"><a href="<?php echo get_permalink( $market ); ?>"><?php echo get_the_title($market); ?></a></span>
+                                        <span class="label"><?php echo $label; ?></span>
                                     </div>
                                 <?php endif; ?>
 
 
                                 <div class="headline">
-                                    <h3 class="title-headline"><a href="<?php echo get_permalink( $p->ID ); ?>"><?php echo get_the_title( $p->ID ); ?></a></h3>
+                                    <h3 class="title-headline"><a href="<?php echo $card['permalink']; ?>"><?php echo $card['title']; ?></a></h3>
                                 </div>
 
-                                <?php if(get_field('details_location', $p->ID)): ?>
+                                <?php if( $card['meta'] ): ?>
                                     <div class="location">
-                                        <h4><?php echo get_field('details_location', $p->ID); ?></h4>
+                                        <h4><?php echo $card['meta']; ?></h4>
                                     </div>
                                 <?php endif; ?>
 
-                                <div class="copy copy-2">
-                                    <?php echo get_field('details_about', $p->ID); ?>
-                                </div>
+                                <?php if( $card['copy'] ): ?>
+                                    <div class="copy copy-2">
+                                        <?php echo $card['copy']; ?>
+                                    </div>
+                                <?php endif; ?>
 
                             </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
 
-            </div>            
+            </div>
         </div>
     </section>
 

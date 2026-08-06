@@ -15,6 +15,13 @@ section.featured-projects {
     }
 
     .project {
+        // The only global image rule is `max-width: 100%`, which caps oversized
+        // heroes but never scales an undersized one up. Casa Diablo's hero is
+        // 1600px against an 1807px slide, so it stopped short of the edge.
+        .photo img {
+            width: 100%;
+        }
+
         .info {
             max-width: 1216px;
             width: calc(100% - 4rem);
@@ -37,7 +44,8 @@ section.featured-projects {
                 text-transform: uppercase;
                 font-weight: bold;
                 letter-spacing: 0.05em;
-                
+                color: $dark-teal;
+
                 a {
                     color: $dark-teal;
                 }
@@ -62,6 +70,12 @@ section.featured-projects {
                 letter-spacing: 0.05em;
                 color: #767676;
             }
+        }
+
+        // Cards without a location line (services) would otherwise sit the copy
+        // straight under the headline. Match the gap .location normally provides.
+        .headline + .copy {
+            padding-top: 1rem;
         }
 
         .copy {

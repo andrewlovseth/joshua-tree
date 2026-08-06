@@ -6,6 +6,7 @@
             "key": "field_61a573d8f3049",
             "label": "About",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -16,12 +17,14 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_61a573ddf304a",
             "label": "About",
             "name": "about",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -37,6 +40,7 @@
                     "key": "field_61a573e0f304b",
                     "label": "Headline",
                     "name": "headline",
+                    "aria-label": "",
                     "type": "textarea",
                     "instructions": "",
                     "required": 0,
@@ -56,8 +60,9 @@
         },
         {
             "key": "field_61a574733b7b2",
-            "label": "Featured Projects",
+            "label": "Featured Work",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -68,14 +73,16 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_61a574793b7b3",
-            "label": "Featured Projects",
+            "label": "Featured Work",
             "name": "featured_projects",
+            "aria-label": "",
             "type": "relationship",
-            "instructions": "",
+            "instructions": "Projects and service pages, shown in this order. Service cards need a Hero photo and an Overview lede to render a full card.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -84,21 +91,25 @@
                 "id": ""
             },
             "post_type": [
-                "projects"
+                "projects",
+                "service"
             ],
             "taxonomy": "",
             "filters": [
-                "search"
+                "search",
+                "post_type"
             ],
             "elements": "",
             "min": "",
             "max": "",
-            "return_format": "object"
+            "return_format": "object",
+            "bidirectional_target": []
         },
         {
             "key": "field_61a57beb480bd",
             "label": "ESA",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -109,12 +120,14 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_61a57bef480be",
             "label": "ESA",
             "name": "esa",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -130,6 +143,7 @@
                     "key": "field_61a57bf7480bf",
                     "label": "Copy",
                     "name": "copy",
+                    "aria-label": "",
                     "type": "textarea",
                     "instructions": "",
                     "required": 0,
@@ -149,6 +163,7 @@
                     "key": "field_268794d8eabe6",
                     "label": "Spotlights",
                     "name": "esa_spotlights",
+                    "aria-label": "",
                     "type": "repeater",
                     "instructions": "",
                     "required": 0,
@@ -163,11 +178,13 @@
                     "max": 2,
                     "layout": "block",
                     "button_label": "Add Spotlight",
+                    "rows_per_page": 20,
                     "sub_fields": [
                         {
                             "key": "field_96f0389d0a157",
                             "label": "Spotlight",
                             "name": "spotlight",
+                            "aria-label": "",
                             "type": "post_object",
                             "instructions": "",
                             "required": 1,
@@ -186,12 +203,15 @@
                             "allow_null": 0,
                             "multiple": 0,
                             "return_format": "id",
-                            "ui": 1
+                            "ui": 1,
+                            "bidirectional_target": [],
+                            "parent_repeater": "field_268794d8eabe6"
                         },
                         {
                             "key": "field_2ba0a8bfaf282",
                             "label": "Alternate Image",
                             "name": "alternate_image",
+                            "aria-label": "",
                             "type": "image",
                             "instructions": "Optional. If set, this image replaces the Spotlight's featured image in the homepage grid tile. Use a portrait (≈3:4) framed for hard cropping.",
                             "required": 0,
@@ -210,7 +230,8 @@
                             "max_width": "",
                             "max_height": "",
                             "max_size": "",
-                            "mime_types": ""
+                            "mime_types": "",
+                            "parent_repeater": "field_268794d8eabe6"
                         }
                     ]
                 },
@@ -218,6 +239,7 @@
                     "key": "field_61a57fbbe4970",
                     "label": "CTAs",
                     "name": "ctas",
+                    "aria-label": "",
                     "type": "repeater",
                     "instructions": "",
                     "required": 0,
@@ -232,11 +254,13 @@
                     "max": 0,
                     "layout": "table",
                     "button_label": "+ Add CTA",
+                    "rows_per_page": 20,
                     "sub_fields": [
                         {
                             "key": "field_61a57fc1e4971",
                             "label": "Link",
                             "name": "link",
+                            "aria-label": "",
                             "type": "link",
                             "instructions": "",
                             "required": 0,
@@ -246,12 +270,14 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array"
+                            "return_format": "array",
+                            "parent_repeater": "field_61a57fbbe4970"
                         },
                         {
                             "key": "field_61a6536564ab0",
                             "label": "Copy",
                             "name": "copy",
+                            "aria-label": "",
                             "type": "textarea",
                             "instructions": "",
                             "required": 0,
@@ -265,7 +291,8 @@
                             "placeholder": "",
                             "maxlength": "",
                             "rows": 4,
-                            "new_lines": "br"
+                            "new_lines": "br",
+                            "parent_repeater": "field_61a57fbbe4970"
                         }
                     ]
                 },
@@ -273,6 +300,7 @@
                     "key": "field_61a64cc31dc18",
                     "label": "Photos",
                     "name": "photos",
+                    "aria-label": "",
                     "type": "gallery",
                     "instructions": "",
                     "required": 0,
@@ -302,6 +330,7 @@
             "key": "field_61a68058977f5",
             "label": "Join Us",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -312,12 +341,14 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_61a6805d977f6",
             "label": "Join Us",
             "name": "join_us",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -333,6 +364,7 @@
                     "key": "field_61a6806f977f9",
                     "label": "Photo",
                     "name": "photo",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -357,6 +389,7 @@
                     "key": "field_61a68065977f7",
                     "label": "Headline",
                     "name": "headline",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -376,6 +409,7 @@
                     "key": "field_61a68069977f8",
                     "label": "Copy",
                     "name": "copy",
+                    "aria-label": "",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
@@ -395,6 +429,7 @@
                     "key": "field_61a68074977fa",
                     "label": "Link",
                     "name": "link",
+                    "aria-label": "",
                     "type": "link",
                     "instructions": "",
                     "required": 0,
@@ -440,5 +475,8 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1777573519
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1786038194
 }

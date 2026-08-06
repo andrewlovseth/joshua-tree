@@ -1,7 +1,9 @@
 import { watch } from "fs";
 import { compileCSS, SCSS_ENTRIES } from "./build.ts";
 
-const WORDPRESS_URL = "https://esassoc.dev";
+// Must match WP_HOME in wp-config-ddev.php, otherwise WordPress canonical-redirects
+// to that host and the alias rewriting below bounces the browser back here forever.
+const WORDPRESS_URL = "https://esassoc.ddev.site";
 const WORDPRESS_ALIASES = ["https://esassoc.dev", "https://esassoc.ddev.site"];
 const DEV_PORT = parseInt(process.env.PORT || "3030", 10);
 

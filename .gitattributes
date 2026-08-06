@@ -1,0 +1,19 @@
+# Files kept in the repo but stripped from generated archives.
+#
+# WP Pusher deploys by downloading a zip of the repo from GitHub, and GitHub
+# honors export-ignore when it builds that zip. Everything below is build-time
+# or editor tooling that WordPress never executes, so it has no business sitting
+# in a public theme directory.
+#
+# Do NOT export-ignore style.css. Production has no build step — the compiled
+# CSS in this repo IS the deployment artifact.
+
+/dev.ts         export-ignore
+/build.ts       export-ignore
+/package.json   export-ignore
+/bun.lock       export-ignore
+/scss           export-ignore
+/_specimens     export-ignore
+/.claude        export-ignore
+/.vscode        export-ignore
+/.gitattributes export-ignore

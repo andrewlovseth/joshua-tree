@@ -2902,6 +2902,10 @@ body.page-template-new-home section.featured-projects .slider-wrapper {
   grid-column: 1 / -1;
 }
 
+body.page-template-new-home section.featured-projects .project .photo img {
+  width: 100%;
+}
+
 body.page-template-new-home section.featured-projects .project .info {
   width: calc(100% - 4rem);
   max-width: 1216px;
@@ -2924,6 +2928,7 @@ body.page-template-new-home section.featured-projects .project .market {
 body.page-template-new-home section.featured-projects .project .market span.label {
   text-transform: uppercase;
   letter-spacing: .05em;
+  color: #00a69c;
   font-weight: bold;
 }
 
@@ -2948,6 +2953,10 @@ body.page-template-new-home section.featured-projects .project .location h4 {
   letter-spacing: .05em;
   color: #767676;
   font-weight: bold;
+}
+
+body.page-template-new-home section.featured-projects .project .headline + .copy {
+  padding-top: 1rem;
 }
 
 body.page-template-new-home section.featured-projects .project .copy strong {
