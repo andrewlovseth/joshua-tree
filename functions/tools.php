@@ -9,6 +9,38 @@
 */
 
 
+/*
+    HELD BACK — the Tools CPT and its service-page module shipped before the
+    content was ready, so service pages rendered placeholder mock cards. Until
+    the real inventory lands, the post type is registered admin-only: no public
+    URLs, no REST, invisible to WP search and nav menus. Authoring in wp-admin
+    still works.
+
+    To bring Tools back: delete this filter and restore the module include in
+    single-service.php.
+*/
+function esa_tools_hide_from_front_end( $args, $post_type ) {
+
+    if ( 'tools' !== $post_type ) {
+        return $args;
+    }
+
+    $args['public']              = false;
+    $args['publicly_queryable']  = false;
+    $args['exclude_from_search'] = true;
+    $args['show_in_nav_menus']   = false;
+    $args['show_in_rest']        = false;
+    $args['has_archive']         = false;
+
+    // Keep the admin UI so tools stay authorable while the front end is dark.
+    $args['show_ui']             = true;
+    $args['show_in_menu']        = true;
+
+    return $args;
+}
+add_filter( 'register_post_type_args', 'esa_tools_hide_from_front_end', 10, 2 );
+
+
 // The tool detail page (single-tools.php) reuses the service page's hero,
 // intro and section styling. Mirror the specimen's dual body class by adding
 // `single-service` alongside `single-tools`; tool-specific sections layer on
