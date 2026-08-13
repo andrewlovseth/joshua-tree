@@ -84,6 +84,7 @@
         { key: 'services', label: 'Services', icon: 'leaf' },
         { key: 'projects', label: 'Projects', icon: 'map-pin' },
         { key: 'markets', label: 'Markets', icon: 'building-2' },
+        { key: 'people', label: 'People', icon: 'user-round' },
         { key: 'pages', label: 'Pages', icon: 'file-text' },
         { key: 'news', label: 'News & Ideas', icon: 'newspaper' }
     ];

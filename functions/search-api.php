@@ -315,6 +315,60 @@ function esa_search_clauses( $q, array $columns ) {
 }
 
 /**
+ * Employee post IDs whose person also exists as a leadership post.
+ *
+ * The People group spans two CPTs, and nine people are published in both —
+ * without this, "Leslie" returns the same person twice. Leadership wins:
+ * these employee IDs are excluded from the people query. Names are compared
+ * with credentials stripped ("Douglas Skurski, MS, PWS" = "Douglas Skurski"),
+ * since the two CPTs suffix credentials inconsistently.
+ *
+ * Cached in a transient; flushed on any employee/leadership save below.
+ *
+ * @return int[] Employee post IDs to exclude from the people group.
+ */
+function esa_search_people_dupe_ids() {
+    $ids = get_transient( 'esa_search_people_dupes' );
+    if ( false !== $ids ) {
+        return array_map( 'intval', (array) $ids );
+    }
+
+    // "Jane Doe, JD, PMP" → "jane doe"; the name before the first comma.
+    $normalize = function ( $title ) {
+        return mb_strtolower( trim( preg_replace( '/,.*$/u', '', (string) $title ) ) );
+    };
+
+    $leader_names = array();
+    foreach ( get_posts( array( 'post_type' => 'leadership', 'post_status' => 'publish', 'posts_per_page' => -1 ) ) as $post ) {
+        $leader_names[ $normalize( $post->post_title ) ] = true;
+    }
+
+    $ids = array();
+    foreach ( get_posts( array( 'post_type' => 'employee', 'post_status' => 'publish', 'posts_per_page' => -1 ) ) as $post ) {
+        if ( isset( $leader_names[ $normalize( $post->post_title ) ] ) ) {
+            $ids[] = $post->ID;
+        }
+    }
+
+    set_transient( 'esa_search_people_dupes', $ids, DAY_IN_SECONDS );
+
+    return $ids;
+}
+
+/**
+ * Flush the people-dedupe cache when either people CPT changes.
+ *
+ * @param int $post_id Post being saved.
+ * @return void
+ */
+function esa_search_flush_people_dupes( $post_id ) {
+    if ( in_array( get_post_type( $post_id ), array( 'employee', 'leadership' ), true ) ) {
+        delete_transient( 'esa_search_people_dupes' );
+    }
+}
+add_action( 'save_post', 'esa_search_flush_people_dupes' );
+
+/**
  * Run a grouped search across the site's main content types.
  *
  * Entity groups (services, markets, projects, people, tools) match against
@@ -361,6 +415,12 @@ function esa_grouped_search( $q, $per_group = 5, $only_group = null ) {
             'columns'   => array( 'title' ),
             'icon'      => 'building-2',
         ),
+        'people'   => array(
+            'label'     => 'People',
+            'post_type' => array( 'employee', 'leadership' ),
+            'columns'   => array( 'title' ),
+            'icon'      => 'user-round',
+        ),
         'pages'    => array(
             'label'     => 'Pages',
             'post_type' => 'page',
@@ -375,8 +435,8 @@ function esa_grouped_search( $q, $per_group = 5, $only_group = null ) {
             'order'     => 'DESC',
             'icon'      => 'newspaper',
         ),
-        // People (employee + leadership) and Tools are indexed and formatted
-        // but not exposed as groups for now — restore them here to re-enable.
+        // Tools is indexed and formatted but not exposed as a group until its
+        // content is ready — restore it here to re-enable.
     );
 
     // A valid $only_group restricts which group returns ITEMS, but every group
@@ -407,6 +467,14 @@ function esa_grouped_search( $q, $per_group = 5, $only_group = null ) {
         );
         if ( ! $is_active ) {
             $args['fields'] = 'ids';
+        }
+
+        // One row per person: leadership wins when someone exists in both CPTs.
+        if ( 'people' === $key ) {
+            $dupes = esa_search_people_dupe_ids();
+            if ( ! empty( $dupes ) ) {
+                $args['post__not_in'] = $dupes;
+            }
         }
 
         $query = new WP_Query( $args );
@@ -682,7 +750,7 @@ function esa_register_search_route() {
                 'group'     => array(
                     'type'        => 'string',
                     'description' => 'Restrict results to a single group.',
-                    'enum'        => array( 'services', 'projects', 'markets', 'pages', 'news' ),
+                    'enum'        => array( 'services', 'projects', 'markets', 'people', 'pages', 'news' ),
                 ),
             ),
         )

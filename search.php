@@ -83,7 +83,7 @@ if ( ! function_exists( 'esa_search_highlight' ) ) {
 $search_query = trim( sanitize_text_field( get_search_query( false ) ) );
 
 // Whitelist-validate the optional type filter. Anything else → null → all groups.
-$valid_types = array( 'services', 'projects', 'markets', 'pages', 'news' );
+$valid_types = array( 'services', 'projects', 'markets', 'people', 'pages', 'news' );
 $type        = null;
 if ( isset( $_GET['type'] ) ) {
     $requested_type = sanitize_key( wp_unslash( $_GET['type'] ) );
